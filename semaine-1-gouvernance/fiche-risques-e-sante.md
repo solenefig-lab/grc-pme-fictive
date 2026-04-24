@@ -51,7 +51,7 @@
 
 ## 3. Identification des menaces
 
-### 🏗️ Infrastructure
+### Infrastructure
 
 | Asset | Menace | Vecteur d'attaque | Tactique MITRE ATT&CK | Réglementation impactée |
 |-------|--------|-------------------|-----------------------|------------------------|
@@ -62,7 +62,7 @@
 | **Équipement routage** | Intrusion | Port 23 (Telnet) ouvert | [T1133](https://attack.mitre.org/techniques/T1133/) — External Remote Services | NIS2 Obj. 3 + Obj. 8 + Obj. 9 + Obj. 10 + Obj. 12 + Obj. 20 |
 | **Équipement routage** | Mouvement latéral | Équipement non autorisé (USB/MitM) | [T1557](https://attack.mitre.org/techniques/T1557/) — Adversary-in-the-Middle | NIS2 Obj. 3 + Obj. 8 + Obj. 9 + Obj. 10 + Obj. 12 + Obj. 20 |
 
-### 🗄️ Données
+### Données
 
 | Asset | Menace | Vecteur d'attaque | Tactique MITRE ATT&CK | Réglementation impactée |
 |-------|--------|-------------------|-----------------------|------------------------|
@@ -82,19 +82,13 @@
 
 | Priorité | Risque | Asset | Score | Recommandation |
 |----------|--------|-------|-------|----------------|
-| 🥇 1 | Fuite de données via élévation de privilèges | Données personnelles + santé + paiement | 6 | Mettre en place l'authentification 2FA sur tous les accès critiques et appliquer le principe du moindre privilège (least privilege) sur tous les comptes. |
-| 🥈 2 | Mouvement latéral via Man in the Middle | Équipement routage | 6 | Mettre en place une politique d'autorisation stricte pour tout ajout d'équipement (refus par défaut) et interdire les périphériques USB non autorisés. |
-| 🥉 3 | Intrusion via port ouvert | Équipement routage | 6 | Désactiver Telnet sur tous les équipements réseau et remplacer par SSH avec authentification par clé. Cartographier tous les ports ouverts et fermer ceux non nécessaires. |
+| 1 | Fuite de données via élévation de privilèges | Données personnelles + santé + paiement | 6 | Mettre en place l'authentification 2FA sur tous les accès critiques et appliquer le principe du moindre privilège (least privilege) sur tous les comptes. |
+| 2 | Mouvement latéral via Man in the Middle | Équipement routage | 6 | Mettre en place une politique d'autorisation stricte pour tout ajout d'équipement (refus par défaut) et interdire les périphériques USB non autorisés. |
+| 3 | Intrusion via port ouvert | Équipement routage | 6 | Désactiver Telnet sur tous les équipements réseau et remplacer par SSH avec authentification par clé. Cartographier tous les ports ouverts et fermer ceux non nécessaires. |
 | 4 | Fuite de données via mauvaise configuration API | APIs | 6 | Mettre en place une authentification robuste (OAuth2) et une validation stricte des entrées/sorties sur toutes les APIs exposées. |
 | 5 | Intrusion via vol de clé de configuration API | APIs | 6 | Scanner les secrets existants (tokens, credentials) dans les dépôts de code et mettre en place un `.gitignore` + rotation régulière des clés. |
 
 ---
 
-## 5. Prochaines étapes
-
-| Semaine | Action |
-|---------|--------|
-| Semaine 2 | Audit RGPD-HDS — registre des traitements + analyse des consentements |
-| Semaine 3 | PSSI — politique de sécurité adaptée à la santé (ISO 27001) |
-| Semaine 4 | Analyse d'impact NIS2 + plan d'action |
-| Semaine 5 | Analyse de risques approfondie — méthode EBIOS RM |
+## Prochaine étape
+[Semaine 2 — Audit RGPD-HDS](../semaine-2-rgpd-hds/README.md)
