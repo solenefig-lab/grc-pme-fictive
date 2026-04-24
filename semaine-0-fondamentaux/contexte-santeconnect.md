@@ -98,10 +98,13 @@
 |-------------|------------|-----------|
 | **RGPD** | Obligatoire | Toutes données personnelles et de santé |
 | **HDS** | Obligatoire | Hébergement de données de santé en France |
-| **NIS2** | Applicable | Secteur santé — partenariat CHU, indépendamment de la taille |
+| **NIS2** | Applicable | Secteur santé — partenariat CHU, indépendamment de la taille * |
 | **ISO 27001** | Recommandée | Sécurité de l'information — référence de marché |
 | **Code de Santé Publique** | Obligatoire | Secret médical + partage inter-praticiens + conservation |
 | **RGS + PGSSI-S** | Applicable | Échanges sécurisés avec le CHU partenaire (établissement public) |
+
+* SantéConnect n’entre a priori pas directement dans le périmètre NIS2 au regard de sa taille.
+Toutefois, en tant que prestataire d’un établissement de santé, elle peut être concernée indirectement via des exigences de sécurité imposées par ses partenaires (logique de supply chain).
 
 ---
 
@@ -163,7 +166,7 @@
 
 | Semaine | Livrable |
 |---------|----------|
-| Semaine 1 | Fiche gestion des risques en e-santé |
+| Semaine 1 | [Fiche risques](../semaine-1-gouvernance/fiche-risques-e-sante.md) |
 | Semaine 2 | Audit RGPD-HDS + registre des traitements |
 | Semaine 3 | PSSI adaptée à la santé |
 | Semaine 4 | Synthèse impact NIS2 + plan d'action |
