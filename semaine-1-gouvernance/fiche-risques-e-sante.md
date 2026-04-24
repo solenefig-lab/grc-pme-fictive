@@ -2,11 +2,14 @@
 
 > ⚠️ **Projet de démonstration pédagogique** — SantéConnect est une PME fictive.
 > Les livrables reflètent une démarche GRC réelle adaptée à un contexte simulé.
+> La démarche s'appuie sur une logique inspirée d'EBIOS Risk Manager
+> (formalisation complète en semaine 5).
 
 ---
 
 ## 1. Grille de cotation des risques
 
+### Niveaux de risque
 | Niveau | Score (Impact × Probabilité) | Délai de traitement |
 |--------|------------------------------|-------------------|
 | 🟢 Faible | 1 – 2 | Acceptable |
@@ -16,36 +19,69 @@
 > **Matrice 3×3** — Impact (1=Faible / 2=Modéré / 3=Critique) × Probabilité (1=Faible / 2=Modérée / 3=Haute)
 > Choix justifié : granularité adaptée à une PME de 15 personnes, permet une allocation claire des ressources sans sur-complexifier l'analyse.
 
+### Critères d'évaluation de l'impact
+ 
+| Score | Niveau | Définition |
+|-------|--------|------------|
+| 1 | Faible | Conséquence limitée, sans effet sur le fonctionnement |
+| 2 | Modéré | Perturbation partielle, impact métier limité |
+| 3 | Critique | Conséquence importante, effet négatif sur le bon fonctionnement |
+ 
+### Critères d'évaluation de la probabilité
+ 
+| Score | Niveau | Critères objectifs |
+|-------|--------|--------------------|
+| 1 | Faible | Accès interne uniquement + contrôles forts en place |
+| 2 | Modérée | Exposé Internet OU contrôles partiels / supposés |
+| 3 | Élevée | Exposé Internet + contrôles faibles ou absents |
+
 ---
 
 ## 2. Cartographie des actifs
 
-| Asset | Type | Impact | Probabilité | Score | Niveau |
-|-------|------|--------|-------------|-------|--------|
-| App Mobile B2C | Applicatif | 3 | 2 | 6 | 🔴 Haut |
-| WebApp B2C | Applicatif | 3 | 2 | 6 | 🔴 Haut |
-| Plateforme B2B | Applicatif | 3 | 1 | 3 | 🟠 Modéré |
-| Base de données clients | Infrastructure | 3 | 1 | 3 | 🟠 Modéré |
-| Hébergement (OVH HDS) | Infrastructure | 3 | 2 | 6 | 🔴 Haut |
-| APIs externes | Infrastructure | 3 | 2 | 6 | 🔴 Haut |
-| Équipement routage et sécurité | Infrastructure | 3 | 2 | 6 | 🔴 Haut |
-| Interconnexion médicale (CHU) | Applicatif | 2 | 2 | 4 | 🟠 Modéré |
-| Poste de travail | Infrastructure | 2 | 1 | 2 | 🟢 Faible |
-| Imprimante | Infrastructure | 1 | 1 | 1 | 🟢 Faible |
-| Thermostat connecté | Infrastructure | 1 | 1 | 1 | 🟢 Faible |
-| Caméra entrée/sortie | Infrastructure | 1 | 1 | 1 | 🟢 Faible |
-| Données personnelles patient | Données | 3 | 2 | 6 | 🔴 Haut |
-| Données de santé patient | Données | 3 | 2 | 6 | 🔴 Haut |
-| Données de paiement patient | Données | 3 | 2 | 6 | 🔴 Haut |
-| Données praticiens | Données | 1 | 1 | 1 | 🟢 Faible |
-| Direction (PDG/COO) | Humain | 3 | 1 | 3 | 🟠 Modéré |
-| RSSI | Humain | 3 | 1 | 3 | 🟠 Modéré |
-| DPO | Humain | 2 | 1 | 2 | 🟢 Faible |
-| Responsable Produit | Humain | 2 | 1 | 2 | 🟢 Faible |
-| DevOps | Humain | 2 | 1 | 2 | 🟢 Faible |
-| Autre employé | Humain | 1 | 1 | 1 | 🟢 Faible |
-| Utilisateur B2C | Humain | 3 | 1 | 3 | 🟠 Modéré |
-| Utilisateur B2B | Humain | 2 | 1 | 2 | 🟢 Faible |
+### Applicatifs
+
+| Asset | Type | Impact | Probabilité | Score | Niveau | Justification |
+|-------|------|--------|-------------|-------|--------|---------------|
+| App Mobile B2C | Applicatif | 3 | 2 | 6 | 🔴 Haut | Exposée Internet, téléchargeable publiquement, surface d'attaque large |
+| WebApp B2C | Applicatif | 3 | 2 | 6 | 🔴 Haut | Exposée Internet, accessible depuis tout navigateur |
+| Plateforme B2B | Applicatif | 3 | 1 | 3 | 🟠 Modéré | Accès professionnel sur poste dédié, périmètre restreint |
+| Interconnexion médicale (CHU) | Applicatif | 2 | 2 | 4 | 🟠 Modéré | Exposition externe, pivot vers CHU, systèmes tiers non maîtrisés |
+
+### Infrastructure
+ 
+| Asset | Type | Impact | Probabilité | Score | Niveau | Justification |
+|-------|------|--------|-------------|-------|--------|---------------|
+| Hébergement (OVH HDS) | Infrastructure | 3 | 2 | 6 | 🔴 Haut | Exposition via apps hébergées, dépendance critique toute l'infrastructure |
+| APIs externes | Infrastructure | 3 | 2 | 6 | 🔴 Haut | Exposition Internet, intégrations multiples, contrôles supposés faibles |
+| Équipement routage et sécurité | Infrastructure | 3 | 2 | 6 | 🔴 Haut | Accès réseau complet, PME sans SOC ni monitoring 24/7 |
+| Base de données clients | Infrastructure | 3 | 1 | 3 | 🟠 Modéré | PII sensible, accès interne, hébergeur certifié HDS |
+| Poste de travail | Infrastructure | 2 | 1 | 2 | 🟢 Faible | Accès interne, réseau entreprise, contrôles supposés en place |
+| Imprimante | Infrastructure | 1 | 1 | 1 | 🟢 Faible | Réseau entreprise, accès physique requis |
+| Thermostat connecté | Infrastructure | 1 | 1 | 1 | 🟢 Faible | Réseau entreprise, impact limité |
+| Caméra entrée/sortie | Infrastructure | 1 | 1 | 1 | 🟢 Faible | Réseau entreprise, impact limité |
+ 
+### Données
+ 
+| Asset | Type | Impact | Probabilité | Score | Niveau | Justification |
+|-------|------|--------|-------------|-------|--------|---------------|
+| Données personnelles patient | Données | 3 | 2 | 6 | 🔴 Haut | Exposition directe via App, surface d'attaque large (80 patients) |
+| Données de santé patient | Données | 3 | 2 | 6 | 🔴 Haut | Exposition via apps publiques, attractivité forte attaquants spécialisés santé |
+| Données de paiement patient | Données | 3 | 2 | 6 | 🔴 Haut | Transactions en ligne, vecteur Stripe, cible fraude financière |
+| Données praticiens | Données | 1 | 1 | 1 | 🟢 Faible | PII souvent publiques (annuaires, web), impact limité |
+ 
+### Humains
+ 
+| Asset | Type | Impact | Probabilité | Score | Niveau | Justification |
+|-------|------|--------|-------------|-------|--------|---------------|
+| Direction (PDG/COO) | Humain | 3 | 1 | 3 | 🟠 Modéré | Décideur, conscient des risques et responsabilités |
+| RSSI | Humain | 3 | 1 | 3 | 🟠 Modéré | Formé aux risques, accès privilégiés maîtrisés |
+| Utilisateur B2C | Humain | 3 | 1 | 3 | 🟠 Modéré | Porte d'entrée potentielle, public senior peu à l'aise avec la technologie |
+| DPO | Humain | 2 | 1 | 2 | 🟢 Faible | Formé aux risques, accès direct aux assets critiques limité |
+| Responsable Produit | Humain | 2 | 1 | 2 | 🟢 Faible | Accès possible aux infrastructures critiques, formation non obligatoire |
+| DevOps | Humain | 2 | 1 | 2 | 🟢 Faible | Formé aux risques, accès techniques encadrés |
+| Utilisateur B2B | Humain | 2 | 1 | 2 | 🟢 Faible | Public professionnel sensibilisé aux risques secteur |
+| Autre employé | Humain | 1 | 1 | 1 | 🟢 Faible | Sans accès direct aux assets critiques |
 
 ---
 
@@ -87,6 +123,29 @@
 | 3 | Intrusion via port ouvert | Équipement routage | 6 | Désactiver Telnet sur tous les équipements réseau et remplacer par SSH avec authentification par clé. Cartographier tous les ports ouverts et fermer ceux non nécessaires. |
 | 4 | Fuite de données via mauvaise configuration API | APIs | 6 | Mettre en place une authentification robuste (OAuth2) et une validation stricte des entrées/sorties sur toutes les APIs exposées. |
 | 5 | Intrusion via vol de clé de configuration API | APIs | 6 | Scanner les secrets existants (tokens, credentials) dans les dépôts de code et mettre en place un `.gitignore` + rotation régulière des clés. |
+
+---
+ 
+## 5. Exemple d'arbitrage — Risque accepté
+ 
+| Asset | Score | Décision | Justification |
+|-------|-------|----------|---------------|
+| Interconnexion médicale (CHU) | 4 🟠 | ✅ Risque accepté | Interconnexion avec systèmes historiques indépendants de l'infrastructure PME — compensé par chiffrement BDD, authentification renforcée et contrôle des flux. |
+ 
+> **Note :** Ce risque est accepté car le coût et la complexité d'une remédiation
+> complète sont disproportionnés par rapport à la capacité d'action de SantéConnect
+> sur des systèmes tiers. Les mesures compensatoires réduisent l'exposition résiduelle.
+ 
+---
+ 
+## 6. Note sur NIS2
+ 
+> SantéConnect (15 employés) n'entre a priori pas directement dans le périmètre
+> NIS2 au regard de sa taille. Toutefois, en tant que prestataire d'un
+> établissement de santé (CHU), elle peut être concernée **indirectement** via
+> des exigences de sécurité imposées par ses partenaires (logique de supply chain
+> et chaîne de sous-traitance).
+ 
 
 ---
 
