@@ -1,8 +1,13 @@
 # Cadrage de l'audit GRC — SantéConnect
 
-> ⚠️ **Projet de démonstration pédagogique** — SantéConnect est une PME fictive.
+> **Projet de démonstration pédagogique** — SantéConnect est une PME fictive.
 > Les livrables reflètent une démarche GRC réelle adaptée à un contexte simulé.
 
+> **Note méthodologique** — Dans le cadre de ce projet pédagogique,
+> la collecte documentaire et les entretiens terrain sont simulés.
+> Les sections correspondantes illustrent la démarche qu'un consultant
+> appliquerait en contexte réel. Les constats et risques identifiés
+> sont basés sur les caractéristiques fictives de SantéConnect.
 ---
 
 ## 1. Objectif et livrable
@@ -44,7 +49,7 @@
 
 | Thème | Contenu |
 |-------|---------|
-| Rôles et responsabilités | RACI défini dans `contexte-santeconnect.md` |
+| Rôles et responsabilités | RACI défini dans [Contexte SantéConnect](../semaine-0-fondamentaux/contexte-santeconnect.md) |
 | Formation équipes opérationnelles | Législation, risques, MCS, authentification, durcissement, cloisonnement réseau, journalisation |
 | Sensibilisation utilisateurs | Bonnes pratiques à l'arrivée et à intervalles réguliers (mails, affichage, intranet) |
 
@@ -121,13 +126,13 @@
 
 Comparaison **réel vs théorique** + évaluation du risque (Impact × Probabilité).
 
-→ Voir `fiche-risques-e-sante.md` pour la cartographie complète et la priorisation.
+→ Voir [`fiche-risques-e-sante.md`](./fiche-risques-e-sante.md) pour la cartographie complète et la priorisation.
 
 ---
 
 ## 8. Rapport et plan d'action
 
-Le livrable final est la **fiche de gestion des risques en e-santé** (`fiche-risques-e-sante.md`), structurée en :
+Le livrable final est la **fiche de gestion des risques en e-santé** ([`fiche-risques-e-sante.md`](./fiche-risques-e-sante.md)), structurée en :
 
 1. Cartographie des actifs avec niveau de criticité
 2. Identification des menaces par asset
