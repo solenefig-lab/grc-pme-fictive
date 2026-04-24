@@ -9,7 +9,7 @@
 > ⚠️ **Projet de démonstration pédagogique** — basé sur une PME fictive
 > (SantéConnect). Les livrables reflètent une démarche GRC réelle adaptée
 > à un contexte simulé. Ils évoluent semaine après semaine au fil de la
-> montée en compétences de l'auteure.
+> montée en compétences de l'auteure. La démarche s’appuie sur une logique inspirée d’EBIOS Risk Manager (formalisation complète en semaine 5).
 
 # SantéConnect — Démarche GRC complète pour une HealthTech fictive
 
@@ -50,7 +50,7 @@ prise de rendez-vous tout au long du parcours de soin.
 |-------------|------------|-----------|
 | **RGPD** | Obligatoire | Toutes données personnelles et de santé |
 | **HDS** | Obligatoire | Hébergement de données de santé en France |
-| **NIS2** | Applicable | Secteur santé — partenariat CHU, indépendamment de la taille |
+| **NIS2** | Applicable | Secteur santé — indirectement via partenariat CHU |
 | **ISO 27001** | Recommandée | Sécurité de l'information — référence de marché |
 | **Code de Santé Publique** | Obligatoire | Secret médical + partage inter-praticiens |
 | **RGS + PGSSI-S** | Applicable | Échanges sécurisés avec le CHU partenaire (établissement public) |
