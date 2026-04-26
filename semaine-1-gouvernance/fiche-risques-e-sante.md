@@ -160,6 +160,6 @@
 Ces templates sont issus de ce projet et réutilisables pour toute PME :
 
 - [Cartographie des actifs GRC — Version PME](../ressources/grc-asset-inventory-template-pme.xlsx)
-  *Inventaire des actifs, grille de scoring 3×3, mapping des risques — accessible sans expertise technique.*
+  *Inventaire des actifs, grille de scoring 3×3, mapping des risques, accessible sans expertise technique.*
 - [Cartographie des actifs GRC — Version Advanced](../ressources/grc-asset-inventory-template-pme-threats.xlsx)
-  *Même outil avec mapping des tactiques MITRE ATT&CK — orienté équipes techniques et cabinets GRC.*
+  *Même outil avec mapping des tactiques MITRE ATT&CK, orienté équipes techniques et cabinets GRC.*
