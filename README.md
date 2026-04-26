@@ -50,8 +50,8 @@ Des outils conçus dans le cadre de ce projet, adaptables à toute PME :
 
 | Outil | Public cible | Accès |
 |-------|-------------|-------|
-| Cartographie des actifs GRC — Version PME | Dirigeants, DPO, consultants junior | [📥 Télécharger](./ressources/grc-asset-inventory-template-pme.xlsx) |
-| Cartographie des actifs GRC — Version Advanced | Équipes techniques, cabinets GRC | [📥 Télécharger](./ressources/grc-asset-inventory-template-pme-threats.xlsx) |
+| Cartographie des actifs GRC: Version PME | Dirigeants, DPO, consultants junior | [📥 Télécharger](./ressources/grc-asset-inventory-template-pme.xlsx) |
+| Cartographie des actifs GRC: Version Advanced | Équipes techniques, cabinets GRC | [📥 Télécharger](./ressources/grc-asset-inventory-template-pme-threats.xlsx) |
 
 > Conçu avec une posture *"GRC comme produit"*, simple, progressif, ancré dans la réalité opérationnelle d'une PME.
 
