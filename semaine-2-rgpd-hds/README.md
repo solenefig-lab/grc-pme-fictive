@@ -13,3 +13,10 @@ Poser les bases de la conformité RGPD-HDS pour SantéConnect : structurer les t
 | `procedure-incident-notification.md` | Procédure de gestion des incidents + template notification CNIL (art. 33-34) | 🔄 En cours |
 | `checklist-audit-rgpd-hds.md` | Checklist audit RGPD-HDS adaptée PME e-santé | 🔄 En cours |
 | `synthese-clauses-sous-traitants.md` | Synthèse des clauses critiques art. 28 — OVH, Stripe, CHU | 🔄 En cours |
+
+## 🛠️ Ressources associéesRessources associées
+
+Ce template est issu de ce projet et réutilisable pour toute PME :
+
+[Référentiel légal simplifié](../ressources/Referentiel_legal_simplifie.md) 
+*bases d'entrée conformité RGPD-HDS dont réglementation, obligation concrète, sanction et recommandations priorisation*
