@@ -57,7 +57,7 @@ threat intelligence MITRE ATT&CK
 
 | Semaine | Ressource prévue |
 |---------|-----------------|
-| Semaine 2 | Template registre des traitements RGPD |
+| Semaine 2 | [Référentiel légal simplifié](./Referentiel_legal_simplifie.md) + Template registre des traitements RGPD |
 | Semaine 3 | Modèle PSSI adapté PME santé |
 | Semaine 4 | Checklist NIS2 — impact pour PME prestataire |
 
