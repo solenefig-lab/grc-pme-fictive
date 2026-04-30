@@ -1,0 +1,21 @@
+"Coordonnées du responsable de l’organisme
+(responsable de traitement ou son représentant si le responsable est situé en dehors de l’UE)";Nom :;DUPONT;Prénom :;MARTIN;Adresse :;123 allée du bois;Adresse mél :;m.dupont@santeconnect.fr;
+;Code postal :;00000;Ville :;Fictif;Téléphone :;06070809;;;
+Coordonnées du délégué à la protection des données (DPO);Nom :;DPO;Prénom :;Service;Société (si DPO externe) :;DPO-as-a-Service;Adresse :;456 chemin Promenade;
+;Code postal :;0000;Ville :;Fictif;Téléphone :;06070607;Adresse mél :;DPO-service@dpo-service.fr;
+Identification du traitement;;;;;Finalité du traitement;;;Données sensibles ?;
+Nom du traitement;N° / RÉF;Date de création de la fiche;Dernière mise à jour de la fiche;Date validation DPO;;;;Oui/non;
+Gestion des comptes patients;D-001;01/03/2024;12/03/2024;15/03/2024;Création et gestion des comptes utilisateurs (patients) pour l’accès aux services SantéConnect, incluant l’authentification et la récupération de mot de passe.;;;Non;
+Données de santé;D-002;05/03/2024;20/03/2024;25/03/2024;Suivi cardiologique (incl. affichage dossier CHU, coffre-fort médical, messagerie praticien) pour patients ayant donné leur consentement éclairé, rétractable à tout moment + NIR;;;Oui;
+Données de paiement (abonnements premium);D-003;15/02/2024;15/02/2024;20/02/2024;Gestion des abonnements premium, incluant la collecte des paiements, la facturation et le suivi des transactions.;;;Non;
+Données praticiens B2B;D-004;01/03/2024;01/03/2024;07/03/2024;Identification des praticiens;;;Non;
+Échanges avec le CHU;D-005;10/03/2024;22/03/2024;28/03/2024;Continuité de la prise en charge médicale du patient via partage du dossier médical avec le CHU partenaire;;;Oui;
+Support client;D-006;15/03/2024;15/03/2024;18/03/2024;Gestion des plaintes et retours clients sur accès et utilisation service à l’exclusion de toute donnée de santé (sous réserve de cloisonnement technique garanti);;;Non;
+Gestion RH et Paie;D-007;01/02/2024;01/02/2024;05/02/2024;Gestion des contrats, de la paie et des congés, Calcul des rémunérations, Calcul du montant des versements adressés aux organismes sociaux;;;Non;
+Logs IT et gestion des accès;D-008;01/04/2024;01/04/2024;05/04/2024;Suivi sécurité accès et journalisation (sans accès données santé par conception);;;Non;
+Statistiques/R&D;D-009;10/04/2024;10/04/2024;15/04/2024;Amélioration du service et analyse statistique des parcours de soins cardiologiques en vue d'extension géographique, sur données pseudonymisées ;;;Non;
+Analyses d’audience du site web marketing;D-010;01/02/2024;10/02/2024;15/02/2024;Analyses d’audience du site web marketing seulement (cookies);;;Non;
+;;;;;;;;;
+;;;;;;;;;
+;;;;;;;;;
+;;;;;;;x;;
