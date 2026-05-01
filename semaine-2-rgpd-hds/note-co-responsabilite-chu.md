@@ -81,7 +81,7 @@ SantéConnect et CHU Fictif s'engagent à :
    - Responsables SantéConnect : CEO + Service IT/Support + DPO As a Service
    - Responsables CHU Fictif : Chef de Service Cardiologie + Département IT + DPO CHU Fictif
 4. **Partage des coûts** liés à la gestion de l'incident (notification aux patients, audits) au prorata de la responsabilité de chaque partie
-5. **Mise à jour de l'AIPD SantéConnect** dans les 15 jours, à charge de SantéConnect, avec validation CHU Fictif
+5. **Mise à jour de l'AIPD SantéConnect** dans les 15 jours, à charge de SantéConnect; le CHU Fictif est notifié et dispose de 5 jours ouvrés pour formuler des observations.
 
 ---
 
