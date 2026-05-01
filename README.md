@@ -38,7 +38,7 @@ prise de rendez-vous tout au long du parcours de soin.
 |---------|-------|----------|--------|
 | [0](./semaine-0-fondamentaux/contexte-santeconnect.md) | Fondamentaux | [Présentation SantéConnect](./semaine-0-fondamentaux/contexte-santeconnect.md) | ✅ Complet |
 | [1](./semaine-1-gouvernance/README.md) | Gouvernance & Risques | [Cadrage audit](./semaine-1-gouvernance/cadrage-audit.md) · [Fiche risques](./semaine-1-gouvernance/fiche-risques-e-sante.md) | ✅ Complet |
-| 2 | RGPD & HDS | Audit RGPD-HDS + template registre | 🔄 En cours |
+| [2](./semaine-2-rgpd-hds/README.md) | RGPD & HDS | [Registre des Traitements](./semaine-2-rgpd-hds/registre-traitements/registre_traitement.md) · [AIPD synthétique](./semaine-2-rgpd-hds/aipd-synthetique.md) | 🔄 En cours |
 | 3 | ISO 27001 | PSSI adaptée à la santé | 🔄 En cours |
 | 4 | NIS2 | Synthèse impact NIS2 + plan d'action | 🔄 En cours |
 
@@ -52,6 +52,7 @@ Des outils conçus dans le cadre de ce projet, adaptables à toute PME :
 |-------|-------------|-------|
 | Cartographie des actifs GRC: Version PME | Dirigeants, DPO, consultants junior | [📥 Télécharger](./ressources/grc-asset-inventory-template-pme.xlsx) |
 | Cartographie des actifs GRC: Version Advanced | Équipes techniques, cabinets GRC | [📥 Télécharger](./ressources/grc-asset-inventory-template-pme-threats.xlsx) |
+| Vision base légale — Conformité RGPD-HDS | Responsables de PME sans expertise juridique| [Référentiel légal simplifié](./ressources/Referentiel_legal_simplifie.md) |
 
 > Conçu avec une posture *"GRC comme produit"*, simple, progressif, ancré dans la réalité opérationnelle d'une PME.
 
