@@ -199,6 +199,7 @@ Le traitement peut être mis en œuvre sous deux conditions préalables : retour
 |---|---|---|
 | **DPO As A Service** | 10/01/2024 | 10/01/2025 |
 | **CEO SantéConnect** (Martin Dupont) | 15/01/2024 | 15/01/2025 |
+| **Revue technique RSSI** | 08/01/2024 | 08/01/2025 |
 
 > Cet AIPD est mis à jour annuellement ou en cas de changement majeur (ex : nouveau partenaire, modification des flux de données, évolution réglementaire).
 
