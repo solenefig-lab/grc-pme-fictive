@@ -1,4 +1,4 @@
-# Procédure de gestion des incidents et notification CNIL — SantéConnect
+# Procédure de gestion des incidents et notification CNIL - SantéConnect
 
 > **Document fictif** — Projet portfolio GRC (SantéConnect, PME e-santé fictive). Le niveau de granularité illustre une cible de maturité RGPD, non l'état courant du marché TPE/PME santé.
 >
