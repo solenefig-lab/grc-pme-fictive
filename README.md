@@ -25,7 +25,7 @@ SantéConnect est une PME fictive de 15 employés qui connecte patients et
 médecins/praticiens pour améliorer le suivi, le partage d'informations et la
 prise de rendez-vous tout au long du parcours de soin.
 
-- **Utilisateurs :** 100 utilisateurs actifs (patients + praticiens)
+- **Utilisateurs :** 100 utilisateurs actifs (80 patients + 20 praticiens)
 - **Partenariat :** CHU local — spécialité cardiologie
 - **Produits :** application mobile + WebApp patients / interface praticiens
 - **Hébergement :** 100 % France
@@ -39,7 +39,7 @@ prise de rendez-vous tout au long du parcours de soin.
 | [0](./semaine-0-fondamentaux/contexte-santeconnect.md) | Fondamentaux | [Présentation SantéConnect](./semaine-0-fondamentaux/contexte-santeconnect.md) | ✅ Complet |
 | [1](./semaine-1-gouvernance/README.md) | Gouvernance & Risques | [Cadrage audit](./semaine-1-gouvernance/cadrage-audit.md) · [Fiche risques](./semaine-1-gouvernance/fiche-risques-e-sante.md) | ✅ Complet |
 | [2](./semaine-2-rgpd-hds/README.md) | RGPD & HDS | [Registre des Traitements](./semaine-2-rgpd-hds/registre-traitements/registre_traitement.md) · [AIPD synthétique](./semaine-2-rgpd-hds/aipd-synthetique.md) · [Note de co-responsabilité](./semaine-2-rgpd-hds/note-co-responsabilite-chu.md) · [Synthèse clauses sous-traitants](./semaine-2-rgpd-hds/synthese-clauses-sous-traitants.md) · [Procédure incident et notification](./semaine-2-rgpd-hds/procedure-incident-notification.md) · [Checklist audit RGPD-HDS](./semaine-2-rgpd-hds/checklist-audit-rgpd-hds.md)| ✅ Complet |
-| 3 | ISO 27001 | PSSI adaptée à la santé | 🔄 En cours |
+| 3 | ISO 27001 | SMSI · ISO 27001 - PSSI, mapping contrôles, SoA | 🔄 En cours |
 | 4 | NIS2 | Synthèse impact NIS2 + plan d'action | 🔄 En cours |
 
 ---
@@ -75,8 +75,7 @@ Des outils conçus dans le cadre de ce projet, adaptables à toute PME :
 ## 👩‍💻 À propos de l'auteure
 
 **Solène Figueiredo**
-Chef de Projet Cybersécurité | Ex-Renault – Déploiements internationaux (100 pays)
-GRC · Risques · Transformation digitale · Interface IT-métier
+Consultante GRC | Conformité RGPD · Gestion des risques · Interface IT-Métier
 
 Positionnement : interface entre technique, risques et décision métier, au
 service de projets cybersécurité ancrés dans la réalité opérationnelle.
@@ -92,11 +91,10 @@ enjeux business critiques, contraintes de délais et de qualité.
 opérationnel en GRC, gestion des risques et coordination de projets sécurité.
 
 Capacités démontrées dans ce projet :
-- Analyser des situations de sécurité (permissions, exposition, vulnérabilités)
-- Identifier les risques associés (escalade de privilèges, fuite de données,
-  mauvaises configurations)
-- Formuler des recommandations actionnables (hardening, IAM, sensibilisation)
-- Relier les risques aux exigences réglementaires (RGPD, NIS2, ISO 27001)
+- Structurer une démarche GRC complète pour une PME e-santé
+- Produire des livrables opérationnels niveau consultant (registre, AIPD, analyse de risques)
+- Articuler conformité réglementaire et réalité opérationnelle PME
+- Traduire les exigences RGPD-HDS en documents actionnables pour dirigeants et DPO
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-solenefigueiredo-blue)](https://www.linkedin.com/in/solene-figueiredo/)
 [![Portfolio](https://img.shields.io/badge/Portfolio-happygomotion.com-lightgrey)](https://www.happygomotion.com/fr/showcase)
