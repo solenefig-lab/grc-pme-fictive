@@ -12,7 +12,7 @@ Poser les bases de la conformité RGPD-HDS pour SantéConnect : structurer les t
 | [`note-co-responsabilite-chu.md`](./note-co-responsabilite-chu.md/) | Note convention co-responsabilité CHU (RGPD art. 26) | ✅ Complet |
 | [`procedure-incident-notification.md`](./procedure-incident-notification.md/) | Procédure de gestion des incidents + template notification CNIL (art. 33-34) | ✅ Complet |
 | `checklist-audit-rgpd-hds.md` | Checklist audit RGPD-HDS adaptée PME e-santé | 🔄 En cours |
-| `synthese-clauses-sous-traitants.md` | Synthèse des clauses critiques art. 28 — OVH, Stripe, CHU | 🔄 En cours |
+| [`synthese-clauses-sous-traitants.md`](./synthese-clauses-sous-traitants.md/) | Synthèse des clauses critiques art. 28 — OVH, Stripe, CHU | ✅ Complet  |
 
 ## 🛠️ Ressource associée
 
