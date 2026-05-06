@@ -146,20 +146,3 @@
 > des exigences de sécurité imposées par ses partenaires (logique de supply chain
 > et chaîne de sous-traitance).
  
-
----
-
-## ➡️ Prochaine étape
-
-[Semaine 2 — Audit RGPD-HDS](../semaine-2-rgpd-hds/README.md)
-
----
-
-## 🛠️ Ressources associées
-
-Ces templates sont issus de ce projet et réutilisables pour toute PME :
-
-- [Cartographie des actifs GRC — Version PME](../ressources/grc-asset-inventory-template-pme.xlsx)
-  *Inventaire des actifs, grille de scoring 3×3, mapping des risques, accessible sans expertise technique.*
-- [Cartographie des actifs GRC — Version Advanced](../ressources/grc-asset-inventory-template-pme-threats.xlsx)
-  *Même outil avec mapping des tactiques MITRE ATT&CK, orienté équipes techniques et cabinets GRC.*
