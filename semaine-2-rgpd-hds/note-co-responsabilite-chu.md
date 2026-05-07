@@ -1,7 +1,8 @@
 # Note de convention de co-responsabilité — CHU Fictif
 ## RGPD art. 26
 
-> **Document fictif** — Projet portfolio GRC (SantéConnect, PME e-santé fictive). Le niveau de granularité illustre une cible de maturité RGPD, non l'état courant du marché TPE/PME santé.
+> **Document fictif** — Projet portfolio GRC — [github.com/solenefig-lab/grc-pme-fictive](https://github.com/solenefig-lab/grc-pme-fictive)
+> Ce document est une synthèse pédagogique. Il ne se substitue pas à un audit réalisé par un organisme accrédité. Le niveau de granularité illustre une cible de maturité, non l'état courant du marché TPE/PME santé.
 
 ---
 
@@ -39,8 +40,8 @@ Les personnes concernées peuvent également contacter à tout moment le DPO du 
 
 ### 1.3 Droits spécifiques
 
-- **Droit à la rectification et à l'effacement** du Dossier Médical : soumis à la réglementation CSP — non opposable au-delà des délais légaux d'archivage.
-- **Suspension du service SantéConnect** par la personne concernée :
+- **Droit à la rectification et à l'effacement du Dossier Médical** : soumis à la réglementation CSP — non opposable au-delà des délais légaux d'archivage.
+- **Suspension du service SantéConnect par la personne concernée** :
   - Archivage restreint du Dossier Médical : 20 ans, accès réservé au CHU (CSP art. R. 1112-7)
   - Archivage selon durée légale + archivage restreint pour les praticiens libéraux — SantéConnect met à disposition un outil d'export sécurisé (CSP art. R. 1111-10)
   - La clôture du compte SantéConnect n'entraîne pas l'archivage chez le CHU ou les praticiens tant que ceux-ci continuent à suivre la personne concernée.
@@ -75,33 +76,50 @@ Un audit co-joint annuel de conformité RGPD-HDS, d'analyse des risques et de pr
 
 SantéConnect et CHU Fictif s'engagent à :
 
-1. **Notifier leur partenaire sous 4h** après la découverte de l'incident
-2. **SantéConnect notifie la CNIL sous 72h** (RGPD art. 33) — le CHU notifie simultanément sa propre autorité de contrôle compétente si applicable
-3. **Mettre en œuvre conjointement** toutes les mesures nécessaires pour analyser, mitiger et sécuriser dans les 72h :
-   - Responsables SantéConnect : CEO + Service IT/Support + DPO As a Service
-   - Responsables CHU Fictif : Chef de Service Cardiologie + Département IT + DPO CHU Fictif
-4. **Partage des coûts** liés à la gestion de l'incident (notification aux patients, audits) au prorata de la responsabilité de chaque partie
-5. **Mise à jour de l'AIPD SantéConnect** dans les 15 jours, à charge de SantéConnect; le CHU Fictif est notifié et dispose de 5 jours ouvrés pour formuler des observations.
+- Notifier leur partenaire sous 4h après la découverte de l'incident
+- SantéConnect notifie la CNIL sous 72h (RGPD art. 33) — le CHU notifie simultanément sa propre autorité de contrôle compétente si applicable
+- Mettre en œuvre conjointement toutes les mesures nécessaires pour analyser, mitiger et sécuriser dans les 72h :
+  - **Responsables SantéConnect** : RSSI + DPO As a Service
+  - **Responsables CHU Fictif** : Chef de Service Cardiologie + Département IT + DPO CHU Fictif
+- Partage des coûts liés à la gestion de l'incident (notification aux patients, audits) au prorata de la responsabilité de chaque partie
+- Mise à jour de l'AIPD SantéConnect dans les 15 jours, à charge de SantéConnect ; le CHU Fictif est notifié et dispose de 5 jours ouvrés pour formuler des observations.
 
 ---
 
 ## 5. Fin de la coopération
 
-À la fin de l'accord entre SantéConnect et CHU Fictif :
-
 **Sort des données :**
+
 - Arrêt immédiat de l'utilisation des Données Médicales par SantéConnect
 - Transfert des données hébergées OVH vers le CHU sous 30 jours (format HL7/FHIR chiffré) + outil d'export sécurisé pour les praticiens libéraux
 - La clôture de l'accord n'entraîne pas l'archivage chez le CHU ou les praticiens tant que ceux-ci continuent à suivre la personne concernée
 
 **Accès et flux :**
+
 - Arrêt de l'accès au flux d'interconnexion par SantéConnect et le CHU sous 45 jours
 
-> **Note — hors périmètre RGPD** : les questions de propriété intellectuelle relatives à l'infrastructure et aux procédures de SantéConnect relèvent du contrat de partenariat commercial et non du présent accord.
+> *Note — hors périmètre RGPD : les questions de propriété intellectuelle relatives à l'infrastructure et aux procédures de SantéConnect relèvent du contrat de partenariat commercial et non du présent accord.*
 
 ---
 
-## 6. Clause de résiliation anticipée
+## 6. Information sur les menaces
+
+SantéConnect et CHU Fictif s'engagent à :
+
+- **Transmettre sans délai** toute alerte ou information relative à une menace cyber identifiée comme pertinente pour les données partagées ou les systèmes interconnectés, via e-mail (rssi@santeconnect.fr, DPO As a Service en copie : privacy@santeconnect.fr ; resp. DPO@CHU-Fictif.fr), selon les délais suivants :
+  - Sous **4h** après découverte pour toute alerte de niveau **Haut**
+  - Sous **72h** pour toute alerte de niveau **Modéré**
+  - Sous **15 jours** pour les alertes de niveau **Faible**
+- Cette transmission inclura : une description de la menace, son niveau de criticité (référence : Grille de cotation 3×3 — *fiche-risques-e-sante.md*), et les mesures recommandées.
+- **Mettre en œuvre conjointement** toutes les mesures nécessaires pour analyser, mitiger et sécuriser dans les 72h pour les alertes de niveau **Haut** :
+  - **Responsables SantéConnect** : RSSI + DPO As a Service
+  - **Responsables CHU Fictif** : Département IT + DPO CHU Fictif
+
+> *Référence niveaux de criticité : Grille de cotation Impact × Probabilité (3×3) — voir fiche-risques-e-sante.md*
+
+---
+
+## 7. Clause de résiliation anticipée
 
 Chaque partie peut résilier cet accord avec un préavis de 3 mois, en cas de :
 
@@ -111,12 +129,12 @@ Chaque partie peut résilier cet accord avec un préavis de 3 mois, en cas de :
 
 ---
 
-## 7. Révision de l'accord
+## 8. Révision de l'accord
 
 - Révision annuelle à date anniversaire de signature
 - Révision sous 1 mois en cas de : changement de finalité du traitement, évolution de la nature des Données Médicales, évolution réglementaire, évolution des activités de SantéConnect
 
-**Accord conclu pour une durée indéterminée à compter du 15/01/2024, révisable annuellement.**
+Accord conclu pour une durée indéterminée à compter du 15/01/2024, révisable annuellement.
 
 ---
 
@@ -131,5 +149,5 @@ Chaque partie peut résilier cet accord avec un préavis de 3 mois, en cas de :
 
 ---
 
-*Document produit dans le cadre du projet portfolio GRC — [github.com/solenefig-lab/grc-pme-fictive](https://github.com/solenefig-lab/grc-pme-fictive)*  
-*Ce document est une synthèse pédagogique. Il ne se substitue pas à un accord juridique formalisé par un cabinet spécialisé.*
+*Document produit dans le cadre du projet portfolio GRC — [github.com/solenefig-lab/grc-pme-fictive](https://github.com/solenefig-lab/grc-pme-fictive)*
+*Ce document est une synthèse pédagogique. Il ne se substitue pas à un audit réalisé par un organisme accrédité.*
