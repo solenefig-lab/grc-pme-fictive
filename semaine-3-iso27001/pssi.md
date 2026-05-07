@@ -183,11 +183,12 @@ Détail de la procédure pour les données personnelles → [procedure-incident-
 
 - **Alertes OVH HDS** : détection quasi temps réel des anomalies infrastructure (accès, flux réseau)
 - **Logs applicatifs centralisés (Graylog)** : détection quasi temps réel des comportements suspects au niveau applicatif (accès inhabituels, requêtes API anormales)
+- **Veille proactive des menaces**
 - **Analyse des journaux d'événements** : revue hebdomadaire automatisée
 
 **Réponse et coordination**
 
-- Le RSSI notifie les équipes DevOps sous **4h** pour tout incident impliquant des données médicales, sous **24h** pour les autres incidents
+- Le RSSI notifie les équipes DevOps sous **4h** (heures ouvrées,hors heures ouvrées, délai porté à **8h**) pour tout incident impliquant des données médicales, sous **24h** pour les autres incidents. Cible de maturité : mise en place d'une astreinte formalisée. 
 - Coordination avec les sous-traitants (OVH, Stripe) par clause contractuelle art. 28
 - Coordination avec le CHU par convention art. 26
 - Procédure de notification CNIL (72h) et personnes concernées documentée - cf. lien ci-dessus
