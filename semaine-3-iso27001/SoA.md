@@ -1,5 +1,5 @@
 
-#Déclaration d'applicabilité (SoA en anglais) - ISO 27001:2022
+# Déclaration d'applicabilité (SoA en anglais) - ISO 27001:2022
 
 > **Document produit dans le cadre du projet portfolio GRC** - [github.com/solenefig-lab/grc-pme-fictive](https://github.com/solenefig-lab/grc-pme-fictive)
 > Ce document est une synthèse pédagogique. Il ne se substitue pas à un audit réalisé par un organisme accrédité. Le niveau de granularité illustre une cible de maturité, non l'état courant du marché TPE/PME santé.
@@ -94,7 +94,7 @@ Les 10 contrôles listés ci-dessous ont été identifiés comme **prioritaires*
 - **Ont des actions concrètes et réalisables** à court/moyen terme (ex : finalisation de la matrice RBAC, déploiement d’outils DLP).
 
 
-   **Contrôle** | **Risque associé** | **Actions prévues** | **Cible de maturité** |
+ |**Contrôle** | **Risque associé** | **Actions prévues** | **Cible de maturité** |
  |--------------|-------------------|--------------------|-----------------------|
  | **A.5.3 Séparation des tâches** | Risque de conflits d’intérêts ou d’erreurs humaines (petite structure). | Formaliser les procédures de séparation des tâches pour les données sensibles. | Automatisation des contrôles croisés via des outils de workflow. |
  | **A.5.15 Contrôle d’accès** | Accès non autorisé aux données sensibles (médicales). | Finaliser la **matrice RBAC** et automatiser les revues d’habilitation. | Déploiement d’un outil IAM (Identity and Access Management). |
