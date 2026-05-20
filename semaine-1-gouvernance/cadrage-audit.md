@@ -138,3 +138,16 @@ Le livrable final est la **fiche de gestion des risques en e-santé** ([`fiche-r
 2. Identification des menaces par asset
 3. Top 5 des risques prioritaires
 4. Recommandations actionnables priorisées
+
+---
+
+## Signatures
+Version : V1.0 — Émission : 10/12/2023
+
+| Rôle | Nom | Date |
+|--------------|---------|--------|
+| CEO SantéConnect |	Martin DUPONT	| 10/12/2023 |
+| DPO As a Service	| Jeanne PETIT	| 10/12/2023 |
+| RSSI	| Claire ESPINOZA	| 08/12/2023 |
+
+Révision annuelle : 10/12/2024
