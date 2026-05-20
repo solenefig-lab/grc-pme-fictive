@@ -139,13 +139,15 @@ Accord conclu pour une durée indéterminée à compter du 15/01/2024, révisabl
 ---
 
 ## Signatures
+Version: V1.1 - 15/02/2025 (ajout section 6 : Information sur les menaces)
+Révision : 15/02/2026
 
 | Rôle | Nom | Date de signature | Révision |
 |---|---|---|---|
-| CEO SantéConnect | Martin DUPONT | 15/01/2024 | 15/01/2025 |
-| DPO SantéConnect (As a Service) | Jeanne PETIT | 15/01/2024 | 15/01/2025 |
-| Chef du Service Cardiologie CHU Fictif | Dr. Alice BEN-ALI | 15/01/2024 | 15/01/2025 |
-| DPO CHU Fictif | Jérôme LEPEUVE | 15/01/2024 | 15/01/2025 |
+| CEO SantéConnect | Martin DUPONT | 15/01/2024 | 15/02/2025 |
+| DPO SantéConnect (As a Service) | Jeanne PETIT | 15/01/2024 | 15/02/2025 |
+| Chef du Service Cardiologie CHU Fictif | Dr. Alice BEN-ALI | 15/01/2024 | 15/02/2025 |
+| DPO CHU Fictif | Jérôme LEPEUVE | 15/01/2024 | 15/02/2025 |
 
 ---
 
