@@ -1,0 +1,217 @@
+Thème;Contrôle;Inclus/exclus;Justification;Etat;CIAT;Documentation liée
+Organisationnel;A.5.1 Politiques de sécurité de l'information;Inclus;Définition des objectifs de sécurité, rôles, périmètre;Appliqué;C I A T;PSSI
+Organisationnel;A.5.2 Rôles et responsabilités en matière de sécurité de l'information;Inclus;Traitement de données sensibles dont médicale: séparation par conception pour garantir conformité RGPD-HDS;Appliqué;C I A T;Cadrage audit - RACI
+Organisationnel;A.5.3 Séparation des Tâches;Inclus;Séparation pour les données sensibles, polyvalence ponctuelle pour les autres (petite structure);Partiellement Appliqué;C I A T;Cadrage audit - RACI
+Organisationnel;A.5.4 Responsabilités de la direction;Inclus;Enjeu fort réputationnel et business autour de l’e-santé;Appliqué;C I A T;"PSSI
+Plan de formation"
+Organisationnel;A.5.5 Contact avec les autorités;Inclus;Obligatoire données sensibles dont médicales: Contraintes CNIL, ANS et NIS2;Appliqué;T;Procédure de gestion des incidents et notification
+Organisationnel;A.5.6 Contact avec les groupes d’intérêt particuliers;Inclus;RSSI temps partiel, ressources limitées;Partiellement Appliqué;I T;Preuve adhésion flux RSS CERT-FR
+Organisationnel;A.5.7 Renseignements sur les menaces;Inclus;RSSI temps partiel, ressources limitées;Partiellement Appliqué;T;"Convention co-responsabilité 
+Registre des alertes"
+Organisationnel;A.5.8 Sécurité de l’information dans la gestion de projet;Inclus;Domaine e-santé en pleine croissance + innovations constantes;Partiellement Appliqué;C I A T;PSSI
+Organisationnel;A.5.9 Inventaire des informations;Inclus;En tant que fournisseur de service e-santé traitant de données médicales: nécessité de recenser l'ensemble des actifs informationnels pour identifier et classer les actifs critiques (ex : dossiers patients, logs d’accès) afin de prioriser les mesures de protection;Partiellement Appliqué;C T;"Fiche risques e-santé
+Registre des traitements"
+Organisationnel;A.5.10 Utilisation acceptable des informations et autres ressources associées;Inclus;Domaine e-santé = domaine sensible;Partiellement Appliqué;C I T;"Plan de formation
+RBAC (matrice en cours de formalisation)"
+Organisationnel;A.5.11 Retour des actifs;Inclus;Eviter les fuites de données, notamment sensibles (RGPD), et les accès non autorisés (HDS);Partiellement Appliqué;C I A T;"Convention co-responsabilité
+Contrat sous-traitance 
+Logs d'habilitation"
+Organisationnel;A.5.12 Classification des informations;Inclus;Traitement de données personnelles dont médicales nécessitant une classification des données (Critique, Sensible, Standard) pour appliquer des mesures de protection adaptées (ex : chiffrement pour les données médicales);Appliqué;C I T;Cartographie des risques
+Organisationnel;A.5.13 Etiquetage des informations;Inclus;Etiquetage (ex : balises 'Confidentiel', 'RGPD') permet aux utilisateurs d’identifier visuellement le niveau de sensibilité des données et d’appliquer les bonnes pratiques;Partiellement Appliqué;C T;PSSI
+Organisationnel;A.5.14 Transfert d’informations;Inclus;Encadrer les transferts de données (ex : vers le CHU, sous-traitants) pour garantir leur sécurité (chiffrement, protocoles sécurisés) et leur conformité (RGPD Art. 44, HDS);Partiellement Appliqué;C I A T;"Convention co-responsabilité
+Contrat sous-traitance"
+Organisationnel;A.5.15 Contrôle d’accès;Inclus;Mise en place de contrôles d’accès (ex : RBAC (matrice en cours de formalisation), MFA) pour limiter l’accès aux données sensibles aux seuls utilisateurs autorisés (principe du moindre privilège);Partiellement Appliqué;C I T;"Logs d’habilitation
+RBAC (matrice en cours de formalisation)"
+Organisationnel;A.5.16 Gestion des identités;Inclus;Services accessibles au utilisateurs patients, service cardiologie et aux praticiens B2B avec granularité accès selon choix patients et spécialité praticiens;Partiellement Appliqué;C I T;"Logs d’habilitation
+RBAC (matrice en cours de formalisation)"
+Organisationnel;A.5.17 Informations d’authentification;Inclus;Données sensibles dont médicales avec authentification renforcées obligatoires (MFA);Partiellement Appliqué;C I T;PSSI
+Organisationnel;A.5.18 Droits d’accès;Inclus;Principe du moindre privilège pour limiter accès aux seuls utilisateurs autorisés, notamment pour données sensibles;Partiellement Appliqué;C I A T;"RBAC (matrice en cours de formalisation)
+Logs d’habilitation
+Matrice des droits d’accès
+Convention co-responsabilité
+Contrat sous-traitance"
+Organisationnel;A.5.19 Sécurité de l'information dans les relations avec les fournisseurs;Inclus;SantéConnect en tant que responsable de traitement est responsable encadrement, finalité et moyens mise en oeuvre par sous-traitant;Appliqué;C I A T;"Contrat de sous-traitance
+Registre de traitement"
+Organisationnel;A.5.20 Prise en compte de la sécurité de l’information dans les contrats fournisseurs;Inclus;Inclusion de clauses de sécurité (ex : chiffrement, audit, notification des incidents) dans tous les contrats avec les fournisseurs pour se conformer au RGPD (Art. 28) et à l’HDS;Appliqué;C I A T;Contrat de sous-traitance
+Organisationnel;A.5.21 Gestion de la sécurité de l'information dans la chaîne d'approvisionnement des TIC;Inclus;Sélection et évaluation fournisseurs TICs selon conformité exigences RGPD-HDS car données médicales traitées.;Partiellement Appliqué;C I A;"Contrat de sous-traitance
+Registre de traitement"
+Organisationnel;A.5.22 Surveillance, examen et gestion des changements des services fournisseurs;Inclus;"Surveillance des fournisseurs et de leur statut pour de se conformer aux exigences RGPD et HDS pour l’hébergement de données de santé; et détecter changement impactant";Partiellement Appliqué;C I A;"Contrat de sous-traitance
+Audit RGPD-HDS"
+Organisationnel;A.5.23 Sécurité de l'information pour l'utilisation des services cloud;Inclus;SantéConnect utiliser un sous-traitant (OVH) pour héberger données de santé et en tant que responsable traitement doit s’assurer moyens et conformité RGPD-HDS, notamment via chiffrement, localisation (France) et audit annuel;Appliqué;C I A T;"Contrat de sous-traitance (OVH)
+AIPD
+Preuve certification OVH"
+Organisationnel;A.5.24 Planification et préparation de la gestion des incidents de sécurité de l'information;Inclus;Traitement de données personnelles et médicales nécessitant une préparation proactive : définition de procédures formalisées (ex : étapes de détection, escalade, notification), attribution des rôles (RSSI pour la réponse technique, DPO pour la conformité RGPD, direction pour la communication de crise) pour garantir une réaction efficace dans les délais légaux (72h pour le RGPD);Appliqué;C I A T;"Procédure de gestion des incidents et notification
+Registre des alertes
+Registre de traitement"
+Organisationnel;A.5.25 Évaluation et décision relatives aux événements de sécurité de l'information;Inclus;En l’absence du RSSI (temps partiel), la direction (CEO) assure un suivi manuel des alertes. Objectif à moyen terme : automatiser la surveillance des accès et des flux (ex : alertes automatisées) pour une détection proactive des événements.;Partiellement Appliqué;C I T;"Procédure de gestion des incidents et notification
+Registre des alertes"
+Organisationnel;A.5.26 Réponse aux incidents de sécurité de l'information;Inclus;Traitement de données personnelles et médicales nécessitant une réponse opérationnelle immédiate en cas d’incident (ex : fuite de données) : containment (isolation des systèmes compromis), notification (CNIL sous 72h, parties prenantes impactées), et coordination entre le RSSI (réponse technique), le DPO (conformité RGPD), et la direction (communication de crise) pour limiter l’impact et restaurer la normalité;Appliqué;C I A T;"Procédure de gestion des incidents et notification
+Registre des alertes"
+Organisationnel;A.5.27 Leçons tirées des incidents de sécurité de l'information;Inclus;Analyse systématique des incidents pour identifier les causes,, les actions correctives, le cas échéant mise à jour des procédures),  et les mesures préventives. Responsable doc: RSSI.  Cible de maturité : amélioration continue de la posture de sécurité (ISO 27001, RGPD).;Partiellement Appliqué;C I A T;"Procédure de gestion des incidents et notification
+Registre des alertes"
+Organisationnel;A.5.28 Collecte de preuves;Inclus;Données sensibles dont médicales soumises à déclaration CNIL. Impératif récupération logs et autres traces forensiques pour montrer causes et mesures mises en place avant et après.;Appliqué;C I T;"Procédure de gestion des incidents et notification
+Registre des alertes"
+Organisationnel;A.5.29 Sécurité de l'information en cas de perturbation;Inclus;Redondance données sensibles chez CHU / praticiens et capacités SantéConnect limitées;Partiellement Appliqué;A;"PSSI
+PRA / PCA"
+Organisationnel;A.5.30 Préparation des TIC à la continuité des activités;Inclus;Préparation des SI pour assurer continuité des systèmes critiques (redondance CHU) et sauvegarde données critiques, mais ressources limitées PME;Partiellement Appliqué;A;"PSSI
+PRA / PCA"
+Organisationnel;A.5.31 Exigences légales, réglementaires et contractuelles;Inclus;"SantéConnect, en tant que fournisseur de services e-santé traitant des données personnelles et médicales sensibles, est soumise à des exigences légales et réglementaires strictes + partenariat encadré avec CHU.
+Cible de maturité: dashboard automatisé de conformité réglementaire (RGPD, HDS, ISO27001, futur NIS2)";Partiellement Appliqué;C I T;"Cadrage audit - Référentiels applicables
+Convention CHU
+Clauses sous-traitants"
+Organisationnel;A.5.32 Droits de propriété intellectuelle;Inclus;Protection code source app et documents techniques pour éviter usurpation et fuite, et espionnage industriel;Partiellement Appliqué;C I A;PSSI
+Organisationnel;A.5.33 Protection des documents;Inclus;Protection des documents sensibles contre accès non autorisé et altération;Partiellement Appliqué;C I;"RBAC (matrice en cours de formalisation)
+Matrice des droits d’accès
+Plan de formation"
+Organisationnel;A.5.34 Confidentialité et protection des données personnelles;Inclus;SantéConnect gère différentes données personnelles, dont sensibles médicales, et doit garantir le droit des personnes, notamment au sens RGPD (confidentialité, intégrité);Appliqué;C I T;"CGUs
+Registre des traitements"
+Organisationnel;A.5.35 Examen indépendant de la sécurité de l'information;Inclus;Petite PME, SantéConnect a recours à un service externe DPO as a Service pour l’accompagner dans ses missions et réaliser des examens et audits;Partiellement Appliqué;C I A T;"Contrat DPO
+PSSI"
+Organisationnel;A.5.36 Conformité aux politiques, règles et normes en matière de sécurité de l'information;Inclus;La sécurité de l’information est coeur pour la réputation et les partenariats de SantéConnect, avec la direction (CEO), RSSI et DPO;Partiellement Appliqué;C I A T;"Cadrage audit - RACI
+PSSI"
+Organisationnel;A.5.37 Procédures opérationnelles documentées;Inclus;SantéConnect accorde une importance capitale à la documentation des procédures opérationnelles pour garantir la reproductibilité, la traçabilité et l’efficacité des actions de sécurité. Cette documentation permet d’assurer une exécution cohérente des tâches de sécurité, conformément aux exigences de l’ISO 27001 et aux bonnes pratiques sectorielles (e-santé);Partiellement Appliqué;I A T;"Plan de formation
+PSSI"
+Personnes;A.6.1 Dépistage;Inclus;Le responsable RH avec validation direction (CEO) est responsable de la sélection et vérification des employés et personnels tiers, avant tout embauche et tout au long du contrat, via des entretiens et recherche d’antécédents si pertinent.;Appliqué;C I T;"Fiches de poste
+PV entretien + rapport recherche (si applicable)"
+Personnes;A.6.2 Conditions générales d'emploi;Inclus;SantéConnect, soumise au droit français du travail, intègre dans ses contrats de travail des clauses générales de sécurité et de conformité (respect des politiques internes, confidentialité, responsabilités en cas de manquement). Ces clauses s’appliquent également aux fournisseurs et sous-traitants via des contrats dédiés, conformément à l’ISO 27001 (A.6.2) et au RGPD (Art. 28).;Appliqué;C I T;"Contrats de travail
+Clauses sous-traitants"
+Personnes;A.6.3 Sensibilisation, éducation et formation à la sécurité de l'information;Inclus;SantéConnect, traitant des données personnelles et médicales sensibles, met en place un programme de sensibilisation, éducation et formation pour ses employés.;Partiellement Appliqué;C I A;"Plan de formation
+PSSI"
+Personnes;A.6.4 Processus disciplinaire;Exclus (N.I.);SantéConnect ne formalise pas actuellement de processus disciplinaire spécifique aux incidents de sécurité.;-;-;-
+Personnes;"A.6.5 Responsabilités après la cessation ou le changement d'emploi
+";Inclus;SantéConnect s’engage à garantir confidentialité et protection des informations notamment en revoquant accès aux informations, exigeant restitution du matériel et en menant des audits d’accès réguliers pour le personnel ayant quitté leurs fonctions (départ ou changement);Appliqué;C I A;"Clauses sous-traitant
+Convention co-responsabilité
+PSSI"
+Personnes;A.6.6 Accords de confidentialité ou de non-divulgation;Inclus;SantéConnect renforce la protection des données sensibles (notamment médicales) en intégrant des accords de confidentialité dans les contrats de travail des employés et les contrats avec les fournisseurs/sous-traitants, pour protéger les secrets d’affaires et les données personnelles, conformément aux exigences RGPD/HDS.;Appliqué;C T;"Contrats de travail
+Clauses sous-traitants"
+Personnes;A.6.7 Télétravail;Inclus;"SantéConnect autorise le télétravail pour ses employés, sous réserve de mesures de sécurité strictes pour protéger les données sensibles (notamment médicales) : séparation des données : médicales des autres données (par conception) et chiffrement  (AES-256). + contrôle des accès (authentification renforcée (MFA) et RBAC pour limiter les droits en télétravail).
+";Partiellement Appliqué;C I A T;Contrats de travail
+Personnes;A.6.8 Signalement des incidents de sécurité de l’information;Inclus;SantéConnect a établi les rôles et responsabilités pour les alertes et incidents avec point d’entrée RSSI / Direction. Les employés sont sensibilisés à la démarche via affiche et formation. Cible de maturité: déclaration électronique via Dashboard automatisé conformité.;Appliqué;C I T;"Procédure de gestion des incidents et notification
+Registre des alertes
+Plan de formation"
+Physiques;A.7.1 Périmètres de sécurité physique;Inclus;Définition des zones sécurisées (ex : salle serveur, bureaux direction)  pour protéger les équipements et données sensibles sur plan;Appliqué;C I A;Plan des locaux
+Physiques;"A.7.2 Entrée physique
+";Inclus;Accès au bâtiment sécurisé par un accueil + badges pour limiter les intrusions: entrée bâtiment + entrée locaux;Appliqué;C I T;"Procédure de sécurité des bâtiments
+Logs d’entrée (badge + accueil)"
+Physiques;A.7.3 Sécurisation des bureaux, des salles et des installations;Inclus;En tant que petite PME, SantéConnect a une entrée par badge dans ses locaux + une standardiste de 09:00 à 18:00 pour les entrées et visites. Les zones sensibles (bureau direction, RSSI et serveurs) sont dans des salles pouvant fermés à clef.;Partiellement Appliqué;C I T;Procédure de sécurité des bâtiments
+Physiques;A.7.4 Surveillance de la sécurité physique;Inclus;Accueil bâtiment + standard SantéConnect notent visites aux heures d’ouverture + caméra à l’entrée.;Partiellement Appliqué;C I T;Procédure de sécurité des bâtiments
+Physiques;A.7.5 Protection contre les menaces physiques et environnementales;Inclus;SantéConnect a installé ses locaux dans un bâtiment respectant les normes incendies. La zone n’est pas inondable. ;Partiellement Appliqué;I A;Procédure de sécurité des bâtiments
+Physiques;A.7.6 Travail dans des zones sécurisées;Inclus;Accès aux zones et données sensibles restreints aux personnes habilitées.;Partiellement Appliqué;C I T;"Liste des habilitations
+Dotation clefs"
+Physiques;A.7.7 Bureau dégagé et écran propre;Inclus;SantéConnect met à disposition des caches écran pour limiter la vue sur les écrans par des personnes tierces + sensibilise son personnel.;Partiellement Appliqué;C;"Dotation IT Plan de formation"
+Physiques;A.7.8 Implantation et protection des équipements;Inclus;Equipements implantés de manière professionnelle et sécurisée (ex : serveurs dans un local verrouillé).;Partiellement Appliqué;I A;"Fiche de poste RSSI
+Dotation IT
+Schéma infrastructure réseau"
+Physiques;A.7.9 Sécurité des actifs hors site;Inclus;SantéConnect autorise le télétravail pour ses employés, sous réserve de mesures de sécurité strictes pour protéger les données sensibles: cache écran, VPN, MFA;Partiellement Appliqué;C I;"Contrats de travail
+Plan de formation"
+Physiques;A.7.10 Supports de stockage;Inclus;SantéConnect n’autorise pas l’usage de supports de stockage, sauf autorisation express du RSSI ou direction pour une finalité définie (p.ex. réunion de démonstration de concept). Ces supports sont restitués au RSSI pour être formaté ou détruit après coup.;Partiellement Appliqué;C T;Registre des demandes d’utilisation de supports
+Physiques;A.7.11 Utilitaires de support;Exclus (N.A.);SantéConnect, locataire d'un espace tertiaire, délègue la gestion des utilités (électricité, climatisation) au bailleur par contrat de bail. Les données critiques étant hébergées chez OVH HDS, une interruption des utilités dans les locaux n'impacte pas la disponibilité des données médicales.;-;-;-
+Physiques;A.7.12 Sécurité du câblage;Inclus;"Le câblage des locaux de SantéConnect est installé et sécurisé par le RSSI :câbles réseau protégés dans des gaines ou armoires verrouillées, accès physique restreint aux zones techniques (ex : salle serveur), vérification régulière de l’intégrité des câbles (ex : absence de câbles exposés ou endommagés)
+";Partiellement Appliqué;C I A;"Fiche de poste RSSI
+Schéma infrastructure réseau + câblage"
+Physiques;A.7.13 Maintenance des équipements;Inclus;A charge du RSSI de s’assurer de la bonne maintenance des équipements;Partiellement Appliqué;C I A;Fiche de poste
+Physiques;A.7.14 Elimination ou réutilisation sécurisée des équipements;Inclus;Formatage ou destruction des équipements à fin de mission pour garantir confidentialité des données;Partiellement Appliqué;C I T;"Dotation IT
+Clauses sous-traitant
+Convention co-responsabilité
+PSSI"
+Technologie;A.8.1 Dispositifs terminaux utilisateurs;Inclus;SantéConnect doit protéger les données sensibles (médicales et personnelles) accessibles depuis les terminaux utilisateurs. Le contrôle des accès via le principe du moindre privilège et la revue régulière des habilitations permet de limiter les risques de fuite ou d’accès non autorisé, conformément au RGPD (Art. 32) et à l’HDS.;Partiellement Appliqué;C I T;"Matrice des droits d'accès (RBAC)
+Logs d'habilitation (maintien, modification, suppression)
+Logs accès"
+Technologie;A.8.2 Droits d'accès privilégiés;Inclus;Application du principe du moindre privilège et revue régulière des habilitations. MFA obligatoire pour les accès aux données sensibles et médicales.;Appliqué;C I T;"Matrice des droits d'accès (RBAC)
+Logs d'habilitation (maintien, modification, suppression)
+Preuve d'activation MFA sur données sensibles et critiques."
+Technologie;A.8.3 Restriction d'accès à l'information;Inclus;Pour garantir la confidentialité et l’intégrité des données sensibles (médicales, personnelles), SantéConnect applique un contrôle d’accès granulaire : attribution des droits en fonction des rôles (RBAC), restriction des accès aux seules données nécessaires (principe du moindre privilège), et revue périodique des habilitations. Cela inclut les accès aux dossiers patients, aux bases de données, et aux interfaces administratives.;Partiellement Appliqué;C I T;"Logs d'habilitation (maintien, modification, suppression)
+Preuve d'activation MFA sur données sensibles et critiques"
+Technologie;A.8.4 Accès au code source;Inclus;"Le code source de SantéConnect (applications mobile/WebApp) est protégé via : 
+- Droits d’accès stricts : Seuls les développeurs autorisés (équipe interne + prestataires validés) ont accès aux dépôts Git. 
+- Branches protégées : Les branches main et production nécessitent une validation par 2 personnes avant fusion. 
+- Gestion des clés : Rotation régulière des clés SSH/GPG et utilisation de .gitignore pour exclure les fichiers sensibles (ex : configurations, secrets).";Partiellement Appliqué;C I A;"Preuve activation OAuth2 
+Logs accès + flux"
+Technologie;A.8.5 Authentification sécurisée;Inclus;"SantéConnect renforce l’authentification pour protéger les données sensibles et systèmes critiques : 
+- MFA obligatoire pour les accès aux données médicales, interfaces administratives et systèmes critiques. 
+- Matrice des droits d’accès (RBAC) pour adapter les niveaux d’authentification aux risques (ex : MFA pour les accès RSSI).";Appliqué;C I T;"Matrice des droits d'accès (RBAC)
+Logs d'habilitation (maintien, modification, suppression)
+Preuve d'activation MFA sur données sensibles et critiques."
+Technologie;A.8.6 Gestion des capacités;Inclus;SantéConnect a pour l’instant un partenaire et un nombre d’utilisateurs limités pour tester et améliorer service, dont test capacités technologiques. ;Partiellement Appliqué;A;Schéma infrastructure réseau
+Technologie;A.8.7 Protection contre les logiciels malveillants;Inclus;Antivirus/EDR déployé sur tous les postes de travail et serveurs, avec mises à jour automatiques et scans réguliers.;Partiellement Appliqué;C I A ;Logs des scans
+Technologie;A.8.8 Gestion des vulnérabilités techniques;Inclus;Veille active sur les vulnérabilités (ex : abonnements ANSSI, CERT-FR), correctifs appliqués sous 30 jours pour les vulnérabilités critiques.;Partiellement Appliqué;C I A;Registre des vulnérabilités, Preuves de correctifs
+Technologie;A.8.9 Gestion de la configuration;Inclus;Configurations standardisées pour les équipements (ex : images machines, paramètres réseau), avec revue trimestrielle.;Partiellement Appliqué;C I A;Logs des modifications
+Technologie;A.8.10 Suppression d'informations;Inclus;"SantéConnect applique une suppression sécurisée et traçable des données pour se conformer au RGPD (Art. 5, 30) et à l’HDS : 
+- Purge des bases de données : Suppression des données personnelles/médicales après la période de conservation légale (ex : 3 ans pour les dossiers patients inactifs). 
+- Effacement des données périmées : Vérification trimestrielle des données obsolètes (ex : comptes utilisateurs inactifs, logs anciens). 
+- Preuves de suppression : Logs des opérations de purge et archives des autorisations.";Partiellement Appliqué;C I T;Logs suppression + revue habilitation
+Technologie;A.8.11 Masquage des données;Inclus;"SantéConnect applique un masquage des données via : 
+- Pseudonymisation des identifiants patients dans les rapports analytiques (ex : ID anonymisés). 
+- Tokenisation des données sensibles dans les logs.";Partiellement Appliqué;C;"PSSI (section 3.4 : ""Protection des données"")"
+Technologie;A.8.12 Prévention des fuites de données;Inclus;"SantéConnect met en place : 
+- Contrôle des exports (blocage des téléchargements massifs via règles réseau). 
+- Surveillance des flux sortants (alertes sur les transferts vers des destinations non approuvées). 
+- Revue trimestrielle des habilitations. 
+Cible : Déploiement d’un outil DLP automatisé.";Partiellement Appliqué;C T;"Cartographie des risques
+Revue habilitation
+Logs accès et flux
+PSSI"
+Technologie;A.8.13 Sauvegarde des informations;Inclus;"SantéConnect assure : 
+- Sauvegardes quotidiennes des données médicales (chiffrées, mode WORM). 
+- Redondance avec le CHU pour les données critiques. 
+- RPO de 24h et RTO de 72h pour les systèmes essentiels (WebApp patients).";Partiellement Appliqué;A;"PSSI
+PRA / PCA"
+Technologie;A.8.14 Redondance des installations de traitement de l'information;Inclus;SantéConnect n’est pas l’hébergeur primaire des données médicales (CHU / praticiens B2B), mais a mis en place une infrastructure réseau sécurisé pour assurer sa résilience contre les attaques les plus probables;Partiellement Appliqué;A;"PSSI
+PRA / PCA"
+Technologie;A.8.15 Enregistrement;Inclus;SantéConnect traite des données personnelles sensibles et médicales, et a mis en place un registre des alertes pour garantir la documentation des incidents;Partiellement Appliqué;C I T;"Cadrage audit
+PSSI
+Logs systèmes"
+Technologie;A.8.16 Activités de surveillance;Inclus;SantéConnect a mis en place des procédures pour surveiller les accès ou flux inhabituels. Cible de maturité: automatisions  enregistrement et alertes;Partiellement Appliqué;C I A T;"Logs accès et flux
+Procédure de gestion et  notification des incidents"
+Technologie;A.8.17 Synchronisation de l'horloge;Inclus;SantéConnect effectue la synchronisation de ses horloges grâce aux fonctionnalités intégrées à leurs serveurs et terminaux, pour garantir une uniformité à travers son infrastructure;Partiellement Appliqué;I A T;Procédures de sécurité IT
+Technologie;A.8.18 Utilisation de programmes utilitaires privilégiés;Inclus;"SantéConnect : 
+- Limite les utilitaires à une liste blanche. 
+- Restreint l’accès aux outils critiques (ex : RSSI uniquement pour les outils d’administration).";Partiellement Appliqué;C I A T;Procédures de sécurité IT
+Technologie;A.8.19 Installation de logiciels sur les systèmes d'exploitation;Inclus;L’installation de logiciels est soumis à une demande express et autorisation du RSSI, sinon elle est par défaut bloquée.;Partiellement Appliqué;C I A T;"Procédures de sécurité IT
+Logs habilitation"
+Technologie;A.8.20 Sécurité des réseaux;Inclus;"SantéConnect protège son réseau via : 
+- Pare-feu (filtrage des flux entrants/sortants). 
+- VPN obligatoire pour les accès distants. 
+- Segmentation réseau (isolation des serveurs hébergeant des données médicales.";Partiellement Appliqué;C I A;"Cartographie des risques
+PSSI
+Procédures de sécurité IT"
+Technologie;A.8.21 Sécurité des services réseaux;Inclus;"SantéConnect a:
+Désactivé Telnet sur tous les équipements réseau et remplacer par SSH avec authentification par clé.
+Cartographié tous les ports ouverts et fermé ceux non nécessaires.
+Mis en place une validation stricte des entrées/sorties sur toutes les APIs exposées.";Partiellement Appliqué;C I A;"Cartographie des risques
+PSSI
+Procédures de sécurité IT"
+Technologie;A.8.22 Séparation des réseaux;Inclus;"- Interconnexion avec systèmes historiques CHU indépendants de l'infrastructure PME.
+- Données médicales : soumises aux règles RGPD-HDS, séparation des autres données par conception";Partiellement Appliqué;C I;"Cartographie des risques
+PSSI
+Procédures de sécurité IT"
+Technologie;A.8.23 Filtrage web;Inclus;SantéConnect a mis en place une liste noire de certains sites webs douteux et sensibilise ses employés à la bonne utilisation de leurs terminaux (décision CEO, implémentation RSSI);Partiellement Appliqué;C I A;"Procédures de sécurité IT
+Plan de formation"
+Technologie;A.8.24 Utilisation de la cryptographie;Inclus;SantéConnect utiliser le chiffrement AES-256 (repos) et TLS 1.3 (transit) pour les données critiques et sensibles ;Appliqué;C I;"Cartographie des risques
+PSSI"
+Technologie;A.8.25 Cycle de vie du développement sécurisé;Inclus;SantéConnect intègre la sécurité à chaque étape du cycle de vie de ses logiciels: analyse des risques en amont, revues de code systématiques avant déploiement, tests de sécurité (ex : scans de vulnérabilités).;Partiellement Appliqué;C I A;"PSSI
+Fiche de risques e-santé"
+Technologie;A.8.26 Exigences de sécurité des applications;Inclus;"SantéConnect applique : 
+- Authentification forte (MFA) pour les applications critiques. 
+- Validation des entrées/sorties (ex : contrôle des inputs pour éviter les injections SQL). 
+- Journalisation des activités (logs d’accès et d’actions).";Partiellement Appliqué;C I A;PSSI
+Technologie;A.8.27 Principes d'architecture et d'ingénierie des systèmes sécurisés;Inclus;SantéConnect est une PME dans la e-santé et intègre la sécurité dès la conception, notamment séparation des données médicales (RGPD/HDS) dès la conception, principes du moindre privilège.;Partiellement Appliqué;C I A;Fiche de risques e-santé
+Technologie;A.8.28 Codage sécurisé;Inclus;"SantéConnect applique : 
+- Validation des entrées (ex : protection contre les injections SQL/XSS). 
+- Gestion sécurisée des erreurs (ex : messages d’erreur génériques). 
+- Utilisation de bibliothèques à jour.";Partiellement Appliqué;C I;PSSI
+Technologie;A.8.29 Tests de sécurité en développement et en réception;Inclus;"SantéConnect réalise : 
+- Scans de vulnérabilités (ex : OWASP ZAP) avant déploiement. 
+- Tests d’intrusion (pentests) annuels sur les applications critiques.";Partiellement Appliqué;C I;PSSI
+Technologie;A.8.30 Développement externalisé;Inclus;SantéConnect encadre le développement externalisé via : clauses contractuelles (ex : RGPD, HDS, confidentialité)., accès restreint aux données sensibles (ex : environnement isolé pour les prestataires)., revues de code systématiques avant intégration.;Partiellement Appliqué;C I A;"PSSI
+Contrats de prestataires"
+Technologie;A.8.31 Séparation des environnements de développement, de test et de production;Inclus;SantéConnect a mis en place une sandbox dédiée et séparée pour les développements et tests de ses logiciels, avant toute mise en production.;Partiellement Appliqué;C I A;Procédures de sécurité IT
+Technologie;A.8.32 Gestion du changement;Inclus;SantéConnect applique :processus formalisé pour les changements (ex : demande → validation → déploiement), revues d’impact avant mise en production, rollback planifié en cas d’échec.;Partiellement Appliqué;C I A T;Procédures de sécurité IT
+Technologie;A.8.33 Informations de test;Inclus;"SantéConnect utilise : 
+- Données de test fictives (ex : jeux de données anonymisés). 
+- Environnements dédiés (ex : sandbox) pour éviter toute contamination des données réelles. 
+- Nettoyage systématique après les tests.";Partiellement Appliqué;C;Procédures de sécurité IT
+Technologie;A.8.34 Protection des informations lors de tests;Inclus;"SantéConnect protège les informations utilisées lors des tests via : 
+- Chiffrement des données de test (AES-256) pour éviter les fuites. 
+- Accès restreint aux environnements de test (ex : développeurs et testeurs autorisés uniquement). 
+- Traçabilité des activités (logs des accès et modifications pendant les tests).";Appliqué;C T;PSSI
