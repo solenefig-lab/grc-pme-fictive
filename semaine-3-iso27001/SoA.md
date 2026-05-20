@@ -111,7 +111,7 @@ Les 10 contrôles listés ci-dessous ont été identifiés comme **prioritaires*
 
 ## 6. Lien vers le CSV
 
-Cette déclaration s'appuie sur la revue complètedes 93 contrôles disponibles dans le document CSV de Déclaration d'Applicabilité (./declaration-applicabilite.csv).
+Cette déclaration s'appuie sur la revue complètedes 93 contrôles disponibles dans le document CSV de Déclaration d'Applicabilité ([declaration-applicabilite.csv](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-3-iso27001/declaration-applicabilite.csv)).
 
 ---
 
