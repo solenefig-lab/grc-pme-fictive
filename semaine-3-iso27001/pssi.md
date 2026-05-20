@@ -275,16 +275,20 @@ Annuellement, RH, DPO et RSSI auditent les niveaux de conformité et révisent l
 
 ### Signatures
 
-Atelier de validation PSSI : **20/01/2024** - Version émise le **15/02/2024**
+Version V1.0: Atelier de validation PSSI : **20/01/2024** 
 
-| Rôle | Nom | Date de signature |
-|---|---|---|
-| CEO SantéConnect | Martin DUPONT | 20/01/2024 |
-| DPO SantéConnect (As a Service) | Jeanne PETIT | 20/01/2024 |
-| RSSI | Claire ESPINOZA | 20/01/2024 |
-| RH | Bernard THOMAS | 20/01/2024 |
-| Comptabilité | Géraldine DUMONT | 20/01/2024 |
-| Développement Produit | Stéphane ROY | 20/01/2024 |
+Version V1.1: Atelier de validation PSSI : **15/02/2025** 
+
+Révision annuelle: **15/02/2026** 
+
+| Rôle | Nom | V1.0 | V1.1|
+|---|---|---|---|
+| CEO SantéConnect | Martin DUPONT | 20/01/2024 | 15/02/2025 |
+| DPO SantéConnect (As a Service) | Jeanne PETIT | 20/01/2024 | 15/02/2025 |
+| RSSI | Claire ESPINOZA | 20/01/2024 | 15/02/2025 |
+| RH | Bernard THOMAS | 20/01/2024 | 15/02/2025 |
+| Comptabilité | Géraldine DUMONT | 20/01/2024 | 15/02/2025 |
+| Développement Produit | Stéphane ROY | 20/01/2024 | 15/02/2025 |
 
 ### Déploiement
 
