@@ -14,7 +14,7 @@
  | [`PSSI.md`](./pssi.md) | **Politique de Sécurité des Systèmes d’Information** : Cadre global pour la sécurité, incluant rôles (RACI), objectifs, et mesures prioritaires (ex : chiffrement, gestion des accès). | ✅ Complet |
  | [`SoA.md`](./SoA.md) | **Statement of Applicability** : Mapping complet des contrôles ISO 27001 (A.5 à A.8) appliqués à SantéConnect, avec justifications, états (Appliqué/Partiellement Appliqué) et CIAT. | ✅ Complet |
  | [`declaration-applicabilite.csv`](./declaration-applicabilite.csv) | **Tableau synthétique** des contrôles ISO 27001, avec statut, CIAT et documentation liée, au format CSV pour une intégration facile dans des outils de suivi. | ✅ Complet |
- | **Matrice RBAC** | *À venir* : Matrice des droits d’accès (rôles, permissions, ressources) pour une gestion fine des accès. | 🔄 En cours |
+ | [`matriceRBAC.md`](./matriceRBAC.md) | Matrice des droits d’accès (rôles, permissions, ressources) pour une gestion fine des accès. | ✅ Complet|
  | **Plan de traitement des risques** | *Document ISO 27001 (cl. 6.1.3)* : Pour chaque risque identifié dans le SoA, **décision formelle** (Accepter / Réduire / Transférer / Éviter) + **actions concrètes** associées. Inclut : risques prioritaires, contrôles ISO 27001 liés, responsables, échéances, et indicateurs de suivi.| 🔄 En cours |
 
 ---
