@@ -96,7 +96,7 @@ Reprend et **enrichit le schéma 1.3** de la [fiche-risques-e-sante.md](https://
 - **Les ressources critiques** (dossiers médicaux, données paiement, logs).
 
 ```mermaid
-flowchart TD
+flowchart LR
     %% ===== ACTEURS =====
     subgraph Acteurs Internes
         A["Patient B2C<br>(RBAC-15,16,17)"] -->|L - via WebApp| B["Dossier médical<br>Critique"]
@@ -132,7 +132,7 @@ flowchart TD
     class B,I critical;
     class C,D,F,H,K,M,N sensitive;
     classDef default fill:#f9f9f9,stroke:#333;
-
+````
 
 
 ## Signatures
