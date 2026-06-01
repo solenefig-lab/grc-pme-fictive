@@ -87,8 +87,7 @@ multi-marchés (ZOE), gestion de plateformes digitales sur 40 pays.
 > Habituée aux environnements complexes : coordination d'équipes pluridisciplinaires,
 enjeux business critiques, contraintes de délais et de qualité.
 
-**Aujourd'hui :** spécialisation en cybersécurité avec un positionnement
-opérationnel en GRC, gestion des risques et coordination de projets sécurité.
+**Aujourd'hui :** Positionnement GRC fondé sur 10 ans de pilotage international data/IT, appliqué à la gouvernance, la gestion des risques et la conformité cyber.
 
 Capacités démontrées dans ce projet :
 - Structurer une démarche GRC complète pour une PME e-santé
