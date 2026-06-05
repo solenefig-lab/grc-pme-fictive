@@ -333,4 +333,4 @@ Signataires :
 | Convention CHU | [convention-chu.md](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-2-rgpd-hds/note-co-responsabilite-chu.md) | Accord de co-responsabilité avec le CHU pour les interconnexions. | Sections 4.1 (R-INT-01), 4.3 |
 | Contrat OVH | [contrat-ovh.md](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-2-rgpd-hds/synthese-clauses-sous-traitants.md) | Contrat incluant les clauses RGPD Art. 28 et HDS. | Sections 4.1 (R-HDS-01), 4.3 |
 | Contrat Stripe | [contrat-stripe.md](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-2-rgpd-hds/synthese-clauses-sous-traitants.md) | Contrat incluant les clauses PCI-DSS et RGPD Art. 28. | Sections 4.1 (R-DON-02), 4.3 |
-| Matrice de Conformité Réglementaire | Conformité réglementaire: voir section 6.1| Alignement avec RGPD, HDS, et NIS2. | Section 6.1 |
+| Matrice de Conformité Réglementaire | Conformité réglementaire: voir section 3.1| Alignement avec RGPD, HDS, et NIS2. | Section 3.1 |
