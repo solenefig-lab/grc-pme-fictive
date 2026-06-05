@@ -89,6 +89,28 @@ Sources : ANSSI, CNIL, NIST SP 800-63B.
 [📥 Télécharger CSV](./ISO27001_Liste-Controle.csv)
 
 ---
+### 5. Plan de Réponse aux Incidents (PRI) — Modèle PME e-santé
+**Fichier :** `plan_reponse_incidents.md`
+
+Modèle opérationnel de réponse aux incidents aligné ISO 27001:2022,
+RGPD, HDS et NIS2. Couvre la classification des incidents, les rôles,
+les playbooks (ransomware, fuite de données, phishing), le registre
+des incidents et les templates REX.
+
+| Section | Contenu |
+|---------|---------|
+| Personnalisation rapide | Table de correspondance SantéConnect → votre PME |
+| Classification P1→P4 | Sévérité, délais légaux, responsables |
+| Playbooks | Ransomware, fuite PII/Santé, phishing réussi |
+| Annexes | Obligations réglementaires, registre incidents, REX |
+
+**Public cible :** RSSI, DPO, dirigeants PME
+**Alignement :** ISO 27001:2022 (A.5.24→A.5.27), RGPD Art. 33-34,
+HDS R.1112-7, NIS2 Art. 21-23
+
+[📖 Consulter](./plan_reponse_incidents.md)
+
+-----
 
 ## 🔄 À venir
 
