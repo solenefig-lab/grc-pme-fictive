@@ -16,7 +16,7 @@ Plus de détails sont disponibles sur:
 - la liste des contrôles pour la gestion du système de l'information dans la [Déclaration d'applicabilité](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-3-iso27001/declaration-applicabilite.csv).
 - la politique de système d'information dans [Politique de Sécurité des Systèmes d'Information](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-3-iso27001/pssi.md)
 
-> ** Conformité ISO 27001:2022**
+> **Conformité ISO 27001:2022**  
 > Ce document répond aux exigences suivantes :
 > - **6.1.3** : Traitement des risques (méthodologie + actions documentées).
 > - **6.1.4** : Acceptation des risques résiduels (seuils définis).
@@ -208,8 +208,7 @@ Pour la gestion des risques, la norme ISO 27001 décrit quatre actions possibles
 | R-NIS2-02 | 3 | 2 | 6 | RSSI | % d’incidents traités dans les délais (suivi mensuel) + Nombre de vulnérabilités gérées | Absence de procédure de réponse aux incidents (A.5.25) + Vulnérabilités non gérées (A.8.8). |
 
 
--Note-:
-- R-DON-02: Contrôle compensatoire partiel avec chiffrement TLS délégué à Stripe (PCI-DSS Req. 4)
+_Note : R-DON-02: Contrôle compensatoire partiel avec chiffrement TLS délégué à Stripe (PCI-DSS Req. 4)._
 
 ### 4.2. Risques Acceptés (Score ≤ 5)
 
@@ -240,7 +239,7 @@ Risques dont le contrôle est entièrement porté par un tiers avec contrat en p
 ### 4.4 Regroupement des Risques (Score ≤ 3)
 
 
-|Thème** | **Contrôles couverts (ISO 27001:2022)** | **Score type** | **Justification** | **Responsable de surveillance** |
+|**Thème** | **Contrôles couverts (ISO 27001:2022)** | **Score type** | **Justification** | **Responsable de surveillance** |
 |-----------|----------------------------------------|----------------|------------------|--------------------------------|
 | **Sensibilisation et formation** | A.6.3 Sensibilisation, éducation et formation à la sécurité de l'information | 1-2 | Formation annuelle obligatoire + tests de phishing trimestriels. **Risque résiduel faible** (employés sensibilisés). | DPO |
 | **Maintenance et correctifs** | A.8.8 Gestion des vulnérabilités techniques, A.8.32 Gestion du changement | 2-3 | Correctifs appliqués sous **30 jours** + tests d’intrusion annuels. **Risque résiduel faible** pour une PME. | DevOps |
@@ -333,5 +332,5 @@ Signataires :
 | Rapport d'Audit Interne 2026 | [audit-interne-2026.md](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/plan-traitement-risques/audit-interne-2026.md) | Résultats des vérifications semestrielles. | Section 6.2 |
 | Convention CHU | [convention-chu.md](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-2-rgpd-hds/note-co-responsabilite-chu.md) | Accord de co-responsabilité avec le CHU pour les interconnexions. | Sections 4.1 (R-INT-01), 4.3 |
 | Contrat OVH | [contrat-ovh.md](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-2-rgpd-hds/synthese-clauses-sous-traitants.md) | Contrat incluant les clauses RGPD Art. 28 et HDS. | Sections 4.1 (R-HDS-01), 4.3 |
-| Contrat Stripe | [contrat-stripe.md](lhttps://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-2-rgpd-hds/synthese-clauses-sous-traitants.md) | Contrat incluant les clauses PCI-DSS et RGPD Art. 28. | Sections 4.1 (R-DON-02), 4.3 |
-| Matrice de Conformité Réglementaire | [conformite-reglementaire] | Alignement avec RGPD, HDS, et NIS2. | Section 6.1 |
+| Contrat Stripe | [contrat-stripe.md](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-2-rgpd-hds/synthese-clauses-sous-traitants.md) | Contrat incluant les clauses PCI-DSS et RGPD Art. 28. | Sections 4.1 (R-DON-02), 4.3 |
+| Matrice de Conformité Réglementaire | Conformité réglementaire: voir section 6.1| Alignement avec RGPD, HDS, et NIS2. | Section 6.1 |
