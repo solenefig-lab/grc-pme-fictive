@@ -53,12 +53,47 @@ threat intelligence MITRE ATT&CK
 
 ---
 
+### 3. Référentiel légal simplifié — RGPD / HDS
+**Fichier :** `Referentiel_legal_simplifie.md`
+
+Synthèse des obligations légales applicables aux PME e-santé françaises :
+RGPD, HDS (L.1111-8 CSP), Code de la Santé Publique, RGS, PGSSI-S.
+Conçu comme entrée rapide pour DPO, dirigeants et consultants junior.
+
+**Public cible :** DPO, dirigeants PME, consultants GRC junior
+**Contexte :** Produit en Semaine 2 du projet — aligné RGPD art. 28/32/33
+
+[📖 Consulter](./Referentiel_legal_simplifie.md)
+
+---
+
+### 4. ISO 27001:2022 — Contrôles priorisés pour PME e-santé
+**Fichier :** `ISO27001_Liste-Controle.md` *(+ version CSV disponible)*
+
+93 contrôles ISO 27001:2022 priorisés pour les PME e-santé, avec
+alignement HDS, RGPD et NIS2 par contrôle. 
+
+| Colonne | Contenu |
+|---------|---------|
+| Thème | Organisationnel / Personnes / Physiques / Technologie |
+| Contrôle | Référence ISO 27001:2022 + intitulé |
+| Sous-catégorie | Regroupement métier (ex : Gouvernance, Sauvegardes, IAM) |
+| Priorité PME | 🟢 Basique / 🟡 Intermédiaire / 🔴 Avancé |
+| Liens | Alignement HDS / RGPD / NIS2 par contrôle |
+
+**Public cible :** RSSI, DPO, consultants GRC, dirigeants PME
+**Approche :** Phase 1 → contrôles 🟢 (80% des risques, 20% de l'effort).
+Sources : ANSSI, CNIL, NIST SP 800-63B.
+
+[📖 Consulter](./ISO27001_Liste-Controle.md)
+[📥 Télécharger CSV](./ISO27001_Liste-Controle.csv)
+
+---
+
 ## 🔄 À venir
 
 | Semaine | Ressource prévue |
 |---------|-----------------|
-| Semaine 2 | [Référentiel légal simplifié](./Referentiel_legal_simplifie.md)  |
-| Semaine 3 | Modèle PSSI adapté PME santé |
 | Semaine 4 | Checklist NIS2 — impact pour PME prestataire |
 
 ---
