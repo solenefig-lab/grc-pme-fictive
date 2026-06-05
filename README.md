@@ -53,6 +53,8 @@ Des outils conçus dans le cadre de ce projet, adaptables à toute PME :
 | Cartographie des actifs GRC: Version PME | Dirigeants, DPO, consultants junior | [📥 Télécharger](./ressources/grc-asset-inventory-template-pme.xlsx) |
 | Cartographie des actifs GRC: Version Advanced | Équipes techniques, cabinets GRC | [📥 Télécharger](./ressources/grc-asset-inventory-template-pme-threats.xlsx) |
 | Vision base légale — Conformité RGPD-HDS | Responsables de PME sans expertise juridique| [Référentiel légal simplifié](./ressources/Referentiel_legal_simplifie.md) |
+| ISO 27001:2022 — Contrôles priorisés PME e-santé | RSSI, DPO, consultants GRC | [📖 Consulter](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/ressources/ISO%2027001_Liste_Controle.md) · [📥 Télécharger](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/ressources/ISO27001_Liste-Controle.csv))  |
+
 
 > Conçu avec une posture *"GRC comme produit"*, simple, progressif, ancré dans la réalité opérationnelle d'une PME.
 
