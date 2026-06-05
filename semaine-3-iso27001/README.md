@@ -33,6 +33,7 @@
 Ces artefacts sont **réutilisables pour toute PME** et illustrent une démarche ISO 27001 adaptée aux contraintes des petites structures :
  | Ressource | Description | Statut |
  |---|---|---|
+ | [`ISO27001:2002_Liste_Controle.md`](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/ressources/ISO%2027001_Liste_Controle.md) | 93 contrôles ISO 27001:2022 regroupés, illustrés priorisés pour les PME e-santé, avec alignement HDS, RGPD et NIS2 par contrôle. | ✅ Complet |
   | **Registre des alertes** | *À venir*  - Artefact opérationnel pour le suivi des incidents. | 🔄 En cours |
  
 
