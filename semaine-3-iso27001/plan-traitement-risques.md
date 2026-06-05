@@ -1,6 +1,6 @@
 # Plan de traitement des risques - ISO 27001:2022
 
-> **Document produit dans le cadre du projet portfolio GRC** - [github.com/solenefig-lab/grc-pme-fictive](https://github.com/solenefig-lab/grc-pme-fictive)  
+> **Document produit dans le cadre du projet portfolio GRC** - [grc-pme-fictive](https://github.com/solenefig-lab/grc-pme-fictive)  
 > Ce document est une synthèse pédagogique. Il ne se substitue pas à un audit réalisé par un organisme accrédité. Le niveau de granularité illustre une cible de maturité, non l'état courant du marché TPE/PME santé.  
 > Ce document illustre comment une PME e-santé peut aligner sa gestion des risques sur ses enjeux métiers (conformité RGPD/HDS, résilience opérationnelle) avec des ressources limitées.
 
@@ -8,7 +8,7 @@
 
 ## 1. Cadrage
 ### 1.1. Périmètre
-Le périmètre est celui défini dans[Gouvernance: cadrage audit] (https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-1-gouvernance/cadrage-audit.md) pour les infrastructures et applications, données traitées et le personnel.
+Le périmètre est celui défini dans [Gouvernance: cadrage audit](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-1-gouvernance/cadrage-audit.md) pour les infrastructures et applications, données traitées et le personnel.
 
 Plus de détails sont disponibles sur:
 - la cartographie des actifs et l'identification des menaces dans la [Fiche de gestion des risques e-santé](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-1-gouvernance/fiche-risques-e-sante.md).
@@ -45,7 +45,7 @@ Ce cadre permet de garantir une prise de décision cohérente, alignée avec les
 | **RSSI** | Piloter la **mise en œuvre** des mesures et le **suivi des risques**.      | Rédaction du plan, suivi mensuel.  |
 | **DPO**   | Garantir la **conformité RGPD/HDS** et valider les mesures liées aux données.   | Revue des risques liés aux données personnelles. |
 | **Responsable Produit** | Intégrer les **exigences de sécurité** dans les fonctionnalités (Privacy by Design). | Collaboration sur les risques liés au code. |
-| **DevOps ** | Appliquer les **mesures techniques** (ex : RBAC, sauvegardes).                  | Mise en œuvre des contrôles.     |
+| **DevOps** | Appliquer les **mesures techniques** (ex : RBAC, sauvegardes).                  | Mise en œuvre des contrôles.     |
 
 ---
 
@@ -60,13 +60,6 @@ Ce cadre permet de garantir une prise de décision cohérente, alignée avec les
 
 ### Synthèse des Actions Prioritaires (Section 4.1)
 
-   **Risque** | **Score** | **Mesure Clé** | **Budget** | **Échéance** | **Impact Attendu** |
- |------------|----------|----------------|------------|--------------|---------------------|
- | **APIs mal configurées** (R-API-01) | 9 | Déploiement d’un **WAF** + rotation des clés API | Elevé (>5k€). | 1 mois | Réduction du score à **4** |
- | **Usurpation d’identité** (R-DON-01) | 9 | Formation anti-phishing + **MFA systématique** | Moyen (1-5k€) | 2 mois | Réduction du score à **3** |
- | **Absence de TLS** (R-DON-02) | 9 | Chiffrement **TLS 1.3** + audit des transactions; Contrôle compensatoire partiel : chiffrement TLS délégué à Stripe (PCI-DSS Req. 4) | Moyen (1-5k€) | 1 mois | Réduction du score à **3** |
- | **Injection SQL/Ransomware** (R-DON-03) | 6 | Protection contre les malwares + sauvegardes chiffrées | Moyen (1-5k€) | 3 mois | Réduction du score à **4** |
- | **Applications grand public** (R-APP-01) | 6 | Audit de sécurité + tests de pénétration | Elevé (>5k€). | 2 mois | Réduction du score à **4** |
 
 | Risque | ID | Score | Mesure Clé | Budget | Échéance | Impact Attendu | Responsable |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -87,12 +80,14 @@ _Note : Les estimations budgétaires sont indicatives et basées sur des ordres 
 
 ### Bilan des Risques
 
+
  | **Section** | **Nombre de Risques** | **Score Moyen** | **Budget** | **Statut** |
- |-------------|-----------------------|-----------------|------------|------------|
+ |--------------------|-----------------------|-----------------|------------|------------|
  | **4.1 À Réduire** | 11 | 7.3 | _chiffrage précis via consultation / évaluation_| **Priorité absolue** |
  | **4.2 Acceptés** | 7 | 3.4 | 0 € | Contrôlés par des mesures existantes |
  | **4.3 Transférés** | 2 | 2.5 | 0 € | Délégés à des tiers certifiés (OVH, Stripe, CHU) |
  | **4.4 Regroupés** | ~35 | ≤ 3 | 0 € | Risques maîtrisés (sensibilisation, maintenance, contrats) |
+
 
 
 ### Points Clés pour la Direction
@@ -141,6 +136,7 @@ Sources utilisées :
 - Retours terrain (pré-supposés dans le cadre de ce portfolio): Incidents passés, audits, feedbacks métiers.
 
 **Risques réglementaires :**
+
 | Réglementation | Risques Typiques pour SantéConnect | Source |
 | --- | --- | --- |
 | RGPD | Accès non autorisé aux données personnelles, fuite de données, non-respect des droits des patients (Art. 15-17). | [Art. 5, 32, 33-34](https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=CELEX:32016R0679) |
@@ -196,6 +192,7 @@ Pour la gestion des risques, la norme ISO 27001 décrit quatre actions possibles
 
 ### 4.1. Risques à Réduire (Score ≥ 6)
 
+
 | ID | Impact | Probabilité | Score | Responsable | Indicateur de suivi |
 | --- | --- | --- | --- | --- | --- |
 | R-API-01 | 3 | 3 | 9 | RSSI | % d'APIs protégées par WAF (suivi hebdo) + Nombre de clés API rotées/mois. |
@@ -218,6 +215,7 @@ Pour la gestion des risques, la norme ISO 27001 décrit quatre actions possibles
 
 Risques contrôlés par des mesures existantes
 
+
 | ID   | Impact | Probabilité | Score | Responsable       | Indicateur de suivi | Justification d'acceptation |
 |-----------|------------|-----------------|----------|------------------------|-------------------------|--------------------------------|
 | R-DB-01   | 2          | 2               | 4        | RSSI | % de données sensibles masquées (suivi trimestriel) + Vérification annuelle de la certification HDS | Contrôle transféré partiellement à OVH (certifié HDS). Risque résiduel acceptable car OVH porte la responsabilité légale. |
@@ -229,8 +227,10 @@ Risques contrôlés par des mesures existantes
 | R-GOV-03 | 2 | 2 | 4 | Juridique + RSSI | % de contrats conformes RGPD Art. 28 | Responsabilités sécurité non définies (A.5.3) + Contrats sous-traitants non conformes (A.5.21, A.5.22, A.5.31). |
 | R-HDS-01 | 2 | 2 | 4 | RSSI | % de données de santé chiffrées au repos + Vérification annuelle de la certification HDS | Hébergement non certifié HDS (A.5.21) + Données santé non chiffrées (A.8.11, A.8.13, A.8.20). |
 
+
 ### 4.3. Risques Transférés/Évités
 Risques dont le contrôle est entièrement porté par un tiers avec contrat en place
+
 
 | ID   | Risque | Décision | Moyen de transfert/évitement| Propriétaire | Référence contractuelle |
 |-----------|------------|--------------|----------------------------------|------------------|-----------------------------|
@@ -238,6 +238,7 @@ Risques dont le contrôle est entièrement porté par un tiers avec contrat en p
 | T-020    | Transfert de données hors UE non conforme | **Transféré** | Transfert **délégué à OVH/Stripe** (clauses SCC ou BCR en place). | RSSI  | Contrat OVH Art. 44-49 RGPD + Contrat Stripe (PCI-DSS Req. 12) + Clauses Contractuelles Standard (SCC) |
 
 ### 4.4 Regroupement des Risques (Score ≤ 3)
+
 
 |Thème** | **Contrôles couverts (ISO 27001:2022)** | **Score type** | **Justification** | **Responsable de surveillance** |
 |-----------|----------------------------------------|----------------|------------------|--------------------------------|
@@ -275,7 +276,7 @@ Objectif : Assurer l’efficacité des mesures et leur mise à jour continue (IS
 | Fréquence de revue | Trimestrielle pour les risques critiques (score ≥ 6) et annuelle pour les autres. | Calendrier intégré dans Suivi Plan Traitement des Risques. |
 | Indicateurs | Mesure de l’efficacité via des KPIs (ex : % d’APIs protégées par WAF, délai moyen de notification des incidents). | Tableau de bord dans Suivi Plan Traitement des Risques. |
 | Amélioration continue | Mise à jour du PTR en cas de : Nouveaux risques (ex : nouveau fournisseur, changement réglementaire),Évolution du contexte (ex : augmentation du volume de données sensibles), Incidents (ex : faille de sécurité détectée). | Historique des versions  |
-¬ Audit interne  | Vérification semestrielle de l’application des mesures par le RSSI.      | Rapport d’audit 2026  |
+| Audit interne  | Vérification semestrielle de l’application des mesures par le RSSI.      | Rapport d’audit 2026  |
 
 ### 6.3 Signatures
 
