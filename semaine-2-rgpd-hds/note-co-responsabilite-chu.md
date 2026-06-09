@@ -149,6 +149,9 @@ Révision : 15/02/2026
 | Chef du Service Cardiologie CHU Fictif | Dr. Alice BEN-ALI | 15/01/2024 | 15/02/2025 |
 | DPO CHU Fictif | Jérôme LEPEUVE | 15/01/2024 | 15/02/2025 |
 
+
+_Note: Mis à jour en V2.0 (juin 2026) pour intégration des clauses NIS2 — voir [note-co-responsabilite-chu-maj-nis2.md](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-4-nis2/note-coresponsabilite-CHU-maj-nis2.md)._
+
 ---
 
 *Document produit dans le cadre du projet portfolio GRC — [github.com/solenefig-lab/grc-pme-fictive](https://github.com/solenefig-lab/grc-pme-fictive)*
