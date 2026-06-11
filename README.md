@@ -1,4 +1,4 @@
-# GRC Fil Rouge — Démarche complète pour une HealthTech fictive
+# GRC Fil Rouge - Démarche complète pour une HealthTech fictive
 
 ![Domaine](https://img.shields.io/badge/Domaine-GRC%20%7C%20Cybersécurité-purple)
 ![Secteur](https://img.shields.io/badge/Secteur-e--Santé-blue)
@@ -6,15 +6,15 @@
 ![Status](https://img.shields.io/badge/Status-En%20cours-orange)
 ![Niveau](https://img.shields.io/badge/Niveau-Junior%20GRC-yellow)
 
-> ⚠️ **Projet de démonstration pédagogique** — basé sur une PME fictive
+> ⚠️ **Projet de démonstration pédagogique** - basé sur une PME fictive
 > (SantéConnect). Les livrables reflètent une démarche GRC réelle adaptée
 > à un contexte simulé. Ils évoluent semaine après semaine au fil de la
 > montée en compétences de l'auteure. La démarche s’appuie sur une logique inspirée d’EBIOS Risk Manager (formalisation complète en semaine 5).
 
-# SantéConnect — Démarche GRC complète pour une HealthTech fictive
+# SantéConnect - Démarche GRC complète pour une HealthTech fictive
 
 > Simuler la mise en place d'une démarche GRC complète pour une PME du domaine
-> de la e-santé — de l'audit initial à l'impact NIS2 — pour démontrer des
+> de la e-santé - de l'audit initial à l'impact NIS2 - pour démontrer des
 > compétences en tant que consultante junior GRC et interface senior métier-IT.
 
 ---
@@ -26,7 +26,7 @@ médecins/praticiens pour améliorer le suivi, le partage d'informations et la
 prise de rendez-vous tout au long du parcours de soin.
 
 - **Utilisateurs :** 100 utilisateurs actifs (80 patients + 20 praticiens)
-- **Partenariat :** CHU local — spécialité cardiologie
+- **Partenariat :** CHU local - spécialité cardiologie
 - **Produits :** application mobile + WebApp patients / interface praticiens
 - **Hébergement :** 100 % France
 - **Valeurs fondatrices :** consentement éclairé, simplicité, sécurité
@@ -39,8 +39,8 @@ prise de rendez-vous tout au long du parcours de soin.
 | [0](./semaine-0-fondamentaux/contexte-santeconnect.md) | Fondamentaux | [Présentation SantéConnect](./semaine-0-fondamentaux/contexte-santeconnect.md) | ✅ Complet |
 | [1](./semaine-1-gouvernance/README.md) | Gouvernance & Risques | [Cadrage audit](./semaine-1-gouvernance/cadrage-audit.md) · [Fiche risques](./semaine-1-gouvernance/fiche-risques-e-sante.md) | ✅ Complet |
 | [2](./semaine-2-rgpd-hds/README.md) | RGPD & HDS | [Registre des Traitements](./semaine-2-rgpd-hds/registre-traitements/registre_traitement.md) · [AIPD synthétique](./semaine-2-rgpd-hds/aipd-synthetique.md) · [Note de co-responsabilité](./semaine-2-rgpd-hds/note-co-responsabilite-chu.md) · [Synthèse clauses sous-traitants](./semaine-2-rgpd-hds/synthese-clauses-sous-traitants.md) · [Procédure incident et notification](./semaine-2-rgpd-hds/procedure-incident-notification.md) · [Checklist audit RGPD-HDS](./semaine-2-rgpd-hds/checklist-audit-rgpd-hds.md)| ✅ Complet |
-| [3](./semaine-3-iso27001/README.md) | ISO 27001 | [PSSI](./semaine-3-iso27001/pssi.md) · [Tableau synthétique des contrôles ISO 27001](./semaine-3-iso27001/declaration-applicabilite.csv) · [Déclaration d'applicabilité synthètique (SOA)](./semaine-3-iso27001/SoA.md) · [Matrice RBAC](.//semaine-3-iso27001/matriceRBAC.md) · [Plan traitement des risques](.//semaine-3-iso27001/plan-traitement-risques.md)  | ✅ Complet |
-| 4 | NIS2 | Synthèse impact NIS2 + plan d'action | 🔄 En cours |
+| [3](./semaine-3-iso27001/README.md) | ISO 27001 | [PSSI](./semaine-3-iso27001/pssi.md) · [Tableau synthétique des contrôles ISO 27001](./semaine-3-iso27001/declaration-applicabilite.csv) · [Déclaration d'applicabilité synthètique (SOA)](./semaine-3-iso27001/SoA.md) · [Matrice RBAC](.//semaine-3-iso27001/matriceRBAC.md) · [Plan traitement des risques](./semaine-3-iso27001/plan-traitement-risques.md)  | ✅ Complet |
+| [4](./semaine-4-nis2/README.md) | NIS2 | [Note de coresponsabilité mise à jour NIS2](./semaine-4-nis2/note-coresponsabilite-CHU-maj-nis2.md) · [Analyse Impact NIS2](./semaine-4-nis2/analyse-impact-nis2.md) · Plan d'action  · PRA/PCA| 🔄 En cours |
 
 ---
 
@@ -52,9 +52,9 @@ Des outils conçus dans le cadre de ce projet, adaptables à toute PME :
 |-------|-------------|-------|
 | Cartographie des actifs GRC: Version PME | Dirigeants, DPO, consultants junior | [📥 Télécharger](./ressources/grc-asset-inventory-template-pme.xlsx) |
 | Cartographie des actifs GRC: Version Advanced | Équipes techniques, cabinets GRC | [📥 Télécharger](./ressources/grc-asset-inventory-template-pme-threats.xlsx) |
-| Vision base légale — Conformité RGPD-HDS | Responsables de PME sans expertise juridique| [Référentiel légal simplifié](./ressources/Referentiel_legal_simplifie.md) |
-| ISO 27001:2022 — Contrôles priorisés PME e-santé | RSSI, DPO, consultants GRC | [📖 Consulter](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/ressources/ISO%2027001_Liste_Controle.md) · [📥 Télécharger](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/ressources/ISO27001_Liste-Controle.csv))  |
-| Plan de Réponse aux Incidents (PRI) — Modèle PME e-santé | RSSI, DPO, dirigeants PME | [📖 Consulter](./ressources/plan_reponse_incidents.md) |
+| Vision base légale - Conformité RGPD-HDS | Responsables de PME sans expertise juridique| [Référentiel légal simplifié](./ressources/Referentiel_legal_simplifie.md) |
+| ISO 27001:2022 - Contrôles priorisés PME e-santé | RSSI, DPO, consultants GRC | [📖 Consulter](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/ressources/ISO%2027001_Liste_Controle.md) · [📥 Télécharger](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/ressources/ISO27001_Liste-Controle.csv))  |
+| Plan de Réponse aux Incidents (PRI) - Modèle PME e-santé | RSSI, DPO, dirigeants PME | [📖 Consulter](./ressources/plan_reponse_incidents.md) |
 
 
 > Conçu avec une posture *"GRC comme produit"*, simple, progressif, ancré dans la réalité opérationnelle d'une PME.
@@ -67,8 +67,8 @@ Des outils conçus dans le cadre de ce projet, adaptables à toute PME :
 |-------------|------------|-----------|
 | **RGPD** | Obligatoire | Toutes données personnelles et de santé |
 | **HDS** | Obligatoire | Hébergement de données de santé en France |
-| **NIS2** | Applicable | Secteur santé — indirectement via partenariat CHU |
-| **ISO 27001** | Recommandée | Sécurité de l'information — référence de marché |
+| **NIS2** | Applicable | Secteur santé - indirectement via partenariat CHU |
+| **ISO 27001** | Recommandée | Sécurité de l'information - référence de marché |
 | **Code de Santé Publique** | Obligatoire | Secret médical + partage inter-praticiens |
 | **RGS + PGSSI-S** | Applicable | Échanges sécurisés avec le CHU partenaire (établissement public) |
 
