@@ -55,6 +55,7 @@ Des outils conçus dans le cadre de ce projet, adaptables à toute PME :
 | Vision base légale - Conformité RGPD-HDS | Responsables de PME sans expertise juridique| [Référentiel légal simplifié](./ressources/Referentiel_legal_simplifie.md) |
 | ISO 27001:2022 - Contrôles priorisés PME e-santé | RSSI, DPO, consultants GRC | [📖 Consulter](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/ressources/ISO%2027001_Liste_Controle.md) · [📥 Télécharger](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/ressources/ISO27001_Liste-Controle.csv))  |
 | Plan de Réponse aux Incidents (PRI) - Modèle PME e-santé | RSSI, DPO, dirigeants PME | [📖 Consulter](./ressources/plan_reponse_incidents.md) |
+| Guide de conformité NIS2 Art. 21 & 23 pour PME e-santé et correspondance avec les contrôles ISO 27001:2022 | RSSI, DPO, dirigeants PME dans domaine e-santé | [📖 Consulter](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/ressources/nis2_correspondances_ISO27001.md)|
 
 
 > Conçu avec une posture *"GRC comme produit"*, simple, progressif, ancré dans la réalité opérationnelle d'une PME.
