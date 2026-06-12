@@ -23,7 +23,7 @@ sans prérequis technique.
 | 2. Grille de scoring | Critères d'impact, probabilité, décisions de traitement |
 | 3. Mapping des risques | Top risques identifiés + décision + priorité |
 
-**Public cible :** Dirigeants PME, DPO, consultants GRC junior
+**Public cible :** Dirigeants PME, DPO, consultants GRC junior  
 **Approche :** Inspirée du NIST CSF (People · Process · Technology),
 adaptée au contexte PME — posture *"GRC comme produit"*
 
@@ -45,7 +45,7 @@ pour aller jusqu'à l'analyse des menaces.
 | 3. Mapping des risques | Top risques + décision + priorité |
 | 4. Mapping Risques (Advanced) | + Tactiques MITRE ATT&CK par vecteur d'attaque |
 
-**Public cible :** Équipes techniques, RSSI, cabinets GRC
+**Public cible :** Équipes techniques, RSSI, cabinets GRC  
 **Différenciateur :** Combine scoring PME accessible et référentiel
 threat intelligence MITRE ATT&CK
 
@@ -60,7 +60,7 @@ Synthèse des obligations légales applicables aux PME e-santé françaises :
 RGPD, HDS (L.1111-8 CSP), Code de la Santé Publique, RGS, PGSSI-S.
 Conçu comme entrée rapide pour DPO, dirigeants et consultants junior.
 
-**Public cible :** DPO, dirigeants PME, consultants GRC junior
+**Public cible :** DPO, dirigeants PME, consultants GRC junior  
 **Contexte :** Produit en Semaine 2 du projet — aligné RGPD art. 28/32/33
 
 [📖 Consulter](./Referentiel_legal_simplifie.md)
@@ -81,7 +81,7 @@ alignement HDS, RGPD et NIS2 par contrôle.
 | Priorité PME | 🟢 Basique / 🟡 Intermédiaire / 🔴 Avancé |
 | Liens | Alignement HDS / RGPD / NIS2 par contrôle |
 
-**Public cible :** RSSI, DPO, consultants GRC, dirigeants PME
+**Public cible :** RSSI, DPO, consultants GRC, dirigeants PME  
 **Approche :** Phase 1 → contrôles 🟢 (80% des risques, 20% de l'effort).
 Sources : ANSSI, CNIL, NIST SP 800-63B.
 
@@ -104,19 +104,37 @@ des incidents et les templates REX.
 | Playbooks | Ransomware, fuite PII/Santé, phishing réussi |
 | Annexes | Obligations réglementaires, registre incidents, REX |
 
-**Public cible :** RSSI, DPO, dirigeants PME
+**Public cible :** RSSI, DPO, dirigeants PME  
 **Alignement :** ISO 27001:2022 (A.5.24→A.5.27), RGPD Art. 33-34,
 HDS R.1112-7, NIS2 Art. 21-23
 
 [📖 Consulter](./plan_reponse_incidents.md)
 
 -----
+### 6. NIS2 Art. 21 & 23 - Guide de conformité PME e-santé (ISO 27001:2022)
+**Fichier PME :** `nis2_correspondances_ISO27001.md`
+
+Guide pratique pour les PME e-santé travaillant avec un CHU ou un hôpital. Comprendre ce que votre partenaire peut exiger au titre de NIS2, évaluer votre couverture via vos contrôles ISO 27001:2022 existants, et identifier les preuves d'exécution attendues. 
+
+| Section | Contenu |
+|---------|---------|
+| Analyse rapide des attentes par domaine Art. 21 + Art. 23 | Table des domaines → thème central |
+| Correspondance ISO avec exemples de documents et preuves | Correspondances, documentation et couverture |
+
+
+**Public cible :** RSSI, DPO, dirigeants PME dans domaine e-santé  
+**Alignement :** ISO 27001:2022, NIS2 Art. 21-23
+
+[📖 Consulter](./nis2_correspondances_ISO27001.md)
+
+---
 
 ## 🔄 À venir
 
 | Semaine | Ressource prévue |
 |---------|-----------------|
-| Semaine 4 | Checklist NIS2 — impact pour PME prestataire |
+| Semaine 4 | template-pca-pra-pme.md - Modèle générique PCA/PRA pour PME e-santé : RTO/RPO réalistes, procédures types, alignement NIS2/HDS/RGPD |
+| Semaine 4 | script-revue-rbac.py - Script Python de vérification des droits RBAC : rapport hebdomadaire, accès suspects, intégrable Wazuh/Graylog |
 
 ---
 
