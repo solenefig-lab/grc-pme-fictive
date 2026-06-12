@@ -48,7 +48,7 @@ Ces artefacts sont **réutilisables pour toute PME e-santé** et illustrent une 
 
  | **Ressource** | **Description** | **Statut** |
  |---------------|----------------|------------|
- | **nis2-10-domaines.md** | Liste des **10 domaines de l’Art. 21 NIS2** avec leur **traduction en contrôles ISO 27001:2022** et **exemples de mise en œuvre pour une PME**. | 🔄 En cours |
+ | [nis2_correspondances_ISO27001.md](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/ressources/nis2_correspondances_ISO27001.md) | Guide de conformité NIS2 Art. 21 & 23 pour PME e-santé : analyse rapide des attentes par domaine, correspondance avec les contrôles ISO 27001:2022, exemples de documents et preuves d'exécution attendues. | ✅ Complet  |
  | **template-pca-pra-pme.md** | **Modèle générique de PCA/PRA** pour une PME, incluant des **RTO/RPO réalistes**, des **procédures types**, et des **liens vers les réglementations** (NIS2, HDS, RGPD). |🔄 En cours |
   | **script-revue-rbac.py** | **Script Python** pour **automatiser les revues d’habilitation** (RBAC) : Vérifie les **droits d’accès**, Génère un **rapport hebdomadaire** des accès suspects, **Intégrable avec Wazuh/Graylog** pour une surveillance centralisée. |  🔄 En cours |
 
