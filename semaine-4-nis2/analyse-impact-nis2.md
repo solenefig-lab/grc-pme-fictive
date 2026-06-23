@@ -17,7 +17,7 @@ SantéConnect est une PME française de 15 personnes fournissant des services nu
 **En conséquence, SantéConnect n'a pas d'obligation de notification vers l'ANSSI, pas d'obligation d'enregistrement sur MonEspaceNIS2, et aucun contrôle ANSSI direct ne peut lui être opposé.**
 
 ### Périmètre applicable
-Mais SantéConnect est impactée indirectement via le partenariat CHU et **ddes exigences contractuelles inspirées de NIS2, imposées par le CHU** pour garantir la sécurité des données partagées et des systèmes interconnectés. Ces exigences couvrent :
+Mais SantéConnect est impactée indirectement via le partenariat CHU et **des exigences contractuelles inspirées de NIS2, imposées par le CHU** pour garantir la sécurité des données partagées et des systèmes interconnectés. Ces exigences couvrent :
 - Les mesures de gestion des risques et de sécurité (NIS2 Art. 21.a à 21.j), notamment :
     -   21.a : Politiques de sécurité et analyses de risques.
     -   21.c : Plans de continuité des activités (PCA/PRA).
@@ -62,7 +62,7 @@ _- le registre des alertes est intégré au plan de réponse aux incidents (S3).
 
 ---
 
-## Plan d’Action pour Combler les Gaps**
+## Plan d’Action pour Combler les Gaps
 
 | **Priorité** | **Gap** | **Action** | **Responsable** | **Échéance** | 
  |--------------|---------|------------|------------------|--------------|
