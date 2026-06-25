@@ -16,7 +16,7 @@
  | [note-coresponsabilite-CHU-maj-nis2.md](note-coresponsabilite-CHU-maj-nis2.md) | Convention de co-responsabilité RGPD/HDS **mise à jour avec les clauses NIS2** (Art. 21 et 23), incluant les engagements du CHU et de SantéConnect. | ✅ Complet | 
  | [analyse-impact-nis2.md](./analyse-impact-nis2.md) | **Gap analysis NIS2** : Tableau comparatif des **10 domaines de l’Art. 21** et **Art. 23** vs. les contrôles ISO 27001:2022 existants, avec **priorisation des gaps** (🔴/🟡) . | ✅ Complet |
  | [pca-pra-santeconnect.md](./pra-pca.md) | **Plan de Continuité et de Reprise d’Activité** : Procédures pour maintenir/restaurer les services critiques (API HL7/FHIR, Base D-002) en cas d’incident, avec **RTO/RPO** alignés sur les exigences du CHU (ex : activation sous 4h). | ✅ Complet |
- | **plan-action-nis2.md** | **Feuille de route** pour combler les gaps NIS2 : Actions concrètes (ex : automatiser les revues RBAC, tester le PCA/PRA), **échéances**, et **responsables**. | 🔄 En cours |
+ | [plan-action-nis2.md](./plan_action_nis2.md) | **Feuille de route** pour combler les gaps NIS2 : Actions concrètes (ex : automatiser les revues RBAC, tester le PCA/PRA), **échéances**, et **responsables**. | ✅ Complet |
 
 
 
