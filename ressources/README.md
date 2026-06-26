@@ -129,12 +129,33 @@ Guide pratique pour les PME e-santé travaillant avec un CHU ou un hôpital. Com
 
 ---
 
+### 7. Script Python d'audit RBAC
+
+**Fichier :** `RBAC_audit_auto/rbac_audit.py`
+
+Script Python autonome pour auditer les droits d'accès (RBAC) et détecter les anomalies.
+Compare une matrice RBAC, un référentiel utilisateurs et des logs d'accès pour générer un rapport CSV horodaté.
+
+| Fichier | Contenu |
+|---------|---------|
+| `rbac_audit.py` | Script principal |
+| `MatriceRBAC.csv` | Matrice des règles RBAC |
+| `users.csv` | Référentiel utilisateurs (user → rôle) |
+| `user_access_log.csv` | Logs d'accès (format : `timestamp;user;role;resource;action;mfa_enabled`) |
+| `YYYYMMDD_HHMMSS_rapport_anomalies.csv` | Rapport généré |
+
+**Public cible :** RSSI, équipes techniques, consultants GRC  
+**Différenciateur :** Audit automatisé des droits RBAC avec génération de rapports horodatés, zéro dépendance externe.
+
+📥 [Télécharger le script](./audit_RBAC_auto/rbac_audit.py) · 📖 [Documentation](./audit_RBAC_auto/README.md)
+
+---
+
 ## 🔄 À venir
 
 | Semaine | Ressource prévue |
 |---------|-----------------|
 | Semaine 4 | template-pca-pra-pme.md - Modèle générique PCA/PRA pour PME e-santé : RTO/RPO réalistes, procédures types, alignement NIS2/HDS/RGPD |
-| Semaine 4 | script-revue-rbac.py - Script Python de vérification des droits RBAC : rapport hebdomadaire, accès suspects, intégrable Wazuh/Graylog |
 
 ---
 
