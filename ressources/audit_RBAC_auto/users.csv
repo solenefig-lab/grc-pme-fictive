@@ -1,0 +1,11 @@
+user_id;user;user_type;role;status
+USR001;Alice_Becque;Employee;Dev Produit;Active
+USR002;Ludovic_Pesjnac;Employee;Dev Produit;Active
+USR003;Claire_Espinoza;Employee;RSSI;Active
+USR004;Martin_Dupont;Employee;CEO;Active
+USR005;Julie_Martin;Employee;RH;Active
+USR006;David_Brune;Patient;Patient B2C;Active
+USR007;Paul_Lefebvre;Practitioner;Praticien B2B;Active
+USR008;API_CHU;Service;Compte de service API CHU;Active
+USR009;Stripe_API;Service;Compte de service API Stripe;Active
+USR010;OVH_Backup;Service;OVH (Sous-traitant);Active

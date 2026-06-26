@@ -1,0 +1,21 @@
+ID;Rôle;Catégorie de données;Classification;Ressources;Permission;MFA;Justification
+RBAC-01;CEO;Données RH / Paie;Sensible;Suivi des contrats et promotions;L E;O;Autorisation dirigeant limité aux propres données de l’entreprise (RGPD Art. 6)
+RBAC-02;CEO;Données financières;Sensible;Données financières;L;O;Accès en lecture seule pour supervision
+RBAC-03;RSSI;Logs techniques;Sensible;Logs Graylog;L A;O;Accès en lecture et administration pour surveillance (ISO A.8.15). Pas d’écriture pour préserver l’intégrité
+RBAC-04;RSSI;Infra OVH (console admin);Critique;Infra OVH (console admin);L E A;O;Accès admin complet pour gestion de l’infrastructure (ISO A.12.1)
+RBAC-05;DPO;Registre des traitements;Sensible;Données métadonnées;L E;O;Gestion du registre des traitements (RGPD Art.30)
+RBAC-06;Dev Produit;Plateforme B2B praticiens;Sensible;Données praticiens;L E;O;Développement et maintenance
+RBAC-07;Dev Produit;App Mobile / WebApp (admin);Sensible;Code source;L E;O;Accès aux branches dev/test
+RBAC-08;Dev Produit;Logs techniques;Sensible;Logs Graylog;L;O;Besoin de debug
+RBAC-09;Dev Produit;Infra OVH (console admin);Critique;Infra OVH (console admin);-;O;Aucun accès (séparation des privilèges ISO A.5.3)
+RBAC-10;RH;Données RH / Paie;Sensible;Données RH;L E S;O;Gestion RH
+RBAC-11;Comptabilité;Données financières;Sensible;Données financières;L E;O;Gestion financière
+RBAC-12;Praticien B2B;Données patients;Critique;Données de santé;L X;O;Principe du moindre privilège
+RBAC-13;Laboratoires;Dossier médical;Critique;API CHU/labos;L E;O;Ajout uniquement
+RBAC-14;Praticien B2B;Plateforme B2B praticiens;Sensible;Données praticiens;L E;O;Gestion du profil
+RBAC-15;Patient B2C;Gestion des comptes patients;Sensible;Ses coordonnées;L E;N;Gestion du compte
+RBAC-16;Patient B2C;Données patients;Critique;Données patients;L;N;Droit d'accès (RGPD Art.15)
+RBAC-17;Patient B2C;Données de paiement;Sensible;Données financières;L E;N;Gestion abonnement
+RBAC-18;Compte de service API CHU;API CHU/labos;Critique;Données de santé;L;O;Lecture seule
+RBAC-19;Compte de service API Stripe;API Stripe;Sensible;Données financières;L E;O;Transactions
+RBAC-20;OVH (Sous-traitant);Données médicales;Critique;Sauvegardes hébergement;L;O;Lecture seule sauvegardes
