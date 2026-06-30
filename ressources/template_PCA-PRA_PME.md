@@ -1,4 +1,52 @@
-# Plan de Rétablissement et de Continuité de l'Activité de SantéConnect (PRA/PCA)
+Périmètre template PCA/PRA PME — proposition
+Structure légère, 5 sections :
+
+En-tête — variables à remplir (nom PME, secteur, hébergeur, référentiels applicables)
+Processus critiques — tableau générique avec exemples e-santé en commentaire
+RTO/RPO — tableau avec fourchettes réalistes par niveau de criticité + note méthodologique
+Procédures types — 3 scénarios (cyberattaque, panne, fuite de données) en format checklist
+Contacts et preuves — tableaux vides avec colonnes pré-définies
+
+Plus un bloc de liens réglementaires en annexe (NIS2 / HDS / RGPD / ISO 27001) avec les articles clés.
+Ce que le template ne fait pas : il ne remplace pas l'analyse de risques — une note d'introduction le dit explicitement.
+
+Extraction/généralisation de SantéConnect : tu pars du PCA/PRA existant, tu neutralises les éléments spécifiques (OVH HDS, API HL7/FHIR, CHU) et tu les remplace par des variables génériques. Travail rapide, cohérence garantie avec le portfolio, mais le template reste marqué e-santé.
+
+bien cadré dans la spec :
+
+5 sections cohérentes (en-tête, processus critiques, RTO/RPO, procédures types, contacts/preuves). C'est la colonne vertébrale d'un PCA opérationnel, pas décoratif.
+Variables génériques + note adaptation secteurs — c'est exactement ce qui différencie un template réutilisable d'un copié-collé SantéConnect.
+Annexe liens réglementaires (NIS2/HDS/RGPD/ISO) — forte valeur ajoutée pour une PME sans RSSI à temps plein.
+
+Ce que je challengerais :
+Est-ce que le template inclut un critère de déclenchement générique ? Le seuil "P1 confirmé ou indisponibilité >30 min" est ancré dans SantéConnect — une PME pharma ou fintech a des seuils différents. Si le template garde ce seuil sans le mettre entre [VARIABLE], il n'est plus générique, il est trompeur.
+Est-ce que la distinction Activation 4h / RTO 72h est expliquée dans le template ? C'est contre-intuitif pour quelqu'un qui découvre (activation ≠ rétablissement complet), et c'est le point que les PME ratent systématiquement dans leurs audits.
+Est-ce que la section "preuves" est actionnée ? Dans un audit ISO ou HDS, ce n'est pas la procédure qui compte, c'est la preuve d'exercice. Un template sans colonne "test réalisé le / résultat" sera jugé incomplet dès le premier audit.
+
+irigeant PME e-santé certifiée ISO (profil vipali)
+Ce que ce template résout pour moi :
+
+Je n'ai pas de RSSI à temps plein. Un template clair avec des variables et des seuils commentés me fait gagner 3 jours de rédaction et m'évite de repartir de zéro à chaque renouvellement ISO.
+Le lien réglementaire en annexe est exactement ce dont j'ai besoin pour répondre à mon auditeur sans chercher dans 4 référentiels différents.
+
+Ce qui me ferait douter avant de l'adopter :
+Est-ce que les RTO/RPO sont accompagnés d'une méthode de calcul, même sommaire ? "72h" sans explications sur comment j'arrive à ce chiffre pour mon contexte, c'est un chiffre que je vais copier sans le comprendre. Et le jour de l'incident, 72h n'a peut-être aucun sens pour moi.
+Est-ce que le template intègre le scénario OVH (panne hébergeur) comme exemple concret ? C'est le scénario n°1 que toute PME hébergée en cloud comprend immédiatement. Si le template reste trop abstrait, le dirigeant ne s'en empare pas.
+
+Regard auditeur / intégrateur
+Ce qui a de la valeur dans l'approche :
+
+Un template public, daté, versionné, avec des liens réglementaires à jour (ReCyF ANSSI 2026 notamment) — c'est exactement ce qu'on n'a pas sur le marché pour les TPE/PME e-santé. La niche est réelle.
+Le script RBAC en complément donne une cohérence d'ensemble (gouvernance → continuité → surveillance) qui dépasse largement le niveau junior attendu.
+
+Ce que je regarderais en audit :
+Le template est-il testable ? Un PCA qui n'a jamais été testé n'existe pas. Est-ce qu'il y a une section "exercice annuel" avec un mini-scénario de test ? Même simulé, même fictif — ça prouve que l'auteur comprend qu'un PCA est vivant, pas un document de conformité statique.
+Est-ce que le template mentionne le responsable de mise à jour et la fréquence de révision ? Si non, en audit ISO cl. 8.1 et A.5.29, c'est une non-conformité mineure quasi-automatique.
+
+La question clé que je te pose avant de valider le livrable :
+Dans ton template, est-ce que tu as distingué les éléments à adapter obligatoirement (balisés [VARIABLE] ou similaire) des éléments directement utilisables ? Et est-ce que tu as prévu une section — même courte — sur la preuve de test ? Ce sont les deux points qui font la différence entre un document portfolio et un document professionnel opérationnel.
+
+# Plan de Rétablissement et de Continuité de l'Activité (PRA/PCA) - template PME e-santé [NOM PME]
 
 > Document fictif - Projet portfolio GRC - github.com/solenefig-lab/grc-pme-fictive Ce document est une synthèse pédagogique. Il ne se substitue pas à un audit réalisé par un organisme accrédité. Le niveau de granularité illustre une cible de maturité, non l'état courant du marché TPE/PME santé.
 
@@ -203,7 +251,7 @@ SantéConnect fixe les objectifs suivants :
 - **Tests annuels :** SantéConnect testera son PCA/PRA au moins une fois par an et fournira les preuves au CHU.
 - **Activation sous 4h :** En cas d’incident critique, le déclenchement de la procédure PCA/PRA sera activé sous 4h.
 
-En cas d'interruption majeure, la continuité des soins est assurée par le CHU qui dispose des données patients par ailleurs. SantéConnect maintient un accès en lecture seule aux données non médicales via interface web OVH sur environnement isolé.
+En cas d'interruption majeure, la continuité des soins est assurée par le CHU qui dispose des données patients par ailleurs. SantéConnect maintient un accès en lecture seule aux données non médicales via interface web OVH sur environnement isolé. ``
 - Déclenchement sur validation RSSI et CEO.
 - Seuil de déclenchement : incident P1 confirmé, ou indisponibilité > 30 minutes.
 

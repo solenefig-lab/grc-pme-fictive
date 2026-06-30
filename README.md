@@ -2,9 +2,11 @@
 
 ![Domaine](https://img.shields.io/badge/Domaine-GRC%20%7C%20Cybersécurité-purple)
 ![Secteur](https://img.shields.io/badge/Secteur-e--Santé-blue)
-![Référentiels](https://img.shields.io/badge/Référentiels-RGPD%20%7C%20HDS%20%7C%20NIS2%20%7C%20ISO%2027001-red)
+![Référentiels](https://img.shields.io/badge/Référentiels-RGPD%20%7C%20HDS%20%7C%20ISO%2027001%20%7C%20NIS2%20%7C%20ReCyF-red)
+![Méthode](https://img.shields.io/badge/Méthode-EBIOS%20Risk%20Manager-darkgreen)
+![Outils](https://img.shields.io/badge/Outils-Python%20%7C%20Markdown%20%7C%20GitHub-lightgrey)
 ![Status](https://img.shields.io/badge/Status-En%20cours-orange)
-![Niveau](https://img.shields.io/badge/Niveau-Junior%20GRC-yellow)
+![Niveau](https://img.shields.io/badge/Niveau-GRC%20Opérationnel%20PME-yellow)
 
 > ⚠️ **Projet de démonstration pédagogique** - basé sur une PME fictive
 > (SantéConnect). Les livrables reflètent une démarche GRC réelle adaptée
@@ -41,6 +43,7 @@ prise de rendez-vous tout au long du parcours de soin.
 | [2](./semaine-2-rgpd-hds/README.md) | RGPD & HDS | [Registre des Traitements](./semaine-2-rgpd-hds/registre-traitements/registre_traitement.md) · [AIPD synthétique](./semaine-2-rgpd-hds/aipd-synthetique.md) · [Note de co-responsabilité](./semaine-2-rgpd-hds/note-co-responsabilite-chu.md) · [Synthèse clauses sous-traitants](./semaine-2-rgpd-hds/synthese-clauses-sous-traitants.md) · [Procédure incident et notification](./semaine-2-rgpd-hds/procedure-incident-notification.md) · [Checklist audit RGPD-HDS](./semaine-2-rgpd-hds/checklist-audit-rgpd-hds.md)| ✅ Complet |
 | [3](./semaine-3-iso27001/README.md) | ISO 27001 | [PSSI](./semaine-3-iso27001/pssi.md) · [Tableau synthétique des contrôles ISO 27001](./semaine-3-iso27001/declaration-applicabilite.csv) · [Déclaration d'applicabilité synthètique (SOA)](./semaine-3-iso27001/SoA.md) · [Matrice RBAC](.//semaine-3-iso27001/matriceRBAC.md) · [Plan traitement des risques](./semaine-3-iso27001/plan-traitement-risques.md)  | ✅ Complet |
 | [4](./semaine-4-nis2/README.md) | NIS2 | [Note de coresponsabilité mise à jour NIS2](./semaine-4-nis2/note-coresponsabilite-CHU-maj-nis2.md) · [Analyse Impact NIS2](./semaine-4-nis2/analyse-impact-nis2.md) · [Plan d'action](./semaine-4-nis2/plan_action_nis2.md)  · [PRA/PCA](./semaine-4-nis2/pra-pca.md)| ✅ Complet |
+| [5](./semaine-5-ebios-rm/README.md) | EBIOS Risk Manager | [Atelier 1 - Cadrage et socle de sécurité](../grc-pme-fictive/semaine-5-ebios-rm/ebios-rm-santeconnect-cadrage.md) · Atelier 2 - Sources de risque · Scénario opérationnel - Compromission API CHU · Synthèse et plan d'action | 🔄 En cours |
 
 ---
 
@@ -70,6 +73,7 @@ Des outils conçus dans le cadre de ce projet, adaptables à toute PME :
 | **RGPD** | Obligatoire | Toutes données personnelles et de santé |
 | **HDS** | Obligatoire | Hébergement de données de santé en France |
 | **NIS2** | Applicable | Secteur santé - indirectement via partenariat CHU |
+| **ReCyF (ANSSI)** |Anticipée | Référentiel cible pré-transposition NIS2 française |
 | **ISO 27001** | Recommandée | Sécurité de l'information - référence de marché |
 | **Code de Santé Publique** | Obligatoire | Secret médical + partage inter-praticiens |
 | **RGS + PGSSI-S** | Applicable | Échanges sécurisés avec le CHU partenaire (établissement public) |

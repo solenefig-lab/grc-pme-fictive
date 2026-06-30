@@ -162,11 +162,11 @@ Toutefois, en tant que prestataire d’un établissement de santé, elle peut ê
 
 ---
 
-## 📎 Documents associés
+## 📎 Principaux documents associés
 
 | Semaine | Livrable |
 |---------|----------|
-| Semaine 1 | [Fiche risques](../semaine-1-gouvernance/fiche-risques-e-sante.md) |
-| Semaine 2 | Audit RGPD-HDS + registre des traitements |
-| Semaine 3 | PSSI adaptée à la santé |
-| Semaine 4 | Synthèse impact NIS2 + plan d'action |
+| [Semaine 1](../semaine-1-gouvernance/README.md) | [Fiche risques](../semaine-1-gouvernance/fiche-risques-e-sante.md) |
+| [Semaine 2](../semaine-2-rgpd-hds/README.md) | [Audit RGPD-HDS](../semaine-2-rgpd-hds/checklist-audit-rgpd-hds.md) + [Registre des traitements](../semaine-2-rgpd-hds/registre-traitements/registre_traitement.md) |
+| [Semaine 3](../semaine-3-iso27001/README.md) | [PSSI adaptée à la santé](../semaine-3-iso27001/pssi.md) |
+| [Semaine 4](../semaine-4-nis2/README.md) | [Synthèse impact NIS2](../semaine-4-nis2/analyse-impact-nis2.md) + [Plan d'action](../semaine-4-nis2/plan_action_nis2.md) |

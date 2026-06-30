@@ -59,3 +59,5 @@ Ces artefacts sont **réutilisables pour toute PME e-santé** et illustrent une 
 
 Les **gaps résiduels identifiés** (micro-segmentation, surveillance continue) **alimenteront les scénarios de risque de l’analyse EBIOS RM**.
 Cette analyse permettra de prioriser les risques liés à la chaîne d’approvisionnement (ex : OVH, CHU) et aux incidents critiques (ex : fuite de données, indisponibilité des services), en alignement avec les exigences **NIS2, HDS, RGPD et ISO 27001**.
+
+[Semaine 5 - Méthode EBIOS RM](../semaine-5-ebios-rm/README.md)
