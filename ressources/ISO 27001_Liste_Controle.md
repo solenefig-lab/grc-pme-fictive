@@ -1,7 +1,7 @@
 # ISO 27001:2022 – Contrôles regroupés par sous-catégorie pour les PME e-santé
 
 > Alignement HDS/RGPD/NIS2 et priorisation pratique.  
-> Ce document est une entrée, pas un audit. Il est conçu pour donner une vision claire aux responsables de PME sans expertise juridique des contrôles ISO 27001:2022, des informations concernées et des actions prioritaires à mener.
+> Ce document est une entrée, pas un audit. Il est conçu pour donner une vision claire aux responsables de PME sans expertise juridique des contrôles ISO 27001:2022, des informations concernées et des actions prioritaires à mener. Les correspondances réglementaires citées sont indicatives et ne constituent pas un avis juridique.
 
 ## **Objectif**
 Ce tableau a pour but de **simplifier l’application de l’ISO 27001:2022** pour les PME du secteur e-santé, en :
@@ -52,7 +52,7 @@ ___
 | Organisationnel | A.5.14 Transfert d’informations | Sécurité des échanges | Sécuriser les transferts de données (chiffrement, protocoles). | Utiliser un VPN ou un outil chiffré (ex: Signal) pour envoyer des données médicales à un partenaire. | 🟡 | RGPD (Art. 32, 44), HDS (chiffrement) |
 | Organisationnel | A.5.15 Contrôle d’accès | Gestion des accès | Limiter l’accès aux informations aux personnes autorisées. | Restreindre l’accès aux dossiers patients aux seuls médecins et infirmiers concernés. | 🟢 | RGPD (Art. 29, 32), HDS (contrôle d’accès strict) |
 | Organisationnel | A.5.16 Gestion des identités | IAM | Créer, modifier et supprimer les identités numériques de manière sécurisée. | Utiliser un annuaire LDAP pour gérer les comptes utilisateurs et leurs droits. | 🟡 | RGPD (Art. 32), HDS (IAM) |
-| Organisationnel | A.5.17 Informations d’authentification | IAM | Protéger les informations d’authentification (mots de passe, clés, certificats) contre les accès non autorisés, avec une rotation uniquement en cas de compromission avérée (recommandation NIST/ANSSI). | Utiliser des mots de passe robustes (12+ caractères, gestionnaire de mots de passe) et désactiver la rotation périodique automatique sauf en cas de fuite. Privilégier le MFA pour les accès sensibles (ex: DMP, PMS). | 🟢 |ANSSI (Reco MFA et mots de passe), CNIL (Reco mots de passe 2022), RGPD (Art. 32) |
+| Organisationnel | A.5.17 Informations d’authentification | IAM | Protéger les informations d'authentification (mots de passe, clés, certificats) contre les accès non autorisés. Rotation déclenchée par événement (compromission avérée) plutôt que périodique systématique - un choix parmi d'autres approches possibles. | Utiliser des mots de passe robustes (12+ caractères, gestionnaire de mots de passe) et désactiver la rotation périodique automatique sauf en cas de fuite. Privilégier le MFA pour les accès sensibles (ex: DMP, PMS). | 🟢 |ANSSI (Reco MFA et mots de passe), CNIL (Reco mots de passe 2022), RGPD (Art. 32) |
 | Organisationnel | A.5.18 Droits d’accès | IAM | Accorder des droits minimaux nécessaires (principe du moindre privilège). | Donner un accès en lecture seule aux secrétaires pour les dossiers patients. | 🟢 | RGPD (Art. 29), HDS (moindre privilège) |
 | Organisationnel | A.5.21 Chaîne d’approvisionnement TIC | Contrats et conformité | Évaluer et surveiller la sécurité des fournisseurs IT. | Pour PME avec hébergeur HDS certifié : Vérifier annuellement la certification et auditer les sous-traitants (ex: sauvegarde). Pour une PME non certifiée (priorité haute) : Choisir un hébergeur HDS et auditer la chaîne complète. | 🟡 | HDS (exigence), NIS2 (Art. 21) |
 | Organisationnel | A.5.22 Surveillance des services fournisseurs | Contrats et conformité | Surveiller les performances et la sécurité des services externalisés. | Auditer annuellement le fournisseur de sauvegarde pour vérifier la conformité RGPD. | 🟡 | RGPD (Art. 28), NIS2 (Art. 21) |
@@ -109,3 +109,5 @@ ___
 | Technologie | A.8.31 Séparation des environnements | Développement sécurisé | Isoler les environnements (dev, test, prod). | Utiliser des serveurs dédiés pour chaque environnement. | 🟡 | RGPD (Art. 25), HDS (exigence) |
 | Technologie | A.8.32 Gestion du changement | Maintenance et correctifs | Contrôler les modifications des systèmes. | Documenter et valider les changements via GitLab ou Jira. | 🟡 | RGPD (Art. 30), NIS2 (Art. 21) |
 | Technologie | A.8.33 Informations de test | Développement sécurisé | Protéger les données de test. | Utiliser des données fictives ou anonymisées. | 🟢 | RGPD (Art. 25), HDS (anonymisation) |
+
+_Licence : CC BY 4.0 — Attribution : Solène Figueiredo, projet grc-pme-fictive_

@@ -54,12 +54,12 @@
 | --- | --- | --- |
 | Nom de l’entreprise | SantéConnect | [Votre nom] |
 | RSSI | Claire ESPINOZA | [Nom] |
-| Email RSSI | [claire.espinoza@santeconnect.fr](mailto:claire.espinoza@santeconnect.fr) | [Email] |
+| Email RSSI | [claire.espinoza@santeconnect-demo.fr](mailto:claire.espinoza@santeconnect-demo.fr) | [Email] |
 | DevOps | Stéphane ROY | [Nom] |
 | DPO | Jeanne PETIT | [Nom] |
 | CEO | Martin DUPONT | [Nom] |
 | RH | Bernard THOMAS | [Nom] |
-| Email Incidents | [incident@santeconnect.fr](mailto:incident@santeconnect.fr) | [Email] |
+| Email Incidents | [incident@santeconnect-demo.fr](mailto:incident@santeconnect-demo.fr) | [Email] |
 | Ligne Téléphonique | +33 1 23 45 67 89 | [Numéro] |
 | Outil de Logging | Graylog | [Outil] |
 | Outil EDR | Wazuh | [Outil] |
@@ -391,3 +391,4 @@ Documentation liée à créer séparément, mettre à jour et archivée pour anc
 
 
 -----
+_Licence : CC BY 4.0 — Attribution : Solène Figueiredo, projet grc-pme-fictive_

@@ -2,6 +2,7 @@
 
 > Document réalisé dans le cadre du projet portfolio GRC - [grc-pme-fictive](https://github.com/solenefig-lab/grc-pme-fictive).
 Ce projet est un démonstrateur pédagogique illustrant des contrôles IAM/RBAC. Il ne constitue pas un outil d'audit exhaustif et ne se substitue pas à une évaluation de sécurité réalisée dans un contexte opérationnel.
+_Note : Les noms d'utilisateurs figurant dans les jeux de données (ex. users.csv, user_access_log.csv) sont fictifs, y compris ceux ne suivant pas la convention -Demo. Toute ressemblance avec des personnes réelles serait fortuite._
 
 ---
 
@@ -42,7 +43,7 @@ RBAC_audit/
 │── MatriceRBAC.csv
 │── users.csv
 │── user_access_log.csv
-│── 20260626_123149_rapport_anomalies.csv
+│── 20260630_232208_rapport_anomalies.csv
 ```
 
 ---
@@ -72,7 +73,7 @@ YYYYMMDD_HHMMSS_rapport_anomalies.csv
 Exemple :
 
 ```
-20260626_160000_rapport_anomalies.csv
+20260630_232208_rapport_anomalies.csv
 ```
 
 ---
@@ -319,7 +320,7 @@ A complétion du script, le résumé suivant apparaît. Il pourrait très bien a
 [INFO] Logs d'accès chargés : 5 entrées.
 [INFO] Référentiel IAM chargé : 10 utilisateurs.
 [INFO] 3 anomalies détectées.
-[SUCCESS] Rapport généré : 20260626_123149_rapport_anomalies.csv
+[SUCCESS] Rapport généré : 20260630_232208_rapport_anomalies.csv
 === [FIN] Audit terminé ===
 ```
 
@@ -376,3 +377,7 @@ Cette intégration est volontairement :
 Elle simule un flux de type :
 
 `Audit RBAC → Détection anomalie → Event SIEM → Analyse SOC`
+
+---
+
+_Licence : MIT — Attribution : Solène Figueiredo, projet grc-pme-fictive_

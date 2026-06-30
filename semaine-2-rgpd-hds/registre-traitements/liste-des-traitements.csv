@@ -1,8 +1,8 @@
 "Coordonnées du responsable de l’organisme
-(responsable de traitement ou son représentant si le responsable est situé en dehors de l’UE)";Nom :;DUPONT;Prénom :;MARTIN;Adresse :;123 allée du bois;Adresse mél :;m.dupont@santeconnect.fr;
+(responsable de traitement ou son représentant si le responsable est situé en dehors de l’UE)";Nom :;DUPONT;Prénom :;MARTIN;Adresse :;123 allée du bois;Adresse mél :;m.dupont@santeconnect-demo.fr;
 ;Code postal :;00000;Ville :;Fictif;Téléphone :;06070809;;;
 Coordonnées du délégué à la protection des données (DPO);Nom :;DPO;Prénom :;Service;Société (si DPO externe) :;DPO-as-a-Service;Adresse :;456 chemin Promenade;
-;Code postal :;0000;Ville :;Fictif;Téléphone :;06070607;Adresse mél :;DPO-service@dpo-service.fr;
+;Code postal :;0000;Ville :;Fictif;Téléphone :;06070607;Adresse mél :;contact@dpo-service-demo.fr;
 Identification du traitement;;;;;Finalité du traitement;;;Données sensibles ?;
 Nom du traitement;N° / RÉF;Date de création de la fiche;Dernière mise à jour de la fiche;Date validation DPO;;;;Oui/non;
 Gestion des comptes patients;D-001;01/03/2024;12/03/2024;15/03/2024;Création et gestion des comptes utilisateurs (patients) pour l’accès aux services SantéConnect, incluant l’authentification et la récupération de mot de passe.;;;Non;

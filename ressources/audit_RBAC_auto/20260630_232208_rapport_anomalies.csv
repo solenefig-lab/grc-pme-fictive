@@ -1,4 +1,4 @@
 timestamp,user,role,resource,action,mfa_enabled,rbac_rule,control_type,classification,reason,severity
-2026-06-25T10:05:00,Ludovic_Pesjnac,Dev Produit,Infra OVH (console admin),write,True,RBAC-09,ExplicitDeny,Critique,Accès explicitement interdit par la politique RBAC (RBAC-09).,critical
+2026-06-25T10:05:00,Stephane_Roy,Dev Produit,Infra OVH (console admin),read,True,RBAC-09,ExplicitDeny,Critique,Accès explicitement interdit par la politique RBAC (RBAC-09).,critical
 2026-06-25T11:00:00,Claire_Espinoza,RSSI,Logs Graylog,write,True,RBAC-03,PermissionViolation,Sensible,"Action 'write' non autorisée (permissions autorisées : L, A).",high
 2026-06-25T13:00:00,Martin_Dupont,CEO,Données financières,write,True,RBAC-02,PermissionViolation,Sensible,Action 'write' non autorisée (permissions autorisées : L).,high

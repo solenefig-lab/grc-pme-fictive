@@ -119,7 +119,7 @@ Les audits sont à la charge de SantéConnect, sauf si un manquement est constat
 
 ### 9. Obligation de signaler toute instruction illégale - Art. 28.3.i
 
-Toute instruction illégale doit être signalée par écrit au DPO de SantéConnect (DPO As a Service - privacy@santeconnect.fr) **dans les 24h**, avec copie dans le registre des incidents.
+Toute instruction illégale doit être signalée par écrit au DPO de SantéConnect (DPO As a Service - privacy@santeconnect-demo.fr) **dans les 24h**, avec copie dans le registre des incidents.
 
 ---
 

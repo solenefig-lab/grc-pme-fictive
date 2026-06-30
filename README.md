@@ -47,19 +47,24 @@ prise de rendez-vous tout au long du parcours de soin.
 
 ---
 
-## 🛠️ Ressources réutilisables
+## 🛠️ Bibliothèque de ressources GRC
 
-Des outils conçus dans le cadre de ce projet, adaptables à toute PME :
+Les livrables génériques produits dans le cadre de ce projet sont regroupés dans une bibliothèque de ressources réutilisables.
+
+Elle rassemble des modèles, guides et outils pratiques inspirés des référentiels ISO 27001, RGPD, HDS et NIS2, conçus pour être adaptés à d'autres contextes, avec un focus particulier sur les PME e-santé.
+
+➡️ **Consulter la bibliothèque complète :** [ressources/README.md](./ressources/README.md)
+
 
 | Outil | Public cible | Accès |
 |-------|-------------|-------|
 | Cartographie des actifs GRC: Version PME | Dirigeants, DPO, consultants junior | [📥 Télécharger](./ressources/grc-asset-inventory-template-pme.xlsx) |
 | Cartographie des actifs GRC: Version Advanced | Équipes techniques, cabinets GRC | [📥 Télécharger](./ressources/grc-asset-inventory-template-pme-threats.xlsx) |
 | Vision base légale - Conformité RGPD-HDS | Responsables de PME sans expertise juridique| [Référentiel légal simplifié](./ressources/Referentiel_legal_simplifie.md) |
-| ISO 27001:2022 - Contrôles priorisés PME e-santé | RSSI, DPO, consultants GRC | [📖 Consulter](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/ressources/ISO%2027001_Liste_Controle.md) · [📥 Télécharger](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/ressources/ISO27001_Liste-Controle.csv))  |
+| ISO 27001:2022 - Contrôles priorisés PME e-santé | RSSI, DPO, consultants GRC | [📖 Consulter](./ressources/ISO%2027001_Liste_Controle.md) · [📥 Télécharger](./ressources/ISO27001_Liste-Controle.csv))  |
 | Plan de Réponse aux Incidents (PRI) - Modèle PME e-santé | RSSI, DPO, dirigeants PME | [📖 Consulter](./ressources/plan_reponse_incidents.md) |
-| Guide de conformité NIS2 Art. 21 & 23 pour PME e-santé et correspondance avec les contrôles ISO 27001:2022 | RSSI, DPO, dirigeants PME dans domaine e-santé | [📖 Consulter](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/ressources/nis2_correspondances_ISO27001.md)|
-|  Script Python d'audit RBAC + Génération de rapports d'anomalies | RSSI, équipes techniques, consultant GRC | [📥 Télécharger](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/ressources/audit_RBAC_auto/rbac_audit.py) · [📖 Documentation](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/ressources/audit_RBAC_auto/README.md) |
+| Guide de conformité NIS2 Art. 21 & 23 pour PME e-santé et correspondance avec les contrôles ISO 27001:2022 | RSSI, DPO, dirigeants PME dans domaine e-santé | [📖 Consulter](./ressources/nis2_correspondances_ISO27001.md|
+|  Script Python d'audit RBAC + Génération de rapports d'anomalies | RSSI, équipes techniques, consultant GRC | [📥 Télécharger](./ressources/audit_RBAC_auto/rbac_audit.py) · [📖 Documentation](./ressources/audit_RBAC_auto/README.md) |
 
 
 > Conçu avec une posture *"GRC comme produit"*, simple, progressif, ancré dans la réalité opérationnelle d'une PME.

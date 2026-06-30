@@ -1,6 +1,6 @@
 timestamp;user;role;resource;action;mfa_enabled
-2026-06-25T10:00:00;Alice_Becque;Dev Produit;Logs Graylog;read;True
-2026-06-25T10:05:00;Ludovic_Pesjnac;Dev Produit;Infra OVH (console admin);write;True
+2026-06-25T10:00:00;Stephane_Roy;Dev Produit;Logs Graylog;read;True
+2026-06-25T10:05:00;Stephane_Roy;Dev Produit;Infra OVH (console admin);read;True
 2026-06-25T11:00:00;Claire_Espinoza;RSSI;Logs Graylog;write;True
 2026-06-25T12:00:00;David_Brune;Patient B2C;Données patients;read;False
 2026-06-25T13:00:00;Martin_Dupont;CEO;Données financières;write;True

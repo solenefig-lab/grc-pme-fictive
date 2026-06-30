@@ -187,7 +187,7 @@ La faisabilité de ce délai repose sur :
 
 | Étape | Action | Outil/Responsable | Délai | Statut d'implémentation |
 | --- | --- | --- | --- | --- | 
-| 1. Détection | Alerte automatique via Wazuh (ex : panne serveur, attaque détectée) ou signalement manuel (email : incident@santeconnect.fr). | Wazuh + Graylog | < 15 min | ✅ |
+| 1. Détection | Alerte automatique via Wazuh (ex : panne serveur, attaque détectée) ou signalement manuel (email : incident@santeconnect-demo.fr). | Wazuh + Graylog | < 15 min | ✅ |
 | 2. Qualification | Le RSSI (Claire ESPINOZA) ou le DevOps de garde (Stéphane ROY) qualifie l’incident comme critique (P1) via la matrice de criticité (cf. Section 2.3). | Matrice de criticité + Slack (#incidents) | < 30 min | ✅ |
 | 3. Activation PCA | Bascule automatique sur le serveur de secours OVH (script Python) pour les services critiques (API HL7/FHIR, Base D-002). | Script bascule_ovh.py + OVH | < 1h |  🔄 À tester |
 | 4. Notification | Notification immédiate au CHU (email : it@chu-fictif.fr) et au DPO (Jeanne PETIT). | Email + Slack | < 1h |  ✅ |

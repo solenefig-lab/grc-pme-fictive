@@ -47,7 +47,7 @@ En ligne avec le RGPD art. 26 et sous le contrôle du DPO de SantéConnect et du
 
 ### 1.2 Point de contact et répartition des rôles DPO
 
-**Point de contact unique** : privacy@santeconnect.fr
+**Point de contact unique** : privacy@santeconnect-demo.fr
 
 Les personnes concernées peuvent également contacter à tout moment le DPO du CHU Fictif pour faire valoir leurs droits.
 
@@ -126,7 +126,7 @@ SantéConnect et CHU Fictif s'engagent à :
 
 SantéConnect et CHU Fictif s'engagent à :
 
-- **Transmettre sans délai** toute alerte ou information relative à une menace cyber identifiée comme pertinente pour les données partagées ou les systèmes interconnectés, via e-mail (rssi@santeconnect.fr, DPO As a Service en copie : privacy@santeconnect.fr ; resp. DPO@CHU-Fictif.fr), selon les délais suivants :
+- **Transmettre sans délai** toute alerte ou information relative à une menace cyber identifiée comme pertinente pour les données partagées ou les systèmes interconnectés, via e-mail (rssi@santeconnect-demo.fr, DPO As a Service en copie : privacy@santeconnect-demo.fr ; resp. DPO@CHU-Fictif.fr), selon les délais suivants :
 
 | Niveau    | Classification PRI | Délai notification partenaire (RGPD) | Délai Contractuel CHU (Logique NIS2) |
 |-----------|--------------------|------------|----------------------|

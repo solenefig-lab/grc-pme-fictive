@@ -128,9 +128,9 @@ Les données sont minimisées par :
 - Présentation des données collectées lors de l'inscription au service.
 - Présentation des droits de la personne concernée (retrait du consentement, suppression, etc.) dans les CGU.
 - Information sur la sécurisation du stockage par OVH et par le CHU.
-- Contact confidentialité : privacy@santeconnect.fr
+- Contact confidentialité : privacy@santeconnect-demo.fr
 - Information de la personne concernée de tout changement concernant les finalités, données collectées ou clauses de confidentialité dans l'application.
-- **Droit à l'effacement (RGPD art. 17)** : via privacy@santeconnect.fr pour le service SantéConnect (sous 30 jours). Les données restant à la main des praticiens font l'objet d'un outil d'export dédié. Les données CHU sont soumises à l'archivage restreint 20 ans (CSP art. R. 1112-7).
+- **Droit à l'effacement (RGPD art. 17)** : via privacy@santeconnect-demo.fr pour le service SantéConnect (sous 30 jours). Les données restant à la main des praticiens font l'objet d'un outil d'export dédié. Les données CHU sont soumises à l'archivage restreint 20 ans (CSP art. R. 1112-7).
 - **Droit d'accès et portabilité (RGPD art. 15 et 20)** : dossier médical accessible via le CHU.
 - **Mesures de recueil du consentement** : lors de l'inscription (acceptation CGU) + consentement granulaire par type de données et par praticien. Service destiné aux adultes. Un seul contrat.
 

@@ -1,16 +1,63 @@
-# Ressources — GRC Fil Rouge
+# 📚 Bibliothèque de ressources GRC pour PME
+
+Cette bibliothèque rassemble des modèles, guides et outils pratiques issus du projet [grc-pme-fictive](../README.md) et conçues pour être réutilisables et adaptables à d'autres contextes, avec un focus particulier sur les PME e-santé.
+
+Elle s'adresse aux :
+
+- RSSI
+- DPO
+- consultants GRC
+- dirigeants de PME
+- étudiants
+
+## Vous trouverez notamment
+
+- ✅ modèles Excel
+- ✅ guides Markdown
+- ✅ scripts Python
+- ✅ check-lists ISO 27001
+- ✅ correspondances NIS2
+- ✅ modèles de réponse aux incidents
+
+## Principes
+
+Les ressources publiées dans ce dépôt sont conçues pour être :
+
+- réutilisables
+- adaptables
+- documentées
+- alignées sur les référentiels applicables lorsque cela est pertinent
+
+Elles constituent des modèles de travail et doivent être adaptées au contexte de chaque organisation.
+
+**Licence**
+
+- Documentation (.md, .csv, .xlsx) : [CC-BY-4.0](./LICENSE-CC-BY-4.0).
+- Code (rbac_audit.py) : [MIT](./LICENSE-MIT)
+- Attribution souhaitée : Solène Figueiredo
 
 > 🔄 **En cours** — cette section s'enrichit au fil des semaines du projet.
 
-Les ressources publiées ici sont issues du projet
-[grc-pme-fictive](../README.md) et conçues pour être
-**réutilisables par toute PME**, indépendamment du contexte SantéConnect.
 
 ---
 
-## 📦 Templates disponibles
+## Templates disponibles
 
-### 1. Cartographie des actifs GRC — Version PME
+L'objectif de cette bibliothèque est de transformer des exigences de gouvernance, conformité et cybersécurité en livrables directement exploitables par une PME.
+
+
+| Ressource           | Format   | Sujet              | Public    |
+| ------------------- | -------- | ------------------ | --------- |
+| [Inventaire d'actifs](#1-cartographie-des-actifs-grc--template-pme)| XLSX     | Gestion des actifs | PME       |
+| [Inventaire d'actifs (Advanced)](#2-cartographie-des-actifs-grc--template-advanced) | XLSX | Gestion des actifs + Threat Intel | Technique |
+| [Référentiel légal simplifié](#3-référentiel-légal-simplifié--rgpd--hds) | MD | RGPD / HDS | DPO |
+| [ISO 27001 priorisé](#4-iso-270012022--contrôles-priorisés-pour-pme-e-santé)  | MD / CSV | Gouvernance        | RSSI      |
+| [PRI](#5-plan-de-réponse-aux-incidents-pri--modèle-pme-e-santé)  | MD       | Incident Response  | RSSI      |
+| [NIS2 ↔ ISO 27001](#6-nis2-art-21--23---guide-de-conformité-pme-e-santé-iso-270012022)    | MD       | Conformité NIS2     | RSSI      |
+| [Audit RBAC — Script Python](#7-audit-rbac--script-python)          | Python   | IAM                | Technique |
+
+
+### 1. Cartographie des actifs GRC — Template PME
 **Fichier :** `grc-asset-inventory-template-pme.xlsx`
 
 Outil d'inventaire et de priorisation des risques pour une petite PME,
@@ -31,7 +78,7 @@ adaptée au contexte PME — posture *"GRC comme produit"*
 
 ---
 
-### 2. Cartographie des actifs GRC — Version Advanced
+### 2. Cartographie des actifs GRC — Template Advanced
 **Fichier :** `grc-asset-inventory-template-pme-threats.xlsx`
 
 Même outil enrichi d'un mapping des tactiques MITRE ATT&CK —
@@ -42,8 +89,8 @@ pour aller jusqu'à l'analyse des menaces.
 | Mode d'emploi | Démarche globale, sommaire, disclaimer |
 | 1. Inventaire des actifs | Cartographie + scoring automatique |
 | 2. Grille de scoring | Critères + décisions de traitement |
-| 3. Mapping des risques | Top risques + décision + priorité |
-| 4. Mapping Risques (Advanced) | + Tactiques MITRE ATT&CK par vecteur d'attaque |
+| 3. Mapping des risques (Advanced) | Top risques + décision + priorité + Tactique MITRE ATT&CK par vecteur d'attaque |
+
 
 **Public cible :** Équipes techniques, RSSI, cabinets GRC  
 **Différenciateur :** Combine scoring PME accessible et référentiel
@@ -61,7 +108,7 @@ RGPD, HDS (L.1111-8 CSP), Code de la Santé Publique, RGS, PGSSI-S.
 Conçu comme entrée rapide pour DPO, dirigeants et consultants junior.
 
 **Public cible :** DPO, dirigeants PME, consultants GRC junior  
-**Contexte :** Produit en Semaine 2 du projet — aligné RGPD art. 28/32/33
+**Contexte :** aligné RGPD art. 28/32/33
 
 [📖 Consulter](./Referentiel_legal_simplifie.md)
 
@@ -129,9 +176,9 @@ Guide pratique pour les PME e-santé travaillant avec un CHU ou un hôpital. Com
 
 ---
 
-### 7. Script Python d'audit RBAC
+### 7. Audit RBAC — Script Python
 
-**Fichier :** `RBAC_audit_auto/rbac_audit.py`
+**Fichier :** `audit_RBAC_auto/rbac_audit.py`
 
 Script Python autonome pour auditer les droits d'accès (RBAC) et détecter les anomalies.
 Compare une matrice RBAC, un référentiel utilisateurs et des logs d'accès pour générer un rapport CSV horodaté.
@@ -151,13 +198,6 @@ Compare une matrice RBAC, un référentiel utilisateurs et des logs d'accès pou
 
 ---
 
-## 🔄 À venir
-
-| Semaine | Ressource prévue |
-|---------|-----------------|
-| Semaine 4 | template-pca-pra-pme.md - Modèle générique PCA/PRA pour PME e-santé : RTO/RPO réalistes, procédures types, alignement NIS2/HDS/RGPD |
-
----
 
 > 💡 **Ces ressources évoluent** avec le projet — elles reflètent
 > une montée en compétences progressive et documentée.

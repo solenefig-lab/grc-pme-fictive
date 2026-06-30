@@ -113,7 +113,7 @@ La notification aux personnes concernées est déclenchée dans les cas suivants
 
 ---
 
-**De :** martin.dupont@santeconnect.fr
+**De :** martin.dupont@santeconnect-demo.fr
 
 **Objet :** Important — Vos Données Personnelles
 
@@ -133,7 +133,7 @@ Nos équipes de sécurité informatique ont rapidement pris les mesures nécessa
 
 Nous vous recommandons d'être vigilant face à toute communication inhabituelle mentionnant vos informations personnelles ainsi que face à toute activité suspecte. Les données impliquées dans cette violation pourraient être utilisées pour rendre des messages malveillants plus crédibles. Si vous recevez des messages ou appels inattendus — notamment des demandes d'informations personnelles ou vous incitant à agir — veuillez vérifier leur authenticité avant toute action.
 
-Pour toute question ou assistance, contactez notre DPO : privacy@santeconnect.fr ou au 06.07.07.06.
+Pour toute question ou assistance, contactez notre DPO : privacy@santeconnect-demo.fr ou au 06.07.07.06.
 
 Nous vous prions d'accepter nos excuses et vous assurons que SantéConnect prend très au sérieux la protection de vos données personnelles.
 

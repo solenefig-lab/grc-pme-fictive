@@ -27,13 +27,13 @@ En ligne avec le RGPD art. 26 et sous le contrôle du DPO de SantéConnect et du
 
 ### 1.2 Point de contact et répartition des rôles DPO
 
-**Point de contact unique** : privacy@santeconnect.fr
+**Point de contact unique** : privacy@santeconnect-demo.fr
 
 Les personnes concernées peuvent également contacter à tout moment le DPO du CHU Fictif pour faire valoir leurs droits.
 
 | Responsabilité | DPO compétent | Périmètre |
 |---|---|---|
-| Réception demandes + coordination | DPO As a Service (privacy@santeconnect.fr) | Point de contact unique officiel — notification systématique au DPO CHU |
+| Réception demandes + coordination | DPO As a Service (privacy@santeconnect-demo.fr) | Point de contact unique officiel — notification systématique au DPO CHU |
 | Transmission et réponse | DPO CHU Fictif (DPO@CHU-Fictif.fr) | Réception des demandes transmises par DPO As a Service |
 | Mesures personnelles, coffre-fort médical, messagerie (hébergés OVH) | DPO As a Service | Données accessibles via SantéConnect |
 | Dossier médical CHU, analyses, ordonnances, dossiers praticiens libéraux | DPO CHU Fictif | Données créées et gérées au service cardiologie du CHU |
@@ -106,7 +106,7 @@ SantéConnect et CHU Fictif s'engagent à :
 
 SantéConnect et CHU Fictif s'engagent à :
 
-- **Transmettre sans délai** toute alerte ou information relative à une menace cyber identifiée comme pertinente pour les données partagées ou les systèmes interconnectés, via e-mail (rssi@santeconnect.fr, DPO As a Service en copie : privacy@santeconnect.fr ; resp. DPO@CHU-Fictif.fr), selon les délais suivants :
+- **Transmettre sans délai** toute alerte ou information relative à une menace cyber identifiée comme pertinente pour les données partagées ou les systèmes interconnectés, via e-mail (rssi@santeconnect-demo.fr, DPO As a Service en copie : privacy@santeconnect-demo.fr ; resp. DPO@CHU-Fictif.fr), selon les délais suivants :
   - Sous **4h** après découverte pour toute alerte de niveau **Haut**
   - Sous **72h** pour toute alerte de niveau **Modéré**
   - Sous **15 jours** pour les alertes de niveau **Faible**
