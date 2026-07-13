@@ -10,15 +10,6 @@ Elle s'adresse aux :
 - dirigeants de PME
 - étudiants
 
-## Vous trouverez notamment
-
-- ✅ modèles Excel
-- ✅ guides Markdown
-- ✅ scripts Python
-- ✅ check-lists ISO 27001
-- ✅ correspondances NIS2
-- ✅ modèles de réponse aux incidents
-
 ## Principes
 
 Les ressources publiées dans ce dépôt sont conçues pour être :
@@ -36,7 +27,7 @@ Elles constituent des modèles de travail et doivent être adaptées au contexte
 - Code (rbac_audit.py) : [MIT](./LICENSE-MIT)
 - Attribution souhaitée : Solène Figueiredo
 
-> 🔄 **En cours** — cette section s'enrichit au fil des semaines du projet.
+> 🔄 **En cours** - cette section s'enrichit au fil des semaines du projet.
 
 
 ---
@@ -48,16 +39,16 @@ L'objectif de cette bibliothèque est de transformer des exigences de gouvernanc
 
 | Ressource           | Format   | Sujet              | Public    |
 | ------------------- | -------- | ------------------ | --------- |
-| [Inventaire d'actifs](#1-cartographie-des-actifs-grc--template-pme)| XLSX     | Gestion des actifs | PME       |
-| [Inventaire d'actifs (Advanced)](#2-cartographie-des-actifs-grc--template-advanced) | XLSX | Gestion des actifs + Threat Intel | Technique |
-| [Référentiel légal simplifié](#3-référentiel-légal-simplifié--rgpd--hds) | MD | RGPD / HDS | DPO |
-| [ISO 27001 priorisé](#4-iso-270012022--contrôles-priorisés-pour-pme-e-santé)  | MD / CSV | Gouvernance        | RSSI      |
-| [PRI](#5-plan-de-réponse-aux-incidents-pri--modèle-pme-e-santé)  | MD       | Incident Response  | RSSI      |
+| [Inventaire d'actifs](#1-cartographie-des-actifs-grc---template-pme)| XLSX     | Gestion des actifs | PME       |
+| [Inventaire d'actifs (Advanced)](#2-cartographie-des-actifs-grc---template-advanced) | XLSX | Gestion des actifs + Threat Intel | Technique |
+| [Référentiel légal simplifié](#3-référentiel-légal-simplifié---rgpd--hds) | MD | RGPD / HDS | DPO |
+| [ISO 27001 priorisé](#4-iso-270012022---contrôles-priorisés-pour-pme-e-santé)  | MD / CSV | Gouvernance        | RSSI      |
+| [PRI](#5-plan-de-réponse-aux-incidents-pri---modèle-pme-e-santé)  | MD       | Incident Response  | RSSI      |
 | [NIS2 ↔ ISO 27001](#6-nis2-art-21--23---guide-de-conformité-pme-e-santé-iso-270012022)    | MD       | Conformité NIS2     | RSSI      |
-| [Audit RBAC — Script Python](#7-audit-rbac--script-python)          | Python   | IAM                | Technique |
+| [Audit RBAC - Script Python](#7-audit-rbac---script-python)          | Python   | IAM                | Technique |
 
 
-### 1. Cartographie des actifs GRC — Template PME
+### 1. Cartographie des actifs GRC - Template PME
 **Fichier :** `grc-asset-inventory-template-pme.xlsx`
 
 Outil d'inventaire et de priorisation des risques pour une petite PME,
@@ -72,16 +63,16 @@ sans prérequis technique.
 
 **Public cible :** Dirigeants PME, DPO, consultants GRC junior  
 **Approche :** Inspirée du NIST CSF (People · Process · Technology),
-adaptée au contexte PME — posture *"GRC comme produit"*
+adaptée au contexte PME - posture *"GRC comme produit"*
 
 [📥 Télécharger](./grc-asset-inventory-template-pme.xlsx)
 
 ---
 
-### 2. Cartographie des actifs GRC — Template Advanced
+### 2. Cartographie des actifs GRC - Template Advanced
 **Fichier :** `grc-asset-inventory-template-pme-threats.xlsx`
 
-Même outil enrichi d'un mapping des tactiques MITRE ATT&CK —
+Même outil enrichi d'un mapping des tactiques MITRE ATT&CK -
 pour aller jusqu'à l'analyse des menaces.
 
 | Onglet | Contenu |
@@ -100,7 +91,7 @@ threat intelligence MITRE ATT&CK
 
 ---
 
-### 3. Référentiel légal simplifié — RGPD / HDS
+### 3. Référentiel légal simplifié - RGPD / HDS
 **Fichier :** `Referentiel_legal_simplifie.md`
 
 Synthèse des obligations légales applicables aux PME e-santé françaises :
@@ -114,7 +105,7 @@ Conçu comme entrée rapide pour DPO, dirigeants et consultants junior.
 
 ---
 
-### 4. ISO 27001:2022 — Contrôles priorisés pour PME e-santé
+### 4. ISO 27001:2022 - Contrôles priorisés pour PME e-santé
 **Fichier :** `ISO27001_Liste-Controle.md` *(+ version CSV disponible)*
 
 93 contrôles ISO 27001:2022 priorisés pour les PME e-santé, avec
@@ -136,7 +127,7 @@ Sources : ANSSI, CNIL, NIST SP 800-63B.
 [📥 Télécharger CSV](./ISO27001_Liste-Controle.csv)
 
 ---
-### 5. Plan de Réponse aux Incidents (PRI) — Modèle PME e-santé
+### 5. Plan de Réponse aux Incidents (PRI) - Modèle PME e-santé
 **Fichier :** `plan_reponse_incidents.md`
 
 Modèle opérationnel de réponse aux incidents aligné ISO 27001:2022,
@@ -176,7 +167,7 @@ Guide pratique pour les PME e-santé travaillant avec un CHU ou un hôpital. Com
 
 ---
 
-### 7. Audit RBAC — Script Python
+### 7. Audit RBAC - Script Python
 
 **Fichier :** `audit_RBAC_auto/rbac_audit.py`
 
@@ -199,7 +190,7 @@ Compare une matrice RBAC, un référentiel utilisateurs et des logs d'accès pou
 ---
 
 
-> 💡 **Ces ressources évoluent** avec le projet — elles reflètent
+> 💡 **Ces ressources évoluent** avec le projet - elles reflètent
 > une montée en compétences progressive et documentée.
 > Retours et suggestions bienvenus via
 > [Issues GitHub](../../../issues).

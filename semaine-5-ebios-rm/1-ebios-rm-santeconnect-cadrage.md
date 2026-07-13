@@ -1,6 +1,6 @@
 # Atelier 1 : Cadrage et socle de sécurité
 
-> Document fictif - Projet portfolio GRC - github.com/solenefig-lab/grc-pme-fictive Ce document est une synthèse pédagogique. Il ne se substitue pas à un audit réalisé par un organisme accrédité. Le niveau de granularité illustre une cible de maturité, non l'état courant du marché TPE/PME santé.
+> Document fictif - [Projet portfolio GRC] (github.com/solenefig-lab/grc-pme-fictive) Ce document est une synthèse pédagogique. Il ne se substitue pas à un audit réalisé par un organisme accrédité. Le niveau de granularité illustre une cible de maturité, non l'état courant du marché TPE/PME santé.
 
 ---
 
@@ -38,7 +38,7 @@ _Note de contexte réglementaire (juin 2026) : La transposition NIS2 en droit fr
 | DPO | Jeanne PETIT |C | C | C |
 | DevProduit | Stéphane ROY | C| C |C |
 
-
+**Légende**: D = Décide, R = Responsable, C = Est Consulté
 
 ### 1.3. Cadre temporel
 
