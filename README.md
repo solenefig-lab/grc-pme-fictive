@@ -8,16 +8,31 @@
 ![Status](https://img.shields.io/badge/Status-En%20cours-orange)
 ![Niveau](https://img.shields.io/badge/Niveau-GRC%20Opérationnel%20PME-yellow)
 
-> ⚠️ **Projet de démonstration pédagogique** - basé sur une PME fictive
-> (SantéConnect). Les livrables reflètent une démarche GRC réelle adaptée
-> à un contexte simulé. Ils évoluent semaine après semaine au fil de la
-> montée en compétences de l'auteure. La démarche s’appuie sur une logique inspirée d’EBIOS Risk Manager (formalisation complète en semaine 5).
 
-# SantéConnect - Démarche GRC complète pour une HealthTech fictive
+## SantéConnect — Démarche structurée de mise en conformité et gestion des risques pour une HealthTech
 
-> Simuler la mise en place d'une démarche GRC complète pour une PME du domaine
-> de la e-santé - de l'audit initial à l'impact NIS2 - pour démontrer des
-> compétences en tant que consultante junior GRC et interface senior métier-IT.
+> Chaque livrable documente des arbitrages méthodologiques réels : choix d'exclusions ISO 27001, positionnement NIS2 en logique supply chain,décision MFA patients calibrée RGPD Art. 5, modélisation RBAC pour RSSI temps partiel. 
+> Une démarche calibrée PME, pas un exercice académique.
+
+---
+
+## Compétences démontrées
+
+- **Analyse de risques ISO 27001** → Plan de traitement des risques (11 risques critiques, grille 3×3, contrôles liés)  
+- **Conformité RGPD en contexte HDS** → AIPD D-002 + D-005, convention co-responsabilité CHU art. 26  
+- **Exposition NIS2 supply chain** → Gap analysis, 1 risque critique identifié, PCA/PRA livré, feuille de route  
+- **Modélisation EBIOS RM** → Cadrage systémique, 24 couples SR/OV, scénario compromission API CHU  
+- **Automatisation audit RBAC** → Script Python autonome, 0 dépendance externe, rapport CSV horodaté  
+
+Exemples d'arbitrage : 
+
+| Enjeu métier | Analyse produite| Décision supportée|
+| ------- | ------- | ------- |
+|Protection données patients |AIPD + registre traitements | NIR repositionné donnée à protection renforcée - mesures différenciées D-002 vs D-001|
+|Continuité service cardiologie |PCA/PRA | RTO 72h accepté, activation 4h pour API CHU - faisabilité vérifiée et documentée |
+| Ressources limitées RSSI part-time | Plan traitement risques | Budget sécurité priorisé sur 11 risques critiques, 4 thèmes acceptés score ≤3|
+|Accès praticiens/patients | Matrice RBAC | MFA patients B2C non obligatoire - arbitrage UX/inclusion numérique documenté RGPD Art. 5 |
+| Partenaire CHU | Analyse supply chain NIS2 | Clauses contractuelles renforcées - délais alerte 4h ancrés convention co-responsabilité |
 
 ---
 
@@ -105,8 +120,38 @@ enjeux business critiques, contraintes de délais et de qualité.
 
 Capacités démontrées dans ce projet :
 - Structurer une démarche GRC complète pour une PME e-santé
-- Produire des livrables opérationnels niveau consultant (registre, AIPD, analyse de risques)
+- Produire des livrables opérationnels inspirés des pratiques de mission GRC en environnement professionnel (registre, AIPD, analyse de risques)
 - Articuler conformité réglementaire et réalité opérationnelle PME
 - Traduire les exigences RGPD-HDS en documents actionnables pour dirigeants et DPO
+
+---
+
+*Projet fictif à visée pédagogique - les livrables reflètent une démarche GRC réelle adaptée à un contexte simulé.*
+
+---
+
+## English Summary
+
+**SantéConnect** is a fictional French HealthTech 
+(15 employees, cardiology, hospital partnership) used 
+as a case study to demonstrate a structured GRC approach.
+
+**Deliverables cover:** GDPR · French Health Data 
+Hosting (HDS) · ISO 27001:2022 · NIS2 · EBIOS RM
+
+**Key outputs:**
+- Risk treatment plan (11 critical risks, 3×3 grid)
+- ISO 27001:2022 control mapping and applicability analysis  
+- NIS2 supply chain gap analysis + action plan
+- Business continuity plan (RTO 72h / RPO 24h)
+- EBIOS RM threat modeling (24 source/objective pairs)
+- Automated RBAC audit script (Python, no dependencies)
+
+**Reusable resources** (CC BY 4.0) available in 
+`/ressources` — adaptable to any SME context.
+
+→ [Resource library](./ressources/README.md)
+
+---
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-solenefigueiredo-blue)](https://www.linkedin.com/in/solene-figueiredo/)
