@@ -114,7 +114,7 @@ _- la priorité risque peut être plus haute que la priorité d'écart identifi�
 | --- | --- | --- | --- | 
 | Activation PCA | Bascule automatique sur le serveur de secours OVH (script Python) pour les services critiques (API HL7/FHIR, Base D-002). | RSSI |  🔄 À tester |
 | Restauration (PRA) | Si nécessaire, restauration depuis les sauvegardes OVH (RPO = 0 pour la Base D-002). | RSSI |  🔄 À tester |
-| Détection |  Automatiser les alertes et améliorer les intégrations entre les différents outils(Wazuh + Graylog + MIG)| RSSI | 🎯 cible 2027 |
+| Détection |  Automatiser les alertes et améliorer les intégrations entre les différents outils (Wazuh + Graylog + MIG)| RSSI | 🎯 cible 2027 |
 | Détection |  Sélectionner et implémenter un EDR (Endpoint Detection and Response) | RSSI | 🎯 cible 2027 |
 
 _Note : RPO = 0 : objectif zéro perte de données via réplication synchrone - cible de maturité._

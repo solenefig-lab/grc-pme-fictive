@@ -29,7 +29,7 @@ Objectifs de l'atelier "2. Identification des Sources de Risque" :
 
 ### 1.2 Participants
 
-| Rôle | Nom | Responsabilté | 
+| Rôle | Nom | Responsabilité | 
 | ----- | ----- | --------- | 
 | CEO | Martin DUPONT | D |
 | RSSI | Claire ESPINOZA | R |
@@ -82,7 +82,7 @@ Partenaires : CHU Fictif (co-responsabilité RGPD/HDS), laboratoires, Stripe (pa
 | Logs Graylog | Traçabilité des accès et des événements sécurité. | Sensible | RSSI (Claire) | VM2, VM3 |
 
 **Menaces initiales identifiées :**
-Les menaces ci-dessous ont été priorisées lors de l’Atelier 1 comme ayant un impact potentiel majeur sur les VM1 (Suivi cardiologique) et VM2 (Coffre-fort médical) :
+Les menaces ci-dessous ont été affinées au fil des ateliers comme ayant un impact potentiel majeur sur les VM1 (Suivi cardiologique) et VM2 (Coffre-fort médical) :
 
 - Compromission de l’API HL7/FHIR :
       - Impact : Indisponibilité du suivi cardiologique (VM1) + fuite de données médicales (VM2).
@@ -202,7 +202,7 @@ Les deux représentations des cartographies d'abord des sources de risque et pui
 | Organisation Étatique | 🟡 Moyenne | — | Espionnage, Influence | P2 |
 | Organisation Terroriste | 🟡 Moyenne | — | Entrave, Influence | P2 |
 | Officine spécialisée | 🟡 Moyenne | — | Lucratif | P2 |
-| Hacktiviste | 🟢 Faible | — |
+| Hacktiviste | 🟢 Faible | — | Entrave, Influence | P3 |
 
 
 **Analyse** :
@@ -254,23 +254,12 @@ Construire 3 scénarios stratégiques pour :
 - Préparer la conformité NIS2 (notification ANSSI sous 24h, Art. 23).  
 
 _Notes :_
-_-Les scénarios S4 (Exfiltration par admin) et S5 (Vol de données via partenaire) sont exclus de l’Atelier 3 mais pourront être étudiés ultérieurement (P2)._
-_-Les fiches scénarios serviront de base pour la mise à jour du PRI et du Plan d’Action NIS2 (V2)._
+_-Les couples avec priorité P2 sont exclus de l’Atelier 3 mais pourront être étudiés ultérieurement._
 
-### 5.3. Actions décidées avant Atelier 3
 
-| Livrable | Description | Responsable | Échéance |
-| --- | --- | --- | --- |
-| Fiches scénarios (S1-S3) | Narratif + acteurs + impacts + preuves de conformité | RSSI | 10/07/2026 |
-| Arbres des causes (S1-S3) | Causes racines et directes  | DevProduit | 10/07/2026 |
-| Playbooks de réponse (S1-S3) | Procédures d’urgence (isolation, notification, restauration) | RSSI | 13/07/2026 |
-| Matrice des preuves | Logs, rapports, sauvegardes (liens avec RGPD/HDS/NIS2) | DPO  | 13/07/2026 |
+### 5.3. Note sur la démarche
 
-_Note : Ces livrables sont formalisés pour illustrer la démarche EBIOS RM ; dans le cadre du portfolio, seul le scénario S1 est développé (cf. 5.4)._
-
-### 5.4. Note sur la démarche
-
-Dans le cadre de ce portfolio, seul le scénario "Compromission API HL7/FHIR" sera développé dans l’Atelier 3.
+Dans le cadre de ce portfolio, seul le scénario "Compromission API HL7/FHIR" sera développé.
 Les deux autres scénarios prioritaires (Ransomware sur D-002 et Sabotage interne des sauvegardes) ne seront pas traités dans ce livrable, mais pourront faire l’objet d’une étude ultérieure (ex : extension du portfolio).
 
 **Justification :**

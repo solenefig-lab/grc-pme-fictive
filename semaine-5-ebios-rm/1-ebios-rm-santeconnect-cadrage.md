@@ -37,6 +37,7 @@ _Note de contexte réglementaire (juin 2026) : La transposition NIS2 en droit fr
 | RSSI | Claire ESPINOZA | R |R | R|
 | DPO | Jeanne PETIT |C | C | C |
 | DevProduit | Stéphane ROY | C| C |C |
+| Analyste indépendant CTI | Djibril MOUSSA | - | C | C |
 
 **Légende**: D = Décide, R = Responsable, C = Est Consulté
 
