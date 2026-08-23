@@ -327,9 +327,9 @@ Signataires :
 | Registre des Traitements | [registre_traitement.md](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-2-rgpd-hds/registre-traitements/registre_traitement.md) | Cartographie des données (conforme RGPD). | Sections 1.1, 3.1, 4.2 (R-GOV-01) |
 | Déclaration d'Applicabilité (SoA) | [declaration-applicabilite.csv](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-3-iso27001/declaration-applicabilite.csv) | Liste des contrôles ISO 27001:2022 appliqués ou non. | Sections 1.1, 3.1, 4.1, 4.2, 4.3 |
 | Politique de Sécurité des Systèmes d'Information (PSSI) | [pssi.md](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-3-iso27001/pssi.md) | Politique de sécurité globale. | Sections 1.1, 3.1, 6.1 |
-| PV de Revue de Direction | [pv-revue-direction.md](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/plan-traitement-risques/pv-revue-direction.md) | Preuve de validation du PTR par la direction. | Section 6.1 |
-| Tableau de Bord de Suivi | [suivi.md](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/plan-traitement-risques/suivi.md) | Suivi des KPIs et statut des mesures. | Section 6.2 |
-| Rapport d'Audit Interne 2026 | [audit-interne-2026.md](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/plan-traitement-risques/audit-interne-2026.md) | Résultats des vérifications semestrielles. | Section 6.2 |
+| PV de Revue de Direction | [pv-revue-direction.md] | Preuve de validation du PTR par la direction. | Section 6.1 |
+| Tableau de Bord de Suivi | [suivi.md] | Suivi des KPIs et statut des mesures. | Section 6.2 |
+| Rapport d'Audit Interne 2026 | [audit-interne-2026.md] | Résultats des vérifications semestrielles. | Section 6.2 |
 | Convention CHU | [convention-chu.md](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-2-rgpd-hds/note-co-responsabilite-chu.md) | Accord de co-responsabilité avec le CHU pour les interconnexions. | Sections 4.1 (R-INT-01), 4.3 |
 | Contrat OVH | [contrat-ovh.md](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-2-rgpd-hds/synthese-clauses-sous-traitants.md) | Contrat incluant les clauses RGPD Art. 28 et HDS. | Sections 4.1 (R-HDS-01), 4.3 |
 | Contrat Stripe | [contrat-stripe.md](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-2-rgpd-hds/synthese-clauses-sous-traitants.md) | Contrat incluant les clauses PCI-DSS et RGPD Art. 28. | Sections 4.1 (R-DON-02), 4.3 |

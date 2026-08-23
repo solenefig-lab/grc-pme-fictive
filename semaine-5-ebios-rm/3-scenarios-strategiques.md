@@ -232,7 +232,7 @@ _- Dans la fiche de risques est utilisé une matrice 3 * 3 (probabilité * impac
 
 `SR → exploite PP (vecteur d'entrée) → atteint actif critique → impact sur valeur métier (VM)`
 
-Les scénarios sélectionnées se basent sur les [couples prioritaire SR/OV identifiés lors de l'Atelier 2](#22-atelier-2--sources-de-risque) et intégrent les [PP prioritaires](#32-représentation-des-pp-selon-niveau-de-dangerosité).
+Les scénarios sélectionnés se basent sur les [couples prioritaire SR/OV identifiés lors de [l'Atelier 2](#22-atelier-2--sources-de-risque) et intégrent les [PP prioritaires](#32-représentation-des-pp-selon-niveau-de-dangerosité).
 
 | ID | Source de Risque | Vecteur d'entrée (PP) | Actif critique atteint | Impact VM | Gravité |
 | -- |------------ | ------- | ------- | ------- | ------- | 
@@ -246,7 +246,7 @@ Les scénarios sélectionnées se basent sur les [couples prioritaire SR/OV iden
 Ce scénario est aligné sur les attaques récentes contre les CHU (ex : cyberattaque CHU Rouen 2023). 
 
 Chemin d'attaque :  
-- Exploitation : Une organisation criminelle (ex : LockBit) exploite une faille non patchée dans l’API HL7/FHIR du CHU  
+- Exploitation : Une organisation criminelle (ex : LockBit, actif en 2023-2024) exploite une faille non patchée dans l’API HL7/FHIR du CHU  
 → Mouvement latéral : L'attaquant exploite les tokens d'authentification de la session API active pour accéder aux données de D-002  
 → Exfiltration : Vol de données médicales via l’App Mobile/WebApp  
 → Indisponibilité : L’API est rendue indisponible, bloquant le suivi cardiologique en temps réel
