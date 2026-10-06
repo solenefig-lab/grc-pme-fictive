@@ -239,7 +239,7 @@ Pertinence 🔴
 | --- | --- | --- | --- | --- |
 | Organisation Criminelle | Lucratif/Entrave | VM1, VM2 | PCA/PRA, Surveillance, Micro-seg | Compromission API HL7/FHIR |
 | Organisation Criminelle | Lucratif (ransomware) | VM1, VM2 | PCA/PRA, Sauvegardes | Ransomware sur D-002 |
-| Personnel interne mécontent | Entrave (sabotage sauvegardes) | VM1, VM2 | PCA/PRA, RBAC | Sabotage interne des sauvegardes |
+| Personnel interne mécontent | Entrave (sabotage dispositif sauvegardes) | VM1, VM2 | PCA/PRA, RBAC | Sabotage interne dispositif de sauvegarde |
 
 **Justification :**  
 - Ces 3 scénarios couvrent tous les gaps 🔴 (PCA/PRA) et 2 gaps 🟡 (Surveillance, Micro-segmentation).  
@@ -260,7 +260,7 @@ _-Les couples avec priorité P2 sont exclus de l’Atelier 3 mais pourront être
 ### 5.3. Note sur la démarche
 
 Dans le cadre de ce portfolio, seul le scénario "Compromission API HL7/FHIR" sera développé.
-Les deux autres scénarios prioritaires (Ransomware sur D-002 et Sabotage interne des sauvegardes) ne seront pas traités dans ce livrable, mais pourront faire l’objet d’une étude ultérieure (ex : extension du portfolio).
+Les deux autres scénarios prioritaires (Ransomware sur D-002 et Sabotage interne dispositif de sauvegarde) ne seront pas traités dans ce livrable, mais pourront faire l’objet d’une étude ultérieure (ex : extension du portfolio).
 
 **Justification :**
 

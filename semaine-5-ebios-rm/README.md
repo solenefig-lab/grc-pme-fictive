@@ -22,8 +22,8 @@ _- Fournisseur d'une entité essentielle : Le CHU est un partenaire NIS2 (Art. 2
 | [`1-ebios-rm-santeconnect-cadrage.md`](./1-ebios-rm-santeconnect-cadrage.md)| Atelier 1 - Cadrage et socle de sécurité : périmètre métier/technique, valeurs métiers, parties prenantes, événements redoutés cotés (échelle G1-G4), socle de sécurité actualisé (SoA + plan d'action NIS2). | ✅ Complet |
 | [`2-sources-risque.md`](./2-sources-risque.md) | Atelier 2 - Sources de risque : cartographie sources de risque (SR) et objectifs visés (OV), couple SR/OV priorisé (CHU, OVH, RBAC). | ✅ Complet |
 | [`3-scenarios-strategiques.md`](./3-scenarios-strategiques.md) | Atelier 3 - Parties Prenantes (PP), cartographie écosystème, principaux chemins d'attaque et mesures de sécurité écosystème. | ✅ Complet |
-| [`4-scenario-operationnel.md`](./4-compromission-chu-api.md) | Atelier 4 - Cadrage stratégique intégré (sources de risque, vecteur CHU/OVH/RBAC), suivi de la compromission de l'API HL7/FHIR via supply chain CHU - modes opératoires techniques détaillés. | ✅ Complet |
-| `ebios-rm-santeconnect-synthese.md` | Synthèse et plan d'action : risques résiduels priorisés, alignement avec le plan d'action NIS2 (S4). |🔜 A venir|
+| [`4-scenario-operationnel.md`](./4-compromission-chu-api.md) | Atelier 4 - Scénarios opérationnels et leur vraisemblance (sources de risque, vecteur CHU/OVH/RBAC), suivi de la compromission de l'API HL7/FHIR via supply chain CHU - modes opératoires techniques détaillés. | ✅ Complet |
+| [`5-synthese-cycle.md`](./5-synthese-cycle.md) | Synthèse et plan d'action : risques résiduels priorisés, alignement avec le plan d'action NIS2 (S4). | ✅ Complet |
 
 
 ---

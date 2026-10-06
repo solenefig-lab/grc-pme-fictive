@@ -176,7 +176,7 @@ _Note: Les scores reflètent les risques bruts (avant mesures existantes). Le ri
 
 | Niveau | Score (Impact × Probabilité) | Seuil d'acceptation |
 |--------|------------------------------|-------------------|
-| 🟢 Faible | 1 – 2 | Risque acceptable (surveillance): mpact faible (ex : fuite de données non sensibles) ou probabilité faible (ex : attaque ciblée improbable) |
+| 🟢 Faible | 1 – 2 | Risque acceptable (surveillance): impact faible (ex : fuite de données non sensibles) ou probabilité faible (ex : attaque ciblée improbable) |
 | 🟠 Modéré | 3 – 5 | Risque acceptable sous conditions (mesures compensatoires) |
 | 🔴 Haut | 6 – 9 | Risque inacceptable (à traiter en priorité): impact critique (ex : sanction RGPD, perte de données médicales) ou probabilité élevée (ex : accès non contrôlé).|
 

@@ -58,7 +58,7 @@ prise de rendez-vous tout au long du parcours de soin.
 | [2](./semaine-2-rgpd-hds/README.md) | RGPD & HDS | [Registre des Traitements](./semaine-2-rgpd-hds/registre-traitements/registre_traitement.md) · [AIPD synthétique](./semaine-2-rgpd-hds/aipd-synthetique.md) · [Note de co-responsabilité](./semaine-2-rgpd-hds/note-co-responsabilite-chu.md) · [Synthèse clauses sous-traitants](./semaine-2-rgpd-hds/synthese-clauses-sous-traitants.md) · [Procédure incident et notification](./semaine-2-rgpd-hds/procedure-incident-notification.md) · [Checklist audit RGPD-HDS](./semaine-2-rgpd-hds/checklist-audit-rgpd-hds.md)| ✅ Complet |
 | [3](./semaine-3-iso27001/README.md) | ISO 27001 | [PSSI](./semaine-3-iso27001/pssi.md) · [Tableau synthétique des contrôles ISO 27001](./semaine-3-iso27001/declaration-applicabilite.csv) · [Déclaration d'applicabilité synthètique (SOA)](./semaine-3-iso27001/SoA.md) · [Matrice RBAC](.//semaine-3-iso27001/matriceRBAC.md) · [Plan traitement des risques](./semaine-3-iso27001/plan-traitement-risques.md)  | ✅ Complet |
 | [4](./semaine-4-nis2/README.md) | NIS2 | [Note de coresponsabilité mise à jour NIS2](./semaine-4-nis2/note-coresponsabilite-CHU-maj-nis2.md) · [Analyse Impact NIS2](./semaine-4-nis2/analyse-impact-nis2.md) · [Plan d'action](./semaine-4-nis2/plan_action_nis2.md)  · [PRA/PCA](./semaine-4-nis2/pra-pca.md)| ✅ Complet |
-| [5](./semaine-5-ebios-rm/README.md) | EBIOS Risk Manager | [Atelier 1 - Cadrage et socle de sécurité](./semaine-5-ebios-rm/1-ebios-rm-santeconnect-cadrage.md) · [Atelier 2 - Sources de risque](./semaine-5-ebios-rm/2-sources-risque.md) · [Atelier 3 - Scénarios stratégiques](./semaine-5-ebios-rm/3-scenarios-strategiques.md) · [Atelier 4 - Scénario opérationnel : Compromission API CHU](./semaine-5-ebios-rm/4-compromission-chu-api.md) · Synthèse et plan d'action | 🔄 En cours |
+| [5](./semaine-5-ebios-rm/README.md) | EBIOS Risk Manager | [Atelier 1 - Cadrage et socle de sécurité](./semaine-5-ebios-rm/1-ebios-rm-santeconnect-cadrage.md) · [Atelier 2 - Sources de risque](./semaine-5-ebios-rm/2-sources-risque.md) · [Atelier 3 - Scénarios stratégiques](./semaine-5-ebios-rm/3-scenarios-strategiques.md) · [Atelier 4 - Scénario opérationnel : Compromission API CHU](./semaine-5-ebios-rm/4-compromission-chu-api.md) · [Synthèse - Clôture de cycle EBIOS RM](../grc-pme-fictive/semaine-5-ebios-rm/5-synthese-cycle.md) |  ✅ Complet |
 
 ---
 
@@ -104,7 +104,8 @@ Elle rassemble des modèles, guides et outils pratiques inspirés des référent
 ## 👩‍💻 À propos de l'auteure
 
 **Solène Figueiredo**
-Consultante GRC | Conformité RGPD · Gestion des risques · Interface IT-Métier
+Cheffe de Projet | Cybersécurité · Gouvernance · Conformité RGPD · Gestion des risques ·Coordination IT-Métier 
+
 
 Positionnement : interface entre technique, risques et décision métier, au
 service de projets cybersécurité ancrés dans la réalité opérationnelle.

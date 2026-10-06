@@ -1,5 +1,5 @@
 
-# Atelier 4 : Scénarios opérationnel et leur vraisemblance
+# Atelier 4 : Scénarios opérationnels et leur vraisemblance
 
 > Document fictif - [Projet portfolio GRC](github.com/solenefig-lab/grc-pme-fictive) Ce document est une synthèse pédagogique. Il ne se substitue pas à un audit réalisé par un organisme accrédité. Le niveau de granularité illustre une cible de maturité, non l'état courant du marché TPE/PME santé.
 
@@ -134,7 +134,7 @@ Pertinence 🔴
 | --- | --- | --- | --- | --- |
 | Organisation Criminelle | Lucratif/Entrave | VM1, VM2 | PCA/PRA, Surveillance, Micro-seg | Compromission API HL7/FHIR |
 | Organisation Criminelle | Lucratif (ransomware) | VM1, VM2 | PCA/PRA, Sauvegardes | Ransomware sur D-002 |
-| Personnel interne mécontent | Entrave (sabotage sauvegardes) | VM1, VM2 | PCA/PRA, RBAC | Sabotage interne des sauvegardes |
+| Personnel interne mécontent | Entrave (sabotage interne dispositid sauvegarde) | VM1, VM2 | PCA/PRA, RBAC | Sabotage interne dispositif sauvegarde |
 
 **Justification :**  
 - Ces 3 scénarios couvrent tous les gaps 🔴 (PCA/PRA) et 2 gaps 🟡 (Surveillance, Micro-segmentation).  
@@ -149,7 +149,7 @@ Les scénarios sélectionnés se basent sur les [couples prioritaire SR/OV ident
 | -- |------------ | ------- | ------- | ------- | ------- | 
 | S1 | Organisation Criminelle | CHU Fictif (API vulnérable) | Compromission API HL7/FHIR → Clés API → Base D-002 → App Mobile/WebApp | VM1 (indisponibilité suivi cardiologie), VM2 (fuite données dossier médical) | Critique (G4) |
 | S2 | Organisation Criminelle | Equipe technique (phishing, cred stuffing) | Accès console OVH  → Dossier Médical (D-002): ransomware | VM1 (indisponibilité), VM2 (indisponibilité) | Critique (G4) |
-| S3 | Personnel interne mécontent | Equipe Technique (accès admin) | Accès admin direct → Console OVH  → Sauvegarde WORM: sabotage | VM1, VM2 | Critique (G4) |
+| S3 | Personnel interne mécontent | Equipe Technique (accès admin) | Accès admin → Console OVH → Neutralisation des jobs de sauvegarde → Expiration des points WORM → Destruction du SI de production | VM1, VM2 | Critique (G4) |
 
 
 **S1: Compromission de l’API HL7/FHIR via le CHU Fictif**
@@ -183,12 +183,14 @@ Autre PP possibles :
 _Note : Ces vecteurs sont jugés moins probables au regard des contrôles contractuels en place._
 
 
-**S3 : Sabotage interne des sauvegardes**
-Un membre de l'équipe technique décide de saboter intentionnellement SantéConnect en supprimant les sauvegardes.
+**S3 : Sabotage interne du dispositif de sauvegarde/restauration**
+Un membre de l'équipe technique décide de saboter intentionnellement SantéConnect en neutralisant sa capacité à restaurer son SI.
 
 Chemin d'attaque :
 - Accès abusif : L’employé utilise ses droits administrateurs sur console OVH   
-→ Effacement : Les sauvegardes WORM sont effacées, rendant la restauration impossible.
+→ Neutralisation : modification ou désactivation des mécanismes de sauvegarde, empêchant la création de nouveaux points de restauration
+→ Érosion de la capacité de restauration : les sauvegardes existantes restent protégées par le WORM pendant leur période de rétention, mais les points de restauration les plus anciens arrivent progressivement à expiration (fenêtre de vulnérabilité = durée de rétention WORM la plus courte)
+→ Destruction de la production : suppression ou compromission des instances, configurations et composants du SI, la restauration devient insuffisante, fortement dégradée ou impossible
 
 PP impliquée : Equipe Technique → Vecteur d'entrée via abus de droits
 

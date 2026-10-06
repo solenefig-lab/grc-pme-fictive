@@ -1,4 +1,3 @@
-
 # Atelier 3 - Scénarios stratégiques
 
 > Document fictif - [Projet portfolio GRC](github.com/solenefig-lab/grc-pme-fictive) Ce document est une synthèse pédagogique. Il ne se substitue pas à un audit réalisé par un organisme accrédité. Le niveau de granularité illustre une cible de maturité, non l'état courant du marché TPE/PME santé.
@@ -114,7 +113,7 @@ Pertinence 🔴
 | --- | --- | --- | --- | --- |
 | Organisation Criminelle | Lucratif/Entrave | VM1, VM2 | PCA/PRA, Surveillance, Micro-seg | Compromission API HL7/FHIR |
 | Organisation Criminelle | Lucratif (ransomware) | VM1, VM2 | PCA/PRA, Sauvegardes | Ransomware sur D-002 |
-| Personnel interne mécontent | Entrave (sabotage sauvegardes) | VM1, VM2 | PCA/PRA, RBAC | Sabotage interne des sauvegardes |
+| Personnel interne mécontent | Entrave (sabotage interne dispoitif sauvegarde) | VM1, VM2 | PCA/PRA, RBAC | Sabotage interne dispositif sauvegarde |
 
 **Justification :**  
 - Ces 3 scénarios couvrent tous les gaps 🔴 (PCA/PRA) et 2 gaps 🟡 (Surveillance, Micro-segmentation).  
@@ -272,12 +271,14 @@ Autre PP possibles :
 _Note : Ces vecteurs sont jugés moins probables au regard des contrôles contractuels en place._
 
 
-**S3 : Sabotage interne des sauvegardes**
-Un membre de l'équipe technique décide de saboter intentionnellement SantéConnect en supprimant les sauvegardes.
+**S3 : Sabotage interne du dispositif de sauvegarde/restauration**
+Un membre de l'équipe technique décide de saboter intentionnellement SantéConnect en neutralisant sa capacité à restaurer son SI.
 
 Chemin d'attaque :
 - Accès abusif : L’employé utilise ses droits administrateurs sur console OVH   
-→ Effacement : Les sauvegardes WORM sont effacées, rendant la restauration impossible.
+→ Neutralisation : modification ou désactivation des mécanismes de sauvegarde, empêchant la création de nouveaux points de restauration
+→ Érosion de la capacité de restauration : les sauvegardes existantes restent protégées par le WORM pendant leur période de rétention, mais les points de restauration les plus anciens arrivent progressivement à expiration (fenêtre de vulnérabilité = durée de rétention WORM la plus courte)
+→ Destruction de la production : suppression ou compromission des instances, configurations et composants du SI, la restauration devient insuffisante, fortement dégradée ou impossible
 
 PP impliquée : Equipe Technique → Vecteur d'entrée via abus de droits
 ___
@@ -290,7 +291,7 @@ ___
 | ------- | ------- | ------- | ------- | ------- | ------- | 
 | CHU Fictif | Compromission API HL7/FHIR → Clés API → Base D-002 → App Mobile/WebApp | APIs mal configurées ou mal patchés | Mettre à jour contractuelle CHU (clause sécurité API), Tester PCA/PRA et Configurer des alertes dans Wazuh/Graylog et Micro-segmentation | A.5.29-30, A.8.13 et A.5.17, A.8.5, A.8.20 | G3 - Grave |
 | Equipe technique (phishing, cred stuffing) | Accès console OVH  → Dossier Médical (D-002): ransomware | Absence d'alertes sur comportements anormaux console OVH (Wazuh/Graylog non configuré sur cet accès) | Tester PCA/PRA, Finaliser et tester automatisation revue RBAC | A.5.9-18, A.8.2-3, A.8.5 | G2 - Significative |
-| Equipe Technique (accès admin) | Accès admin direct → Console OVH  → Sauvegarde WORM: sabotage | Revues RBAC non automatisées et Surveillance continue non formalisée | Finaliser et tester automatisation revue RBAC et Configurer des alertes dans Wazuh/Graylog |  A.5.9-18, A.8.2-3, A.8.5 et A.5.17, A.8.5, A.8.20 | G3 - Grave|
+| Equipe Technique (accès admin) | Accès admin → Console OVH → Neutralisation des jobs de sauvegarde → Expiration des points WORM → Destruction du SI de production | Revues RBAC non automatisées, Surveillance continue non formalisée et Absence de test de restauration périodique | Finaliser et tester automatisation revue RBAC, Configurer des alertes dans Wazuh/Graylog, Copie hors ligne additionnelle (règle 3-2-1-1-0) |  A.5.9-18, A.8.2-3, A.8.5 et A.5.17, A.8.5, A.8.20 | G3 - Grave|
 
 _Notes :_  
 _- Les risques, mesures de sécurité et contrôles sont basés sur [Plan d'action NIS2](../semaine-4-nis2/plan_action_nis2.md). Depuis le [PRA/PCA](../semaine-4-nis2/pra-pca.md) a été documenté et validé._  
