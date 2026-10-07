@@ -39,6 +39,8 @@
 
 ## 2. Cartographie des actifs
 
+_Note : scores ci-dessous = cotation initiale, elle pourra être réévaluée si pertinent dans le PTR en semaine 3._
+
 ### Applicatifs
 
 | Asset | Type | Impact | Probabilité | Score | Niveau | Justification |
@@ -46,7 +48,7 @@
 | App Mobile B2C | Applicatif | 3 | 2 | 6 | 🔴 Haut | Exposée Internet, téléchargeable publiquement, surface d'attaque large |
 | WebApp B2C | Applicatif | 3 | 2 | 6 | 🔴 Haut | Exposée Internet, accessible depuis tout navigateur |
 | Plateforme B2B | Applicatif | 3 | 1 | 3 | 🟠 Modéré | Accès professionnel sur poste dédié, périmètre restreint |
-| Interconnexion médicale (CHU) | Applicatif | 2 | 2 | 4 | 🟠 Modéré | Exposition externe, pivot vers CHU, systèmes tiers non maîtrisés |
+| Interconnexion médicale (CHU) | Applicatif | 2 | 2 | 4 | 🟠 Modéré | Exposition externe, pivot vers CHU, systèmes tiers non maîtrisés; le côté connecteur est couvert par "APIs externes" |
 
 ### Infrastructure
  
@@ -55,7 +57,7 @@
 | Hébergement (OVH HDS) | Infrastructure | 3 | 2 | 6 | 🔴 Haut | Exposition via apps hébergées, dépendance critique toute l'infrastructure |
 | APIs externes | Infrastructure | 3 | 2 | 6 | 🔴 Haut | Exposition Internet, intégrations multiples, contrôles supposés faibles |
 | Équipement routage et sécurité | Infrastructure | 3 | 2 | 6 | 🔴 Haut | Accès réseau complet, PME sans SOC ni monitoring 24/7 |
-| Base de données clients | Infrastructure | 3 | 1 | 3 | 🟠 Modéré | PII sensible, accès interne, hébergeur certifié HDS |
+| Base de données clients | Infrastructure | 3 | 1 | 3 | 🟠 Modéré |PII sensible, accès interne, cloisonnement réseau. La certification HDS d'OVH couvre le périmètre hébergement uniquement ; elle ne réduit pas le risque applicatif (SQLi/XSS, cf. §3 Données). |
 | Poste de travail | Infrastructure | 2 | 1 | 2 | 🟢 Faible | Accès interne, réseau entreprise, contrôles supposés en place |
 | Imprimante | Infrastructure | 1 | 1 | 1 | 🟢 Faible | Réseau entreprise, accès physique requis |
 | Thermostat connecté | Infrastructure | 1 | 1 | 1 | 🟢 Faible | Réseau entreprise, impact limité |
@@ -69,6 +71,9 @@
 | Données de santé patient | Données | 3 | 2 | 6 | 🔴 Haut | Exposition via apps publiques, attractivité forte attaquants spécialisés santé |
 | Données de paiement patient | Données | 3 | 2 | 6 | 🔴 Haut | Transactions en ligne, vecteur Stripe, cible fraude financière |
 | Données praticiens | Données | 1 | 1 | 1 | 🟢 Faible | PII souvent publiques (annuaires, web), impact limité |
+| Authentification (identifiants, tokens, clés API) | Données | 3 | 2 | 6 | 🔴 Haut | Accès directs aux données patients et praticiens ; vecteur de pivot ; secrets exposés |
+
+_Note : Droits d'accès et clôture/archivage traités en [S2- RGPD](../semaine-2-rgpd-hds/README.md) , hors périmètre de la cotation initiale._ 
  
 ### Humains
  
@@ -109,6 +114,7 @@
 | **Données de paiement** | Usurpation d'identité | Phishing / ingénierie sociale | [T1566](https://attack.mitre.org/techniques/T1566/) — Phishing | RGPD Art. 5 + Art. 32 + Art. 33 + Art. 34 · NIS2 Obj. 3 + Obj. 8 + Obj. 9 + Obj. 10 + Obj. 12 + Obj. 20 · PCI-DSS Req. 12 |
 | **Données de paiement** | Fuite de données | Écoute clandestine — absence TLS/SSL sur réseau public | [T1040](https://attack.mitre.org/techniques/T1040/) — Network Sniffing | RGPD Art. 5 + Art. 32 + Art. 33 + Art. 34 · NIS2 Obj. 3 + Obj. 8 + Obj. 9 + Obj. 10 + Obj. 12 + Obj. 20 · PCI-DSS Req. 4 + Req. 7 |
 
+
 ---
 
 ## 4. Top 5 des risques prioritaires
@@ -127,10 +133,12 @@
 ---
  
 ## 5. Exemple d'arbitrage — Risque accepté
+
+Un risque 🟠 peut être accepté par la Direction, avec justification écrite, mesures compensatoires, décideur et date de revue.
  
-| Asset | Score | Décision | Justification |
-|-------|-------|----------|---------------|
-| Interconnexion médicale (CHU) | 4 🟠 | ✅ Risque accepté | Interconnexion avec systèmes historiques indépendants de l'infrastructure PME — compensé par chiffrement BDD, authentification renforcée et contrôle des flux. |
+| Asset | Score | Décision | Justification | Mesures compensatoires | Décideur | Date revue | 
+|-------|-------|----------|---------------| ---------------| ---------------| ---------------|
+| Interconnexion médicale (CHU) | 4 🟠 | ✅ Risque accepté | Interconnexion avec systèmes historiques indépendants de l'infrastructure PME | Compensé par chiffrement BDD, authentification renforcée et contrôle des flux. | CEO SantéConnect |  10/12/2023 |
  
 > **Note :** Ce risque est accepté car le coût et la complexité d'une remédiation
 > complète sont disproportionnés par rapport à la capacité d'action de SantéConnect
@@ -157,4 +165,4 @@ Version : V1.0 — Émission : 10/12/2023
 | DPO As a Service	| Jeanne PETIT	| 10/12/2023 |
 | RSSI	| Claire ESPINOZA	| 08/12/2023 |
 
-Révision annuelle : 10/12/2024
+Révision annuelle : voir [PTR](../semaine-3-iso27001/plan-traitement-risques.md)

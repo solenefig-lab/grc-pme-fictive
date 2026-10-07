@@ -8,6 +8,8 @@
 
 Poser les bases de l'audit GRC : gouvernance, cartographie des actifs et évaluation des risques pour prioriser les actions sécurité dès le départ.
 
+_Note : Ici il s'agit de la cartographie initiale, le référentiel de risques de référence sera développé avec le [PTR](../semaine-3-iso27001/plan-traitement-risques.md) en semaine 3.
+
 ---
 
 ## Points méthodologiques clés
@@ -24,6 +26,7 @@ Poser les bases de l'audit GRC : gouvernance, cartographie des actifs et évalua
 |---|---|
 | [`cadrage-audit.md`](./cadrage-audit.md) | Document de cadrage de l'audit GRC |
 | [`fiche-risques-e-sante.md`](./fiche-risques-e-sante.md) | Fiche de gestion des risques |
+
 
 ---
 
