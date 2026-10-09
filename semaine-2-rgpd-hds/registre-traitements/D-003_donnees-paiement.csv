@@ -19,7 +19,7 @@ Sous-finalité 2;Facturation et version aux organismes sociaux;;;;;;;
 Sous-finalité 3;Ordre de virement / paiement à la banque;;;;;;;
 ;;;;;;;;
 Catégories de données personnelles concernées;Description;;Durée de conservation;;Base légale;;Historique violation;
-État civil, identité, données d'identification, images…;Identité, photo profil (optionnel);;3 ans après fin de l’abonnement;;"Obligation légale + execution du contrat: RGPD art. 6.c et .b
+État civil, identité, données d'identification, images…;Identité;;3 ans après fin de l’abonnement;;"Obligation légale + execution du contrat: RGPD art. 6.c et .b
 PCI-DSS";;Non;
 Informations d'ordre économique et financier (revenus, situation financière, situation fiscale, etc.);Moyen de paiement: RIB ou CB (tokenisé);;3 ans après fin de l’abonnement, dès résiliation abonnement pour les tokens;;"Obligation légale + execution du contrat: RGPD art. 6.c et .b
 PCI-DSS";;Non;
@@ -27,15 +27,14 @@ PCI-DSS";;Non;
 ;;;;;;;;
 Catégories de personnes concernées;Description;;;Précisions;;;;
 Catégorie de personnes 1;Clients;;;Clientèle plutôt senior ayant donné un consentement éclairé et à tout moment rétractable pour utilisation du service;;;;
-Catégorie de personnes 2;Autres (préciser);;;Aidant si décision justice et/ou accord client (RGPD art 9.2.g ou .a);;;;
+Catégorie de personnes 2;Autres (préciser);;;Aidant si décision justice et/ou accord client (RGPD art 9.2.a (représentant légal));;;;
 ;;;;;;;;
 Destinataires;Type de destinataire;;;Précisions;;;;
 Destinataire 1;Service interne qui traite les données;;;Service Comptabilité pour suivi facturation, paiement (exécution du contrat: RGPD art. 6.b.);;;;
 Destinataire 2;Service interne qui traite les données;;;Service IT/Support pour bug lié au module de paiement;;;;
-Destinataire 3;Partenaires institutionnels ou commerciaux;;;Organismes sociaux: URSSAF, etc. (obligation légale RGPD art. 6.1.c);;;;
-Destinataire 4;Sous-traitants;;;Stripe (situé en U.-E., conformité PCI-DSS, contrat de sous-traitance: RGPD art.28);;;;
-Destinataire 5;Sous-traitants;;;Hébergement: OVH (situé en France) pour sauvegarde des données de paiement (contrat de sous-traitance: RGPD art.28);;;;
-Destinataire 6;Autres (préciser);;;Banque Coopérative Fictive, basée en France (exécution du contrat RGPD art. 6.1.b);;;;
+Destinataire 3;Sous-traitants;;;Stripe (situé en U.-E., conformité PCI-DSS, contrat de sous-traitance: RGPD art.28);;;;
+Destinataire 4;Sous-traitants;;;Hébergement: OVH (situé en France) pour sauvegarde des données de paiement (contrat de sous-traitance: RGPD art.28);;;;
+Destinataire 5;Autres (préciser);;;Banque Coopérative Fictive, basée en France (exécution du contrat RGPD art. 6.1.b);;;;
 ;;;;;;;;
 ;;;;;;;;
 Mesures de sécurité;Type de mesure de sécurité;;;Précisions;;;;

@@ -69,8 +69,8 @@
 |---------|--------|-------------------|
 | **RGPD Art. 17** | Droit à l'effacement sur demande du patient | S'applique aux données dont SantéConnect est responsable de traitement |
 | **Art. R. 1112-7 CSP** | Conservation 20 ans des dossiers médicaux hospitaliers | S'applique aux données transmises par le CHU |
-| **Art. R. 1111-10 CSP** | Conservation 20 ans par les professionnels de santé libéraux | La responsabilité incombe au praticien, pas à SantéConnect |
-| **Art. L. 1111-8 CSP** | Obligation de certification HDS pour tout hébergeur | S'applique à OVH (hébergeur de SantéConnect) |
+| **Art. L. 1111-8 CSP + R. 1111-10 CSP** | Obligation de certification HDS pour tout hébergeur | S'applique à OVH (hébergeur de SantéConnect) |
+| **Art. R. 4127-45 (code de déontologie médicale)** | Conservation sous la responsabilité du médecin ; pas de durée légale fixe pour les libéraux (alignement recommandé sur R. 1112-7, 20 ans) | La responsabilité incombe au praticien, pas à SantéConnect |
 
 ### Solution : distinction par type de données
 
@@ -79,7 +79,7 @@
 | Données transmises par le CHU | Dossier médical hospitalier | Qualifié par traitement (art. 28 ou 26, cf. semaine 2) | 20 ans (Art. R. 1112-7) | Archivage restreint : verrouillage de l'accès. La demande est relayée au CHU, responsable de ces données, que SantéConnect assiste. Le patient est informé de la conservation légale (20 ans). |
 | Données créées dans l'app | Suivi personnel (tension, poids) | Responsable de traitement | 5 ans (recommandation CNIL) | Effacement possible après vérification d'absence de lien avec un dossier hospitalier |
 | Données de compte | Email, identité | Responsable de traitement | 3 ans après clôture | Effacement complet après vérification des obligations légales (facturation) |
-| Données praticiens libéraux | Dossiers patients stockés via app | Sous-traitant | 20 ans (Art. R. 1111-10) — responsabilité praticien | Contrat de sous-traitance + recommandation d'export avant clôture |
+| Données praticiens libéraux | Dossiers patients stockés via app | Sous-traitant | 20 ans (alignement recommandé sur R. 1112-7, art. R. 4127-45) - responsabilité praticien | Contrat de sous-traitance + recommandation d'export avant clôture |
 
 ### Processus de clôture de compte
 

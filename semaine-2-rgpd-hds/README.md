@@ -12,14 +12,14 @@ Poser les bases de la conformité RGPD-HDS pour SantéConnect : structurer les t
 | [`note-co-responsabilite-chu.md`](./note-co-responsabilite-chu.md/) | Note convention co-responsabilité CHU (RGPD art. 26) | ✅ Complet |
 | [`procedure-incident-notification.md`](./procedure-incident-notification.md/) | Procédure de gestion des incidents + template notification CNIL (art. 33-34) | ✅ Complet |
 | [`checklist-audit-rgpd-hds.md`](./checklist-audit-rgpd-hds.md) | Checklist audit RGPD-HDS adaptée PME e-santé | ✅ Complet |
-| [`synthese-clauses-sous-traitants.md`](./synthese-clauses-sous-traitants.md/) | Synthèse des clauses critiques art. 28 — OVH, Stripe, CHU | ✅ Complet  |
+| [`synthese-clauses-sous-traitants.md`](./synthese-clauses-sous-traitants.md) | Synthèse des clauses critiques art. 28 — OVH, Stripe, Matomo | ✅ Complet  |
 
 ## Points méthodologiques clés
 
-- NIR repositionné en donnée à protection renforcée (LIL art. 25).
+- NIR repositionné en identifiant à encadrement spécifique (LIL art. 30 + décret n° 2019-341).  
 - Co-responsabilité CHU limitée à D-002 et D-005 (fiche Données de Santé et Interconnexion avec CHU),
-- Agrégation retenue sur D-009 (fiche Données Statistiques/R&D) avec documentation du risque de ré-identification.
-- Matomo : choix structurant entre auto-hébergé (pas de sous-traitant art. 28) et Cloud (sous-traitant art. 28); arbitrage à documenter en situation réelle.".
+- Agrégation retenue sur D-009 (fiche Données Statistiques/R&D) avec documentation du risque de ré-identification : pseudonymisation interne, agrégation en sortie.
+- Matomo : choix structurant entre auto-hébergé (pas de sous-traitant art. 28) et Cloud (sous-traitant art. 28); arbitrage à documenter en situation réelle.  
 - Choix des sous-traitants sans transfert hors EEE.
 
 ## 🛠️ Ressource associée

@@ -36,10 +36,10 @@ Toute violation de données personnelles nécessite la constitution d'une **docu
 ### 2.1 Violation de données personnelles — hors données sensibles
 
 1. **Horodater** la constatation de la violation et documenter : nature et volume des données concernées, nature et nombre de personnes concernées, méthode utilisée si connue.
-2. **Mobiliser sous 24h** les responsables SantéConnect (CEO + Service IT/Support + DPO As a Service) pour analyser, documenter et sécuriser (remédiation / mitigation / suspension).
-3. **Décider sous 48h** de la nécessité d'informer les personnes concernées selon les critères section 4.1 — décision CEO avec validation DPO As a Service.
-4. **Notifier la CNIL sous 72h** (cf. section 3).
-5. **Étude approfondie** de la violation pour prioriser de nouvelles mesures de sécurisation — mise à jour AIPD dans les 15 jours.
+2. **Mobiliser sous 24h** les responsables SantéConnect (CEO + Service IT/Support + DPO As a Service + RSSI) pour analyser, documenter et sécuriser (remédiation / mitigation / suspension).
+3. **Décider sous 48h** de la nécessité d'informer les personnes concernées selon les critères section 4.1 - décision CEO avec validation DPO As a Service.
+4. **Notifier la CNIL sous 72h** (cf. section 3), sauf violation improbable de présenter un risque (art. 33.1) ; documentation interne dans tous les cas.
+5. **Étude approfondie** de la violation pour prioriser de nouvelles mesures de sécurisation - mise à jour AIPD dans les 15 jours.
 6. **Mise à jour de la notification CNIL** le cas échéant.
 
 ---
@@ -54,7 +54,7 @@ La procédure détaillée est définie dans la **convention de co-responsabilit�
 |---|---|---|
 | Notification inter-partenaires | Sous 4h après découverte | SantéConnect → CHU Fictif |
 | Notification CNIL | Sous 72h (RGPD art. 33) | SantéConnect |
-| Notification autorité CHU | Simultanément si applicable | CHU Fictif |
+| Notification autorité compétente CHU | Simultanément si applicable | CHU Fictif |
 | Mise en œuvre mesures conjointes | Dans les 72h | CEO + IT/Support + DPO (SC) + Chef Cardiologie + IT + DPO (CHU) |
 | Partage des coûts | Au prorata de la responsabilité | SantéConnect + CHU Fictif |
 | Mise à jour AIPD | Sous 15 jours | SantéConnect — notification CHU Fictif pour observations (5 jours ouvrés) |

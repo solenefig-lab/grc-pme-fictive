@@ -13,14 +13,16 @@ Délégué à la protection des données;PETIT Jeanne;456 chemin Promenade;‘00
 Société du DPO (si celui-ci est externe);DPO As A Service;456 chemin Promenade;‘00000;Fictif;France;06070607;contact@dpo-service-demo.fr;
 ;;;;;;;;
 Finalité(s) du traitement effectué;;;;;;;;
-Finalité principale;Amélioration du service et analyse statistique des parcours de soins cardiologiques en vue d'extension géographique, sur données agrégées/anonymisées uniquement (RGPD art. 6.1.f + art. 9.2.j);;;;;;;
+Finalité principale;Amélioration du service et analyse statistique des parcours de soins cardiologiques en vue d'extension géographique, traitement sur données pseudonymisées, sorties vers le CHU agrégées (k ≥ 5) (RGPD art. 6.1.f + art. 9.2.j);;;;;;;
 Sous-finalité 1;Analyse des usages produit (taux d'adhérence, fonctionnalités utilisées) sur données agrégées/anonymisées;;;;;;;
 Sous-finalité 2;Statistiques épidémiologiques partagées avec le CHU partenaire (agrégées, sans données individuelles identifiables);;;;;;;
 Sous-finalité 3;Amélioration des algorithmes de suivi cardiologique;;;;;;;
 ;;;;;;;;
 Catégories de données personnelles concernées;Description;;Durée de conservation;;Base légale;;Historique violation;
-Données pseudonymisées de santé;Parcours de soins, indicateurs cardiologiques, fréquence de consultation (identifiant remplacé par token non réversible sans clé séparée);;3 ans;;RGPD art. 6.1.f + art. 9.2.j;;Non;
 Données d’usage;Fréquence de connexion, fonctionnalités utilisées, temps de session (pseudonymisées);;2 ans;;RGPD art 9.2.j;;Non;
+;;;;;;;;
+Données sensibles;Description;;Durée de conservation;;Base légale;;Historique violation;
+Données pseudonymisées de santé;Parcours de soins, indicateurs cardiologiques, fréquence de consultation (identifiant remplacé par token non réversible sans clé séparée);;3 ans;;RGPD art. 6.1.f + art. 9.2.j;;Non;
 ;;;;;;;;
 Catégories de personnes concernées;Description;;;Précisions;;;;
 Catégorie de personnes 1;Clients;;;Patients: indirectement, via données pseudonymisées;;;;

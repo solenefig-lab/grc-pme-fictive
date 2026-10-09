@@ -59,7 +59,7 @@ Cette checklist s'appuie sur les livrables suivants : registre D-001→D-010, AI
 - [ ] Mesures techniques en place (chiffrement, contrôle d'accès, logs)
 - [ ] Mesures organisationnelles documentées (procédures, formation)
 - [ ] AIPD réalisée et à jour *(nécessaire - données de santé art. 35)*
-- [ ] DPO désigné et opérationnel *(nécessaire - données de santé à grande échelle)*
+- [ ] DPO désigné et opérationnel *(désignation volontaire (art. 37(4) RGPD))*
 - [ ] Politique de gestion des incidents documentée
 - [ ] Procédure de notification CNIL opérationnelle (art. 33-34)
 
@@ -70,13 +70,32 @@ Cette checklist s'appuie sur les livrables suivants : registre D-001→D-010, AI
 
 ---
 
+### 3. Qualification HDS de SantéConnect
+
+**Hypothèse de qualification prudente** : SantéConnect héberge des données de santé pour le compte de tiers (patients, praticiens libéraux) et exerce l'activité 5 (administration et exploitation du SI contenant les données de santé) via un accès tenant au périmètre OVH.
+
+**Position** : les activités 1-4 et 6 sont couvertes par le certificat HDS d'OVH. L'activité 5 est exercée en interne : écart potentiel identifié par rapport à L.1111-8 CSP. La certification propre est écartée à ce stade pour proportionnalité.
+
+**Décision** : écart connu, accepté par la Direction (CEO) avec réexamen daté : audit annuel de janvier 2027, et avant tout nouvel hébergement pour compte de tiers. Alternative documentée : service managé ou certification propre.
+
+> Hypothèse documentée dans un contexte fictif. La qualification définitive relève d'un certificateur ou d'un conseil spécialisé.
+
+**Mesures de réduction du risque** (réduction du risque de sécurité, pas une mise en conformité) : 
+- [ ] Accès tenant limité, journalisé et supervisé 
+- [ ] Procédure d'accès exceptionnel (break-glass) 
+- [ ] Revue annuelle des accès
+
+
+
+---
+
 ## Partie 2 - Checklist HDS
 
 *(Référentiel : L.1111-8 CSP + certification ANS)*
 
 - [ ] Révision annuelle du contrat d'hébergement OVH
 - [ ] Vérification annuelle du certificat HDS OVH - valide, à jour, périmètre conforme *(activités 1-4 et 6 - L.1111-8 CSP)*
-- [ ] Administration et exploitation du SI de SantéConnect conformes aux exigences HDS - procédures documentées *(activité 5 - L.1111-8 CSP)*
+- [ ] Administration et exploitation du SI de SantéConnect - alignement sur les exigences, sans certification (écart connu, cf. Qualification HDS)
 - [ ] Données de santé cloisonnées des autres données par conception (séparation base de données + chiffrement AES-256)
 - [ ] PRA/PCA documenté et testé *(cf. semaine 3 - ISO 27001)*
 - [ ] Audit annuel conjoint de conformité HDS/RGPD conduit avec le co-responsable CHU Fictif

@@ -13,7 +13,7 @@ Données praticiens B2B;D-004;01/03/2024;01/03/2024;07/03/2024;Identification de
 Support client;D-006;15/03/2024;15/03/2024;18/03/2024;Gestion des plaintes et retours clients sur accès et utilisation service à l’exclusion de toute donnée de santé (sous réserve de cloisonnement technique garanti);;;Non;
 Gestion RH et Paie;D-007;01/02/2024;01/02/2024;05/02/2024;Gestion des contrats, de la paie et des congés, Calcul des rémunérations, Calcul du montant des versements adressés aux organismes sociaux;;;Non;
 Logs IT et gestion des accès;D-008;01/04/2024;01/04/2024;05/04/2024;Suivi sécurité accès et journalisation (sans accès données santé par conception);;;Non;
-Statistiques/R&D;D-009;10/04/2024;10/04/2024;15/04/2024;Amélioration du service et analyse statistique des parcours de soins cardiologiques en vue d'extension géographique, sur données pseudonymisées ;;;Non;
+Statistiques/R&D;D-009;10/04/2024;10/04/2024;15/04/2024;Amélioration du service et analyse statistique des parcours de soins cardiologiques en vue d'extension géographique, traitement sur données pseudonymisées, export CHU uniquement agrégé (k ≥ 5) ;;;Oui;
 Analyses d’audience du site web marketing;D-010;01/02/2024;10/02/2024;15/02/2024;Analyses d’audience du site web marketing seulement (cookies);;;Non;
 ;;;;;;;;;
 ;;;;;;;;;

@@ -96,23 +96,23 @@ _Note : Droits d'accès et clôture/archivage traités en [S2- RGPD](../semaine-
 
 | Asset | Menace | Vecteur d'attaque | Tactique MITRE ATT&CK | Réglementation impactée |
 |-------|--------|-------------------|-----------------------|------------------------|
-| **Hébergement** | Compromission fournisseur | Supply chain | [T1195](https://attack.mitre.org/techniques/T1195/) — Supply Chain Compromise | RGPD Art. 28 + Art. 32 · NIS2 Obj. 8 + Obj. 20 |
-| **Hébergement** | Indisponibilité | DDoS | [T1498](https://attack.mitre.org/techniques/T1498/) — Network Denial of Service | RGPD Art. 28 + Art. 32 · NIS2 Obj. 8 + Obj. 13 + Obj. 20 |
-| **APIs** | Fuite de données | API mal configurée | [T1190](https://attack.mitre.org/techniques/T1190/) — Exploit Public-Facing Application | RGPD Art. 5 + Art. 9 + Art. 32 + Art. 33 + Art. 34 + Art. 90 · NIS2 Obj. 8 + Obj. 10 + Obj. 12 + Obj. 20 |
-| **APIs** | Intrusion | Vol de clé API (token) | [T1552.001](https://attack.mitre.org/techniques/T1552/001/) — Credentials in Files | RGPD Art. 5 + Art. 9 + Art. 32 + Art. 33 + Art. 34 · NIS2 Obj. 8 + Obj. 9 + Obj. 10 + Obj. 12 + Obj. 20 |
-| **Équipement routage** | Intrusion | Port 23 (Telnet) ouvert | [T1133](https://attack.mitre.org/techniques/T1133/) — External Remote Services | NIS2 Obj. 3 + Obj. 8 + Obj. 9 + Obj. 10 + Obj. 12 + Obj. 20 |
-| **Équipement routage** | Mouvement latéral | Équipement non autorisé (USB/MitM) | [T1557](https://attack.mitre.org/techniques/T1557/) — Adversary-in-the-Middle | NIS2 Obj. 3 + Obj. 8 + Obj. 9 + Obj. 10 + Obj. 12 + Obj. 20 |
+| **Hébergement** | Compromission fournisseur | Supply chain | [T1195](https://attack.mitre.org/techniques/T1195/) — Supply Chain Compromise | RGPD Art. 28 + Art. 32 · NIS2 art. 21(2)(d) |
+| **Hébergement** | Indisponibilité | DDoS | [T1498](https://attack.mitre.org/techniques/T1498/) — Network Denial of Service | RGPD Art. 28 + Art. 32 · NIS2 art. 21(2)(c)|
+| **APIs** | Fuite de données | API mal configurée | [T1190](https://attack.mitre.org/techniques/T1190/) — Exploit Public-Facing Application | RGPD Art. 5 + Art. 9 + Art. 32 + Art. 33 + Art. 34 + Art. 90 · NIS2 art. 21(2)(e) |
+| **APIs** | Intrusion | Vol de clé API (token) | [T1552.001](https://attack.mitre.org/techniques/T1552/001/) — Credentials in Files | RGPD Art. 5 + Art. 9 + Art. 32 + Art. 33 + Art. 34 · NIS2 art. 21(2)(i) + (j) |
+| **Équipement routage** | Intrusion | Port 23 (Telnet) ouvert | [T1133](https://attack.mitre.org/techniques/T1133/) — External Remote Services | NIS2 art. 21(2)(g) + (h) |
+| **Équipement routage** | Mouvement latéral | Équipement non autorisé (USB/MitM) | [T1557](https://attack.mitre.org/techniques/T1557/) — Adversary-in-the-Middle | NIS2 art. 21(2)(i) |
 
 ### Données
 
 | Asset | Menace | Vecteur d'attaque | Tactique MITRE ATT&CK | Réglementation impactée |
 |-------|--------|-------------------|-----------------------|------------------------|
-| **Données personnelles** | Intrusion | Force brute — compte compromis | [T1110](https://attack.mitre.org/techniques/T1110/) — Brute Force | RGPD Art. 5 + Art. 32 + Art. 33 + Art. 34 · NIS2 Obj. 3 + Obj. 9 + Obj. 10 + Obj. 12 + Obj. 20 |
-| **Données personnelles** | Fuite de données | Exploit Public-Facing Application | [T1190](https://attack.mitre.org/techniques/T1190/) — Exploit Public-Facing Application | RGPD Art. 5 + Art. 32 + Art. 33 + Art. 34 · NIS2 Obj. 3 + Obj. 8 + Obj. 9 + Obj. 10 + Obj. 12 + Obj. 20 |
-| **Données de santé** | Fuite de données | Injection SQL / XSS | [T1059](https://attack.mitre.org/techniques/T1059/) — Command and Scripting Interpreter | RGPD Art. 5 + Art. 9 + Art. 32 + Art. 33 + Art. 34 + Art. 90 · NIS2 Obj. 8 + Obj. 10 + Obj. 12 + Obj. 20 |
-| **Données de santé** | Extorsion | Ransomware — chiffrement données santé | [T1486](https://attack.mitre.org/techniques/T1486/) — Data Encrypted for Impact | RGPD Art. 5 + Art. 9 + Art. 32 + Art. 33 + Art. 34 + Art. 90 · NIS2 Obj. 8 + Obj. 10 + Obj. 12 + Obj. 20 |
-| **Données de paiement** | Usurpation d'identité | Phishing / ingénierie sociale | [T1566](https://attack.mitre.org/techniques/T1566/) — Phishing | RGPD Art. 5 + Art. 32 + Art. 33 + Art. 34 · NIS2 Obj. 3 + Obj. 8 + Obj. 9 + Obj. 10 + Obj. 12 + Obj. 20 · PCI-DSS Req. 12 |
-| **Données de paiement** | Fuite de données | Écoute clandestine — absence TLS/SSL sur réseau public | [T1040](https://attack.mitre.org/techniques/T1040/) — Network Sniffing | RGPD Art. 5 + Art. 32 + Art. 33 + Art. 34 · NIS2 Obj. 3 + Obj. 8 + Obj. 9 + Obj. 10 + Obj. 12 + Obj. 20 · PCI-DSS Req. 4 + Req. 7 |
+| **Données personnelles** | Intrusion | Force brute — compte compromis | [T1110](https://attack.mitre.org/techniques/T1110/) — Brute Force | RGPD Art. 5 + Art. 32 + Art. 33 + Art. 34 · NIS2 art. 21(2)(i) + (j)|
+| **Données personnelles** | Fuite de données | Exploit Public-Facing Application | [T1190](https://attack.mitre.org/techniques/T1190/) — Exploit Public-Facing Application | RGPD Art. 5 + Art. 32 + Art. 33 + Art. 34 · NIS2 art. 21(2)(e)|
+| **Données de santé** | Fuite de données | Injection SQL / XSS | [T1059](https://attack.mitre.org/techniques/T1059/) — Command and Scripting Interpreter | RGPD Art. 5 + Art. 9 + Art. 32 + Art. 33 + Art. 34 + Art. 90 · NIS2 art. 21(2)(e) |
+| **Données de santé** | Extorsion | Ransomware — chiffrement données santé | [T1486](https://attack.mitre.org/techniques/T1486/) — Data Encrypted for Impact | RGPD Art. 5 + Art. 9 + Art. 32 + Art. 33 + Art. 34 + Art. 90 · NIS2 art. 21(2) (b) + (c) |
+| **Données de paiement** | Usurpation d'identité | Phishing / ingénierie sociale | [T1566](https://attack.mitre.org/techniques/T1566/) — Phishing | RGPD Art. 5 + Art. 32 + Art. 33 + Art. 34 · NIS2 art. 21(2) (g) · PCI-DSS Req. 12 |
+| **Données de paiement** | Fuite de données | Écoute clandestine — absence TLS/SSL sur réseau public | [T1040](https://attack.mitre.org/techniques/T1040/) — Network Sniffing | RGPD Art. 5 + Art. 32 + Art. 33 + Art. 34 · NIS2 art. 21(2) (h) · PCI-DSS Req. 4 + Req. 7 |
 
 
 ---

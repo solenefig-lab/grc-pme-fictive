@@ -26,7 +26,7 @@
 | D-006 | Support client | Gestion des plaintes et retours clients sur accès et utilisation service, à l'exclusion de toute donnée de santé (sous réserve de cloisonnement technique garanti) | Non |
 | D-007 | Gestion RH et Paie | Gestion des contrats, de la paie et des congés — calcul des rémunérations et versements aux organismes sociaux | Non |
 | D-008 | Logs IT et gestion des accès | Suivi sécurité, accès et journalisation (sans accès aux données de santé par conception) | Non |
-| D-009 | Statistiques / R&D | Amélioration du service et analyse statistique des parcours de soins cardiologiques en vue d'extension géographique, sur données agrégées/anonymisées | Non |
+| D-009 | Statistiques / R&D | Amélioration du service et analyse statistique des parcours de soins cardiologiques en vue d'extension géographique ; traitement sur données pseudonymisées ; export CHU uniquement agrégé (k ≥ 5) | **Oui** |
 | D-010 | Analyses d'audience du site web marketing | Mesure de fréquentation et comportement des visiteurs du site marketing, sur consentement (RGPD art. 6.1.a) | Non |
 
 ---
@@ -40,19 +40,20 @@
 | RGPD | Art. 6.1.c | Obligation légale |
 | RGPD | Art. 6.1.f | Intérêt légitime (ex. sécurité des systèmes) |
 | RGPD | Art. 9.2.a | Données sensibles — consentement explicite |
-| RGPD | Art. 9.2.g | Motifs d'intérêt public important |
 | RGPD | Art. 9.2.h | Nécessité pour les soins |
 | RGPD | Art. 9.2.j | Recherche scientifique, statistiques ou archivage d'intérêt public (avec pseudonymisation obligatoire) |
 | RGPD | Art. 17 | Droit à l'effacement — révocation des droits d'accès |
 | RGPD | Art. 26 | Co-responsabilité de traitement |
 | RGPD | Art. 28 | Contrat de sous-traitance |
+| RGPD | Art. 30.2 | Registre des activités de traitement effectuées pour le compte de praticiens libéraux (sous-traitance) |
 | RGPD | Art. 33 | Notification CNIL en cas d'incident (72h) |
 | RGPD | Art. 34 | Notification des personnes concernées en cas d'incident |
-| CSP | Art. R-1111-10 | Obligation de conservation des données de santé — praticiens libéraux |
+| CSP | Durée légale de conservation - praticiens libéraux (référence à confirmer) | Conservation des dossiers patients à la charge du praticien responsable ; SantéConnect agit en sous-traitant (cf. accord-type art. 28, registre art. 30.2) |
 | CSP | Art. R-1112-7 | Obligation de conservation des données de santé — établissements hospitaliers |
-| HDS | — | Hébergement des données de santé (certification OVH) |
+| HDS | L. 1111-8 + R. 1111-10 | Hébergement des données de santé (certification OVH) |
 | PCI-DSS | — | Sécurité des moyens de paiement (via Stripe) |
-| Loi I&L | Art. 25 | Donnée à protection renforcée (NIR) — usage strictement limité aux obligations sociales et fiscales |
+| Loi I&L | Art. 30 (NIR) + décret n° 2019-341 | NIR patients — identifiant de liaison dossier CHU (D-002) ; cadre à qualifier (décret NIR / chapitre santé / INS, CSP L. 1111-8-1) ; v2 : migration vers l'INS |
+| Loi I&L | Art. 30 (NIR) + décret n° 2019-341 | NIR salariés — obligations sociales et fiscales (D-007), à rattacher à l'article du décret après lecture |
 
 ---
 

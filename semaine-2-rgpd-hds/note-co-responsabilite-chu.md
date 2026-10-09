@@ -43,7 +43,7 @@ Les personnes concernées peuvent également contacter à tout moment le DPO du 
 - **Droit à la rectification et à l'effacement du Dossier Médical** : soumis à la réglementation CSP — non opposable au-delà des délais légaux d'archivage.
 - **Suspension du service SantéConnect par la personne concernée** :
   - Archivage restreint du Dossier Médical : 20 ans, accès réservé au CHU (CSP art. R. 1112-7)
-  - Archivage selon durée légale + archivage restreint pour les praticiens libéraux — SantéConnect met à disposition un outil d'export sécurisé (CSP art. R. 1111-10)
+  - Conservation sous la responsabilité du praticien libéral (code de déontologie médicale, art. R. 4127-45 ; pas de durée légale fixe, alignement recommandé sur R. 1112-7) - SantéConnect met à disposition un outil d’export sécurisé.  
   - La clôture du compte SantéConnect n'entraîne pas l'archivage chez le CHU ou les praticiens tant que ceux-ci continuent à suivre la personne concernée.
 
 ---

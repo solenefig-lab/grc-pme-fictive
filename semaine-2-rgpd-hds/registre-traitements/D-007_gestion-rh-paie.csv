@@ -22,7 +22,7 @@ Sous-finalité 3;Résiliation des contrats;;;;;;;
 Catégories de données personnelles concernées;Description;;Durée de conservation;;Base légale;;Historique violation;
 État civil, identité, données d'identification, images…;Noms, prénoms, adresses;;5 ans à compter du versement de la paie;;Obligation légale employeur + execution du contrat: RGPD art. 6.c et .b;;Non;
 Informations d'ordre économique et financier (revenus, situation financière, situation fiscale, etc.);RIB;;5 ans à compter du versement de la paie;;Execution du contrat: RGPD art. 6.c et .b;;Non;
-Numéro Sécurité Social;Numéros de sécurité sociale des salariés;;5 ans à compter du versement de la paie;;Obligation légale employeur: RGPD art. 6.c + Donnée à protection renforcée (usage strictement limité aux obligations sociales et fiscales):  loi I&L Art. 25;;Non;
+Numéro Sécurité Social;Numéros de sécurité sociale des salariés;;5 ans à compter du versement de la paie;;Obligation légale employeur: RGPD art. 6.c + NIR : LIL art. 30 + décret n° 2019-341 (obligations sociales de l’employeur);;Non;
 ;;;;;;;;
 Catégories de personnes concernées;Description;;;Précisions;;;;
 Catégorie de personnes 1;Salariés;;;Obligation légale + exécution du contrat;;;;

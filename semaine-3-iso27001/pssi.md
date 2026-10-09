@@ -160,7 +160,7 @@ SantéConnect applique un **cloisonnement** : base de données dédiée aux donn
 
 | Catégorie | Durée | Référence |
 |---|---|---|
-| Dossier médical | 20 ans, archivage restreint | CSP art. R.1112-7 (CHU) / R.1111-10 (autres praticiens) |
+| Dossier médical | 20 ans, archivage restreint | CSP art. R.1112-7 (CHU) / art. R.4127-45 (autres praticiens : responsabilité du praticien, pas de durée légale fixe, alignement recommandé) |
 | Données de paiement | 3 ans | - |
 | Logs IT | 6 mois (1 an glissant si incident) | - |
 | Données utilisation site web | 1 an | Matomo auto-hébergé |

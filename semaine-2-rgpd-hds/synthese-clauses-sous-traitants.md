@@ -19,6 +19,11 @@ Ces clauses sont encadrées par le RGPD art. 28 et visent à garantir que le rec
 
 > **Note - Matomo** : Matomo en auto-hébergement n'est pas un sous-traitant. Seule la version SaaS (Matomo Cloud) est concernée par les clauses ci-dessous.
 
+> **Note - SantéConnect également sous-traitante (art. 28) :** SantéConnect héberge des dossiers patients pour le compte des praticiens libéraux (cf. fiche D-002 et registre art. 30.2 du registre des traitements).  
+> Un accord-type praticien est requis (contrat B2B / CGU professionnelles), couvrant : instructions
+> documentées du praticien, confidentialité et secret médical, mesures de sécurité (clause 3), assistance aux droits des patients, notification des violations (délais alignés sur la convention CHU), export/restitution en fin de contrat, durées de conservation à la charge du praticien.
+
+
 Ces contrats sont régis par le droit français. Tout litige sera soumis aux tribunaux compétents.
 
 ---
@@ -56,7 +61,8 @@ Le sous-traitant prend toutes les mesures requises en vertu de l'art. 32 du RGPD
 | Chiffrement | TLS 1.3 (transit) + AES-256 (repos) |
 | Données médicales | Séparation stricte par conception des autres données |
 
-> **Cas particulier OVH** : séparation stricte des Données Médicales par conception + flux API HL7/FHIR sécurisé
+> **Cas particulier OVH** : séparation stricte des Données Médicales par conception + flux API HL7/FHIR sécurisé  
+> - Périmètre HDS du contrat : activités 1-4 et 6. L'activité 5 est exercée par SantéConnect via accès tenant ; journaux d'accès console mis à disposition et revus annuellement
 
 > **Cas particulier Matomo** *(applicable uniquement si Matomo Cloud - version SaaS)* :
 > - Solution analytics sans transfert hors UE, pas de cookie tiers
@@ -83,7 +89,7 @@ Droits couverts : accès, rectification, effacement ("droit à l'oubli"), portab
 > **Cas particulier OVH - Dossier Médical :**
 > - Droits soumis à la réglementation CSP - non opposables au-delà des délais légaux d'archivage
 > - Suspension du service : archivage restreint 20 ans, accès réservé au CHU (CSP art. R. 1112-7)
-> - Archivage selon durée légale pour praticiens libéraux + outil d'export sécurisé (CSP art. R. 1111-10)
+> - Conservation sous la responsabilité du praticien libéral (code de déontologie médicale, art. R. 4127-45 ; pas de durée légale fixe, alignement recommandé sur R. 1112-7) + outil d'export sécurisé (durée à la charge du praticien  
 
 ---
 
@@ -92,7 +98,8 @@ Droits couverts : accès, rectification, effacement ("droit à l'oubli"), portab
 Le sous-traitant assiste SantéConnect dans :
 
 - La réalisation des AIPD pour les traitements à risque, notamment les Données Médicales (RGPD art. 35)
-- La notification des violations à la CNIL (RGPD art. 33) **sous 48h** après prise de connaissance *(délai interne avant notification CNIL sous 72h)*
+- La notification à SantéConnect de toute violation de données personnelles sans retard indu (RGPD art. 28.3.f : « sans délai excessif »), avec une cible de 4h après prise de connaissance pour les données de santé,   afin de permettre à SantéConnect de respecter ses propres engagements : alerte CHU sous 4h et notification CNIL sous 72h (RGPD art. 33)  
+    - Les 4h courent à compter de la prise de connaissance de la violation par le sous-traitant, et sont reliées à la date de prise de connaissance de SantéConnect, qui ouvre les délais de la convention art. 26 (cf. clause 4 de la convention de co-responsabilité)
 - La sécurisation des traitements *(cf. clause 3 - Mesures de sécurité)*
 
 ---
