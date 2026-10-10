@@ -2,7 +2,9 @@
 
 > Document réalisé dans le cadre du projet portfolio GRC - [grc-pme-fictive](https://github.com/solenefig-lab/grc-pme-fictive).
 Ce projet est un démonstrateur pédagogique illustrant des contrôles IAM/RBAC. Il ne constitue pas un outil d'audit exhaustif et ne se substitue pas à une évaluation de sécurité réalisée dans un contexte opérationnel.
-_Note : Les noms d'utilisateurs figurant dans les jeux de données (ex. users.csv, user_access_log.csv) sont fictifs, y compris ceux ne suivant pas la convention -Demo. Toute ressemblance avec des personnes réelles serait fortuite._
+_Notes :_  
+_- Les noms d'utilisateurs figurant dans les jeux de données (ex. users.csv, user_access_log.csv) sont fictifs, y compris ceux ne suivant pas la convention -Demo. Toute ressemblance avec des personnes réelles serait fortuite._  
+_- Jeu de données illustratif : les valeurs MFA sont des exemples configurables, pas une recommandation._  
 
 ---
 

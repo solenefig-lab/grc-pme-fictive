@@ -30,8 +30,8 @@ Exemples d'arbitrage :
 | ------- | ------- | ------- |
 |Protection données patients |AIPD + registre traitements | NIR repositionné donnée à protection renforcée - mesures différenciées D-002 vs D-001|
 |Continuité service cardiologie |PCA/PRA | RTO 72h accepté, activation 4h pour API CHU - faisabilité vérifiée et documentée |
-| Ressources limitées RSSI part-time | Plan traitement risques | Budget sécurité priorisé sur 11 risques critiques, 4 thèmes acceptés score ≤3|
-|Accès praticiens/patients | Matrice RBAC | MFA patients B2C non obligatoire - arbitrage UX/inclusion numérique documenté RGPD Art. 5 |
+| Ressources limitées RSSI part-time | Plan traitement risques | Budget sécurité priorisé sur 12 risques critiques, 4 thèmes acceptés score ≤3|
+|Accès praticiens/patients | Matrice RBAC | MFA pour tous les patients; l’arbitrage porte sur le moyen (inclusion senior, moyen de transition accepté par la direction, réexamen 2027), pas sur le niveau |
 | Partenaire CHU | Analyse supply chain NIS2 | Clauses contractuelles renforcées - délais alerte 4h ancrés convention co-responsabilité |
 
 ---
@@ -96,7 +96,7 @@ Elle rassemble des modèles, guides et outils pratiques inspirés des référent
 | **ReCyF (ANSSI)** |Anticipée | Référentiel cible pré-transposition NIS2 française |
 | **ISO 27001** | Recommandée | Sécurité de l'information - référence de marché |
 | **Code de Santé Publique** | Obligatoire | Secret médical + partage inter-praticiens |
-| **RGS + PGSSI-S** | Applicable | Échanges sécurisés avec le CHU partenaire (établissement public) |
+| **RGS + PGSSI-S** | Applicable | PGSSI-S : directe pour l’identification électronique des usagers ; indirecte pour les flux avec le CHU. RGS : indirecte |
 
 ---
 

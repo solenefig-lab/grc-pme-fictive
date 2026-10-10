@@ -64,7 +64,7 @@
 | **NIS2** | Applicable | Secteur santé; indirecte, supply chain via CHU |
 | **ISO 27001** | Recommandée | Sécurité de l'information — référence de marché |
 | **Code de Santé Publique** | Obligatoire | Secret médical + partage inter-praticiens + conservation |
-| **RGS + PGSSI-S** | Applicable | Indirecte, alignement contractuel via le CHU |
+| **RGS + PGSSI-S** | Applicable | PGSSI-S : directe pour l’identification électronique des usagers ; indirecte pour les flux avec le CHU. RGS : indirecte |
 
 ---
 

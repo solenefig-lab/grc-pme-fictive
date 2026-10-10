@@ -145,10 +145,12 @@ Les données sont minimisées par :
 |---|---|---|---|---|---|
 | Accès illégitime | Dossiers patients OVH | 2 | 3 | **6** | Chiffrement AES-256, MFA |
 | Accès illégitime | Flux HL7/FHIR CHU | 2 | 3 | **6** | TLS 1.3, authentification mutuelle |
+| Usurpation de compte patient (récupération de compte, SIM swap, usage du téléphone par un tiers) | Comptes patients et accès au dossier | 2 | 3 | **6** | MFA pour tous (passkey ou biométrie liée à l'appareil, SMS en repli), temporisation après échecs, code de secours à usage unique, récupération assistée en présentiel par le CHU |
 | Modification non désirée | Données médicales | 1 | 3 | 3 | Logs d'intégrité, RBAC |
 | Disparition des données | Backup OVH | 1 | 3 | 3 | PRA OVH HDS, RTO/RPO définis |
 | Non-disponibilité interconnexion | Flux HL7/FHIR CHU | 2 | 1 | 2 | Risque accepté (mesures remédiation >> risque) |
 | Déplacement latéral | API tierces | 1 | 1 | 1 | OAuth2 + validation entrées/sorties + cloisonnement par conception |
+
 
 **Notes méthodologiques :**
 
@@ -162,12 +164,13 @@ Les données sont minimisées par :
 
 **Niveau de risque résiduel**
 
-Le niveau de risque résiduel est élevé sur les deux scénarios d'accès illégitime (score 6 - cf. grille 3×3), , notamment en raison des incidents récents dans le secteur des PME et de la santé (ex : fuites de données chez des hébergeurs non certifiés HDS) et des vulnérabilités potentielles sur les API HL7/FHIR (zero-day, force brute).
+Le niveau de risque résiduel est élevé sur les trois scénarios d'accès illégitime (score 6 - cf. grille 3×3), notamment en raison des incidents récents dans le secteur des PME et de la santé (ex : fuites de données chez des hébergeurs non certifiés HDS) et des vulnérabilités potentielles sur les API HL7/FHIR (zero-day, force brute).
 
 | Scénario | Actif | Score | Mesures existantes | Risque résiduel |
 |---|---|---|---|---|
 | Accès illégitime | Dossiers patients OVH | **6** | Chiffrement AES-256, MFA | **Elevé** - vulnérabilité zero-day résiduelle |
 | Accès illégitime | Flux HL7/FHIR CHU | **6** | TLS 1.3, authentification mutuelle | **Elevé** - compromission par force brute ou zero-day via API |
+| Usurpation de compte patient | Comptes patients et accès au dossier | **6** | MFA pour tous, temporisation, code de secours, récupération assistée CHU | **Elevé** - facteur humain (code de secours conservé avec le mot de passe, téléphone partagé avec un proche) ; moyen de transition accepté par la direction, réexamen 2027 |
 | Modification non désirée | Données médicales | 3 | Logs d'intégrité, RBAC | Faible - détection rapide via logs et RBAC |
 | Disparition des données | Backup OVH | 3 | PRA OVH HDS, RTO/RPO définis | Faible - test sauvegarde + redondance CHU/praticiens |
 | Non-disponibilité interconnexion | Flux HL7/FHIR CHU | 2 | Risque accepté | Faible - dossier médical existant au CHU et chez les praticiens |

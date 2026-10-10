@@ -41,7 +41,7 @@ Destinataire 4;Sous-traitants;;;Hébergement: contrat de sous-traitance (RGPD ar
 ;;;;;;;;
 Mesures de sécurité;Type de mesure de sécurité;;;Précisions;;;;
 Mesure de sécurité 1;Chiffrement des données;;;Chiffrement des données en transit (TLS 1.3) et au repos (AES-256);;;;
-Mesure de sécurité 2;Contrôle d'accès des utilisateurs;;;2FA, Audit annuel des droits d’accès (RBAC), Journalisation des accès (logs conservés 6 mois, 1 an si incident);;;;
+Mesure de sécurité 2;Contrôle d'accès des utilisateurs;;;MFA pour tous (vérification d’identité à l’enregistrement (présentiel CHU), temporisation après échecs, moyen transition pour patients), Audit annuel des droits d’accès (RBAC), Journalisation des accès (logs conservés 6 mois, 1 an si incident);;;;
 Mesure de sécurité 3;Contrôle des sous-traitants;;;Vérification annuelle de la conformité HDS/RGPD de OVH.;;;;
 Mesure de sécurité 4;Autres mesures (à préciser);;;Notification à la CNIL sous 72h (Art. 33 RGPD) + information des patients concernés (Art. 34 RGPD);;;;
 ;;;;;;;;

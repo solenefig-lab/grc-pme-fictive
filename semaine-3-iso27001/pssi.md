@@ -123,9 +123,21 @@ SantéConnect applique le principe du **moindre privilège (least privilege)** p
 
 **Revue des habilitations** - menée semestriellement par le RSSI (maintien, modification, suppression), et déclenchée sur demande si incident ou si +20 nouveaux utilisateurs sur un mois.
 
-**Authentification renforcée** - Pour l'accès aux données sensibles et critiques : authentification MFA obligatoire.
+**Authentification renforcée :** L’accès aux données de santé et aux autres données sensibles ou critiques est protégé par une MFA (au moins deux facteurs), pour tous les utilisateurs : internes, praticiens, patients, comptes de service.
 
-> **Note méthodologique :** La fiche risques préconisait le 2FA sur accès critiques. La PSSI retient le terme MFA - plus évolutif - et étend le périmètre aux données sensibles au regard du risque d'accès indirect aux données médicales documenté en 1.6.
+> **Patients.** SantéConnect fournit elle-même l’identité électronique : c’est un moyen d’identification de transition au sens du référentiel PGSSI-S d’identification des usagers. La direction accepte les risques résiduels. Un réexamen est prévu en 2027.
+
+**Inscription :** lors du contact en présentiel avec le CHU (vérification d’identité, présentation du service, premier recueil du consentement). Le mobile est vérifié par un code.  
+- Facteurs : mot de passe (8 caractères minimum, contrôlé automatiquement) plus passkey ou biométrie liée à l’appareil. 
+- Repli SMS pour l’inclusion : 6 chiffres, valide 3 minutes, 3 essais. Le SMS n’est jamais accepté pour un nouvel appareil ni pour la récupération.  
+- Échecs : temporisation croissante après 5 échecs, au plus 25 tentatives par 24 h, sans blocage définitif.  
+- Session : appareil de confiance. Les sessions sont révoquées en cas de changement de mot de passe, de téléphone ou de coordonnées bancaires. Une ré-authentification est demandée avant le coffre-fort, un nouveau bilan et la modification des coordonnées bancaires.  
+- Récupération : code de secours à usage unique, remis à l’inscription. À défaut, récupération assistée en présentiel par le service de cardiologie du CHU, sur rendez-vous. Sans rendez-vous régulier, le compte reste verrouillé et le dossier reste accessible via le CHU (risque accepté).  
+- Après récupération : nouvel appareil enrôlé, toutes les sessions révoquées, patient notifié. 
+
+> **Note méthodologique :** la fiche risques préconisait le 2FA sur accès critiques. La PSSI retient le terme MFA, plus évolutif, et l’étend aux données sensibles. Pour les patients, la PGSSI-S impose une authentification à deux facteurs; l’inclusion des seniors se règle par le choix des moyens (passkey, biométrie, SMS en repli), pas par une exception au niveau.
+
+> **Comptes de service :** authentification mutuelle (certificat ou jeton OAuth2 à secret rotatif), équivalent MFA.
 
 **APIs** - SantéConnect applique la norme **OAuth2** pour autoriser les connexions des applications sans divulguer de données personnelles, et une validation stricte des entrées/sorties sur toutes les APIs exposées selon les recommandations **OWASP API Security Top 10**.
 
@@ -133,7 +145,8 @@ SantéConnect applique le principe du **moindre privilège (least privilege)** p
 
 - Matrice des droits d'accès (RBAC)
 - Logs d'habilitation (maintien, modification, suppression)
-- Preuve d'activation MFA sur données sensibles et critiques, OAuth2 sur APIs exposées
+- Preuve d'activation MFA sur données sensibles et critiques, OAuth2 sur APIs exposées  
+- Procédure opérationnelle d’authentification et de récupération  (durée de temporisation, régénération du code de secours, journalisation de la vérification CHU)  
 - Revue d'audit semestrielle ou ponctuelle (incident / seuil de nouveaux utilisateurs)
 
 ---

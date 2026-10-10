@@ -24,7 +24,7 @@ Organisationnel;A.5.15 Contrôle d’accès;Inclus;Mise en place de contrôles d
 RBAC (matrice en cours de formalisation)"
 Organisationnel;A.5.16 Gestion des identités;Inclus;Services accessibles au utilisateurs patients, service cardiologie et aux praticiens B2B avec granularité accès selon choix patients et spécialité praticiens;Partiellement Appliqué;C I T;"Logs d’habilitation
 RBAC (matrice en cours de formalisation)"
-Organisationnel;A.5.17 Informations d’authentification;Inclus;Données sensibles dont médicales avec authentification renforcées obligatoires (MFA);Partiellement Appliqué;C I T;PSSI
+Organisationnel;A.5.17 Informations d’authentification;Inclus;MFA pour tous les utilisateurs + patients : moyen d’identification de transition;Partiellement Appliqué;C I T;PSSI, Procédure d’authentification et de récupération
 Organisationnel;A.5.18 Droits d’accès;Inclus;Principe du moindre privilège pour limiter accès aux seuls utilisateurs autorisés, notamment pour données sensibles;Partiellement Appliqué;C I A T;"RBAC (matrice en cours de formalisation)
 Logs d’habilitation
 Matrice des droits d’accès
@@ -98,7 +98,7 @@ Physiques;A.7.4 Surveillance de la sécurité physique;Inclus;Accueil bâtiment 
 Physiques;A.7.5 Protection contre les menaces physiques et environnementales;Inclus;SantéConnect a installé ses locaux dans un bâtiment respectant les normes incendies. La zone n’est pas inondable. ;Partiellement Appliqué;I A;Procédure de sécurité des bâtiments
 Physiques;A.7.6 Travail dans des zones sécurisées;Inclus;Accès aux zones et données sensibles restreints aux personnes habilitées.;Partiellement Appliqué;C I T;"Liste des habilitations
 Dotation clefs"
-Physiques;A.7.7 Bureau dégagé et écran propre;Inclus;SantéConnect met à disposition des caches écran pour limiter la vue sur les écrans par des personnes tierces + sensibilise son personnel.;Partiellement Appliqué;C;"Dotation IT Plan de formation"
+Physiques;A.7.7 Bureau dégagé et écran propre;Inclus;SantéConnect met à disposition des caches écran pour limiter la vue sur les écrans par des personnes tierces + sensibilise son personnel.;Partiellement Appliqué;C;"Dotation ITPlan de formation"
 Physiques;A.7.8 Implantation et protection des équipements;Inclus;Equipements implantés de manière professionnelle et sécurisée (ex : serveurs dans un local verrouillé).;Partiellement Appliqué;I A;"Fiche de poste RSSI
 Dotation IT
 Schéma infrastructure réseau"
@@ -117,7 +117,7 @@ PSSI"
 Technologie;A.8.1 Dispositifs terminaux utilisateurs;Inclus;SantéConnect doit protéger les données sensibles (médicales et personnelles) accessibles depuis les terminaux utilisateurs. Le contrôle des accès via le principe du moindre privilège et la revue régulière des habilitations permet de limiter les risques de fuite ou d’accès non autorisé, conformément au RGPD (Art. 32) et à l’HDS.;Partiellement Appliqué;C I T;"Matrice des droits d'accès (RBAC)
 Logs d'habilitation (maintien, modification, suppression)
 Logs accès"
-Technologie;A.8.2 Droits d'accès privilégiés;Inclus;Application du principe du moindre privilège et revue régulière des habilitations. MFA obligatoire pour les accès aux données sensibles et médicales.;Appliqué;C I T;"Matrice des droits d'accès (RBAC)
+Technologie;A.8.2 Droits d'accès privilégiés;Inclus;Application du principe du moindre privilège et revue régulière des habilitations. MFA pour les accès privilégiés et les données sensibles, comptes de service : authentification mutuelle.;Appliqué;C I T;"Matrice des droits d'accès (RBAC)
 Logs d'habilitation (maintien, modification, suppression)
 Preuve d'activation MFA sur données sensibles et critiques."
 Technologie;A.8.3 Restriction d'accès à l'information;Inclus;Pour garantir la confidentialité et l’intégrité des données sensibles (médicales, personnelles), SantéConnect applique un contrôle d’accès granulaire : attribution des droits en fonction des rôles (RBAC), restriction des accès aux seules données nécessaires (principe du moindre privilège), et revue périodique des habilitations. Cela inclut les accès aux dossiers patients, aux bases de données, et aux interfaces administratives.;Partiellement Appliqué;C I T;"Logs d'habilitation (maintien, modification, suppression)
@@ -128,7 +128,7 @@ Technologie;A.8.4 Accès au code source;Inclus;"Le code source de SantéConnect 
 - Gestion des clés : Rotation régulière des clés SSH/GPG et utilisation de .gitignore pour exclure les fichiers sensibles (ex : configurations, secrets).";Partiellement Appliqué;C I A;"Preuve activation OAuth2 
 Logs accès + flux"
 Technologie;A.8.5 Authentification sécurisée;Inclus;"SantéConnect renforce l’authentification pour protéger les données sensibles et systèmes critiques : 
-- MFA obligatoire pour les accès aux données médicales, interfaces administratives et systèmes critiques. 
+- MFA pour tous (internes, praticiens, patients). Patients : mot de passe contrôlé, passkey ou biométrie liée à l’appareil, SMS en repli, temporisation après échecs, ré-authentification avant actions sensibles. 
 - Matrice des droits d’accès (RBAC) pour adapter les niveaux d’authentification aux risques (ex : MFA pour les accès RSSI).";Appliqué;C I T;"Matrice des droits d'accès (RBAC)
 Logs d'habilitation (maintien, modification, suppression)
 Preuve d'activation MFA sur données sensibles et critiques."

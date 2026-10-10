@@ -134,6 +134,7 @@ _Note : RPO = 0 : objectif zéro perte de données via réplication synchrone - 
 | Revues RBAC | Automatisation des revues d’accès | DevOps | 15/08/2026 | Script d'automatisation, Logs |
 | Surveillance continue | Configurer des alertes dans Wazuh/Graylog |  RSSI | 15/09/2026 | Règles Wazuh, Graylog |
 | Formation NIS2 | Sélection formation NIS2 et déploiement progressif | RH | 30/09/2026 (sélection) | Appel d'offre, Contrat, PV de formation |
+| Identification des patients (PGSSI-S) | Réexaminer le moyen d'identification de transition : étude FranceConnect+ et Appli carte Vitale | RSSI | 2027 | Note d'arbitrage, acceptation du risque résiduel mise à jour (CEO) |
 
 
 _Notes : 
@@ -158,6 +159,7 @@ gantt
     section Cible 2027
     Automatiser alertes (Wazuh+Graylog+MIG) :d1, 2027-01-01, 180d
     Sélectionner et implémenter EDR :d2, 2027-01-01, 180d
+    Étudier le moyen d'identification patients (FranceConnect+, Appli carte Vitale) :d3, 2027-01-01, 180d
 ```
 
 ---

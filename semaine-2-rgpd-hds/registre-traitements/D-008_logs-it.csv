@@ -20,7 +20,7 @@ Sous-finalité 3;Supervision infrastructure OVH (disponibilité, intégrité);;;
 Sous-finalité 4;Détection des tentatives d'accès non autorisés et alertes sécurité;;;;;;;
 ;;;;;;;;
 Catégories de données personnelles concernées;Description;;Durée de conservation;;Base légale;;Historique violation;
-Données de connexion (adress IP, logs, etc.);Adresse IP, identifiant utilisateur, horodatage, action effectuée (logs sans accès aux données de santé par conception);;6 mois standard, 1 an si incident de sécurité;;Intérêt légitime (incident sécurité): art. 6.1.f;;Non;
+Données de connexion (adress IP, logs, etc.);Adresse IP, identifiant utilisateur, horodatage, action effectuée (logs sans accès aux données de santé par conception), événements d’authentification (échecs, nouvel appareil, récupération).;;6 mois standard, 1 an si incident de sécurité;;Intérêt légitime (incident sécurité): art. 6.1.f;;Non;
 Données techniques;Appels API, codes réponse, volumes échangés;;6 mois;;Intérêt légitime (incident sécurité): art. 6.1.f;;Non;
 ;;;;;;;;
 Catégories de personnes concernées;Description;;;Précisions;;;;

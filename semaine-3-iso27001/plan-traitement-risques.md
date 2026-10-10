@@ -74,6 +74,7 @@ Ce cadre permet de garantir une prise de décision cohérente, alignée avec les
 | Vulnérabilités non patchées | R-ISO-02 | 6 | Automatisation des correctifs + tests d’intrusion annuels | Moyen (1-5k€) | 3 mois | Réduction du score à 4 | DevOps  |
 | Absence de procédure de réponse aux incidents | R-NIS2-02 | 6 | Rédiger la procédure + former l’équipe | Faible (<1k€) | 2 mois | Réduction du score à 3 | RSSI |
 | Données PII exposées via App Mobile | R-DON-04 | 6 | Audit de l’App Mobile + chiffrement des données locales | Moyen (1-5k€) | 3 mois | Réduction du score à 4 | DevOps | 
+| Usurpation de compte patient (récupération, SIM swap, aidant) | R-IAM-01 | 6 | Maintien du MFA et de la récupération assistée CHU ; réexamen du moyen d'identification de transition (FranceConnect+, Appli carte Vitale) ; acceptation du risque résiduel par le CEO | Faible (<1k€) | 2027 (réexamen) | Réduction du score à 4 | RSSI |
 
 _Note : Les estimations budgétaires sont indicatives et basées sur des ordres de grandeur marché PME (sources : grilles tarifaires publiques éditeurs, benchmarks ANSSI PME). Un chiffrage précis nécessite une consultation fournisseurs et une évaluation du temps interne DevOps/RSSI._
 
@@ -83,7 +84,7 @@ _Note : Les estimations budgétaires sont indicatives et basées sur des ordres 
 
  | **Section** | **Nombre de Risques** | **Score Moyen** | **Budget** | **Statut** |
  |--------------------|-----------------------|-----------------|------------|------------|
- | **4.1 À Réduire** | 11 | 7.3 | _chiffrage précis via consultation / évaluation_| **Priorité absolue** |
+ | **4.1 À Réduire** | 12  | 6.8 | _chiffrage précis via consultation / évaluation_| **Priorité absolue** |
  | **4.2 Acceptés** | 7 | 3.4 | 0 € | Contrôlés par des mesures existantes |
  | **4.3 Transférés** | 2 | 2.5 | 0 € | Délégés à des tiers certifiés (OVH, Stripe, CHU) |
  | **4.4 Regroupés** | ~35 | ≤ 3 | 0 € | Risques maîtrisés (sensibilisation, maintenance, contrats) |
@@ -206,7 +207,7 @@ Pour la gestion des risques, la norme ISO 27001 décrit quatre actions possibles
 | R-GOV-02 | 3 | 2 | 6 | RSSI | % d’incidents notifiés dans les délais (suivi trimestriel) + Nombre de tests de procédure réussis. |  
 | R-ISO-02 | 3 | 2 | 6 | DevOps | % de vulnérabilités critiques corrigées sous 30 jours + Nombre de tests d’intrusion réalisés | Vulnérabilités non patchées (A.8.8) + Absence de tests d’intrusion (A.8.29). |
 | R-NIS2-02 | 3 | 2 | 6 | RSSI | % d’incidents traités dans les délais (suivi mensuel) + Nombre de vulnérabilités gérées | Absence de procédure de réponse aux incidents (A.5.25) + Vulnérabilités non gérées (A.8.8). |
-
+| R-IAM-01 | 3 | 2 | 6 | RSSI | % de comptes patients avec second facteur actif (suivi mensuel) + Nombre de récupérations assistées journalisées |
 
 _Note : R-DON-02: Contrôle compensatoire partiel avec chiffrement TLS délégué à Stripe (PCI-DSS Req. 4)._
 
@@ -317,6 +318,7 @@ Signataires :
 | R-NIS2-01 | NIS2        | Absence de détection des intrusions + Absence de supervision 24/7 + Absence de segmentation réseau                    | NIS2 Obj. 20, Obj. 3 + PSSI (PSSI-10)                                                      | Réseau, serveurs, APIs, WebApp, App Mobile                    | A.8.16 Activités de surveillance ; A.8.20 Sécurité des réseaux ; A.8.22 Séparation des réseaux ; A.5.7 Renseignements sur les menaces                                                                                                                                   | NIS2 art. 21(2) (b), (e) · ISO 27001:2022                                                       |
 | R-NIS2-02 | NIS2        | Absence de procédure de réponse aux incidents + Vulnérabilités non gérées                                             | NIS2 Obj. 12, Obj. 10 + PSSI (PSSI-9, PSSI-10)                                             | Tous les systèmes, Serveurs, applications                     | A.5.25 Évaluation et décision relatives aux événements de sécurité de l'information ; A.5.27 Leçons tirées des incidents de sécurité de l'information ; A.8.8 Gestion des vulnérabilités techniques ; A.8.16 Activités de surveillance                                  | NIS2 art. 21(2) (b), (e) · ISO 27001:2022                                                      |
 | T-020     | Juridique   | Transfert de données hors UE non conforme                                                                             | RGPD Art. 44-49 + PSSI (PSSI-10)                                                           | Données personnelles/santé (si applicable)                    | A.5.14 Transfert d'informations ; A.5.21 Gestion de la sécurité de l'information dans la chaîne d'approvisionnement des TIC ; A.5.31 Exigences légales, réglementaires et contractuelles                                                                                | RGPD Art. 44-49 · ISO 27001:2022                                                       |
+| R-IAM-01  | Données     | Usurpation de compte patient via récupération de compte, SIM swap ou usage du téléphone par un tiers (aidant) | AIPD (§3.1) + PSSI 2.1 + Matrice RBAC (RBAC-15, 16, 21) | Comptes patients, accès au dossier (D-001, D-002) | A.5.16 Gestion des identités ; A.5.17 Informations d'authentification ; A.8.5 Authentification sécurisée | RGPD Art. 5, 9, 32, 33, 34 · PGSSI-S (référentiel d'identification des usagers) · NIS2 art. 21(2) (j) |
 
 ### Livrables et documentations liées
 

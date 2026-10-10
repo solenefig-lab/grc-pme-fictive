@@ -39,12 +39,13 @@ Documenter les **droits d’accès** par rôle pour garantir :
 | RBAC-12 | Praticien B2B | Données patients | Critique | Données de santé | L X | O | Principe du moindre privilège ; L+X uniquement sur ses patients (HDS R.1112-7). Pas de S (traçabilité) | A.5.15, A.8.3 | **Semestrielle** | Logs d’accès + [Convention CHU](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-2-rgpd-hds/note-co-responsabilite-chu.md) |
 | RBAC-13 | Laboratoires | Dossier médical | Critique | API CHU/labos | L E | O | Accès en Lecture + Écriture (ajout uniquement) via API HL7/FHIR pour déposer les résultats d’analyses (convention CHU + RGPD Art. 28). Pas de modification des données existantes (traçabilité HDS R.1112-7). | A.5.15, A.8.21, A.8.26 | **Semestrielle** | Logs API + [Convention CHU](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-2-rgpd-hds/note-co-responsabilite-chu.md) |
 | RBAC-14 | Praticien B2B | Plateforme B2B praticiens | Sensible | Données praticiens | L E | O | Gestion de son profil et plannings | A.8.3, A.8.5 | **Annuelle** | Logs d’accès |
-| RBAC-15 | Patient B2C | Gestion des comptes patients | Sensible | Ses coordonnées | L E | N | Accès aux données personnelles uniquement pour son propre compte (RGPD Art. 15). | A.5.18, A.8.3 | **Annuelle** | Logs d’accès |
-| RBAC-16 | Patient B2C | Données patients | Critique | Données de santé | L | N | Droit d’accès (RGPD Art. 15). Lecture seule sur son dossier. | A.5.18, A.8.3 | **Annuelle** | Logs d’accès |
-| RBAC-17 | Patient B2C | Données de paiement | Sensible | Données financières | L E | N | Gestion de son abonnement (PCI-DSS via Stripe) | A.8.5, A.8.24 | **Annuelle** | Logs d’accès |
+| RBAC-15 | Patient B2C | Gestion des comptes patients | Sensible | Ses coordonnées | L E | O | Accès aux données personnelles uniquement pour son propre compte (RGPD Art. 15). | A.5.18, A.8.3 | **Annuelle** | Logs d’accès |
+| RBAC-16 | Patient B2C | Données patients | Critique | Données de santé | L | O | Droit d’accès (RGPD Art. 15). Lecture seule sur son dossier. | A.5.18, A.8.3 | **Annuelle** | Logs d’accès |
+| RBAC-17 | Patient B2C | Données de paiement | Sensible | Données financières | L E | O | Gestion de son abonnement (PCI-DSS via Stripe) | A.8.5, A.8.24 | **Annuelle** | Logs d’accès |
 | RBAC-18 | Compte de service API CHU | API CHU/labos | Critique | Données de santé | L | O | Accès en lecture seule (HL7/FHIR). Pas d’écriture (convention CHU). | A.5.15, A.8.21 | **Trimestrielle** | Logs API + [Convention CHU](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-2-rgpd-hds/note-co-responsabilite-chu.md) |
 | RBAC-19 | Compte de service API Stripe | API Stripe | Sensible | Données financières | L E | O | Accès limité aux transactions (PCI-DSS). Pas d’accès aux données patients. | A.8.5, A.8.24 | **Trimestrielle** | Logs API + Contrat Stripe |
 | RBAC-20 | OVH (Sous-traitant) | Données médicales | Critique | Sauvegardes, hébergement | L | O | Accès en lecture seule aux sauvegardes chiffrées (RGPD Art. 28, HDS). Pas d’écriture sur les données médicales. Contrat OVH + AIPD. | A.5.23, A.8.13, A.8.9 | **Trimestrielle** | Contrat OVH + [AIPD](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-2-rgpd-hds/aipd-synthetique.md) |
+| RBAC-21 | Agent de vérification d'identité (CHU) | Comptes patients (identité, récupération) | Sensible | Module de vérification d'identité (inscription, récupération assistée) | L E | O | Vérifie l'identité du patient en présentiel (inscription, récupération) et déclenche la réinitialisation des facteurs. E limitée à cette action. Aucun accès aux données de santé via SantéConnect (convention CHU art. 26, PGSSI-S) | A.5.16, A.5.17, A.8.5 | **Trimestrielle** | Journal des vérifications + [Convention CHU](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-2-rgpd-hds/note-co-responsabilite-chu.md) |
 
 ### Légende
 | Permission | Signification | Exemple |
@@ -64,9 +65,9 @@ Exemple : "Un praticien ne peut accéder qu’aux dossiers de ses patients (filt
 - **O** : Obligatoire (ex : accès aux données **Critiques/Sensibles**).
 - **N** : Non obligatoire (ex : accès aux données **Standard**).
 
-Note: MFA obligatoire pour les rôles internes et les accès aux données Critiques/Sensibles (conforme à la PSSI 2.1). Pour les patients B2C, MFA recommandé mais non obligatoire (équilibre UX/sécurité):
-- Évite l’exclusion numérique des patients âgés (cible de SantéConnect).
-- Respecte le principe de proportionnalité (RGPD Art. 5).
+_Note: MFA pour tous les rôles._  
+_- L’inclusion des seniors se règle par le choix des moyens (passkey, biométrie, SMS en repli), pas par une exception._  
+_- RBAC-18 et RBAC-19 : Authentification mutuelle (équivalent MFA)._
 
 ### Règles générales
 - **Principe du moindre privilège** : Chaque rôle a **uniquement les accès nécessaires** à ses missions.
@@ -84,7 +85,7 @@ Note: MFA obligatoire pour les rôles internes et les accès aux données Critiq
 
 | Fréquence | Rôles concernés | Justification |
 | --- | --- | --- |
-| Trimestrielle | Comptes de service (API CHU, API Stripe), OVH | Risque élevé : Accès externes + données critiques. Revue fréquente pour détecter les anomalies (ISO A.5.18 + HDS) |
+| Trimestrielle | Comptes de service (API CHU, API Stripe), OVH | Risque élevé : Accès externes + données critiques + agent vérification identité. Revue fréquente pour détecter les anomalies (ISO A.5.18 + HDS) |
 | Semestrielle | RSSI, Praticien B2B, Laboratoires | Accès aux données critiques (médicales) ou rôles sensibles (ex : RSSI) |
 | Annuelle | CEO, Dev Produit, RH, Comptabilité, Patients B2C | Risque modéré : Accès aux données sensibles ou standard. Revue annuelle suffisante pour une PME|
 
@@ -122,6 +123,7 @@ flowchart LR
         P["API CHU<br>(RBAC-18)"] -->|L - via API HL7/FHIR| B
         Q["API Stripe<br>(RBAC-19)"] -->|L E - via API Stripe| D
         R["OVH<br>(RBAC-20)"] -->|L - via Console OVH| I
+        S["Agent vérification identité CHU<br>(RBAC-21)"] -->|L E - via module identité| C
     end
 
     %% ===== LÉGENDE =====
@@ -132,7 +134,7 @@ flowchart LR
     class B,I critical;
     class C,D,F,H,K,M,N sensitive;
     classDef default fill:#f9f9f9,stroke:#333;
-````
+```
 
 
 ## Signatures

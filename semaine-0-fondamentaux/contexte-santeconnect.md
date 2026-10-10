@@ -53,7 +53,7 @@
 
 | Processus | Description | Réglementations concernées |
 |-----------|-------------|---------------------------|
-| Création de compte | Patient/praticien s'inscrit via email + mot de passe | RGPD (Art. 5, 6, 9), PGSSI-S (identification électronique) |
+| Création de compte | Inscription en présentiel lors du contact avec le CHU (vérification d’identité, présentation du service, premier recueil du consentement), vérification du mobile par code, puis MFA | RGPD (Art. 5, 6, 9), PGSSI-S (identification électronique) |
 | Partage de dossiers | Patient donne son consentement pour partager son dossier avec un praticien | RGPD (Art. 7, 9), Code Santé Public, HDS |
 | Facturation premium | Paiement des abonnements via Stripe | PCI-DSS, RGPD (données de paiement) |
 | Clôture de compte | Suppression ou archivage des données selon leur nature | RGPD (Art. 17) — voir section conservation ci-dessous |
@@ -101,7 +101,7 @@
 | **NIS2** | Applicable | Secteur santé — Indirecte, supply chain via CHU (hors périmètre direct a priori) * |
 | **ISO 27001** | Recommandée | Sécurité de l'information — référence de marché |
 | **Code de Santé Publique** | Obligatoire | Secret médical + partage inter-praticiens + conservation |
-| **RGS + PGSSI-S** | Indirecte (alignement contractuel via le CHU) | Flux HL7/FHIR avec le CHU (établissement public) ; référentiels PGSSI-S opposables à lister |
+| **RGS + PGSSI-S** | PGSSI-S : directe pour l’identification électronique des usagers ; indirecte pour les flux avec le CHU. RGS : indirecte | Flux HL7/FHIR avec le CHU (établissement public) ; référentiels PGSSI-S opposables à lister |
 
 * SantéConnect n’entre a priori pas directement dans le périmètre NIS2 au regard de sa taille.
 Toutefois, en tant que prestataire d’un établissement de santé, elle peut être concernée indirectement via des exigences de sécurité imposées par ses partenaires (logique de supply chain).
