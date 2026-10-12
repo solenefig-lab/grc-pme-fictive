@@ -50,7 +50,7 @@
 | RGPD | Art. 34 | Notification des personnes concernées en cas d'incident |
 | CSP | Durée légale de conservation - praticiens libéraux (référence à confirmer) | Conservation des dossiers patients à la charge du praticien responsable ; SantéConnect agit en sous-traitant (cf. accord-type art. 28, registre art. 30.2) |
 | CSP | Art. R-1112-7 | Obligation de conservation des données de santé — établissements hospitaliers |
-| HDS | L. 1111-8 + R. 1111-10 | Hébergement des données de santé (certification OVH) |
+| HDS | L. 1111-8 + R.1111-8 et s. | Hébergement des données de santé (certification OVH) |
 | PCI-DSS | — | Sécurité des moyens de paiement (via Stripe) |
 | Loi I&L | Art. 30 (NIR) + décret n° 2019-341 | NIR patients — identifiant de liaison dossier CHU (D-002) ; cadre à qualifier (décret NIR / chapitre santé / INS, CSP L. 1111-8-1) ; v2 : migration vers l'INS |
 | Loi I&L | Art. 30 (NIR) + décret n° 2019-341 | NIR salariés — obligations sociales et fiscales (D-007), à rattacher à l'article du décret après lecture |

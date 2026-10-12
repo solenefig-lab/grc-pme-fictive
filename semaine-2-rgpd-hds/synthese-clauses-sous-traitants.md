@@ -14,7 +14,7 @@ Ces clauses sont encadrées par le RGPD art. 28 et visent à garantir que le rec
 | Sous-traitant | Type de service | Statut RGPD | Pays | Mécanisme de transfert (si hors UE) |
 |---|---|---|---|---|
 | OVH | Hébergement - certifié HDS | Sous-traitant | France | - |
-| Stripe | Paiement | Sous-traitant | Irlande | Clauses Contractuelles Types (art. 46 RGPD) |
+| Stripe | Paiement | Sous-traitant | Irlande | Sans objet tant que le traitement reste dans l’EEE, CCT à prévoir si un sous-traitant secondaire est hors EEE |
 | Matomo | Analyse (cookies) | Sous-traitant **uniquement si Matomo Cloud** | Allemagne | - |
 
 > **Note - Matomo** : Matomo en auto-hébergement n'est pas un sous-traitant. Seule la version SaaS (Matomo Cloud) est concernée par les clauses ci-dessous.

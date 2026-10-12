@@ -20,17 +20,16 @@ Plus de détails sont disponibles sur:
 > Ce document répond aux exigences suivantes :
 > - **6.1.3** : Traitement des risques (méthodologie + actions documentées).
 > - **6.1.4** : Acceptation des risques résiduels (seuils définis).
-> - **A.5.30** : Préparation à la gestion des incidents (lien avec le PCA/PRA).
-> - **A.12.4** : Enregistrement des activités (logs Graylog).
+> - **A.5.30** : Préparation des TIC à la continuité (lien avec le PCA/PRA).
+> - **A.8.15** : Enregistrement des activités (logs Graylog).
 
 ### 1.2. Objectif
 
 Objectif: Identifier, évaluer et traiter les risques pour 
 - garantir la conformité RGPD/HDS, 
 - sécuriser les données médicales critiques de SantéConnect, 
-- permettre un pilotage budgétaire sans surcoût (budget < 10k€/an).
-- prioriser les actions** avec un budget maîtrisé (< 10k€/an).
-- prouver la conformité aux audits et aux partenaires
+- prioriser les actions avec une enveloppe cible de 10 k€/an (hors temps interne), estimation des mesures 4.1 ≈ 12 k€/an (plancher ≈ 9 k€), dépassement soumis à arbitrage CEO.  
+- prouver la conformité aux audits et aux partenaires.
 
 Structure: risque global, adapté pour petite structure + accent mis sur sécurisation données médicales renforcées
 
@@ -52,7 +51,7 @@ Ce cadre permet de garantir une prise de décision cohérente, alignée avec les
 ## 2. Synthèse Exécutive
 
 **Objectifs clés** :
-- **Réduire les risques critiques** (score ≥ 6) à un niveau acceptable (≤ 4) d’ici **6 mois**.
+- **Réduire les risques critiques** (score ≥ 6) à un niveau acceptable (≤ 4) d’ici **6 mois**, _(note : R-IAM-01 : mesures en place, score visé 4, réexamen du moyen en 2027)_.
 - **Maintenir les risques modérés** (score ≤ 5) sous contrôle avec des **mesures compensatoires**.
 - **Transférer les risques** aux tiers certifiés (OVH, Stripe, CHU) via des **contrats conformes**.
 - **Prouver la conformité** aux audits et partenaires (ex : CHU, patients, autorités de santé).
@@ -63,20 +62,22 @@ Ce cadre permet de garantir une prise de décision cohérente, alignée avec les
 
 | Risque | ID | Score | Mesure Clé | Budget | Échéance | Impact Attendu | Responsable |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| APIs mal configurées | R-API-01 | 9 | Déploiement d’un WAF + rotation des clés API | Élevé (>5k€) | 1 mois | Réduction du score à 4 | RSSI |
+| APIs mal configurées | R-API-01 | 9 | Déploiement d'un WAF mutualisé/managé adapté PME + rotation des clés API | Faible-Moyen (1-1,5k€) |1 mois | Réduction du score à 4 | RSSI |
 | Usurpation d’identité | R-DON-01 | 9 | Formation anti-phishing + MFA systématique | Moyen (1-5k€) | 2 mois | Réduction du score à 3 | DPO  + RSSI |
-| Absence de TLS | R-DON-02 | 9 | Chiffrement TLS 1.3 + audit des transactions (contrôle compensatoire : TLS délégué à Stripe) | Moyen (1-5k€) | 1 mois | Réduction du score à 3 | DevOps |
+| Écoute clandestine des flux de paiement sur réseau public  | R-DON-02 | 6 | Vérification annuelle du maintien TLS 1.3 (preuve contractuelle Stripe, PCI-DSS Req. 4) + audit des transactions. Aucun déploiement TLS à la charge de SantéConnect : contrôle délégué, l'action est de vérification. | Faible (<1k€) | 1 mois | Réduction du score à 4 | DevOps |
 | Injection SQL/Ransomware | R-DON-03 | 6 | Protection contre les malwares + sauvegardes chiffrées | Moyen (1-5k€) | 3 mois | Réduction du score à 4 | DevOps|
-| Applications grand public | R-APP-01 | 6 | Audit de sécurité + tests de pénétration | Élevé (>5k€) | 2 mois | Réduction du score à 4 | DevOps |
+| Applications grand public | R-APP-01 | 6 | Pentest à périmètre limité (App Mobile + API CHU, hors infrastructure OVH certifiée) | Moyen (3-5k€) | 2 mois | Réduction du score à 4 | DevOps |
 | Plateforme B2B : accès non restreint | R-PLAT-01 | 6 | Matrice RBAC révisée + restriction des accès au code source | Faible (<1k€) | 1 mois | Réduction du score à 3 | RSSI |
 | Interconnexion CHU | R-INT-01 | 6 | Segmentation réseau + revue des contrats CHU | Moyen (1-5k€) | 2 mois | Réduction du score à 4 | RSSI |
 | Délai de notification des violations | R-GOV-02 | 6 | Procédure de notification (72h) + tests semestriels | Faible (<1k€) | 2 mois | Réduction du score à 3 | RSSI |
 | Vulnérabilités non patchées | R-ISO-02 | 6 | Automatisation des correctifs + tests d’intrusion annuels | Moyen (1-5k€) | 3 mois | Réduction du score à 4 | DevOps  |
 | Absence de procédure de réponse aux incidents | R-NIS2-02 | 6 | Rédiger la procédure + former l’équipe | Faible (<1k€) | 2 mois | Réduction du score à 3 | RSSI |
 | Données PII exposées via App Mobile | R-DON-04 | 6 | Audit de l’App Mobile + chiffrement des données locales | Moyen (1-5k€) | 3 mois | Réduction du score à 4 | DevOps | 
-| Usurpation de compte patient (récupération, SIM swap, aidant) | R-IAM-01 | 6 | Maintien du MFA et de la récupération assistée CHU ; réexamen du moyen d'identification de transition (FranceConnect+, Appli carte Vitale) ; acceptation du risque résiduel par le CEO | Faible (<1k€) | 2027 (réexamen) | Réduction du score à 4 | RSSI |
+| Usurpation de compte patient (récupération, SIM swap, aidant) | R-IAM-01 | 6 | Maintien du MFA et de la récupération assistée CHU ; réexamen du moyen d'identification de transition (p.ex. FranceConnect+, Appli carte Vitale) ; acceptation du risque résiduel par le CEO | Faible (<1k€) | Mesures en place : réexamen du moyen en 2027 | Réduction du score à 4 | RSSI |
 
-_Note : Les estimations budgétaires sont indicatives et basées sur des ordres de grandeur marché PME (sources : grilles tarifaires publiques éditeurs, benchmarks ANSSI PME). Un chiffrage précis nécessite une consultation fournisseurs et une évaluation du temps interne DevOps/RSSI._
+_Notes :_  
+_- Les estimations budgétaires sont indicatives et basées sur des ordres de grandeur marché PME (sources : grilles tarifaires publiques éditeurs, benchmarks ANSSI PME). Un chiffrage précis nécessite une consultation fournisseurs et une évaluation du temps interne DevOps/RSSI._  
+_- Somme des bornes basses ≈ 9 k€, estimation centrale ≈ 12 k€ (fourchette 9-14 k€), WAF et pentest portent l’essentiel._  
 
 
 ### Bilan des Risques
@@ -84,21 +85,21 @@ _Note : Les estimations budgétaires sont indicatives et basées sur des ordres 
 
  | **Section** | **Nombre de Risques** | **Score Moyen** | **Budget** | **Statut** |
  |--------------------|-----------------------|-----------------|------------|------------|
- | **4.1 À Réduire** | 12  | 6.8 | _chiffrage précis via consultation / évaluation_| **Priorité absolue** |
- | **4.2 Acceptés** | 7 | 3.4 | 0 € | Contrôlés par des mesures existantes |
+ | **4.1 À Réduire** | 12  | 6.5 | ≈ 12 k€ (plancher ≈ 9 k€), arbitrage CEO | **Priorité absolue** |
+ | **4.2 Acceptés** | 8 | 3.5 | 0 € | Contrôlés par des mesures existantes |
  | **4.3 Transférés** | 2 | 2.5 | 0 € | Délégés à des tiers certifiés (OVH, Stripe, CHU) |
- | **4.4 Regroupés** | ~35 | ≤ 3 | 0 € | Risques maîtrisés (sensibilisation, maintenance, contrats) |
+ | **4.4 Regroupés** | ~35 | ≤ 3.0 | 0 € | Risques maîtrisés (sensibilisation, maintenance, contrats) |
 
 
 
 ### Points Clés pour la Direction
 
 1. **Priorité aux risques score ≥ 6** :
-   - **8 risques critiques** nécessitent une action immédiate (ex : R-API-01, R-DON-01).
-   - **Budget** à valider pour couvrir ces risques.
+   - **12 risques critiques** nécessitent une action immédiate (ex : R-API-01, R-DON-01).
+   - **Budget** à valider pour couvrir ces risques. Estimation ≈ 12 k€/an hors temps interne vs enveloppe cible 10 k€ : arbitrage CEO sur l’écart (~2 k€) ou décalage d’une mesure Moyen au T2.
 
 2. **Risques transférés** :
-   - **OVH, Stripe, et le CHU** portent une partie des risques (ex : sécurité physique, chiffrement TLS).
+   - **OVH, Stripe, et le CHU** portent une partie des contrôles (ex : sécurité physique pour OVH, chiffrement TLS des paiements pour Stripe), sous surveillance contractuelle de SantéConnect (art. 28 RGPD), la responsabilité de traitement reste chez SantéConnect.
    - **Vérifier les contrats** (Art. 28 RGPD, HDS, PCI-DSS) pour s’assurer que les tiers maintiennent leurs certifications.
 
 3. **Conformité réglementaire** :
@@ -113,12 +114,12 @@ _Note : Les estimations budgétaires sont indicatives et basées sur des ordres 
 ### Prochaines Étapes
 1. **Validation du budget** par le CEO (Martin DUPONT) pour les risques critiques (Section 4.1).
 2. **Priorisation des actions** :
-   - Commencer par les risques **score 9** (R-API-01, R-DON-01, R-DON-02).
+   - Commencer par les risques **score 9** (R-API-01, R-DON-01). R-DON-02 est un contrôle délégué : la première action est la collecte de la preuve Stripe (attestation PCI-DSS Level 1).
    - Étaler les coûts sur **6 mois** si nécessaire.
 3. **Signature du PTR** par le **CEO, DPO, et RSSI** pour engagement formel.
 4. **Mise en œuvre** :
-   - **Mois 1** : Déploiement du WAF (R-API-01) + Chiffrement TLS (R-DON-02).
-   - **Mois 2** : Formation anti-phishing (R-DON-01) + Segmentation réseau (R-NIS2-01).
+   - **Mois 1** : Déploiement du WAF (R-API-01) + collecte preuve TLS/PCI-DSS Stripe (R-DON-02).
+   - **Mois 2** : Formation anti-phishing (R-DON-01) + Segmentation réseau (R-INT-01).
 
 ---
 
@@ -141,8 +142,8 @@ Sources utilisées :
 | Réglementation | Risques Typiques pour SantéConnect | Source |
 | --- | --- | --- |
 | RGPD | Accès non autorisé aux données personnelles, fuite de données, non-respect des droits des patients (Art. 15-17). | [Art. 5, 32, 33-34](https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=CELEX:32016R0679) |
-| HDS | Accès non autorisé aux données de santé, perte de traçabilité, non-conformité des sous-traitants. | L. 1111-8, R. 1111-10 (certification HDS) |
-| ISO 27001:2022 | Risques liés aux contrôles de l’Annexe A (ex : A.5.15, A.8.3, A.12.4). | [Annexe A](https://www.iso.org/standard/54534.html) |
+| HDS | Accès non autorisé aux données de santé, perte de traçabilité, non-conformité des sous-traitants. | L. 1111-8 et R. 1111-8 et s (certification HDS) |
+| ISO 27001:2022 | Risques liés aux contrôles de l’Annexe A (ex : A.5.15, A.8.3, A.8.15). | [Annexe A](https://www.iso.org/standard/54534.html) |
 | NIS2 | Risques liés à la résilience (PCA/PRA non testé, incidents non détectés). | [Directive NIS2](https://digital-strategy.ec.europa.eu/en/policies/nis2-directive) |
 
 Exhaustivité : Tous les risques liés aux actifs critiques sont identifiés.
@@ -152,7 +153,7 @@ Pertinence : Les risques sont spécifiques à SantéConnect (ex : SPOF sur le de
 
 Grille de cotation, aligné sur ISO 27005 : Score (1 à 9) = Impact (1 à 3) * Probabilité (1 à 3)
 
-_Note: Les scores reflètent les risques bruts (avant mesures existantes). Le risque résiduel est évalué après application des contrôles et documenté dans la colonne dédiée._
+_Note: Les scores sont ceux du risque actuel, compte tenu des contrôles existants. La colonne « Impact attendu » (§2) donne le score visé après les mesures de 4.1._
 
 #### Critères d'évaluation de l'impact
 
@@ -181,6 +182,7 @@ _Note: Les scores reflètent les risques bruts (avant mesures existantes). Le ri
 | 🟠 Modéré | 3 – 5 | Risque acceptable sous conditions (mesures compensatoires) |
 | 🔴 Haut | 6 – 9 | Risque inacceptable (à traiter en priorité): impact critique (ex : sanction RGPD, perte de données médicales) ou probabilité élevée (ex : accès non contrôlé).|
 
+
 Pour la gestion des risques, la norme ISO 27001 décrit quatre actions possibles : 
 - **Traiter** le risque avec des contrôles de sécurité qui réduisent la probabilité qu'il se produise 
 - **Éviter** le risque en empêchant les circonstances où il pourrait se produire 
@@ -193,6 +195,7 @@ Pour la gestion des risques, la norme ISO 27001 décrit quatre actions possibles
 
 ### 4.1. Risques à Réduire (Score ≥ 6)
 
+_Échéances relatives comptées à partir de T0 = revue annuelle du 21/02/2026._
 
 | ID | Impact | Probabilité | Score | Responsable | Indicateur de suivi |
 | --- | --- | --- | --- | --- | --- |
@@ -201,15 +204,15 @@ Pour la gestion des risques, la norme ISO 27001 décrit quatre actions possibles
 | R-PLAT-01 | 3 | 2 | 6 | RSSI | % des accès conformes à la matrice RBAC (suivi hebdo) + Nombre d’accès au code source restreints. |
 | R-INT-01 | 3 | 2 | 6 | RSSI | % d’interconnexions segmentées (suivi mensuel) + Nombre de contrats CHU revus. |
 | R-DON-01 | 3 | 3 | 9 | RSSI  | % d’employés formés au phishing (suivi mensuel) + % d’accès sensibles protégés par MFA (suivi hebdo). |
-| R-DON-02 | 3 | 3 | 9 | DevOps | % de transactions chiffrées en TLS 1.3 (suivi hebdo) + Nombre d’audits de sécurité réalisés. |
+| R-DON-02 | 3 | 2 | 6 | DevOps | % des prestataires paiement avec attestation PCI-DSS Level 1 valide (suivi annuel) + Nombre de revues de transactions réalisées. |
 | R-DON-03 | 3 | 2 | 6 | DevOps  | Nombre de vulnérabilités critiques corrigées/semaine + % de sauvegardes testées/mois. |
-| R-DON-04 | 3 | 2 | 6 | DevOps | % de données sensibles protégées dans l’App Mobile + Nombre d’audits de sécurité | Données PII sensibles exposées via App Mobile (A.8.1, A.8.12, A.8.20, A.8.26). |
+| R-DON-04 | 3 | 2 | 6 | DevOps | % de données sensibles protégées dans l’App Mobile + Nombre d’audits de sécurité . |
 | R-GOV-02 | 3 | 2 | 6 | RSSI | % d’incidents notifiés dans les délais (suivi trimestriel) + Nombre de tests de procédure réussis. |  
-| R-ISO-02 | 3 | 2 | 6 | DevOps | % de vulnérabilités critiques corrigées sous 30 jours + Nombre de tests d’intrusion réalisés | Vulnérabilités non patchées (A.8.8) + Absence de tests d’intrusion (A.8.29). |
-| R-NIS2-02 | 3 | 2 | 6 | RSSI | % d’incidents traités dans les délais (suivi mensuel) + Nombre de vulnérabilités gérées | Absence de procédure de réponse aux incidents (A.5.25) + Vulnérabilités non gérées (A.8.8). |
+| R-ISO-02 | 3 | 2 | 6 | DevOps | % de vulnérabilités critiques corrigées sous 30 jours + Nombre de tests d’intrusion réalisés | 
+| R-NIS2-02 | 3 | 2 | 6 | RSSI | % d’incidents traités dans les délais (suivi mensuel) + Nombre de vulnérabilités gérées | 
 | R-IAM-01 | 3 | 2 | 6 | RSSI | % de comptes patients avec second facteur actif (suivi mensuel) + Nombre de récupérations assistées journalisées |
 
-_Note : R-DON-02: Contrôle compensatoire partiel avec chiffrement TLS délégué à Stripe (PCI-DSS Req. 4)._
+_Note : R-DON-02, contrôle délégué : l'action de SantéConnect est la vérification annuelle (attestation PCI-DSS Level 1 Stripe, clause 8 de la synthèse des clauses art. 28), pas un déploiement. Score brut 6, visé 4 après contrôle documenté; Probabilité 2 : TLS délégué à Stripe, contrôle vérifié annuellement._
 
 ### 4.2. Risques Acceptés (Score ≤ 5)
 
@@ -218,14 +221,14 @@ Risques contrôlés par des mesures existantes
 
 | ID   | Impact | Probabilité | Score | Responsable       | Indicateur de suivi | Justification d'acceptation |
 |-----------|------------|-----------------|----------|------------------------|-------------------------|--------------------------------|
-| R-DB-01   | 2          | 2               | 4        | RSSI | % de données sensibles masquées (suivi trimestriel) + Vérification annuelle de la certification HDS | Contrôle transféré partiellement à OVH (certifié HDS). Risque résiduel acceptable car OVH porte la responsabilité légale. |
+| R-DB-01   | 2          | 2               | 4        | RSSI | % de données sensibles masquées (suivi trimestriel) + Vérification annuelle de la certification HDS | Hébergement délégué à un sous-traitant certifié HDS ; SantéConnect conserve la responsabilité de traitement (RGPD art. 28, 32) et doit vérifier annuellement le maintien de la certification (clause 8). Risque résiduel accepté car porté contractuellement. |
 | R-GOV-01  | 3          | 1               | 3        | DPO  | % de traitements documentés (suivi mensuel) + Nombre de PIA validés | Risque contrôlé par livrable S2 (registre des traitements existant). Mise à jour trimestrielle requise. |
 | R-DON-10  | 1          | 2               | 2        | DPO   | Aucune                 | Données volontairement publiques (obligation légale ou métier). Risque faible et accepté car conforme à la finalité déclarée (RGPD Art. 5.1.b). |
-| R-ISO-01 | 3 | 1 | 3 | RSSI | % de la politique de sécurité finalisée | Absence de politique de sécurité (A.5.1) + Accès non autorisé (A.5.15, A.5.16, A.5.17, A.5.18). Risque contrôlé car politique en cours de rédaction. |
-| R-ISO-03  | 2          | 2               | 4        | RSSI  | % d’accès revus (suivi trimestriel) + Nombre de configurations auditées | Contrôle partiel en place (matrice RBAC, configurations OVH documentées). Revues des accès réalisées annuellement. |
+| R-ISO-01 | 3 | 1 | 3 | RSSI | % de la politique de sécurité finalisée | PSSI non déployée + accès non autorisé aux données d’authentification (RBAC à maintenir). Risque contrôlé car politique en cours de rédaction. |
+| R-ISO-03  | 2          | 2               | 4        | RSSI  | % d’accès revus (suivi trimestriel) + Nombre de configurations auditées | Contrôle partiel en place (matrice RBAC, configurations OVH documentées). Revues selon la fréquence définie par rôle (matrice RBAC), audit annuel. |
 | R-NIS2-01 | 2          | 2               | 4        | RSSI | % de réseaux segmentés (suivi trimestriel) + Nombre d’alertes EDR/mois | Contrôle partiel en place (Graylog, pare-feu). Supervision basique existante, mais détection des intrusions à améliorer. |
-| R-GOV-03 | 2 | 2 | 4 | Juridique + RSSI | % de contrats conformes RGPD Art. 28 | Responsabilités sécurité non définies (A.5.3) + Contrats sous-traitants non conformes (A.5.21, A.5.22, A.5.31). |
-| R-HDS-01 | 2 | 2 | 4 | RSSI | % de données de santé chiffrées au repos + Vérification annuelle de la certification HDS | Hébergement non certifié HDS (A.5.21) + Données santé non chiffrées (A.8.11, A.8.13, A.8.20). |
+| R-GOV-03 | 2 | 2 | 4 | Juridique + RSSI | % de sous-traitants actifs couverts par un contrat art. 28 à jour (suivi annuel) + revue annuelle réalisée | Clauses art. 28 formalisées et signées avec OVH, Stripe, Matomo, dont autorisation préalable de sous-traitance secondaire (15 jours pour objection) et vérifications annuelles OVH/Stripe. Risque résiduel limité à la dérive contractuelle ; compensé par revue annuelle des contrats et clause d'indemnisation (art. 28.10). |
+| R-HDS-01 | 2 | 2 | 4 | RSSI | % de données de santé chiffrées au repos + Vérification annuelle de la certification HDS | Contrat OVH qualifié HDS activités 1-4 et 6 (vérification annuelle conjointe CHU/tiers). Accès tenant activité 5 compensé par revue annuelle des journaux d'accès console mis à disposition par OVH (clause art. 28.3.h). Chiffrement applicatif au repos engagé. |
 
 
 ### 4.3. Risques Transférés/Évités
@@ -234,8 +237,8 @@ Risques dont le contrôle est entièrement porté par un tiers avec contrat en p
 
 | ID   | Risque | Décision | Moyen de transfert/évitement| Propriétaire | Référence contractuelle |
 |-----------|------------|--------------|----------------------------------|------------------|-----------------------------|
-| R-HDS-02  | Accès physique non contrôlé aux serveurs | **Transféré** | Sécurité physique **entièrement déléguée à OVH** (certifié HDS, R. 1111-10). | RSSI  | Contrat OVH Art. 28 RGPD + Certification HDS (R. 1111-10) + Convention de co-responsabilité |
-| T-020    | Transfert de données hors UE non conforme | **Transféré** | Transfert **délégué à OVH/Stripe** (clauses SCC ou BCR en place). | RSSI  | Contrat OVH Art. 44-49 RGPD + Contrat Stripe (PCI-DSS Req. 12) + Clauses Contractuelles Standard (SCC) |
+| R-HDS-02  | Accès physique non contrôlé aux serveurs | **Transféré** | Sécurité physique **entièrement déléguée à OVH** (certifié HDS, L. 1111-8 et R. 1111-8 et s). | RSSI  | Contrat OVH Art. 28 RGPD + Certification HDS (L. 1111-8 et R. 1111-8 et s) + Convention de co-responsabilité |
+| R-TRA-020    | Transfert de données hors UE non conforme | **Transféré** | Transfert **délégué à OVH/Stripe** (clauses SCC ou BCR en place). | RSSI  | Contrat OVH Art. 44-49 RGPD + Contrat Stripe (PCI-DSS Req. 12) + Clauses Contractuelles Standard (SCC) |
 
 ### 4.4 Regroupement des Risques (Score ≤ 3)
 
@@ -245,7 +248,7 @@ Risques dont le contrôle est entièrement porté par un tiers avec contrat en p
 | **Sensibilisation et formation** | A.6.3 Sensibilisation, éducation et formation à la sécurité de l'information | 1-2 | Formation annuelle obligatoire + tests de phishing trimestriels. **Risque résiduel faible** (employés sensibilisés). | DPO |
 | **Maintenance et correctifs** | A.8.8 Gestion des vulnérabilités techniques, A.8.32 Gestion du changement | 2-3 | Correctifs appliqués sous **30 jours** + tests d’intrusion annuels. **Risque résiduel faible** pour une PME. | DevOps |
 | **Contrats et conformité** | A.5.21 Gestion de la sécurité de l'information dans la chaîne d'approvisionnement des TIC, A.5.22 Surveillance, examen et gestion des changements des services fournisseurs, A.5.31 Exigences légales, réglementaires et contractuelles | 2 | Contrats RGPD Art. 28 signés avec tous les sous-traitants (OVH, Stripe, CHU). **Risque résiduel faible**. | Juridique + RSSI |
-| **Sauvegardes et continuité** | A.8.13 Sauvegarde des informations (hors données médicales critiques, déjà couvertes en 4.1), A.5.30 Préparation des TIC à la continuité des activités  | 2-3 | Sauvegardes **automatiques et testées trimestriellement**. **Risque résiduel faible** (PCA/PRA basique en place). | DevOps  |
+| **Sauvegardes et continuité** | A.8.13 Sauvegarde des informations (hors données médicales critiques, déjà couvertes en 4.1), A.5.30 Préparation des TIC à la continuité des activités  | 2-3 | Sauvegardes **automatiques et testées mensuellement (automatisé) et trimestriellement (approfondi)**. **Risque résiduel faible** (PCA/PRA basique en place). | DevOps  |
 
 ----
 
@@ -263,9 +266,9 @@ Objectif : Obtenir l’engagement formel de la direction (ISO 27001:2022, clause
 | Critère | Justification | Preuve |
 | --- | --- | --- |
 | Revue par la direction | Le plan a été présenté et validé par le CEO (Martin DUPONT) lors de l’atelier du 15/02/2025. | PV de revue de direction signé |
-| Ressources allouées | Budget validé pour les mesures prioritaires (Section 4.1) + 0.5 FTE (DevOps) pour la maintenance de Graylog et les sauvegardes. | Décision budgétaire signée par le CEO |
+| Ressources allouées | Budget (estimation ≈ 12 k€/an hors temps interne, cible 10 k€) soumis à arbitrage du CEO pour les mesures de 4.1 + 0.5 FTE (DevOps) pour la maintenance de Graylog et les sauvegardes. | Décision budgétaire signée par le CEO |
 | Intégration au SMSI | Le PTR est lié à la PSSI (mesures A.5.15, A.8.21, etc.) et au SoA (10 contrôles prioritaires). | Références croisées dans PSSI et SoA/Déclaration d'applicabilité. |
-| Cohérence réglementaire | Alignement avec RGPD (Art. 30, 32, 33-34), HDS (L. 1111-8, R. 1111-10) ; CSP R. 1112-7 pour la conservation côté CHU, et NIS2 art. 21(2). | Matrice de conformité réglementaire |
+| Cohérence réglementaire | Alignement avec RGPD (Art. 30, 32, 33-34), HDS (L. 1111-8, R.1111-8 et s.) ; CSP R. 1112-7 pour la conservation côté CHU, et NIS2 art. 21(2). | Matrice de conformité réglementaire |
 
 ### 6.2 Suivi et Revue
 
@@ -273,7 +276,7 @@ Objectif : Assurer l’efficacité des mesures et leur mise à jour continue (IS
 
 | Critère | Justification | Preuve |
 | --- | --- | --- |
-| Fréquence de revue | Trimestrielle pour les risques critiques (score ≥ 6) et annuelle pour les autres. | Calendrier intégré dans Suivi Plan Traitement des Risques. |
+| Fréquence de revue | Trimestrielle pour les risques à réduire (score ≥ 6) et annuelle pour les autres. | Calendrier intégré dans Suivi Plan Traitement des Risques. |
 | Indicateurs | Mesure de l’efficacité via des KPIs (ex : % d’APIs protégées par WAF, délai moyen de notification des incidents). | Tableau de bord dans Suivi Plan Traitement des Risques. |
 | Amélioration continue | Mise à jour du PTR en cas de : Nouveaux risques (ex : nouveau fournisseur, changement réglementaire),Évolution du contexte (ex : augmentation du volume de données sensibles), Incidents (ex : faille de sécurité détectée). | Historique des versions  |
 | Audit interne  | Vérification semestrielle de l’application des mesures par le RSSI.      | Rapport d’audit 2026  |
@@ -303,22 +306,27 @@ Signataires :
 
 | ID        | Catégorie   | Risque                                                                                                                | Référence source                                                                           | Actif / Processus                                             | Contrôle ISO 27001:2022                                                                                                                                                                                                                                                 | Réglementation                                                                         |
 | --------- | ----------- | --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| R-DON-02  | Données     | Fuite de données : Écoute clandestine (absence TLS) + Transactions Stripe (fraude)                                    | Fiche risques (FR-14, FR-15) + Matrice RBAC (RBAC-17, RBAC-19)                             | Données paiement (T-003)                                      | A.5.14 Transfert d'informations ; A.8.20 Sécurité des réseaux ; A.8.21 Sécurité des services réseaux ; A.8.25 Cycle de vie du développement sécurisé                                                                                                                    | RGPD Art. 5, 32, 33, 34 · NIS2 art. 21(2) (d), (h) · PCI-DSS Req. 4, 6, 7, 10, 11 |
+| R-DON-02  | Données     | Ecoute clandestine des flux de paiement sur réseau public + dérive de conformité du prestataire paiement (perte PCI-DSS Level 1)             | Fiche risques (FR-14, FR-15) + Matrice RBAC (RBAC-17, RBAC-19)                             | Données paiement (T-003)                                      | A.5.14 Transfert d'informations ; A.8.20 Sécurité des réseaux ; A.8.21 Sécurité des services réseaux ; A.8.25 Cycle de vie du développement sécurisé                                                                                                                    | RGPD Art. 5, 32, 33, 34 · NIS2 art. 21(2) (d), (h) · PCI-DSS Req. 4, 6, 7, 10, 11 |
 | R-DON-03  | Données     | Injection SQL/XSS + Ransomware (chiffrement données santé)                                                            | Fiche risques (FR-16, FR-17)                                                               | Données santé (D-002)                                         | A.8.7 Protection contre les logiciels malveillants ; A.8.13 Sauvegarde des informations ; A.8.26 Exigences de sécurité des applications ; A.8.28 Codage sécurisé ; A.8.29 Tests de sécurité en développement et en réception                                            | RGPD Art. 5, 9, 32, 33, 34, 90 · NIS2 art. 21(2) (b), (c), (e)               |
 | R-DON-04  | Données     | Données PII sensibles exposées via App Mobile + ciblées par hackers                                                   | Fiche risques (FR-18)                                                                      | Données personnelles/santé (D-002)                            | A.8.1 Dispositifs terminaux utilisateurs ; A.8.12 Prévention des fuites de données ; A.8.20 Sécurité des réseaux ; A.8.26 Exigences de sécurité des applications                                                                                                        | RGPD Art. 5, 9, 28, 32, 33, 34 · NIS2 art. 21(2) (e), (i)                     |
 | R-DON-10  | Données     | Données PII disponibles publiquement (annuaires, web)                                                                 | Fiche risques (FR-21)                                                                      | Données praticiens                                            | A.5.9 Inventaire des informations ; A.5.10 Utilisation acceptable des informations et autres ressources associées ; A.8.3 Restriction d'accès à l'information                                                                                                           | RGPD Art. 5                                                                            |
-| R-GOV-01  | Gouvernance | Absence de registre des traitements (RGPD Art. 30) + Absence de PIA (RGPD Art. 35)                                    | PSSI (PSSI-4) + RGPD Art. 30, 35                                                           | Registre des traitements, Données santé (D-002)               | A.5.31 Exigences légales, réglementaires et contractuelles ; A.5.33 Protection des documents ; A.5.36 Conformité aux politiques, règles et normes en matière de sécurité de l'information                                                                               | RGPD Art. 30, 35 · HDS                                                                 |
+| R-GOV-01  | Gouvernance | Tenue du registre non pérennisée (RGPD Art. 30) + mise à jour de l’AIPD non assurée (Art. 35)         | PSSI (PSSI-4) + RGPD Art. 30, 35                                                           | Registre des traitements, Données santé (D-002)               | A.5.31 Exigences légales, réglementaires et contractuelles ; A.5.33 Protection des documents ; A.5.36 Conformité aux politiques, règles et normes en matière de sécurité de l'information                                                                               | RGPD Art. 30, 35 · HDS                                                                 |
 | R-GOV-02  | Gouvernance | Délai de notification des violations (RGPD Art. 33-34) + Absence de procédure de gestion des incidents (NIS2 Obj. 12) | PSSI (PSSI-5) + RGPD Art. 33-34, NIS2 art. 21(2) (b)                                | Données personnelles/santé                                    | A.5.25 Évaluation et décision relatives aux événements de sécurité de l'information ; A.5.27 Leçons tirées des incidents de sécurité de l'information ; A.5.29 Sécurité de l'information en cas de perturbation ; A.5.37 Procédures opérationnelles documentées         | RGPD Art. 33-34 · NIS2 Obj. 12                                          |
 | R-GOV-03  | Gouvernance | Responsabilités sécurité non définies (CEO/RH) + Contrats sous-traitants non conformes (RGPD Art. 28)                 | PSSI (PSSI-4) + Matrice RBAC (RBAC-01, RBAC-02, RBAC-10) + RGPD Art. 28                    | Données financières, RH/Paie, Fournisseurs (OVH, Stripe, CHU) | A.5.3 Séparation des tâches ; A.5.21 Gestion de la sécurité de l'information dans la chaîne d'approvisionnement des TIC ; A.5.22 Surveillance, examen et gestion des changements des services fournisseurs ; A.5.31 Exigences légales, réglementaires et contractuelles | RGPD Art. 24, 28 · ISO 27001:2022                                                      |
-| R-HDS-01  | HDS         | Hébergement non certifié HDS (OVH) + Données santé non chiffrées au repos                                             | HDS (L.1111-8, R.1111-10, référentiel de certification) + PSSI (PSSI-6)                                                    | Hébergement OVH, Base de données (D-002)                      | A.5.21 Gestion de la sécurité de l'information dans la chaîne d'approvisionnement des TIC ; A.8.11 Masquage des données ; A.8.13 Sauvegarde des informations ; A.8.20 Sécurité des réseaux                                                                              | HDS (L.1111-8, R.1111-10, référentiel de certification) · RGPD Art. 32                                                 |
+| R-HDS-01  | HDS         | Ecart de qualification HDS activité 5 (accès tenant exercé par SantéConnect, hors périmètre contractuel activités 1-4/6) + chiffrement applicatif des données santé au repos à finaliser     | HDS (L.1111-8, R.1111-8 et s., référentiel de certification) + PSSI (PSSI-6)                                                    | Hébergement OVH, Base de données (D-002)                      | A.5.21 Gestion de la sécurité de l'information dans la chaîne d'approvisionnement des TIC ; A.8.11 Masquage des données ; A.8.13 Sauvegarde des informations ; A.8.20 Sécurité des réseaux                                                                              | HDS (L.1111-8, R.1111-10, référentiel de certification) · RGPD Art. 32                                                 |
 | R-HDS-02  | HDS         | Accès physique non contrôlé aux serveurs + Journalisation incomplète des accès aux données santé                      | HDS (référentiel de certification : sécurité physique, journalisation) + PSSI (PSSI-5)                                                     | Serveurs OVH, Logs (Graylog), Données santé (D-002)           | A.7.3 Sécurisation des bureaux, des salles et des installations ; A.7.4 Surveillance de la sécurité physique ; A.7.8 Implantation et protection des équipements ; A.8.15 Enregistrement                                                                                 | HDS (référentiel de certification : sécurité physique, journalisation) · RGPD Art. 5, 32                                               |
-| R-ISO-01  | ISO 27001   | Absence de politique de sécurité (A.5.1) + Accès non autorisé aux données d'authentification (RBAC incomplet)         | ISO 27001:2022 (A.5.1) + Matrice RBAC (RBAC-03, RBAC-04, RBAC-08, RBAC-09) + PSSI (PSSI-8) | Accès administrateurs, Tous les actifs                        | A.5.15 Contrôle d'accès ; A.5.16 Gestion des identités ; A.5.17 Informations d'authentification ; A.5.18 Droits d'accès ; A.5.3 Séparation des tâches                                                                                                                   | ISO 27001:2022 · RGPD Art. 5, 32                                                       |
+| R-ISO-01  | ISO 27001   | PSSI signée (V1.1) ; déploiement et revue des accès à consolider (A.5.15 à A.5.18). Risque contrôlé par la PSSI et la matrice RBAC   | ISO 27001:2022 (A.5.1) + Matrice RBAC (RBAC-03, RBAC-04, RBAC-08, RBAC-09) + PSSI (PSSI-8) | Accès administrateurs, Tous les actifs                        | A.5.15 Contrôle d'accès ; A.5.16 Gestion des identités ; A.5.17 Informations d'authentification ; A.5.18 Droits d'accès ; A.5.3 Séparation des tâches                                                                                                                   | ISO 27001:2022 · RGPD Art. 5, 32                                                       |
 | R-ISO-02  | ISO 27001   | Vulnérabilités non patchées (A.8.8) + Absence de tests d'intrusion                                                    | ISO 27001:2022 (A.8.8) + PSSI (PSSI-9)                                                     | Serveurs, applications, APIs                                  | A.8.8 Gestion des vulnérabilités techniques ; A.8.29 Tests de sécurité en développement et en réception ; A.8.16 Activités de surveillance ; A.8.32 Gestion du changement                                                                                               | ISO 27001:2022 · RGPD Art. 32 · NIS2 art. 21(2) (e), (f)  |
 | R-ISO-03  | ISO 27001   | Revues des accès non réalisées (A.5.18) + Configuration infrastructure non sécurisée (OVH)                            | ISO 27001:2022 (A.5.18) + Matrice RBAC (RBAC-04, RBAC-20) + PSSI (PSSI-6)                  | Infrastructure OVH, Tous les accès (RBAC)                     | A.5.18 Droits d'accès ; A.8.9 Gestion de la configuration ; A.8.20 Sécurité des réseaux ; A.8.22 Séparation des réseaux                                                                                                                                                 | ISO 27001:2022 · HDS (référentiel de certification) · NIS2 art. 21(2) (e), (i)                         |
-| R-NIS2-01 | NIS2        | Absence de détection des intrusions + Absence de supervision 24/7 + Absence de segmentation réseau                    | NIS2 Obj. 20, Obj. 3 + PSSI (PSSI-10)                                                      | Réseau, serveurs, APIs, WebApp, App Mobile                    | A.8.16 Activités de surveillance ; A.8.20 Sécurité des réseaux ; A.8.22 Séparation des réseaux ; A.5.7 Renseignements sur les menaces                                                                                                                                   | NIS2 art. 21(2) (b), (e) · ISO 27001:2022                                                       |
-| R-NIS2-02 | NIS2        | Absence de procédure de réponse aux incidents + Vulnérabilités non gérées                                             | NIS2 Obj. 12, Obj. 10 + PSSI (PSSI-9, PSSI-10)                                             | Tous les systèmes, Serveurs, applications                     | A.5.25 Évaluation et décision relatives aux événements de sécurité de l'information ; A.5.27 Leçons tirées des incidents de sécurité de l'information ; A.8.8 Gestion des vulnérabilités techniques ; A.8.16 Activités de surveillance                                  | NIS2 art. 21(2) (b), (e) · ISO 27001:2022                                                      |
-| T-020     | Juridique   | Transfert de données hors UE non conforme                                                                             | RGPD Art. 44-49 + PSSI (PSSI-10)                                                           | Données personnelles/santé (si applicable)                    | A.5.14 Transfert d'informations ; A.5.21 Gestion de la sécurité de l'information dans la chaîne d'approvisionnement des TIC ; A.5.31 Exigences légales, réglementaires et contractuelles                                                                                | RGPD Art. 44-49 · ISO 27001:2022                                                       |
+| R-NIS2-01 | NIS2        | Absence de détection des intrusions + Absence de supervision 24/7 + Absence de segmentation réseau                    | NIS2 art. 21 + PSSI (PSSI-10)                                                      | Réseau, serveurs, APIs, WebApp, App Mobile                    | A.8.16 Activités de surveillance ; A.8.20 Sécurité des réseaux ; A.8.22 Séparation des réseaux ; A.5.7 Renseignements sur les menaces                                                                                                                                   | NIS2 art. 21(2) (b), (e) · ISO 27001:2022                                                       |
+| R-NIS2-02 | NIS2        | Absence de procédure de réponse aux incidents + Vulnérabilités non gérées                                             | NIS2 art. 21  + PSSI (PSSI-9, PSSI-10)                                             | Tous les systèmes, Serveurs, applications                     | A.5.25 Évaluation et décision relatives aux événements de sécurité de l'information ; A.5.27 Leçons tirées des incidents de sécurité de l'information ; A.8.8 Gestion des vulnérabilités techniques ; A.8.16 Activités de surveillance                                  | NIS2 art. 21(2) (b), (e) · ISO 27001:2022                                                      |
+| R-TRA-020     | Juridique   | Transfert de données hors UE non conforme                                                                             | RGPD Art. 44-49 + PSSI (PSSI-10)                                                           | Données personnelles/santé (si applicable)                    | A.5.14 Transfert d'informations ; A.5.21 Gestion de la sécurité de l'information dans la chaîne d'approvisionnement des TIC ; A.5.31 Exigences légales, réglementaires et contractuelles                                                                                | RGPD Art. 44-49 · ISO 27001:2022                                                       |
 | R-IAM-01  | Données     | Usurpation de compte patient via récupération de compte, SIM swap ou usage du téléphone par un tiers (aidant) | AIPD (§3.1) + PSSI 2.1 + Matrice RBAC (RBAC-15, 16, 21) | Comptes patients, accès au dossier (D-001, D-002) | A.5.16 Gestion des identités ; A.5.17 Informations d'authentification ; A.8.5 Authentification sécurisée | RGPD Art. 5, 9, 32, 33, 34 · PGSSI-S (référentiel d'identification des usagers) · NIS2 art. 21(2) (j) |
+| R-API-01 | API | APIs mal configurées ou exposées (authentification, validation des entrées/sorties, clés API) | Fiche risques (FR-16 à FR-20) + PSSI 2.1 | APIs externes (CHU, laboratoires, Stripe), clés API | A.8.20 Sécurité des réseaux ; A.8.21 Sécurité des services réseau ; A.8.26 Exigences de sécurité des applications ; A.8.24 Utilisation de la cryptographie | RGPD Art. 5, 9, 32, 33, 34 · NIS2 art. 21(2) (e), (i) |
+| R-DON-01 | Données | Usurpation d'identité (phishing, force brute, compte compromis) | Fiche risques (FR-01 à FR-13) + Matrice RBAC | Données personnelles, santé, paiement | A.5.16 Gestion des identités ; A.5.17 Informations d'authentification ; A.8.5 Authentification sécurisée ; A.6.3 Sensibilisation | RGPD Art. 5, 32, 33, 34 · NIS2 art. 21(2) (g), (i), (j) |
+| R-APP-01 | Applicatif | Failles des applications grand public (App Mobile, WebApp) exposées sur Internet | Fiche risques (app mobile et WebApp) | App Mobile B2C, WebApp B2C | A.8.25 Cycle de vie du développement sécurisé ; A.8.28 Codage sécurisé ; A.8.29 Tests de sécurité | RGPD Art. 25, 32 · NIS2 art. 21(2) (e) |
+| R-PLAT-01 | Applicatif | Accès non restreint à la plateforme B2B praticiens (droits, code source) | Matrice RBAC (RBAC-06, 07, 14) | Plateforme B2B, code source | A.5.15 Contrôle d'accès ; A.5.18 Droits d'accès ; A.8.4 Accès au code source | RGPD Art. 32 · NIS2 art. 21(2) (i) |
+| R-INT-01 | Infrastructure | Compromission via l'interconnexion CHU (pivot, segmentation insuffisante) | Fiche risques (interconnexion CHU) + convention CHU | Interconnexion HL7/FHIR | A.8.20 Sécurité des réseaux ; A.8.22 Séparation des réseaux ; A.5.14 Transfert d'informations | RGPD Art. 26, 32 · NIS2 art. 21(2) (d), (e) |
 
 ### Livrables et documentations liées
 

@@ -69,7 +69,7 @@
 |---------|--------|-------------------|
 | **RGPD Art. 17** | Droit à l'effacement sur demande du patient | S'applique aux données dont SantéConnect est responsable de traitement |
 | **Art. R. 1112-7 CSP** | Conservation 20 ans des dossiers médicaux hospitaliers | S'applique aux données transmises par le CHU |
-| **Art. L. 1111-8 CSP + R. 1111-10 CSP** | Obligation de certification HDS pour tout hébergeur | S'applique à OVH (hébergeur de SantéConnect) |
+| **Art. L. 1111-8 CSP + R.1111-8 et s. CSP** | Obligation de certification HDS pour tout hébergeur | S'applique à OVH (hébergeur de SantéConnect) |
 | **Art. R. 4127-45 (code de déontologie médicale)** | Conservation sous la responsabilité du médecin ; pas de durée légale fixe pour les libéraux (alignement recommandé sur R. 1112-7, 20 ans) | La responsabilité incombe au praticien, pas à SantéConnect |
 
 ### Solution : distinction par type de données

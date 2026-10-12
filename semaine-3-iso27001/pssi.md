@@ -172,7 +172,7 @@ SantéConnect applique un **cloisonnement** : base de données dédiée aux donn
 **Sauvegardes**
 
 - **Données médicales** : sauvegardes quotidiennes sur stockage OVH HDS dédié, mode WORM (immuabilité). Test de restauration mensuel automatisé. Test approfondi trimestriel avec vérification d'intégrité complète et validation RSSI. En cas d'incident majeur, les données médicales originelles restent disponibles au CHU comme source de récupération d'urgence.
-- **Données hors médicales** : sauvegardes mensuelles sur serveur dédié, test de copie mensuel.
+- **Données hors médicales** : Critiques et sensibles (hors médicales incluses : RH/paie, comptes patients et facteurs d’authentification) : quotidiennes. Standard : mensuelles, test de copie mensuel.
 
 **Archivage après clôture de compte**
 
@@ -206,7 +206,7 @@ Détail de la procédure pour les données personnelles → [procedure-incident-
 
 **Réponse et coordination**
 
-- Le RSSI notifie les équipes DevOps sous **4h** (heures ouvrées,hors heures ouvrées, délai porté à **8h**) pour tout incident impliquant des données médicales, sous **24h** pour les autres incidents. Cible de maturité : mise en place d'une astreinte formalisée. 
+- Prise de connaissance : constat par un membre de l’équipe ou de l’astreinte d’un incident avéré ou raisonnablement certain. Alerte critique accusée sous 1h. Données médicales : CHU notifié sous 4h, heures ouvrées ou non. Hors heures ouvrées : CEO en premier niveau, DevOps d’astreinte (rotation) joignable par lui ; le DevOps notifie le CHU si le CEO est injoignable. Autres incidents : 24h. 
 - Coordination avec les sous-traitants (OVH, Stripe) par clause contractuelle art. 28
 - Coordination avec le CHU par convention art. 26
 - Procédure de notification CNIL (72h) et personnes concernées documentée - cf. lien ci-dessus
@@ -254,7 +254,7 @@ SantéConnect fixe les objectifs suivants. Le CHU et les praticiens disposent de
 | RTO (délai max de restauration) | 72h |
 | RPO données critiques | 24h |
 | RPO données sensibles | 48h |
-| RPO autres données | 72h |
+| RPO autres données | 30 jours |
 
 > **Conformité RGPD/HDS :** Même pour les données non critiques, SantéConnect doit garantir la disponibilité et l'intégrité des données qu'elle gère (historiques partagés, plannings) et pouvoir restaurer ses services sous 72h pour éviter une violation de la sécurité des données.
 
