@@ -32,7 +32,7 @@ Destinataire 5;Sous-traitants;;;Hébergement: contrat de sous-traitance (RGPD ar
 ;;;;;;;;
 Mesures de sécurité;Type de mesure de sécurité;;;Précisions;;;;
 Mesure de sécurité 1;Chiffrement des données;;;TLS 1.3 (transit) + AES-256 (repos pour les logs);;;;
-Mesure de sécurité 2;Contrôle d'accès des utilisateurs;;;Accès restreint au Service IT/Support (principe du least privilege). Journalisation des accès aux logs (6 mois).;;;;
+Mesure de sécurité 2;Contrôle d'accès des utilisateurs;;;Accès restreint au Service IT/Support (principe du least privilege). Journalisation des accès aux logs (1 an glissant).;;;;
 Mesure de sécurité 3;Autres mesures (à préciser);;;Anonymisation des retours avant traitement par Service Produit;;;;
 Mesure de sécurité 4;Mesures de traçabilité;;;"
 Les demandes de support sont traçables (ticketing système avec horodatage)";;;;

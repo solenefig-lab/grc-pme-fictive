@@ -57,7 +57,7 @@ Le sous-traitant prend toutes les mesures requises en vertu de l'art. 32 du RGPD
 
 | Mesure | Détail |
 |---|---|
-| Contrôle d'accès | 2FA, audit annuel des droits (RBAC), journalisation des accès (logs 6 mois, 1 an si incident) |
+| Contrôle d'accès | 2FA, audit annuel des droits (RBAC), journalisation des accès (logs 1 an glissant) |
 | Chiffrement | TLS 1.3 (transit) + AES-256 (repos) |
 | Données médicales | Séparation stricte par conception des autres données |
 

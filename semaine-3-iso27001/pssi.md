@@ -86,21 +86,22 @@ Plus de détails dans le Registre des Traitements → [registre_traitement.md](h
 #### 🔴 Critique
 
 - **Données médicales** : soumises aux règles RGPD-HDS, séparation des autres données par conception
-- **Données salariés (RH/paie)** : exigences contractuelles, soumises aux obligations fiscales et réglementaires
+- **Données salariés (RH/paie)** : obligations fiscales et sociales, risque d’usurpation d’identité et de fraude en cas de fuite
 
 *Mesures : Séparation par conception, Authentification MFA, OAuth2, Chiffrement AES-256*
 
 #### 🟠 Sensible
 
 - **Données personnelles B2C** : public âgé, soumises aux règles RGPD
+- **Données de paiement et financières** : moyens de paiement tokenisés (Stripe, PCI-DSS), pas de numéro de carte ni de RIB en clair chez SantéConnect
 - **Données personnelles B2B** : praticiens ayant accès aux données médicales
+- **Logs IT** : identifiants, IP, événements d’authentification ; conservation 1 an glissant
 - **Données R&D/Statistiques** : anonymisées, soumises à validation DPO si doute
 
 *Mesures : Authentification MFA, OAuth2, Surveillance des accès et des flux, Chiffrement AES-256*
 
 #### 🟡 Standard
 
-- **Logs IT** : suivi et documentation encadrés - archivage 6 mois (1 an glissant si incident)
 - **Données utilisation site web** : conservation 1 an (Matomo auto-hébergé)
 
 *Mesures : Accès Least Privilege, Surveillance des accès et des flux*
@@ -180,7 +181,7 @@ SantéConnect applique un **cloisonnement** : base de données dédiée aux donn
 |---|---|---|
 | Dossier médical | 20 ans, archivage restreint | CSP art. R.1112-7 (CHU) / art. R.4127-45 (autres praticiens : responsabilité du praticien, pas de durée légale fixe, alignement recommandé) |
 | Données de paiement | 3 ans | - |
-| Logs IT | 6 mois (1 an glissant si incident) | - |
+| Logs IT | 1 an glissant | - |
 | Données utilisation site web | 1 an | Matomo auto-hébergé |
 | Données RH/paie | 5 ans après dernière paie / 5 ans après fin de contrat | - |
 | Autres données | 5 ans après dernière activité | Suppression à clôture si non liées à un dossier CHU |

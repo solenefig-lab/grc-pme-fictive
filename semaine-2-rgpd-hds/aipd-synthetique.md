@@ -63,7 +63,7 @@ graph TD
     B -->|6. Coffre-fort médical| D
     B -->|7. Messagerie sécurisée| D
     D -->|8. Accès praticiens - RBAC| G[Praticiens]
-    C -->|9. Logs d'accès| H[Journalisation 6 mois]
+    C -->|9. Logs d'accès| H[Journalisation 1 an glissant]
 ```
 
 **Légende :**
@@ -76,7 +76,7 @@ graph TD
 | 5 | Données CHU conservées 20 ans (CSP art. R. 1112-7) |
 | 6–7 | Données générées par le patient (5 ans) |
 | 8 | Accès limité par RBAC (rôles : patient, praticien, admin) |
-| 9 | Logs conservés 6 mois, 1 an en cas d'incident |
+| 9 | Logs conservés 1 an glissant |
 
 ---
 

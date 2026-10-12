@@ -25,7 +25,7 @@ Documenter les **droits d’accès** par rôle pour garantir :
 
 | ID   | Rôle  | Catégorie de données | Classification | Ressources | Permission | MFA | Justification | Contrôle ISO 27001:2022 | Revue des accès | Preuves |
 |------|--------------------|----------------------|-----------------|--------------------------|------------|-----|---------------|-----------------------------|------------------|---------|
-| RBAC-01 | CEO | Données RH / Paie | Sensible | Suivi des contrats et promotions | L E | O | Autorisation dirigeant ; E limité aux propres données de l’entreprise (RGPD Art. 6) | A.5.18, A.8.5 | **Annuelle** | Logs d’accès |
+| RBAC-01 | CEO | Données RH / Paie | Critique | Suivi des contrats et promotions | L E | O | Autorisation dirigeant ; E limité aux propres données de l’entreprise (RGPD Art. 6) | A.5.18, A.8.5 | **Annuelle** | Logs d’accès |
 | RBAC-02 | CEO | Données financières | Sensible | Données financières entreprises | L | O | Accès en lecture seule pour supervision | A.5.18 | **Annuelle** | Logs d’accès |
 | RBAC-03 | RSSI | Logs techniques | Sensible | Logs Graylog | L A | O | Accès en lecture et administration pour surveillance (ISO A.8.15). Pas d’écriture pour préserver l’intégrité | A.8.15, A.8.16 | **Semestrielle** | Logs d’accès |
 | RBAC-04 | RSSI | Infra OVH (console admin) | Critique | Configuration infrastructure | L E A | O | Administration de l’infrastructure, hors configuration des sauvegardes (accès temporaire validé par le CEO, demandeur ≠ valideur, cf. RBAC-23). Activité 5 exercée en interne : accès tenant limité, journalisé, supervisé. | A.8.9, A.8.15 | **Semestrielle** | Logs OVH + contrat |
@@ -34,7 +34,7 @@ Documenter les **droits d’accès** par rôle pour garantir :
 | RBAC-07 | Dev Produit | App Mobile / WebApp (admin) | Sensible | Code source | L E | O | Accès aux branches dev/test (pas de merge en production sans validation); **Note** : en cas de départ, la revue des accès Git et la validation des merges seront assurées par le RSSI en intérim, avec un recrutement prioritaire d’un 2ème dev | A.8.4, A.8.25 | **Annuelle** | Logs Git |
 | RBAC-08 | Dev Produit | Logs techniques | Sensible | Logs Graylog | L | O | Besoin de debug ; pas d’écriture pour préserver l’intégrité des logs (ISO A.8.15). | A.8.15, A.8.16 | **Annuelle** | Logs d’accès |
 | RBAC-09 | Dev Produit | Infra OVH (console admin) | Critique | Configuration infrastructure | - | - | Aucun accès (séparation des privilèges, ISO A.5.3). L’exploitation de l’infra est assurée par le rôle DevOps (RBAC-22, 23). | A.5.3, A.8.9 | **-** | - |
-| RBAC-10 | RH | Données RH/Paie | Sensible | Données RH | L E S | O | Gestion des ressources humaines (RGPD Art. 6). S réservée au RH pour traçabilité. | A.6.1, A.6.2 | **Annuelle** | Logs d’accès |
+| RBAC-10 | RH | Données RH/Paie | Critique | Données RH | L E S | O | Gestion des ressources humaines (RGPD Art. 6). S réservée au RH pour traçabilité. Deux utilisateurs, revue annuelle suffisante | A.6.1, A.6.2 | **Annuelle** | Logs d’accès |
 | RBAC-11 | Comptabilité | Données financières | Sensible | Données financières | L E | O | Gestion financière (PCI-DSS via Stripe). E limitée aux données comptables | A.5.15, A.8.5 | **Annuelle** | Logs d’accès |
 | RBAC-12 | Praticien B2B | Données patients | Critique | Données de santé | L X | O | Principe du moindre privilège ; L+X uniquement sur ses patients (le praticien est responsable de ses dossiers, export sécurisé à la clôture). Pas de S (traçabilité) | A.5.15, A.8.3 | **Semestrielle** | Logs d’accès + [Convention CHU](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-2-rgpd-hds/note-co-responsabilite-chu.md) |
 | RBAC-13 | Laboratoires | Dossier médical | Critique | API CHU/labos | L E | O | Accès en Lecture + Écriture (ajout uniquement) via API HL7/FHIR pour déposer les résultats d’analyses (convention CHU + RGPD Art. 28). Pas de modification des données existantes (traçabilité HDS R.1112-7). | A.5.15, A.8.21, A.8.26 | **Semestrielle** | Logs API + [Convention CHU](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-2-rgpd-hds/note-co-responsabilite-chu.md) |
@@ -123,7 +123,7 @@ flowchart LR
         J -->|L E - via Git| K["Code source<br>Sensible"]
         J -->|L - via Graylog| H
 
-        L2["RH<br>(RBAC-10)"] -->|L E S - via SIRH| M["Données RH/Paie<br>Sensible"]
+        L2["RH<br>(RBAC-10)"] -->|L E S - via SIRH| M["Données RH/Paie<br>Critique"]
         M2["Comptabilité<br>(RBAC-11)"] -->|L E - via Comptabilité| N["Données financières<br>Sensible"]
 
         G -->|L A - via coffre de clés| Y["Clé de pseudonymisation<br>Critique"]
@@ -144,8 +144,8 @@ flowchart LR
     classDef sensitive fill:#ffd166,color:#000,stroke:#ffaa00;
     classDef standard fill:#a5d8ff,color:#000,stroke:#1e90ff;
 
-    class B,I,U,Y critical;
-    class C,D,F,H,K,M,N,X sensitive;
+    class B,I,M,U,Y critical;
+    class C,D,F,H,K,N,X sensitive;
     classDef default fill:#f9f9f9,stroke:#333;
 ```
 
