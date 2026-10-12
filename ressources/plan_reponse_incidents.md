@@ -55,7 +55,7 @@
 | Nom de l’entreprise | SantéConnect | [Votre nom] |
 | RSSI | Claire ESPINOZA | [Nom] |
 | Email RSSI | [claire.espinoza@santeconnect-demo.fr](mailto:claire.espinoza@santeconnect-demo.fr) | [Email] |
-| DevOps | Stéphane ROY | [Nom] |
+| DevOps | Rôle tenu par l’un des développeurs, astreinte en rotation | [Nom] |
 | DPO | Jeanne PETIT | [Nom] |
 | CEO | Martin DUPONT | [Nom] |
 | RH | Bernard THOMAS | [Nom] |
@@ -318,9 +318,9 @@ Documentation liée à créer séparément, mettre à jour et archivée pour anc
 
 |  **ID**       | **Date**       | **Type**          | **Sévérité** | **Actif/Processus** | **Statut**  | **RI**            | **RT**            | **DPO **            | **Date Détection** | **Date Résolution** | **Délai de Résolution** | **Délai de Notification** | **Lien REX**          | **Lien PTR**       |
  |--------------|----------------|-------------------|--------------|---------------------|-------------|-------------------|-------------------|-------------------|---------------------|----------------------|---------------------------|-----------------------------|------------------------|---------------------|
- | INC-2026-001 | 01/06/2026     | Ransomware        | 🔴 P1        | Serveur OVH (D-002) | Clôturé     | Claire ESPINOZA   | Stéphane ROY      | Jeanne PETIT      | 01/06/2026 14:30    | 02/06/2026 10:00     | 19h30                     | 24h (HDS)               | [REX-INC-2026-001] | R-DON-03           |
- | INC-2026-002 | 02/06/2026     | Phishing          | ⚠️ P2        | Email (T-003)       | Clôturé     | Claire ESPINOZA   | Stéphane ROY      | -                 | 02/06/2026 09:15    | 02/06/2026 11:00     | 1h45                      | Aucune                     | [REX-INC-2026-002] | R-DON-01           |
- | INC-2026-003 | 03/06/2026     | Accès non autorisé | 🟡 P3        | Données RH          | Clôturé     | Claire ESPINOZA   | Stéphane ROY      | -                 | 03/06/2026 11:20    | 03/06/2026 16:45     | 5h25                      | Aucune                     | [REX-INC-2026-003]| R-GOV-03           |
+ | INC-2026-001 | 01/06/2026     | Ransomware        | 🔴 P1        | Serveur OVH (D-002) | Clôturé     | Claire ESPINOZA   | DevOps d’astreinte      | Jeanne PETIT      | 01/06/2026 14:30    | 02/06/2026 10:00     | 19h30                     | 24h (HDS)               | [REX-INC-2026-001] | R-DON-03           |
+ | INC-2026-002 | 02/06/2026     | Phishing          | ⚠️ P2        | Email (T-003)       | Clôturé     | Claire ESPINOZA   | DevOps d’astreinte      | -                 | 02/06/2026 09:15    | 02/06/2026 11:00     | 1h45                      | Aucune                     | [REX-INC-2026-002] | R-DON-01           |
+ | INC-2026-003 | 03/06/2026     | Accès non autorisé | 🟡 P3        | Données RH          | Clôturé     | Claire ESPINOZA   | DevOps d’astreinte      | -                 | 03/06/2026 11:20    | 03/06/2026 16:45     | 5h25                      | Aucune                     | [REX-INC-2026-003]| R-GOV-03           |
 
 -----
 
@@ -353,7 +353,7 @@ Documentation liée à créer séparément, mettre à jour et archivée pour anc
    **Heure**       | **Événement**                          | **Responsable**       | **Preuves**               |
  |-----------------|----------------------------------------|------------------------|---------------------------|
  | 14:30           | Détection de l’alerte (Wazuh)          | Graylog               | [Log Wazuh](lien)        |
- | 14:45           | Isolation du serveur                   | Stéphane ROY (RT)     | [Log Firewall](lien)     |
+ | 14:45           | Isolation du serveur                   | DevOps d’astreinte (RT)     | [Log Firewall](lien)     |
  | 15:00           | Réunion de crise                       | Claire ESPINOZA (RI)  | [PV réunion](lien)       |
  | 16:00           | Notification à la CNIL                 | Jeanne PETIT (DPO)     | [Email CNIL](lien)       |
 
@@ -361,8 +361,8 @@ Documentation liée à créer séparément, mettre à jour et archivée pour anc
 #### **3. Actions Correctives**
  | **Type**          | **Action**                              | **Responsable**       | **Échéance**       | **Statut**       |
  |-------------------|----------------------------------------|------------------------|--------------------|------------------|
- | **Immédiate**     | Bloquer l’IP malveillante               | Stéphane ROY (RT)     | 14:45              | ✅ Terminée       |
- | **Immédiate**     | Restaurer depuis sauvegarde            | Stéphane ROY (RT)     | 18:00              | ✅ Terminée       |
+ | **Immédiate**     | Bloquer l’IP malveillante               | DevOps d’astreinte (RT)     | 14:45              | ✅ Terminée       |
+ | **Immédiate**     | Restaurer depuis sauvegarde            | DevOps d’astreinte (RT)     | 18:00              | ✅ Terminée       |
  | **Long terme**    | Déployer un EDR supplémentaire           | Claire ESPINOZA (RI)  | 30/06/2026         | 🔄 En cours       |
  | **Long terme**    | Former l’équipe aux bonnes pratiques    | Jeanne PETIT (DPO)    | 15/07/2026         | ⏳ À planifier     |
 

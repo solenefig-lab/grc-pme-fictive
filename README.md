@@ -11,8 +11,9 @@
 
 ## SantéConnect — Démarche structurée de mise en conformité et gestion des risques pour une HealthTech
 
-> Chaque livrable documente des arbitrages méthodologiques réels : choix d'exclusions ISO 27001, positionnement NIS2 en logique supply chain,décision MFA patients calibrée RGPD Art. 5, modélisation RBAC pour RSSI temps partiel. 
-> Une démarche calibrée PME, pas un exercice académique.
+> Chaque livrable documente des arbitrages méthodologiques réels : choix d'exclusions ISO 27001, positionnement NIS2 en logique supply chain,décision MFA patients calibrée RGPD Art. 5, modélisation RBAC pour RSSI temps partiel.  
+> Projet fictif à visée pédagogique: les livrables reflètent une démarche GRC réelle calibrée PME adaptée à un contexte simulé.   
+> Chaque semaine est un état figé : les évolutions réglementaires sont traitées en aval par gap analysis, sans rétroactivité sur les livrables antérieurs.  
 
 ---
 
@@ -76,7 +77,7 @@ Elle rassemble des modèles, guides et outils pratiques inspirés des référent
 | Cartographie des actifs GRC: Version PME | Dirigeants, DPO, consultants junior | [📥 Télécharger](./ressources/grc-asset-inventory-template-pme.xlsx) |
 | Cartographie des actifs GRC: Version Advanced | Équipes techniques, cabinets GRC | [📥 Télécharger](./ressources/grc-asset-inventory-template-pme-threats.xlsx) |
 | Vision base légale - Conformité RGPD-HDS | Responsables de PME sans expertise juridique| [Référentiel légal simplifié](./ressources/Referentiel_legal_simplifie.md) |
-| ISO 27001:2022 - Contrôles priorisés PME e-santé | RSSI, DPO, consultants GRC | [📖 Consulter](./ressources/ISO%2027001_Liste_Controle.md) · [📥 Télécharger](./ressources/ISO27001_Liste-Controle.csv))  |
+| ISO 27001:2022 - Contrôles priorisés PME e-santé | RSSI, DPO, consultants GRC | [📖 Consulter](./ressources/ISO%2027001_Liste_Controle.md) · [📥 Télécharger](./ressources/ISO27001_Liste-Controle.csv)  |
 | Plan de Réponse aux Incidents (PRI) - Modèle PME e-santé | RSSI, DPO, dirigeants PME | [📖 Consulter](./ressources/plan_reponse_incidents.md) |
 | Guide de conformité NIS2 Art. 21 & 23 pour PME e-santé et correspondance avec les contrôles ISO 27001:2022 | RSSI, DPO, dirigeants PME dans domaine e-santé | [📖 Consulter](./ressources/nis2_correspondances_ISO27001.md)|
 |  Script Python d'audit RBAC + Génération de rapports d'anomalies | RSSI, équipes techniques, consultant GRC | [📥 Télécharger](./ressources/audit_RBAC_auto/rbac_audit.py) · [📖 Documentation](./ressources/audit_RBAC_auto/README.md) |
@@ -127,10 +128,6 @@ Capacités démontrées dans ce projet :
 
 ---
 
-*Projet fictif à visée pédagogique - les livrables reflètent une démarche GRC réelle adaptée à un contexte simulé.*
-
----
-
 ## English Summary
 
 **SantéConnect** is a fictional French HealthTech 
@@ -141,7 +138,7 @@ as a case study to demonstrate a structured GRC approach.
 Hosting (HDS) · ISO 27001:2022 · NIS2 · EBIOS RM
 
 **Key outputs:**
-- Risk treatment plan (11 critical risks, 3×3 grid)
+- Risk treatment plan (12 critical risks, 3×3 grid)
 - ISO 27001:2022 control mapping and applicability analysis  
 - NIS2 supply chain gap analysis + action plan
 - Business continuity plan (RTO 72h / RPO 24h)

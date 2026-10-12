@@ -67,9 +67,9 @@ _- le registre des alertes est intégré au plan de réponse aux incidents (S3).
 | **Priorité** | **Gap** | **Action** | **Responsable** | **Échéance** | 
  |--------------|---------|------------|------------------|--------------|
  | 🔴 Critique | PCA/PRA non documenté | A formaliser et faire valider, Vérifier la faisabilité du délai de 4h (services critiques) + Documenter procédures | RSSI | 30/06/2026 |
- | 🟡 Modérée | Micro-segmentation non documentée | Documenter la segmentation réseau | DevProduit (supervision RSSI) | 15/07/2026 | 
- | 🟡 Modérée | Automatiser les revues d’habilitation et centraliser surveillance | Automatiser les revues RBAC + export rapport hedomadaire avec un script Python, Centraliser la surveillance avec Wazuh + Graylog (solutions déjà en place, périmètre à élargir), Documentation à produire | DevProduit (supervision RSSI) | 15/09/2026 | 
- | 🟡 Modérée | Surveillance continue non formalisée au-delà Graylog | Configurer des alertes dans Graylog, Renforcer Wazuh pour la surveillance en temps réel, Documentation à produire | DevProduit (supervision RSSI) | 15/09/2026 | 
+ | 🟡 Modérée | Micro-segmentation non documentée | Documenter la segmentation réseau | DevOps (supervision RSSI) | 15/07/2026 | 
+ | 🟡 Modérée | Automatiser les revues d’habilitation et centraliser surveillance | Automatiser les revues RBAC + export rapport hedomadaire avec un script Python, Centraliser la surveillance avec Wazuh + Graylog (solutions déjà en place, périmètre à élargir), Documentation à produire | DevOps (supervision RSSI) | 15/09/2026 | 
+ | 🟡 Modérée | Surveillance continue non formalisée au-delà Graylog | Configurer des alertes dans Graylog, Renforcer Wazuh pour la surveillance en temps réel, Documentation à produire | DevOps (supervision RSSI) | 15/09/2026 | 
  | 🟡 Modérée | Preuves de formation NIS2 manquantes | Formation + PV | RH | 30/09/2026 |
 
 

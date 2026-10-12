@@ -188,7 +188,7 @@ La faisabilité de ce délai repose sur :
 | Étape | Action | Outil/Responsable | Délai | Statut d'implémentation |
 | --- | --- | --- | --- | --- | 
 | 1. Détection | Alerte automatique via Wazuh (ex : panne serveur, attaque détectée) ou signalement manuel (email : incident@santeconnect-demo.fr). | Wazuh + Graylog | < 15 min | ✅ |
-| 2. Qualification | Le RSSI (Claire ESPINOZA) ou le DevOps de garde (Stéphane ROY) qualifie l’incident comme critique (P1) via la matrice de criticité (cf. Section 2.3). | Matrice de criticité + Slack (#incidents) | < 30 min | ✅ |
+| 2. Qualification | Le RSSI (Claire ESPINOZA) ou le DevOps d’astreinte (rotation) qualifie l’incident comme critique (P1) via la matrice de criticité (cf. Section 2.3). | Matrice de criticité + Slack (#incidents) | < 30 min | ✅ |
 | 3. Activation PCA | Bascule automatique sur le serveur de secours OVH (script Python) pour les services critiques (API HL7/FHIR, Base D-002). | Script bascule_ovh.py + OVH | < 1h |  🔄 À tester |
 | 4. Notification | Notification immédiate au CHU (email : it@chu-fictif.fr) et au DPO (Jeanne PETIT). | Email + Slack | < 1h |  ✅ |
 | 5. Restauration (PRA) | Si nécessaire, restauration depuis les sauvegardes OVH (RPO = 0 pour la Base D-002). | Sauvegardes OVH + Script restore_db.py | < 4h |  🔄 À tester |
@@ -387,10 +387,10 @@ Accessibilité :
 | Rôle | Nom/Service | Organisation | Contact | Disponibilité | SLA/Contrat | Escalade | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Responsable PCA/PRA | RSSI | Claire ESPINOZA | SantéConnect | E-mail + téléphone pro. | Lundi au jeudi | CEO | Contact principal pour la coordination des incidents critiques. |
-| Responsable Technique | Stéphane ROY | SantéConnect | E-mail + téléphone pro. | Jours ouvrés | RSSI | Exécution des scripts de bascule et restauration. |
+| Responsable Technique | DevOps d’astreinte (équipe DevOps, rotation) : exécution des scripts de bascule et restauration | SantéConnect | E-mail + téléphone pro. | Jours ouvrés | RSSI | Exécution des scripts de bascule et restauration. |
 | DPO | Jeanne PETIT | SantéConnect (As a Service) | E-mail + téléphone pro. | +33 1 XX XX XX XX | Jours ouvrés (9h-18h) | RSSI | Notification RGPD et validation des procédures. |
 | Responsable Sécurité CHU | Département IT | CHU Partenaire | [it@chu-fictif.fr](mailto:it@chu-fictif.fr)  +33 2 XX XX XX XX | 24/7 | RSSI SantéConnect | Validation des bascules et restaurations. |
-| Support Technique OVH (SLA Gold) | Équipe SLA OVH | OVHcloud | [support-sla@ovh.com](mailto:support-sla@ovh.com)  +33 9 72 10 10 07 | 24/7/365 | Responsable Technique SantéConnect | Temps de réponse garanti : < 15 min (SLA Gold). Référence contrat : SC-2026-OVH-12345. |
+| Support Technique OVH (SLA Gold) | Équipe SLA OVH | OVHcloud | [support-sla@ovh.com](mailto:support-sla@ovh.com)  +33 9 72 10 10 07 | 24/7/365 | DevOps d’astreinte | Temps de réponse garanti : < 15 min (SLA Gold). Référence contrat : SC-2026-OVH-12345. |
 | Support Urgent OVH (Incidents Critiques) | Hotline OVH | OVHcloud | [emergency@ovh.com](mailto:emergency@ovh.com)  +33 9 72 10 10 00 | 24/7/365 | Responsable Technique SantéConnect | Priorité absolue pour les incidents impactant les services critiques (API HL7/FHIR, Base D-002). |
 
 

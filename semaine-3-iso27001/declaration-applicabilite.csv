@@ -1,7 +1,7 @@
 Thème;Contrôle;Inclus/exclus;Justification;Etat;CIAT;Documentation liée
 Organisationnel;A.5.1 Politiques de sécurité de l'information;Inclus;Définition des objectifs de sécurité, rôles, périmètre;Appliqué;C I A T;PSSI
 Organisationnel;A.5.2 Rôles et responsabilités en matière de sécurité de l'information;Inclus;Traitement de données sensibles dont médicale: séparation par conception pour garantir conformité RGPD-HDS;Appliqué;C I A T;Cadrage audit - RACI
-Organisationnel;A.5.3 Séparation des Tâches;Inclus;Séparation pour les données sensibles, polyvalence ponctuelle pour les autres (petite structure);Partiellement Appliqué;C I A T;Cadrage audit - RACI
+Organisationnel;A.5.3 Séparation des Tâches;Inclus;Séparation pour les données sensibles, polyvalence ponctuelle pour les autres (petite structure). Exploitation et configuration des sauvegardes séparées (DevOps, accès temporaire, RBAC-22/23). Eétention de la clé de pseudonymisation (RSSI), exploitation des données (Produit) et validation (DPO) séparées.;Partiellement Appliqué;C I A T;Cadrage audit - RACI, Matrice RBAC
 Organisationnel;A.5.4 Responsabilités de la direction;Inclus;Enjeu fort réputationnel et business autour de l’e-santé;Appliqué;C I A T;"PSSI
 Plan de formation"
 Organisationnel;A.5.5 Contact avec les autorités;Inclus;Obligatoire données sensibles dont médicales: Contraintes CNIL, ANS et NIS2;Appliqué;T;Procédure de gestion des incidents et notification
@@ -117,7 +117,7 @@ PSSI"
 Technologie;A.8.1 Dispositifs terminaux utilisateurs;Inclus;SantéConnect doit protéger les données sensibles (médicales et personnelles) accessibles depuis les terminaux utilisateurs. Le contrôle des accès via le principe du moindre privilège et la revue régulière des habilitations permet de limiter les risques de fuite ou d’accès non autorisé, conformément au RGPD (Art. 32) et à l’HDS.;Partiellement Appliqué;C I T;"Matrice des droits d'accès (RBAC)
 Logs d'habilitation (maintien, modification, suppression)
 Logs accès"
-Technologie;A.8.2 Droits d'accès privilégiés;Inclus;Application du principe du moindre privilège et revue régulière des habilitations. MFA pour les accès privilégiés et les données sensibles, comptes de service : authentification mutuelle.;Appliqué;C I T;"Matrice des droits d'accès (RBAC)
+Technologie;A.8.2 Droits d'accès privilégiés;Inclus;Application du principe du moindre privilège et revue régulière des habilitations. MFA pour les accès privilégiés et les données sensibles, comptes de service : authentification mutuelle. Droits privilégiés bornés par rôle (RSSI, DevOps), modification des sauvegardes en accès temporaire validé;Appliqué;C I T;"Matrice des droits d'accès (RBAC)
 Logs d'habilitation (maintien, modification, suppression)
 Preuve d'activation MFA sur données sensibles et critiques."
 Technologie;A.8.3 Restriction d'accès à l'information;Inclus;Pour garantir la confidentialité et l’intégrité des données sensibles (médicales, personnelles), SantéConnect applique un contrôle d’accès granulaire : attribution des droits en fonction des rôles (RBAC), restriction des accès aux seules données nécessaires (principe du moindre privilège), et revue périodique des habilitations. Cela inclut les accès aux dossiers patients, aux bases de données, et aux interfaces administratives.;Partiellement Appliqué;C I T;"Logs d'habilitation (maintien, modification, suppression)
@@ -142,7 +142,8 @@ Technologie;A.8.10 Suppression d'informations;Inclus;"SantéConnect applique une
 - Preuves de suppression : Logs des opérations de purge et archives des autorisations.";Partiellement Appliqué;C I T;Logs suppression + revue habilitation
 Technologie;A.8.11 Masquage des données;Inclus;"SantéConnect applique un masquage des données via : 
 - Pseudonymisation des identifiants patients dans les rapports analytiques (ex : ID anonymisés). 
-- Tokenisation des données sensibles dans les logs.";Partiellement Appliqué;C;"PSSI (section 3.4 : ""Protection des données"")"
+- Tokenisation des données sensibles dans les logs.
+- Clé de correspondance détenue séparément (RSSI), usage validé par le DPO.";Partiellement Appliqué;C;"PSSI (section 3.4 : ""Protection des données""), Matrice RBAC"
 Technologie;A.8.12 Prévention des fuites de données;Inclus;"SantéConnect met en place : 
 - Contrôle des exports (blocage des téléchargements massifs via règles réseau). 
 - Surveillance des flux sortants (alertes sur les transferts vers des destinations non approuvées). 
@@ -166,7 +167,7 @@ Procédure de gestion et  notification des incidents"
 Technologie;A.8.17 Synchronisation de l'horloge;Inclus;SantéConnect effectue la synchronisation de ses horloges grâce aux fonctionnalités intégrées à leurs serveurs et terminaux, pour garantir une uniformité à travers son infrastructure;Partiellement Appliqué;I A T;Procédures de sécurité IT
 Technologie;A.8.18 Utilisation de programmes utilitaires privilégiés;Inclus;"SantéConnect : 
 - Limite les utilitaires à une liste blanche. 
-- Restreint l’accès aux outils critiques (ex : RSSI uniquement pour les outils d’administration).";Partiellement Appliqué;C I A T;Procédures de sécurité IT
+- Restreint l’accès aux outils critiques (ex : RSSI et DevOps pour les outils d’administration, dans le périmètre de leur rôle, modification des sauvegardes par accès temporaire validé).";Partiellement Appliqué;C I A T;Procédures de sécurité IT
 Technologie;A.8.19 Installation de logiciels sur les systèmes d'exploitation;Inclus;L’installation de logiciels est soumis à une demande express et autorisation du RSSI, sinon elle est par défaut bloquée.;Partiellement Appliqué;C I A T;"Procédures de sécurité IT
 Logs habilitation"
 Technologie;A.8.20 Sécurité des réseaux;Inclus;"SantéConnect protège son réseau via : 

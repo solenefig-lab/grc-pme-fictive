@@ -96,7 +96,7 @@ Les 10 contrôles listés ci-dessous ont été identifiés comme **prioritaires*
 
  |**Contrôle** | **Risque associé** | **Actions prévues** | **Cible de maturité** |
  |--------------|-------------------|--------------------|-----------------------|
- | **A.5.3 Séparation des tâches** | Risque de conflits d’intérêts ou d’erreurs humaines (petite structure). | Formaliser les procédures de séparation des tâches pour les données sensibles. | Automatisation des contrôles croisés via des outils de workflow. |
+ | **A.5.3 Séparation des tâches** | Risque de conflits d’intérêts ou d’erreurs humaines (petite structure). | Formaliser les procédures de séparation des tâches pour les données sensibles. Exploitation et configuration des sauvegardes séparées (DevOps, accès temporaire, RBAC-22/23) | Automatisation des contrôles croisés via des outils de workflow. |
  | **A.5.15 Contrôle d’accès** | Accès non autorisé aux données sensibles (médicales). | Finaliser la **matrice RBAC** et automatiser les revues d’habilitation. | Déploiement d’un outil IAM (Identity and Access Management). |
  | **A.5.16 Gestion des identités** | Risque d’intrusion ou de fuite de données. | Compléter les **logs d’habilitation** et finaliser la matrice RBAC. | Intégration avec un SIEM pour une surveillance centralisée. |
  | **A.5.25 Évaluation des événements** | Détection tardive des incidents. | Automatiser la **surveillance des accès et flux** (ex : déploiement de Wazuh). | Dashboard automatisé pour la détection proactive. |

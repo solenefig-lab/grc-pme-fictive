@@ -34,9 +34,9 @@ Destinataire 3;Partenaires institutionnels ou commerciaux;;;CHU partenaire (stat
 Destinataire 4;Sous-traitants;;;Hébergement: contrat de sous-traitance (RGPD art. 28);;;;
 ;;;;;;;;
 Mesures de sécurité;Type de mesure de sécurité;;;Précisions;;;;
-Mesure de sécurité 1;Autres mesures (à préciser);;;Pseudonymisation obligatoire avant tout traitement (clé de correspondance conservée séparément, accès DPO uniquement). Aucune réidentification possible dans les flux partagés avec le CHU. Agrégat k=5 minimum, liste des combinaisons d'attributs autorisées, validation DPO avant chaque export CHU;;;;
+Mesure de sécurité 1;Autres mesures (à préciser);;;Pseudonymisation obligatoire avant tout traitement (clé de correspondance conservée séparément dans un coffre dédié, détenue par le RSSI, jamais accessible à l’équipe Produit, chaque usage validé par le DPO et journalisé). Aucune réidentification possible dans les flux partagés avec le CHU. Agrégat k=5 minimum, liste des combinaisons d'attributs autorisées, validation DPO avant chaque export CHU;;;;
 Mesure de sécurité 2;Autres mesures (à préciser);;;"Revue semestrielle du risque de réidentification (taille de la cohorte : 80 patients, risque non négligeable —> risque de réidentification par agrégation est réel. La pseudonymisation simple peut ne pas suffire si les statistiques sont trop granulaires (ex. : ""1 patient homme, 67 ans, cardiologue X »))";;;;
-Mesure de sécurité 3;Contrôle d'accès des utilisateurs;;;Accès aux données pseudonymisées limité à l'équipe Produit (RBAC);;;;
+Mesure de sécurité 3;Contrôle d'accès des utilisateurs;;;Accès aux données pseudonymisées limité à l'équipe Produit (RBAC), aucun accès à la clé de correspondance;;;;
 ;;;;;;;;
 Transferts hors UE;Destinataire;Pays;Type de Garanties;;Liens vers la documentation;;;
 Organisme destinataire 1;Aucun;Sélectionnez un élément dans cette liste déroulante ►;Sélectionnez un élément dans cette liste déroulante ►;;"Aucun transfert hors UE. Tous les sous-traitants (hébergement: OVH) sont basés en France ou dans l’UE.""";;;

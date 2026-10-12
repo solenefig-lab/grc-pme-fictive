@@ -121,7 +121,11 @@ SantéConnect applique le principe du **moindre privilège (least privilege)** p
 
 > **Note :** Un praticien B2B disposera d'un outil d'export sur les données dont il a les droits pendant 30 jours suivant la clôture de son compte.
 
-**Revue des habilitations** - menée semestriellement par le RSSI (maintien, modification, suppression), et déclenchée sur demande si incident ou si +20 nouveaux utilisateurs sur un mois.
+**Revue des habilitations :** menée par le RSSI selon la fréquence définie par rôle dans la matrice RBAC (trimestrielle, semestrielle ou annuelle), avec un audit annuel de l’ensemble des droits, et déclenchée sur demande si incident ou si +20 nouveaux utilisateurs sur un mois.
+
+**Accès privilégiés (OVH) :** les DevOps disposent de droits permanents limités à l’isolation, à la bascule et à la restauration.  
+- La modification de la configuration des sauvegardes se fait par compte nominatif temporaire (durée limitée), validé par le RSSI (pour les DevOps) ou le CEO (pour le RSSI), le demandeur ne pouvant pas être son propre valideur.  
+- Chaque activation déclenche une alerte et est journalisée.  
 
 **Authentification renforcée :** L’accès aux données de santé et aux autres données sensibles ou critiques est protégé par une MFA (au moins deux facteurs), pour tous les utilisateurs : internes, praticiens, patients, comptes de service.
 
@@ -143,11 +147,12 @@ SantéConnect applique le principe du **moindre privilège (least privilege)** p
 
 **Documentation associée :**
 
-- Matrice des droits d'accès (RBAC)
+- Matrice des droits d'accès (RBAC)  
+- Journal des accès temporaires (modification des sauvegardes)  
 - Logs d'habilitation (maintien, modification, suppression)
 - Preuve d'activation MFA sur données sensibles et critiques, OAuth2 sur APIs exposées  
 - Procédure opérationnelle d’authentification et de récupération  (durée de temporisation, régénération du code de secours, journalisation de la vérification CHU)  
-- Revue d'audit semestrielle ou ponctuelle (incident / seuil de nouveaux utilisateurs)
+- Revue d’audit selon la fréquence par rôle, audit annuel ou ponctuel (incident / seuil de nouveaux utilisateurs)
 
 ---
 
