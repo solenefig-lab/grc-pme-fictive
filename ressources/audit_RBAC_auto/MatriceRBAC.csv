@@ -2,7 +2,7 @@ ID;Rôle;Catégorie de données;Classification;Ressources;Permission;MFA;Justifi
 RBAC-01;CEO;Données RH / Paie;Sensible;Suivi des contrats et promotions;L E;O;Autorisation dirigeant limité aux propres données de l’entreprise (RGPD Art. 6)
 RBAC-02;CEO;Données financières;Sensible;Données financières;L;O;Accès en lecture seule pour supervision
 RBAC-03;RSSI;Logs techniques;Sensible;Logs Graylog;L A;O;Accès en lecture et administration pour surveillance (ISO A.8.15). Pas d’écriture pour préserver l’intégrité
-RBAC-04;RSSI;Infra OVH (console admin);Critique;Infra OVH (console admin);L E A;O;Accès admin complet pour gestion de l’infrastructure (ISO A.12.1)
+RBAC-04;RSSI;Infra OVH (console admin);Critique;Infra OVH (console admin);L E A;O;Accès admin complet pour gestion de l’infrastructure (droits d’accès privilégiés ISO A.8.2)
 RBAC-05;DPO;Registre des traitements;Sensible;Données métadonnées;L E;O;Gestion du registre des traitements (RGPD Art.30)
 RBAC-06;Dev Produit;Plateforme B2B praticiens;Sensible;Données praticiens;L E;O;Développement et maintenance
 RBAC-07;Dev Produit;App Mobile / WebApp (admin);Sensible;Code source;L E;O;Accès aux branches dev/test

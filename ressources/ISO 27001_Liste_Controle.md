@@ -17,11 +17,11 @@ Ce tableau a pour but de **simplifier l’application de l’ISO 27001:2022** po
 
 2. **Priorisation** :
    - **🟢 Basique** : Contrôles **peu coûteux, rapides à implémenter**, et à fort impact (ex: A.5.10 Utilisation acceptable, A.7.7 Bureau dégagé).
-   - **🟡 Intermédiaire** : Contrôles nécessitant des **ressources modérées** (ex: A.8.8 Gestion des vulnérabilités, A.12.4 Enregistrement des logs).
+   - **🟡 Intermédiaire** : Contrôles nécessitant des **ressources modérées** (ex: A.8.8 Gestion des vulnérabilités, A.8.15 Enregistrement des logs).
    - **🔴 Avancé** : Contrôles **complexes ou coûteux** (ex: A.8.12 Prévention des fuites de données, A.8.25 Cycle de vie du développement sécurisé), souvent réservés aux PME matures ou en phase 2.
 
 3. **Alignement réglementaire** :
-   - **HDS** : Contrôles liés à la **sécurité des données de santé** (ex: A.8.13 Sauvegarde, A.9.1 Contrôle d’accès).
+   - **HDS** : Contrôles liés à la **sécurité des données de santé** (ex: A.8.13 Sauvegarde, A.5.15 Contrôle d’accès).
    - **RGPD** : Contrôles liés à la **protection des données personnelles** (ex: A.5.13 Étiquetage des informations, A.8.10 Suppression d’informations).
    - **NIS2** : Contrôles liés à la **résilience et la cybersécurité critique** (ex: A.5.29 Sécurité en cas de perturbation, A.8.16 Surveillance).
 

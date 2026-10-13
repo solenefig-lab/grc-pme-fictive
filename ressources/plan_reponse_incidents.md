@@ -5,13 +5,13 @@
 > C'est un modèle générique, aligné sur:
 > - ISO 27001:2022 (A.5.24, A.5.25, A.5.26, A.5.27, A.5.30).
 > - RGPD (Art. 33-34 : Notification des violations).
-> - HDS (R. 1112-7 : Gestion des incidents de sécurité).
+> - CSP L. 1111-8-2 (signalement des incidents significatifs ou graves, applicable aux établissements de santé ; à vérifier selon votre statut).
 > - NIS2 : Art. 21 (Mesures de gestion des risques et de sécurité des réseaux), Art. 23 (Notification des incidents).
 
 ## Objectifs
 
 - Répondre rapidement aux incidents de sécurité grâce à des processus formalisés de réponse aux incidents.
-- Respecter les délais légaux (RGPD : 72h, HDS : 24h pour les incidents critiques).
+- Respecter les délais applicables (RGPD : 72h ; délais contractuels de vos partenaires ; signalement sectoriel selon votre statut).
 - Améliorer en continu la posture de sécurité via des REX (Retours d’Expérience).
 - Sensibiliser les employés à la détection et au signalement.
 
@@ -75,7 +75,7 @@
 
 | Niveau | Sévérité | Description | Exemples | Délai de Réaction | Délai de Notification | Responsable |
 | --- | --- | --- | --- | --- | --- | --- |
-| P1 | 🔴 Critique | Violation avérée de données sensibles (PII, santé) ou impact opérationnel majeur. | Ransomware, fuite de données médicales, accès non autorisé à un système critique. | < 1h | 24h (HDS) / 72h (RGPD) | RSSI |
+| P1 | 🔴 Critique | Violation avérée de données sensibles (PII, santé) ou impact opérationnel majeur. | Ransomware, fuite de données médicales, accès non autorisé à un système critique. | < 1h | 72h (RGPD) ; délai contractuel partenaire (ex. 4h/24h) | RSSI |
 | P2 | ⚠️ Élevée | Incident avec impact potentiel sur les données ou les services. | Phishing réussi, vulnérabilité critique non patchée, tentative de fraude. | < 4h | 72h (RGPD si données personnelles) | RSSI + DevOps |
 | P3 | 🟡 Modérée | Incident avec impact limité ou contrôlé. | Accès non autorisé à un système non critique, malware non propagé. | < 24h | Aucune (sauf si données personnelles) | DevOps |
 | P4 | 🟢 Faible | Incident sans impact direct sur les données ou les services. | Fausse alerte, tentative de force brute bloquée. | < 72h | Aucune | DevOps |
@@ -88,7 +88,7 @@
 | --- | --- | --- | --- | --- | --- |
 | Responsable Incidents (RI) | [RSSI] | [Email RSSI] | [Téléphone] | Coordonner la réponse, escalader vers la direction, valider la clôture. | Immédiat (P1/P2) |
 | Responsable Technique (RT) | [DevOps] | [Email DevOps] | [Téléphone] | Analyser l’incident, appliquer les correctifs techniques. | < 1h (P1), < 4h (P2) |
-| Responsable Données Privées (DPO) | [DPO] | [Email DPO] | [Téléphone] | Notifier les autorités (CNIL, HDS) et les personnes concernées (RGPD Art. 34). | < 24h (P1), < 72h (P2) |
+| Responsable Données Privées (DPO) | [DPO] | [Email DPO] | [Téléphone] | Notifier les autorités (CNIL, HDS) et les personnes concernées (RGPD Art. 34). |CNIL sous 72h maximum, partenaire selon contrat, autorité sectorielle selon statut |
 | Responsable RH | Bernard THOMAS | [Email RH] | [Téléphone] | Sensibilisation des employés (formation anti-phishing), gestion disciplinaire en cas d’incident lié à une erreur humaine. | < 24h (P2) |
 | Direction | [CEO] | [Email CEO] | [Téléphone] | Valider les décisions stratégiques (ex : paiement d’une rançon, arrêt d’un service). | < 1h (P1) |
 | Équipes Métiers | Tous les employés | - | - | Signaler les incidents via les canaux dédiés (Section 4). | Immédiat |
@@ -121,7 +121,7 @@ _- Documenter les absences : Désigner un remplaçant pour chaque rôle (ex : De
 (À adapter selon vos processus internes)
 
 ### 3.1. Revue de Direction et Amélioration Continue
-(Gouvernance – ISO 27001:2022, A.9.3) 
+(Gouvernance – ISO 27001:2022, clause 9.3) 
 **KPIs de Suivi** 
 (À adapter selon vos objectifs)  
 
@@ -160,7 +160,7 @@ graph TD
 | 4. Escalade | Notifier les responsables selon le niveau de sévérité. | RI | < 1h (P1), < 4h (P2) | Slack, Email, Téléphone |
 | 5. Containment | Limiter l’impact de l’incident. | RT | < 1h (P1), < 4h (P2) | Firewall, Isolation réseau, Désactivation de comptes |
 | 6. Évaluation approfondie | Analyser la cause racine et l’impact. | RT + RI | < 4h (P1), < 24h (P2) | Logs, Rapports techniques |
-| 7. Notification | Notifier la direction et les régulateurs si nécessaire. | DPO | < 24h (P1), < 72h (P2) | Templates RGPD/HDS (Section 6) |
+| 7. Notification | Notifier la direction et les régulateurs si nécessaire. | DPO | CNIL sous 72h maximum, partenaire selon contrat, autorité sectorielle selon statut | Templates RGPD/HDS (Section 6) |
 | 8. Résolution | Appliquer les correctifs et restaurer les services. | RT | < 24h (P1), < 72h (P2) | Rapports de résolution |
 | 9. Clôture et REX | Documenter l’incident et organiser un REX. | RI | < 72h (P1), < 1 semaine (P2) | Registre des incidents, Template REX |
 
@@ -169,7 +169,7 @@ graph TD
 
 | Niveau de Sévérité | Escalade Interne | Escalade Externe | Délai | Responsable |
 | --- | --- | --- | --- | --- |
-| P1 (Critique) | RI → Direction → Tous les responsables | CNIL (RGPD), ANS (HDS) | < 1h (interne), < 24h (externe) | RI + DPO |
+| P1 (Critique) | RI → Direction → Tous les responsables | CNIL (RGPD), Autorité sectorielle selon statut | < 1h (interne), < 24h (externe) | RI + DPO |
 | P2 (Élevée) | RI → RT → DPO | CNIL (si données personnelles) | < 4h (interne), < 72h (externe) | RI + DPO |
 | P3 (Modérée) | RI → RT | Aucune (sauf si données personnelles) | < 24h (interne) | RI |
 | P4 (Faible) | RT | Aucune | < 72h (interne) | RT |
@@ -290,8 +290,8 @@ Documentation liée à créer séparément, mettre à jour et archivée pour anc
 | RGPD | Art. 33 | Notification des violations à la CNIL | Violation de données personnelles | 72h max | 4% du CA ou 20M€ | DPO | Notifier la CNIL sous 72h en cas de violation avérée. | Template RGPD  | R-GOV-02, PRI Section 10.1 | ✅ |
 | RGPD | Art. 34 | Notification aux personnes concernées | Violation à haut risque pour les droits et libertés | Sans délai indû | 4% du CA ou 20M€ | DPO | Notifier les personnes concernées si risque élevé. | Template RGPD | R-GOV-02, PRI Section 10.2 | ✅ |
 | RGPD | Art. 35 | PIA (Analyse d’Impact) | Traitements à haut risque (ex : données de santé) | Avant le traitement | 4% du CA ou 20M€ | DPO | Réaliser un PIA pour les traitements critiques. | PIA D-002  | R-GOV-01 | ⚠️ |
-| HDS | L.1111-8, R.1111-8 et s. | Certification HDS pour l’hébergement | Données de santé | Permanent | Sanctions administratives | RSSI | Vérifier que OVH est certifié HDS. | [Certificat HDS OVH]  | R-HDS-01 | ✅ |
-| HDS | R. 1112-7 | Notification des incidents de sécurité | Incidents impactant des données de santé | 24h max | Sanctions administratives | RSSI | Notifier l’ANS sous 24h en cas d’incident critique. | Template HDS  | R-HDS-01, PRI Section 10.1 | ✅ |
+| CSP | L.1111-8, R.1111-8 et s. | Certification HDS pour l’hébergement | Données de santé | Permanent | Sanctions administratives | RSSI | Vérifier que OVH est certifié HDS. | [Certificat HDS OVH]  | R-HDS-01 | ✅ |
+| CSP | L. 1111-8-2 |Signalement sans délai des incidents significatifs ou grave | Incidents impactant des données de santé | Sans délai | Sanctions administratives | RSSI | Signalement sans délai des incidents significatifs ou graves (établissements de santé). | Template HDS  | R-HDS-01, PRI Section 10.1 | ✅ |
 | HDS | Référentiel de certification HDS (ANS) | Sécurité physique et logique | Données de santé | Permanent | Sanctions administratives | RSSI | Vérifier les accès physiques et logiques (OVH). | Audit OVH  | R-HDS-02 | ✅ |
 | NIS2 | Art. 21 | Gestion des risques | Systèmes critiques (APIs, serveurs) | Permanent | Amendes (jusqu’à 10M€ ou 2% du CA) | RSSI | Mettre en place une gestion des risques (PTR). | PTR | R-API-01, R-NIS2-01 | ✅ |
 | NIS2 | Art. 21 | Sécurité des systèmes | Systèmes critiques | Permanent | Amendes (jusqu’à 10M€ ou 2% du CA) | RSSI | Appliquer les contrôles de sécurité (A.8.20, A.8.21). | SoA | R-INT-01 | ✅ |
@@ -318,7 +318,7 @@ Documentation liée à créer séparément, mettre à jour et archivée pour anc
 
 |  **ID**       | **Date**       | **Type**          | **Sévérité** | **Actif/Processus** | **Statut**  | **RI**            | **RT**            | **DPO **            | **Date Détection** | **Date Résolution** | **Délai de Résolution** | **Délai de Notification** | **Lien REX**          | **Lien PTR**       |
  |--------------|----------------|-------------------|--------------|---------------------|-------------|-------------------|-------------------|-------------------|---------------------|----------------------|---------------------------|-----------------------------|------------------------|---------------------|
- | INC-2026-001 | 01/06/2026     | Ransomware        | 🔴 P1        | Serveur OVH (D-002) | Clôturé     | Claire ESPINOZA   | DevOps d’astreinte      | Jeanne PETIT      | 01/06/2026 14:30    | 02/06/2026 10:00     | 19h30                     | 24h (HDS)               | [REX-INC-2026-001] | R-DON-03           |
+ | INC-2026-001 | 01/06/2026     | Ransomware        | 🔴 P1        | Serveur OVH (D-002) | Clôturé     | Claire ESPINOZA   | DevOps d’astreinte      | Jeanne PETIT      | 01/06/2026 14:30    | 02/06/2026 10:00     | 19h30                     | Selon contrat partenaire               | [REX-INC-2026-001] | R-DON-03           |
  | INC-2026-002 | 02/06/2026     | Phishing          | ⚠️ P2        | Email (T-003)       | Clôturé     | Claire ESPINOZA   | DevOps d’astreinte      | -                 | 02/06/2026 09:15    | 02/06/2026 11:00     | 1h45                      | Aucune                     | [REX-INC-2026-002] | R-DON-01           |
  | INC-2026-003 | 03/06/2026     | Accès non autorisé | 🟡 P3        | Données RH          | Clôturé     | Claire ESPINOZA   | DevOps d’astreinte      | -                 | 03/06/2026 11:20    | 03/06/2026 16:45     | 5h25                      | Aucune                     | [REX-INC-2026-003]| R-GOV-03           |
 
