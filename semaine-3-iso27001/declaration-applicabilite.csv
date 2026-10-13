@@ -12,7 +12,7 @@ Organisationnel;A.5.8 Sécurité de l’information dans la gestion de projet;In
 Organisationnel;A.5.9 Inventaire des informations;Inclus;En tant que fournisseur de service e-santé traitant de données médicales: nécessité de recenser l'ensemble des actifs informationnels pour identifier et classer les actifs critiques (ex : dossiers patients, logs d’accès) afin de prioriser les mesures de protection;Partiellement Appliqué;C T;"Fiche risques e-santé
 Registre des traitements"
 Organisationnel;A.5.10 Utilisation acceptable des informations et autres ressources associées;Inclus;Domaine e-santé = domaine sensible;Partiellement Appliqué;C I T;"Plan de formation
-RBAC (matrice en cours de formalisation)"
+RBAC (formalisée, revue selon la fréquence par rôle)"
 Organisationnel;A.5.11 Retour des actifs;Inclus;Eviter les fuites de données, notamment sensibles (RGPD), et les accès non autorisés (HDS);Partiellement Appliqué;C I A T;"Convention co-responsabilité
 Contrat sous-traitance 
 Logs d'habilitation"
@@ -20,12 +20,12 @@ Organisationnel;A.5.12 Classification des informations;Inclus;Traitement de donn
 Organisationnel;A.5.13 Etiquetage des informations;Inclus;Etiquetage (ex : balises 'Confidentiel', 'RGPD') permet aux utilisateurs d’identifier visuellement le niveau de sensibilité des données et d’appliquer les bonnes pratiques;Partiellement Appliqué;C T;PSSI
 Organisationnel;A.5.14 Transfert d’informations;Inclus;Encadrer les transferts de données (ex : vers le CHU, sous-traitants) pour garantir leur sécurité (chiffrement, protocoles sécurisés) et leur conformité (RGPD Art. 44, HDS);Partiellement Appliqué;C I A T;"Convention co-responsabilité
 Contrat sous-traitance"
-Organisationnel;A.5.15 Contrôle d’accès;Inclus;Mise en place de contrôles d’accès (ex : RBAC (matrice en cours de formalisation), MFA) pour limiter l’accès aux données sensibles aux seuls utilisateurs autorisés (principe du moindre privilège);Partiellement Appliqué;C I T;"Logs d’habilitation
-RBAC (matrice en cours de formalisation)"
+Organisationnel;A.5.15 Contrôle d’accès;Inclus;Mise en place de contrôles d’accès (ex : RBAC (formalisée, revue selon la fréquence par rôle), MFA) pour limiter l’accès aux données sensibles aux seuls utilisateurs autorisés (principe du moindre privilège);Partiellement Appliqué;C I T;"Logs d’habilitation
+RBAC (formalisée, revue selon la fréquence par rôle)"
 Organisationnel;A.5.16 Gestion des identités;Inclus;Services accessibles au utilisateurs patients, service cardiologie et aux praticiens B2B avec granularité accès selon choix patients et spécialité praticiens;Partiellement Appliqué;C I T;"Logs d’habilitation
-RBAC (matrice en cours de formalisation)"
+RBAC (formalisée, revue selon la fréquence par rôle)"
 Organisationnel;A.5.17 Informations d’authentification;Inclus;MFA pour tous les utilisateurs + patients : moyen d’identification de transition;Partiellement Appliqué;C I T;PSSI, Procédure d’authentification et de récupération
-Organisationnel;A.5.18 Droits d’accès;Inclus;Principe du moindre privilège pour limiter accès aux seuls utilisateurs autorisés, notamment pour données sensibles;Partiellement Appliqué;C I A T;"RBAC (matrice en cours de formalisation)
+Organisationnel;A.5.18 Droits d’accès;Inclus;Principe du moindre privilège pour limiter accès aux seuls utilisateurs autorisés, notamment pour données sensibles;Partiellement Appliqué;C I A T;"RBAC (formalisée, revue selon la fréquence par rôle)
 Logs d’habilitation
 Matrice des droits d’accès
 Convention co-responsabilité
@@ -60,7 +60,7 @@ Cible de maturité: dashboard automatisé de conformité réglementaire (RGPD, H
 Convention CHU
 Clauses sous-traitants"
 Organisationnel;A.5.32 Droits de propriété intellectuelle;Inclus;Protection code source app et documents techniques pour éviter usurpation et fuite, et espionnage industriel;Partiellement Appliqué;C I A;PSSI
-Organisationnel;A.5.33 Protection des documents;Inclus;Protection des documents sensibles contre accès non autorisé et altération;Partiellement Appliqué;C I;"RBAC (matrice en cours de formalisation)
+Organisationnel;A.5.33 Protection des documents;Inclus;Protection des documents sensibles contre accès non autorisé et altération;Partiellement Appliqué;C I;"RBAC (formalisée, revue selon la fréquence par rôle)
 Matrice des droits d’accès
 Plan de formation"
 Organisationnel;A.5.34 Confidentialité et protection des données personnelles;Inclus;SantéConnect gère différentes données personnelles, dont sensibles médicales, et doit garantir le droit des personnes, notamment au sens RGPD (confidentialité, intégrité);Appliqué;C I T;"CGUs
@@ -133,7 +133,7 @@ Technologie;A.8.5 Authentification sécurisée;Inclus;"SantéConnect renforce l�
 Logs d'habilitation (maintien, modification, suppression)
 Preuve d'activation MFA sur données sensibles et critiques."
 Technologie;A.8.6 Gestion des capacités;Inclus;SantéConnect a pour l’instant un partenaire et un nombre d’utilisateurs limités pour tester et améliorer service, dont test capacités technologiques. ;Partiellement Appliqué;A;Schéma infrastructure réseau
-Technologie;A.8.7 Protection contre les logiciels malveillants;Inclus;Antivirus/EDR déployé sur tous les postes de travail et serveurs, avec mises à jour automatiques et scans réguliers.;Partiellement Appliqué;C I A ;Logs des scans
+Technologie;A.8.7 Protection contre les logiciels malveillants;Inclus;Antivirus (cible EDR: 2027) déployé sur tous les postes de travail et serveurs, avec mises à jour automatiques et scans réguliers.;Partiellement Appliqué;C I A ;Logs des scans
 Technologie;A.8.8 Gestion des vulnérabilités techniques;Inclus;Veille active sur les vulnérabilités (ex : abonnements ANSSI, CERT-FR), correctifs appliqués sous 30 jours pour les vulnérabilités critiques.;Partiellement Appliqué;C I A;Registre des vulnérabilités, Preuves de correctifs
 Technologie;A.8.9 Gestion de la configuration;Inclus;Configurations standardisées pour les équipements (ex : images machines, paramètres réseau), avec revue trimestrielle.;Partiellement Appliqué;C I A;Logs des modifications
 Technologie;A.8.10 Suppression d'informations;Inclus;"SantéConnect applique une suppression sécurisée et traçable des données pour se conformer au RGPD (Art. 5, 30) et à l’HDS : 
@@ -145,10 +145,10 @@ Technologie;A.8.11 Masquage des données;Inclus;"SantéConnect applique un masqu
 - Tokenisation des données sensibles dans les logs.
 - Clé de correspondance détenue séparément (RSSI), usage validé par le DPO.";Partiellement Appliqué;C;"PSSI (section 3.4 : ""Protection des données""), Matrice RBAC"
 Technologie;A.8.12 Prévention des fuites de données;Inclus;"SantéConnect met en place : 
-- Contrôle des exports (blocage des téléchargements massifs via règles réseau). 
-- Surveillance des flux sortants (alertes sur les transferts vers des destinations non approuvées). 
-- Revue trimestrielle des habilitations. 
-Cible : Déploiement d’un outil DLP automatisé.";Partiellement Appliqué;C T;"Cartographie des risques
+- Contrôle des exports : seul le praticien exporte ses dossiers (RBAC-12). 
+- Surveillance des flux sortants à automatiser (Wazuh/Graylog). 
+- Revue des habilitations selon la fréquence par rôle. 
+Aucun outil DLP déployé : cible DLP léger (arbitrage 2026).";Partiellement Appliqué;C T;"Cartographie des risques
 Revue habilitation
 Logs accès et flux
 PSSI"

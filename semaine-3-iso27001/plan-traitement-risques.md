@@ -265,7 +265,7 @@ Objectif : Obtenir l’engagement formel de la direction (ISO 27001:2022, clause
 
 | Critère | Justification | Preuve |
 | --- | --- | --- |
-| Revue par la direction | Le plan a été présenté et validé par le CEO (Martin DUPONT) lors de l’atelier du 15/02/2025. | PV de revue de direction signé |
+| Revue par la direction | Le plan a été présenté et validé par le CEO (Martin DUPONT) lors de l’atelier du 20/03/2024 (V1.0), revu le 15/02/2025 (V1.1). | PV de revue de direction signé |
 | Ressources allouées | Budget (estimation ≈ 12 k€/an hors temps interne, cible 10 k€) soumis à arbitrage du CEO pour les mesures de 4.1 + 0.5 FTE (DevOps) pour la maintenance de Graylog et les sauvegardes. | Décision budgétaire signée par le CEO |
 | Intégration au SMSI | Le PTR est lié à la PSSI (mesures A.5.15, A.8.21, etc.) et au SoA (10 contrôles prioritaires). | Références croisées dans PSSI et SoA/Déclaration d'applicabilité. |
 | Cohérence réglementaire | Alignement avec RGPD (Art. 30, 32, 33-34), HDS (L. 1111-8, R.1111-8 et s.) ; CSP R. 1112-7 pour la conservation côté CHU, et NIS2 art. 21(2). | Matrice de conformité réglementaire |

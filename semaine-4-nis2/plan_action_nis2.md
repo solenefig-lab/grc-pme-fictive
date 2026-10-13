@@ -46,7 +46,7 @@ _Note : Documentation systématique (rapports, logs, scripts) pour garantir la t
 | Note de convention de co-responsabilité - CHU Fictif | V2.0 | 02/06/2026 | [note-coresponsabilite-CHU-maj-nis2.md](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-4-nis2/note-coresponsabilite-CHU-maj-nis2.md) |
 | Analyse d'impact NIS2 | V1.0 | 10/06/2026 | [analyse-impact-nis2.md](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-4-nis2/analyse-impact-nis2.md)|
 | PCA/PRA | V1.0| 19/06/2026| [pra-pca.md](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-4-nis2/pra-pca.md)|
-| ISO 27001:2022 — Contrôles | V1.2 | 21/02/2026 | [declaration-applicabilite.csv](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-3-iso27001/declaration-applicabilite.csv)|
+| ISO 27001:2022 — Contrôles | V1.1 | 15/02/2025 (revue annuelle 21/02/2026) | [declaration-applicabilite.csv](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-3-iso27001/declaration-applicabilite.csv)|
 | Registre des traitements | V1.1|20/04/2024 |[registre-traitement.md](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-2-rgpd-hds/registre-traitements/registre_traitement.md) |
 |Fiche risques e-santé| V1.2 |10/12/2025 | [fiche-risques-e-sante.md](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-1-gouvernance/fiche-risques-e-sante.md)|
 

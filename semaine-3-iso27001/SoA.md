@@ -26,7 +26,7 @@ Elle est basée sur la cartographie des actifs et l'analyses de risques ['Fiche 
 | Champ | Valeur |
 |---|---|
 | Date de première émission | 15/02/2024 |
-| Numéro de version | v1.2 |
+| Numéro de version | V1.1 |
 | Révision | Annuelle |
 | Audit de suivi | Annuel |
 
@@ -100,7 +100,7 @@ Les 10 contrôles listés ci-dessous ont été identifiés comme **prioritaires*
  | **A.5.15 Contrôle d’accès** | Accès non autorisé aux données sensibles (médicales). | Finaliser la **matrice RBAC** et automatiser les revues d’habilitation. | Déploiement d’un outil IAM (Identity and Access Management). |
  | **A.5.16 Gestion des identités** | Risque d’intrusion ou de fuite de données. | Compléter les **logs d’habilitation** et finaliser la matrice RBAC. | Intégration avec un SIEM pour une surveillance centralisée. |
  | **A.5.25 Évaluation des événements** | Détection tardive des incidents. | Automatiser la **surveillance des accès et flux** (ex : déploiement de Wazuh). | Dashboard automatisé pour la détection proactive. |
- | **A.8.12 Prévention des fuites de données** | Fuite de données sensibles. | Déployer un **outil DLP** (Data Loss Prevention) pour surveiller les flux sortants. | Automatisation complète du DLP. |
+ | **A.8.12 Prévention des fuites de données** | Fuite de données sensibles. | Déployer un **outil DLP** (Data Loss Prevention) pour surveiller les flux sortants. | DLP léger (arbitrage 2026).. |
 | **A.8.13 Sauvegarde des informations** | Perte de données critiques (médicales). | **Tester les sauvegardes** (RPO 24h, RTO 72h) et documenter les procédures de restauration. | Automatisation des tests de restauration. |
  | **A.8.20 Sécurité des réseaux** | Attaques réseau (ex : intrusion, DDoS). | **Segmenter davantage le réseau** (ex : isolation complète des données médicales). | Déploiement d’un NGFW (Next-Gen Firewall). |
  | **A.8.22 Séparation des réseaux** | Contamination entre réseaux (ex : CHU et PME). | **Documenter la séparation physique/logique** avec le CHU. | Audit annuel de la séparation des réseaux. |
@@ -111,13 +111,13 @@ Les 10 contrôles listés ci-dessous ont été identifiés comme **prioritaires*
 
 ## 6. Lien vers le CSV
 
-Cette déclaration s'appuie sur la revue complètedes 93 contrôles disponibles dans le document CSV de Déclaration d'Applicabilité ([declaration-applicabilite.csv](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-3-iso27001/declaration-applicabilite.csv)).
+Cette déclaration s'appuie sur la revue complète des 93 contrôles disponibles dans le document CSV de Déclaration d'Applicabilité ([declaration-applicabilite.csv](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-3-iso27001/declaration-applicabilite.csv)).
 
 ---
 
 ### Signatures
 
-Atelier de validation V1.0: **20/01/2024** 
+Atelier de validation V1.0: **15/01/2024** 
 
 Atelier de validation V1.1: **15/02/2025**
 
@@ -125,9 +125,9 @@ Révision annuelle : **21/02/2026**
 
 | Rôle | Nom | V1.0 | V1.1 |
 |---|---|---|---|
-| CEO SantéConnect | Martin DUPONT | 20/01/2024 | 15/02/2025 |
-| DPO SantéConnect (As a Service) | Jeanne PETIT | 20/01/2024 | 15/02/2025 |
-| RSSI | Claire ESPINOZA | 20/01/2024 | 15/02/2025 |
+| CEO SantéConnect | Martin DUPONT | 15/01/2024 | 15/02/2025 |
+| DPO SantéConnect (As a Service) | Jeanne PETIT | 15/01/2024 | 15/02/2025 |
+| RSSI | Claire ESPINOZA | 15/01/2024 | 15/02/2025 |
 
 ---
 
