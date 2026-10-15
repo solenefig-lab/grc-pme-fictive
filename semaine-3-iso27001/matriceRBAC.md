@@ -77,6 +77,7 @@ _- RBAC-18 et RBAC-19 : Authentification mutuelle (équivalent MFA)._
 - **Principe du moindre privilège** : Chaque rôle a **uniquement les accès nécessaires** à ses missions.
 - **MFA obligatoire** pour les accès aux données **Critiques/Sensibles** (conforme à la [PSSI](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-3-iso27001/pssi.md)).
 - **Revues** : Fréquence de revue définie par rôle selon le risque (trimestrielle, semestrielle ou annuelle, cf. tableau des fréquences ; ISO 27001 A.5.15, A.5.18).
+- **Mode dégradé (PCA)** : pour les rôles Patient B2C et Praticien B2B, seules les permissions L sont conservées (E, S, X, A suspendues), aucun droit nouveau n’est créé.
 
 ### Classification des données
 | Classification | Exemples | Réglementation | Risque principal | Mesures de protection |

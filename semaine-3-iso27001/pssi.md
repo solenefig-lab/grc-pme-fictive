@@ -248,7 +248,8 @@ Se référer à **2.3** pour les premières heures après détection : coordinat
 
 ### 2.5. Mécanismes de continuité d'activité
 
-SantéConnect fixe les objectifs suivants. Le CHU et les praticiens disposent des données patients par ailleurs, ce qui sécurise la continuité des soins pendant la restauration.
+En cas d’interruption majeure, la continuité des soins reste assurée par le CHU et les praticiens, qui détiennent le dossier médical de référence ; les données propres à SantéConnect (mesures, messages, agenda, coffre-fort) ne sont protégées que par les sauvegardes. Le service bascule en mode dégradé de consultation (lecture seule, D-002 dans son ensemble) sur un environnement de secours isolé, dans le périmètre HDS, restauré depuis la dernière sauvegarde WORM (fraîcheur ≤ 24h), ouvert aux patients et aux praticiens sans droit supplémentaire. [Phrase de déclenchement actée : délégation pré-autorisée.]
+SantéConnect fixe les objectifs suivants. 
 
 | Indicateur | Valeur |
 |---|---|

@@ -123,8 +123,8 @@ _- Priorité NIS2 : ordre de remédiation des écarts associés, indépendant du
 
 | Étape | Action | Responsable | Statut d'implémentation |
 | --- | --- | --- | --- | 
-| Activation PCA | Bascule automatique sur le serveur de secours OVH (script Python) pour les services critiques (API HL7/FHIR, Base D-002). | RSSI |  🔄 À tester |
-| Restauration (PRA) | Si nécessaire, restauration depuis les sauvegardes OVH (RPO 24h (dernière sauvegarde quotidienne)). | RSSI |  🔄 À tester |
+| Mise en mode dégradé | Restauration de la dernière sauvegarde en lecture seule sur environnement de secours OVH (script Python) pour D-002, délai mesuré (≤ 4h / ≤ 12h). | RSSI |  🔄 À tester |
+| Retour au service nominal (PRA) | Restauration complète depuis les sauvegardes OVH (RPO 24h, RTO 72h). | RSSI |  🔄 À tester |
 | Détection |  Automatiser les alertes et améliorer les intégrations entre les différents outils (Wazuh + Graylog + Velociraptor)| RSSI | 🎯 cible 2027 |
 | Détection |  Sélectionner et implémenter un EDR (Endpoint Detection and Response) | RSSI | 🎯 cible 2027 |
 
@@ -135,8 +135,8 @@ _- Priorité NIS2 : ordre de remédiation des écarts associés, indépendant du
 
 | Ecart | Action | Responsable | Echéance | Documentation |
 | --- | --- | --- | --- |  --- | 
-| PRA/PCA | Tester bascule automatique sur le serveur de secours OVH (script Python) pour les services critiques (API HL7/FHIR, Base D-002). | RSSI | 30/06/2026 | Scripts Python, Rapport de test, PRA/PCA mis à jour |
-| PRA/PCA | Tester restauration depuis les sauvegardes OVH (RPO = 0 pour la Base D-002). | RSSI | 30/06/2026 | Rapport de test, PRA/PCA mis à jour |
+| PRA/PCA | Tester la mise en mode dégradé (lecture seule, D-002) sur environnement de secours OVH et mesurer le délai pour les services critiques (API HL7/FHIR, Base D-002) | RSSI | 30/06/2026 | Scripts Python, Rapport de test, PRA/PCA mis à jour |
+| PRA/PCA | Tester le retour au service nominal depuis les sauvegardes OVH (RPO 24h, RTO 72h) | RSSI | 30/06/2026 | Rapport de test, PRA/PCA mis à jour |
 | PRA/PCA |  Automatiser les alertes et améliorer les intégrations entre les différents outils (Wazuh + Graylog + Velociraptor)| DevOps | 2027 | Règles de configuration , Rapport de test, PRA/PCA mis à jour |
 | PRA/PCA | Sélectionner et implémenter un EDR (Endpoint Detection and Response) | RSSI | 2027 | Appel d'offre, Contrat, PRA/PCA |
 | Micro-segmentation | Documenter schéma isolation des APIs et bases | RSSI | 15/07/2026 | Schéma réseau, Caractéristiques Firewall OVH |
@@ -159,8 +159,8 @@ gantt
     title Feuille de Route — Plan d'Action NIS2
     dateFormat  YYYY-MM-DD
     section Priorité Critique
-    Tester bascule automatique OVH (API HL7/FHIR, Base D-002) :a1, 2026-06-22, 8d
-    Tester restauration sauvegardes OVH (RPO=0) :a2, 2026-06-22, 8d
+    Tester mise en mode dégradé OVH (D-002) :a1, 2026-06-22, 8d
+    Tester retour au nominal depuis sauvegardes OVH (RPO 24h) :a2, 2026-06-22, 8d
     section Priorité Élevée
     Documenter schéma isolation APIs/bases :b1, 2026-06-23, 22d
     Documenter implémentation TLS 1.3 :b2, 2026-06-23, 22d
@@ -182,7 +182,7 @@ gantt
 | --- | --- | --- | --- | --- |
 | % des gaps NIS2 comblés | 100% | Nombre de gaps résolus / Total | RSSI | Mensuel |
 | Temps moyen de détection | < 15 min | Délai entre incident et alerte (Wazuh) | DevOps | Trimestriel |
-| Décision d’activation | < 4h | Délai entre détection et activation PCA (activation effective ≤ 4h (heures ouvrées), ≤ 12h sinon) | RSSI | Trimestriel |
+| Délai de mise en mode dégradé | ≤ 4h (heures ouvrées) / ≤ 12h (hors) | Délai mesuré entre le constat humain et la mise en lecture seule | RSSI | Trimestriel |
 | % des revues RBAC automatisées | 100% | Nombre de revues automatisées / Total | DevOps | Mensuel |
 | % de l’équipe formée à NIS2 | 100% | Nombre de personnes formées / Total | RH | Trimestriel |
 

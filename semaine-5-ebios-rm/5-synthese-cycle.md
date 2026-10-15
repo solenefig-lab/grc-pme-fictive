@@ -148,8 +148,9 @@ Les mesures non prioritaires ou présentant un risque résiduel acceptable reste
 🔄 : Mesures de sécurité priorisées ajoutées ou renforcées suite à analyse EBIOS RM
 🎯 : Mesures de sécurité planifiées dans les précédentes analyses de risques
 
-_Note :_  
+_Notes :_  
 _- La formation est maintenue en priorité moyenne, l'équipe réduite (15 pers.) bénéficiant d'une sensibilisation informelle par proximité (RSSI/DevOps), et les mesures techniques de haute priorité (MFA FIDO2, alertes) réduisent la dépendance au facteur humain en attendant le déploiement formel 2026-2027._  
+_- Définition de l’indisponibilité. Pour VM1 et VM2, indisponibilité = absence de tout accès au service, lecture seule comprise. Le PCA met D-002 en consultation seule (restaurée depuis la dernière sauvegarde WORM, fraîcheur ≤ 24h, ouverte aux patients et aux praticiens, ce qu’elle permet ou non étant affiché) en ≤ 4h (heures ouvrées) ou ≤ 12h (hors heures ouvrées), délais comptés depuis le constat humain, sous le seuil de 24h, le RTO de 72h mesure le retour au service nominal. Un service maintenu en lecture seule au-delà de 24h relève de G3 (comme le coffre-fort, VM2). Pour VM3, l’interruption s’entend comme l’impossibilité d’échanger. Les gravités de S2 et S3 sont maintenues (le PCA n’est pas supposé résister à la compromission du compte administrateur OVH ni à la destruction de la production). Les intitulés « bascule automatique » des mesures s’entendent « mise en mode dégradé ». La mention « proche du RTO de 72h » de la ligne G4 s’entend au regard de cette définition._
 
 ```mermaid
 gantt

@@ -167,7 +167,7 @@ Score = [Probabilité, Impact]
 
 ### 3.1. Fixation RTO (Durée Maximum de Restauration) et RPO (Objectifs Point de Restauration)
 
-SantéConnect a fixé les objectifs suivants pour les processus et données critiques: RTO 72h, RPO 24h, Décision d’activation ≤ 4h, activation effective ≤ 4h en heures ouvrées et ≤ 12h hors heures ouvrées.
+SantéConnect a fixé les objectifs suivants pour les processus et données critiques: RTO (retour au service nominal) 72h, RPO 24h. Mise en mode dégradé (lecture seule) sous 4h en heures ouvrées et sous 12h hors heures ouvrées, après décision d’activation sous 4h, délais comptés depuis le constat humain. Indisponibilité = absence de tout accès au service, y compris en lecture seule.
 Pour les services non critiques (ex : App Mobile), le délai d’activation du PCA/PRA est 24h. 
 
 | Processus | Niveau | Justification |
@@ -189,9 +189,9 @@ La faisabilité de ce délai repose sur :
 | --- | --- | --- | --- | --- | 
 | 1. Détection | Alerte automatique via Wazuh (ex : panne serveur, attaque détectée) ou signalement manuel (email : incident@santeconnect-demo.fr). | Wazuh + Graylog | < 15 min | ✅ |
 | 2. Qualification | Alerte critique accusée sous 1h, qualification par le RSSI ou le DevOps joignable (rotation) ; hors heures ouvrées : SMS au CEO, relais DevOps à 30 min. | Matrice de criticité + Slack (#incidents) | < 30 min | ✅ |
-| 3. Activation PCA | Bascule PCA (lecture seule) par script, déclenchée par le DevOps, pré-autorisée sur le serveur de secours OVH (script Python) pour les services critiques (API HL7/FHIR, Base D-002). | Script bascule_ovh.py + OVH | < 1h |  🔄 À tester |
+| 3. Mise en mode dégradé | Restauration de la dernière sauvegarde WORM en lecture seule sur l’environnement de secours isolé OVH (script Python), pour D-002, synchronisation HL7/FHIR suspendue. | Script bascule_ovh.py + OVH | Décision ≤ 4h, effective ≤ 4h (heures ouvrées), ≤ 12h (hors) |  🔄 À tester |
 | 4. Notification | Notification au CHU (email : it@chu-fictif.fr) et au DPO (Jeanne PETIT). | Email + Slack | < 1h |  ✅ |
-| 5. Restauration (PRA) | Si nécessaire, restauration depuis les sauvegardes OVH. | Sauvegardes OVH + Script restore_db.py | < 4h |  🔄 À tester |
+| 5. Retour au service nominal (PRA) | Restauration complète depuis les sauvegardes OVH (dernière sauvegarde quotidienne, RPO 24h), puis resynchronisation CHU | Sauvegardes OVH + Script restore_db.py | RTO 72h |  🔄 À tester |
 | 6. Validation | Tests de fonctionnement par le DevOps et validation avec le CHU. | Tests manuels + CHU | < 30 min | ✅ |
 | 7. Clôture | Documentation de l’incident dans le Registre des incidents et REX sous 72h. | Registre des incidents | < 72h | ✅ |
 
@@ -203,9 +203,27 @@ SantéConnect fixe les objectifs suivants :
 - **Tests annuels :** SantéConnect testera son PCA/PRA au moins une fois par an et fournira les preuves au CHU.
 - **Activation sous 4h :** En cas d’incident critique, le déclenchement de la procédure PCA/PRA sera activé sous 4h.
 
-En cas d'interruption majeure, la continuité des soins est assurée par le CHU qui dispose des données patients par ailleurs. SantéConnect maintient un accès en lecture seule aux données non médicales via interface web OVH sur environnement isolé.
-- Déclenchement sur validation RSSI et CEO.
-- Seuil de déclenchement : incident P1 confirmé, ou indisponibilité > 30 minutes.
+En cas d’interruption majeure, la continuité des soins reste assurée par le CHU et les praticiens, qui détiennent le dossier médical de référence. Les données propres à SantéConnect (mesures, messages, agenda, coffre-fort) n’existent que chez SantéConnect : seules les sauvegardes les protègent.
+
+Mode dégradé (lecture seule). Le PCA met D-002 en consultation seule sur un environnement de secours isolé, dans le périmètre HDS (OVH), restauré depuis la dernière sauvegarde WORM quotidienne (fraîcheur ≤ 24h, affichée à l’utilisateur). Le mode est ouvert aux patients et aux praticiens, avec les mêmes rôles en lecture seule (aucun droit nouveau). Ordre de restauration : données app-only (détention unique), puis données issues du CHU. La synchronisation HL7/FHIR est suspendue, puis rattrapée au retour au nominal.
+
+Délais (comptés depuis le constat humain) : décision d’activation ≤ 4h, 24h/24, mise en mode dégradé ≤ 4h en heures ouvrées, ≤ 12h hors heures ouvrées. Retour au service nominal (RTO) : 72h.
+
+Décisions : table de délégation hors heures ouvrées (isolation, mise en mode dégradé et restauration sur environnement propre : DevOps pré-autorisé sur critères objectifs, remise en production : RSSI, à défaut CEO).
+
+Ce que le mode permet ou non :
+|Fonction	|En mode dégradé|
+| --- | -------- |
+|Authentification (MFA)	|Maintenue|
+|Dossier (dont dossier CHU synchronisé)	|Consultation, données ≤ 24h|
+|Mesures personnelles|	Consultation, saisie suspendue|
+|Messages	|Consultation de l’historique, envoi et réception suspendus|
+|Agenda	|Consultation, modification suspendue|
+|Coffre-fort	|Consultation, ajout et suppression suspendus|
+|Export praticien (X)	|Suspendu|
+|Synchronisation HL7/FHIR (CHU, laboratoires)	|Suspendue, rattrapage au retour au nominal|
+|Alertes automatiques|	Non émises|
+|Paiement, abonnement, support	|Hors périmètre du mode dégradé|
 
 **Délégation** :  
 - Isolation	: DevOps joignable, sans validation	(RBAC-22).  
@@ -237,7 +255,7 @@ _Note : dans un PRA PCA en contexte réelle, une colonne supplémentaire budget 
 | Scénario | Solution | Étapes clés |
 | --- | --- | --- |
 | Cyberattaque | Restauration depuis sauvegardes clean + isolation des systèmes infectés. | 1. Isoler le réseau. 2. Restaurer les données. 3. Analyser la cause (logs, EDR). |
-| Panne serveur | Bascule vers le serveur de secours + réparation. | 1. Basculer en 30 min. 2. Contacter l’hébergeur. 3. Tester les applications. |
+| Panne serveur | Mise en mode dégradé + réparation. | 1. Mettre en mode dégradé dans les délais du §3.1. 2. Contacter l’hébergeur. 3. Tester les applications. |
 | Fuite de données | Containment + notification CNIL/ANSSI (CHU) sous 72h. | 1. Identifier la source. 2. Limiter l’accès. 3. Notifier les autorités. |
 
 ### 3.4. Coordination avec les Parties Prenantes
@@ -250,14 +268,14 @@ _Note : dans un PRA PCA en contexte réelle, une colonne supplémentaire budget 
 | Autorités | ANSSI | CHU: Reporting sous 24h pour les incidents majeurs (NIS2) |
 | Autorités | CNIL | Notification sous 72h en cas de fuite de données (RGPD). |
 | Clients | Patients | Communication transparente (ex : "Service temporairement indisponible, vos données sont sécurisées").|
-| Clients | Praticiens (utilisateurs B2B de la plateforme, en relation avec les patients B2C) | Communication transparente (ex : "Service temporairement indisponible, vos données sont sécurisées").|
+| Clients | Praticiens (utilisateurs B2B de la plateforme, en relation avec les patients B2C) | Communication transparente : message d’indisponibilité ou bandeau de mode dégradé (annexe 6.4).|
 
 ### 3.5. Preuves de conformité
 
 | Exigence Contractuelle | Preuve | Fréquence | Responsable |
 | --- | --- | --- | --- |
-| Activation PCA/PRA sous 4h | Rapport de test PCA/PRA | Trimestrielle | DevOps + RSSI |
-| Bascule par script | Logs OVH+ Script bascule_ovh.py | À chaque incident | DevOps |
+| Mise en mode dégradé sous 4h/12h (hors heures ouvrées) | Rapport de test horodaté (délai mesuré) | Trimestrielle | DevOps + RSSI |
+| Mise en mode dégradé | Logs OVH+ Script bascule_ovh.py | À chaque incident | DevOps |
 | Restauration depuis sauvegardes | Rapport de restauration | Trimestrielle | DevOps |
 | Notification sous 4h | Email envoyé + Fiche d’incident | À chaque incident | RSSI + DPO |
 
@@ -292,6 +310,7 @@ Checklist par scénario :
 
 **Panne serveur :**
 - Vérifier le statut OVH et ouvrir un ticket support.
+- Basculer en mode dégradé (environnement de secours isolé).
 
 **Fuite de données :**
 - Identifier les données concernées.
@@ -318,7 +337,7 @@ Interne :
 - Équipes : Messages clairs via Slack/Teams (ex : "Passez en télétravail, utilisez le VPN X").
 
 Externe :
-- Patients : Message type (ex : "Notre service est temporairement indisponible pour des raisons de sécurité. Vos données sont protégées.").
+- Patients : Indisponibilité totale - message type (ex : « Notre service est temporairement indisponible pour des raisons de sécurité. Vos données sont protégées. »). Mode dégradé : bandeau d’information pour patients et praticiens (annexe 6.4).
 - Autorités : 
     - SantéConnect notifie la CNIL sous 72h (RGPD art. 33) 
     -le CHU notifie simultanément l’ANSSI (Agence Nationale de la Sécurité des Systèmes d'Information) en tant qu'entité essentielle soumise à NIS2 si applicable.
@@ -354,7 +373,7 @@ graph TD
 | Type de test | Fréquence | Responsable | Objectif |
 | --- | --- | --- | --- |
 | Test de sauvegarde | Mensuel | Équipe technique | Vérifier l’intégrité et la restaurabilité. |
-| Simulation de panne | Trimestriel | Équipe technique | Tester les procédures de bascule. |
+| Simulation de panne | Trimestriel | Équipe technique | Tester la mise en mode dégradé (délai mesuré). |
 | Exercice de crise | Annuel | Cellule de crise | Valider la coordination et la communication. |
 | Audit ReCyF | Annuel | RSSI | Vérifier la conformité au référentiel. |
 
@@ -407,6 +426,19 @@ Réf.: [Fiches Risques e-santé](https://github.com/solenefig-lab/grc-pme-fictiv
 ## 6.3. Modèles de Notification
 
 Notification CNIL - pilote DPO : réf. [Procédures Incident et Notification](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-2-rgpd-hds/procedure-incident-notification.md)
+
+## 6.4. Bandeaux d’information en mode dégradé
+
+**Patients** :
+Mode consultation (lecture seule). Votre service est temporairement limité à la consultation.
+Vous pouvez consulter votre dossier (dont les informations du CHU), vos mesures passées, vos messages, votre agenda et vos documents du coffre-fort.
+Vous ne pouvez pas enregistrer de nouvelles mesures, envoyer ni recevoir de messages, modifier votre agenda, ni ajouter ou supprimer des documents. Les nouveaux résultats du CHU et des laboratoires ne sont pas affichés.
+Les informations datent de la dernière sauvegarde : [date, heure] (24 h au plus). Aucune alerte automatique n’est émise pendant cette période.
+Ce service ne remplace ni les urgences ni le suivi de votre équipe médicale. En cas de symptôme inquiétant, appelez le 15. Votre équipe du CHU conserve l’accès à votre dossier.
+Retour à la normale au plus tard sous 72 h ; nous vous tiendrons informé.
+
+**Praticiens** :
+Mode consultation (lecture seule). Vous pouvez consulter les dossiers de vos patients (données de la dernière sauvegarde : [date, heure], 24 h au plus). Saisie, messagerie, export et modifications sont suspendus ; les nouveaux résultats ne sont pas synchronisés. Pour toute décision clinique, appuyez-vous sur le dossier de référence du CHU. Retour à la normale au plus tard sous 72 h.
 
 
 ---

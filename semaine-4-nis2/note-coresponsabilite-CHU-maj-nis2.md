@@ -170,11 +170,12 @@ _- Rapport final sous 1 mois après la notification qualifiée._
 
 ### 7.2. Continuité des Activités (Art. 21 NIS2)
 
-- **Tests annuels** : SantéConnect testera son **PCA/PRA** au moins une fois par an et fournira les preuves au CHU.  
-- **Services critiques** : API HL7/FHIR et base D-002. Leur indisponibilité déclenche l’alerte au CHU sous 4h après constat humain, 24h/24.  
-- **Qualification** : le service est un outil d’amélioration du suivi cardiologique. Il ne se substitue ni aux urgences ni à la surveillance médicale. Le dossier médical de référence reste détenu et opéré par le CHU et les praticiens, qui assurent la continuité des soins pendant une indisponibilité. Son indisponibilité n’est donc pas critique pour la continuité des soins ; elle l’est pour SantéConnect (gravité G4 de nature économique). Les informations restituées sont informatives.
-- **Délais** : décision d’activation du PCA/PRA sous 4h après constat, 24h/24. Activation effective sous 4h en heures ouvrées (lundi-vendredi, 9h-18h, hors jours fériés), sous 12h hors heures ouvrées. RTO 72h et RPO 24h inchangés.
-- **Pendant l’indisponibilité** : le CHU est informé et les patients reçoivent le message type prévu au PRA.
+- **Tests annuels** : SantéConnect testera son PCA/PRA au moins une fois par an et fournira les preuves au CHU.  
+- **Services critiques** : API HL7/FHIR et base D-002. Tout incident affectant ces services (indisponibilité totale ou mode dégradé) déclenche l’alerte au CHU sous 4h après constat humain, 24h/24 (§4).  
+- **Qualification** : le service est un outil d’amélioration du suivi cardiologique. Il ne se substitue ni aux urgences ni à la surveillance médicale. Le dossier médical de référence reste détenu et opéré par le CHU et les praticiens, qui assurent la continuité des soins pendant une indisponibilité. Son indisponibilité n’est donc pas critique pour la continuité des soins ; elle l’est pour SantéConnect (gravité G4 de nature économique). Les informations restituées sont informatives.  
+- **Indisponibilité** : absence de tout accès au service, y compris en lecture seule.  
+- **Mode dégradé et délais** : en cas d’activation du PCA, le service est remis en mode dégradé de consultation (lecture seule), à partir de la dernière sauvegarde (fraîcheur ≤ 24h affichée aux utilisateurs), la synchronisation avec le CHU est suspendue. Délais comptés depuis le constat humain : décision d’activation sous 4h, 24h/24, mise en mode dégradé effective sous 4h en heures ouvrées (lundi-vendredi, 9h-18h, hors jours fériés), sous 12h hors heures ouvrées. Retour au service nominal (RTO) : 72h. RPO : 24h.  
+- **Information** : pendant le mode dégradé, le CHU est informé, patients et praticiens sont informés par un bandeau précisant ce que le mode permet ou non.  
 
 Les heures ouvrées sont à ajuster à la réalité de tes équipes.
 
