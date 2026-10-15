@@ -137,7 +137,7 @@ Les mesures non prioritaires ou présentant un risque résiduel acceptable reste
 | 🟠 Élevée   | **Renforcer PCA/PRA : Copie hors ligne additionnelle (règle 3-2-1-1-0)** | S3 | A.8.13 | PCA/PRA non testé | DevOps | 🔄 29/10/2026 | Rapport de test, PRA/PCA mis à jour |
 | 🟠 Élevée | **MFA résistant au phishing : clés de sécurité FIDO2/passkeys sur les comptes d'administration (console OVH, messagerie)** | S2 | A.5.17, A.8.5 | Surveillance continue non formalisée | RSSI | 🔄 30/11/2026 | Inventaire clés, Politique MFA, Test de connexion |
 | 🟡 Moyenne  | **Renforcer l'accord de co-responsabilité (RGPD Art. 26) : clauses réciproques de notification d'incident sous 24h et engagement de correction des vulnérabilités API ; documentation du mode dégradé** | S1 | A.5.31, A.5.22, A.5.29–30 | PRA/PCA non documenté, clause contractuelle co-responsable non documenté | RSSI | 🔄 2027 | Clause de co-responsabilité CHU |
-| 🟡 Moyenne  | Automatiser les alertes et améliorer les intégrations entre les différents outils (Wazuh + Graylog + MIG) | S1, S2, S3   | A.5.17, A.8.5, A.8.20    | Surveillance continue non formalisée | RSSI | 🎯 cible 2027 | Règles, Processus d'escalade |
+| 🟡 Moyenne  | Automatiser les alertes et améliorer les intégrations entre les différents outils (Wazuh + Graylog + Velociraptor) | S1, S2, S3   | A.5.17, A.8.5, A.8.20    | Surveillance continue non formalisée | RSSI | 🎯 cible 2027 | Règles, Processus d'escalade |
 | 🟡 Moyenne  | Renforcer sensibilisation et formation sécurité | S2, S3    | A.6.3   | Preuves de formation NIS2 manquantes | RH   | ✅ 30/09/2026 (sélection), 🎯 (mise en place) | Appel d'offre, Contrat, PV de formation |
 | 🟡 Moyenne  | Sélectionner et implémenter un EDR (Endpoint Detection and Response) | S1, S2, S3 | A.8.7 | Surveillance continue non formalisée |RSSI | 🎯 cible 2027 | Appel d'offre, Contrat, PRA/PCA |
 | 🟡 Moyenne  | **Évaluer la pertinence d'un DLP léger (filtrage messagerie/DLP natif Microsoft 365) avant acquisition** | S2| A.8.12 | Absence DLP | RSSI | 🔄 avis 31/12/2026, 2027 si retenu | Note d'arbitrage |
@@ -172,7 +172,7 @@ gantt
     Avis DLP léger (M365 natif) :c2, 2026-11-30, 30d
     section Cible 2027
     Avenant co-responsabilité CHU (RGPD Art. 26) :d1, 2027-01-01, 90d
-    Intégrations alertes Wazuh+Graylog+MIG :d2, 2027-01-01, 180d
+    Intégrations alertes Wazuh+Graylog+Velociraptor :d2, 2027-01-01, 180d
     Sélectionner et implémenter EDR :d3, 2027-01-01, 180d
     Mise en place formation / DLP si retenu :d4, 2027-03-01, 120d
 ```    

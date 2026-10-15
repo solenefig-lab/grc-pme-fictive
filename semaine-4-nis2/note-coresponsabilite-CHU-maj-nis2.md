@@ -1,6 +1,6 @@
 # Note de convention de co-responsabilité - CHU Fictif
 ## RGPD art. 26
-## V2.0 - Intégration clauses NIS2 (Art. 21, 23) suite à analyse d'impact S4.
+## V2.0 - Intégration clauses NIS2 (Art. 21, 23) suite à l’analyse préliminaire des écarts S4.
 
 > **Document fictif** - Projet portfolio GRC - [github.com/solenefig-lab/grc-pme-fictive](https://github.com/solenefig-lab/grc-pme-fictive)
 > Ce document est une synthèse pédagogique. Il ne se substitue pas à un audit réalisé par un organisme accrédité. Le niveau de granularité illustre une cible de maturité, non l'état courant du marché TPE/PME santé.
@@ -20,7 +20,8 @@ _Note de contexte réglementaire - juin 2026 : La transposition NIS2 en droit fr
 6. [Information sur les menaces](#6-information-sur-les-menaces)
 7. [Clauses Spécifiques NIS2](#7-clauses-spécifiques-nis2)
 8. [Clause de résiliation anticipée](#8-clause-de-résiliation-anticipée)
-9. [Signatures](#signatures)
+9. [Révision de l'accord](#9-révision-de-laccord)
+10. [Signatures](#signatures)
 
 
 
@@ -73,7 +74,7 @@ Les personnes concernées peuvent également contacter à tout moment le DPO du 
 | Type de mesure | Détail |
 |---|---|
 | Chiffrement des données | TLS 1.3 (transit) + AES-256 (repos) |
-| Contrôle d'accès | 2FA, audit annuel des droits d'accès (RBAC), journalisation des accès (logs conservés 1 an glissant) |
+| Contrôle d'accès | MFA, audit annuel des droits d'accès (RBAC), journalisation des accès (logs conservés 1 an glissant) |
 | Contrôle des sous-traitants | Vérification annuelle de la conformité HDS/RGPD de OVH |
 | Archivage et résiliation | Données CHU déplacées vers stockage froid (OVH Archive), accès restreint au CHU via API sécurisée. Transfert des données au CHU sous 30 jours en cas de résiliation (format HL7/FHIR chiffré) |
 | Notification incident | Notification CNIL sous 72h (RGPD art. 33) + information des patients concernés (RGPD art. 34) |
@@ -96,8 +97,10 @@ Un audit co-joint annuel de conformité RGPD-HDS, d'analyse des risques et de pr
 
 SantéConnect et CHU Fictif s'engagent à :
 
-- Notifier leur partenaire sous 4h après la découverte de l'incident
-- SantéConnect notifie la CNIL sous 72h (RGPD art. 33) -le CHU notifie simultanément l’ANSSI (Agence Nationale de la Sécurité des Systèmes d'Information) en tant qu'entité essentielle soumise à NIS2 si applicable.
+- Notifier leur partenaire sous 4h après constat humain d’un incident avéré ou raisonnablement certain, 24h/24. 
+  - Toute alerte critique est accusée sous 1h.
+- SantéConnect notifie la CNIL sous 72h (RGPD art. 33).   
+  - Le CHU notifie simultanément l’ANSSI (Agence Nationale de la Sécurité des Systèmes d'Information) en tant qu'entité essentielle soumise à NIS2 si applicable.  
 - Mettre en œuvre conjointement toutes les mesures nécessaires pour analyser, mitiger et sécuriser dans les 72h :
   - **Responsables SantéConnect** : RSSI + DPO As a Service
   - **Responsables CHU Fictif** : Chef de Service Cardiologie + Département IT + DPO CHU Fictif
@@ -128,15 +131,15 @@ SantéConnect et CHU Fictif s'engagent à :
 
 - **Transmettre sans délai** toute alerte ou information relative à une menace cyber identifiée comme pertinente pour les données partagées ou les systèmes interconnectés, via e-mail (rssi@santeconnect-demo.fr, DPO As a Service en copie : privacy@santeconnect-demo.fr ; resp. DPO@CHU-Fictif.fr), selon les délais suivants :
 
-| Niveau    | Classification PRI | Délai notification partenaire (RGPD) | Délai Contractuel CHU (Logique NIS2) |
-|-----------|--------------------|------------|----------------------|
-| Critique  | P1                 | 4h         | 4h             |
-| Élevé     | P2                 | 4h         | 4h           |
-| Modéré    | P3                 | 72h        | 24h              |
-| Faible    | P4                 | 15 jours   | 72h | 
+| Niveau    | Classification PRI | Délai notification au partenaire (contractuel) |
+|-----------|--------------------|------------|
+| Critique  | P1                 | 4h         | 
+| Élevé     | P2                 | 4h         |
+| Modéré    | P3                 | 24h        |
+| Faible    | P4                 | 72h  | 
 
 
-- Cette transmission inclura : une description de la menace, son niveau de criticité (référence : Grille de cotation 3×3 - *fiche-risques-e-sante.md*), et :
+- Cette transmission inclut la description de la menace, son niveau de criticité (réf. [fiche risques](../semaine-1-gouvernance/fiche-risques-e-sante.md)) et les mesures recommandées.:
     - **Mettre en œuvre conjointement** toutes les mesures nécessaires pour analyser, mitiger et sécuriser dans les 72h pour les alertes de niveau **Critique** et **Elevé**:
     - **Responsables SantéConnect** : RSSI + DPO As a Service
     - **Responsables CHU Fictif** : Département IT + DPO CHU Fictif
@@ -158,19 +161,28 @@ Le délai le plus contraignant s'applique.
   - La mitigation des impacts.
   - La sécurisation des systèmes.
 - **Partage des coûts** : Les coûts liés à la gestion de l’incident (ex : audits, notifications) seront partagés **au prorata de la responsabilité de chaque partie**.
+- **Rapport final** sous 1 mois.
 
-La notification sous 4h (section 4) constitue l'alerte précoce ; la notification formelle sous 24h constitue la notification d'incident qualifiée.
+_Note : Le délai de 4h (§4) est l’alerte précoce contractuelle._  
+_- Le délai de 24h est la notification d’incident qualifiée._  
+_- Les délais 4h/24h/72h sont contractuels et distincts des délais légaux de l’Art. 23 NIS2 (24h alerte précoce, 72h notification, 1 mois rapport final), qui s’imposent au CHU comme entité essentielle : ils lui permettent de les tenir._  
+_- Rapport final sous 1 mois après la notification qualifiée._  
 
 ### 7.2. Continuité des Activités (Art. 21 NIS2)
 
-- **Tests annuels** : SantéConnect testera son **PCA/PRA** au moins une fois par an et fournira les preuves au CHU.
-- **Activation sous 4h** : En cas d’incident critique, le déclenchement de la procédure PCA/PRA sera activé **sous 4h**.
+- **Tests annuels** : SantéConnect testera son **PCA/PRA** au moins une fois par an et fournira les preuves au CHU.  
+- **Services critiques** : API HL7/FHIR et base D-002. Leur indisponibilité déclenche l’alerte au CHU sous 4h après constat humain, 24h/24.  
+- **Qualification** : le service est un outil d’amélioration du suivi cardiologique. Il ne se substitue ni aux urgences ni à la surveillance médicale. Le dossier médical de référence reste détenu et opéré par le CHU et les praticiens, qui assurent la continuité des soins pendant une indisponibilité. Son indisponibilité n’est donc pas critique pour la continuité des soins ; elle l’est pour SantéConnect (gravité G4 de nature économique). Les informations restituées sont informatives.
+- **Délais** : décision d’activation du PCA/PRA sous 4h après constat, 24h/24. Activation effective sous 4h en heures ouvrées (lundi-vendredi, 9h-18h, hors jours fériés), sous 12h hors heures ouvrées. RTO 72h et RPO 24h inchangés.
+- **Pendant l’indisponibilité** : le CHU est informé et les patients reçoivent le message type prévu au PRA.
+
+Les heures ouvrées sont à ajuster à la réalité de tes équipes.
 
 ### 7.3. Sécurité des Chaînes d’Approvisionnement (Art. 21(2) NIS2)
 
-- **Conformité des sous-traitants** : SantéConnect garantit que ses sous-traitants (ex : OVH) respectent les **exigences NIS2**, notamment :
+- **Conformité des sous-traitants** : SantéConnect s’engage à obtenir d’OVH des engagements équivalents et à les vérifier à l’audit annuel, notamment :
   - Sécurité physique et logique (HDS R.1111-8 et L.1111-8).
-  - Notification des incidents sous 24h.
+  - Notification des incidents à SantéConnect sans retard indu (cible 4h pour les données de santé). Périmètre : le certificat HDS d’OVH couvre les activités 1-4 et 6 ; l’activité 5 (administration et exploitation du SI) est exercée par SantéConnect (cf. [checklist audit RGPD-HDS](../semaine-2-rgpd-hds/checklist-audit-rgpd-hds.md)).
 - **Audit annuel conjoint** : Un audit sera réalisé chaque année pour vérifier la conformité des sous-traitants.
 
 ### 7.4. Sécurité des Réseaux et des Systèmes (Art. 21 NIS2)

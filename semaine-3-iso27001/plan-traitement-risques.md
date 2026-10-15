@@ -63,7 +63,7 @@ Ce cadre permet de garantir une prise de décision cohérente, alignée avec les
 | Risque | ID | Score | Mesure Clé | Budget | Échéance | Impact Attendu | Responsable |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | APIs mal configurées | R-API-01 | 9 | Déploiement d'un WAF mutualisé/managé adapté PME + rotation des clés API | Faible-Moyen (1-1,5k€) |1 mois | Réduction du score à 4 | RSSI |
-| Usurpation d’identité | R-DON-01 | 9 | Formation anti-phishing + MFA systématique | Moyen (1-5k€) | 2 mois | Réduction du score à 3 | DPO  + RSSI |
+| Usurpation d’identité | R-DON-01 | 9 | Formation anti-phishing + MFA systématique | Moyen (1-5k€) | 2 mois | Réduction du score à 3 | RSSI |
 | Écoute clandestine des flux de paiement sur réseau public  | R-DON-02 | 6 | Vérification annuelle du maintien TLS 1.3 (preuve contractuelle Stripe, PCI-DSS Req. 4) + audit des transactions. Aucun déploiement TLS à la charge de SantéConnect : contrôle délégué, l'action est de vérification. | Faible (<1k€) | 1 mois | Réduction du score à 4 | DevOps |
 | Injection SQL/Ransomware | R-DON-03 | 6 | Protection contre les malwares + sauvegardes chiffrées | Moyen (1-5k€) | 3 mois | Réduction du score à 4 | DevOps|
 | Applications grand public | R-APP-01 | 6 | Pentest à périmètre limité (App Mobile + API CHU, hors infrastructure OVH certifiée) | Moyen (3-5k€) | 2 mois | Réduction du score à 4 | DevOps |

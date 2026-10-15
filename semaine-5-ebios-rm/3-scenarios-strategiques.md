@@ -320,7 +320,7 @@ gantt
     section Priorité Moyenne
     Sélectionner formation NIS2 :c1, 2026-09-01, 30d
     section Cible 2027
-    Automatiser alertes (Wazuh+Graylog+MIG) :d1, 2027-01-01, 180d
+    Automatiser alertes (Wazuh+Graylog+Velociraptor) :d1, 2027-01-01, 180d
     Sélectionner et implémenter EDR :d2, 2027-01-01, 180d
  ```
 
@@ -331,7 +331,7 @@ gantt
 | Automatisation revue RBAC | Documentation code, test et implémentation dans outils existants | DevOps | Livré (16/07/2026) |
 | Micro-segmentation | Documenter schéma isolation APIs/bases | RSSI | Livré (23/06/2026) |
 | Surveillance continue | Configurer alertes Wazuh/Graylog | DevOps | A faire (16/08/2026) |
-| Surveillance continue | Automatiser alertes (Wazuh+Graylog+MIG) | DevOps | Cible : janvier 2027 |
+| Surveillance continue | Automatiser alertes (Wazuh+Graylog+Velociraptor) | DevOps | Cible : janvier 2027 |
 
 
 ___

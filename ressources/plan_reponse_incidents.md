@@ -62,7 +62,7 @@
 | Email Incidents | [incident@santeconnect-demo.fr](mailto:incident@santeconnect-demo.fr) | [Email] |
 | Ligne Téléphonique | +33 1 23 45 67 89 | [Numéro] |
 | Outil de Logging | Graylog | [Outil] |
-| Outil EDR | Wazuh | [Outil] |
+| Outil EDR | - | [Outil] |
 | Outil WAF | Cloudflare | [Outil] |
 | Fournisseur Cloud | OVH | [Fournisseur] |
 
@@ -91,7 +91,7 @@
 | Responsable Données Privées (DPO) | [DPO] | [Email DPO] | [Téléphone] | Notifier les autorités (CNIL, HDS) et les personnes concernées (RGPD Art. 34). |CNIL sous 72h maximum, partenaire selon contrat, autorité sectorielle selon statut |
 | Responsable RH | Bernard THOMAS | [Email RH] | [Téléphone] | Sensibilisation des employés (formation anti-phishing), gestion disciplinaire en cas d’incident lié à une erreur humaine. | < 24h (P2) |
 | Direction | [CEO] | [Email CEO] | [Téléphone] | Valider les décisions stratégiques (ex : paiement d’une rançon, arrêt d’un service). | < 1h (P1) |
-| Équipes Métiers | Tous les employés | - | - | Signaler les incidents via les canaux dédiés (Section 4). | Immédiat |
+| Équipes Métiers | Tous les employés | - | - | Signaler les incidents via les canaux dédiés (Section 2). | Immédiat |
 
 _Note :_
 _- Pour une PME de 15 personnes, un même individu peut cumuler plusieurs rôles._
@@ -156,11 +156,11 @@ graph TD
 | --- | --- | --- | --- | --- |
 | 1. Détection | Détection automatique (outils) ou manuelle (employés). | Tous | Immédiat | Graylog, Wazuh, Emails, Alertes SIEM |
 | 2. Signalement | Signalement via les canaux dédiés (email, formulaire, téléphone). | Employés | Immédiat | incident@votre-entreprise.fr, Formulaire Web, Ligne 24/7 |
-| 3. Évaluation initiale | Classer l’incident selon la sévérité (P1 à P4). | RI | < 15 min | Matrice de classification (Section 2) |
+| 3. Évaluation initiale | Classer l’incident selon la sévérité (P1 à P4). | RI | < 15 min | Matrice de classification (Section 1.1) |
 | 4. Escalade | Notifier les responsables selon le niveau de sévérité. | RI | < 1h (P1), < 4h (P2) | Slack, Email, Téléphone |
 | 5. Containment | Limiter l’impact de l’incident. | RT | < 1h (P1), < 4h (P2) | Firewall, Isolation réseau, Désactivation de comptes |
 | 6. Évaluation approfondie | Analyser la cause racine et l’impact. | RT + RI | < 4h (P1), < 24h (P2) | Logs, Rapports techniques |
-| 7. Notification | Notifier la direction et les régulateurs si nécessaire. | DPO | CNIL sous 72h maximum, partenaire selon contrat, autorité sectorielle selon statut | Templates RGPD/HDS (Section 6) |
+| 7. Notification | Notifier la direction et les régulateurs si nécessaire. | DPO | CNIL sous 72h maximum, partenaire selon contrat, autorité sectorielle selon statut | Templates RGPD/HDS (Annexe 5.1) |
 | 8. Résolution | Appliquer les correctifs et restaurer les services. | RT | < 24h (P1), < 72h (P2) | Rapports de résolution |
 | 9. Clôture et REX | Documenter l’incident et organiser un REX. | RI | < 72h (P1), < 1 semaine (P2) | Registre des incidents, Template REX |
 
@@ -259,7 +259,7 @@ Livrable : PV de revue trimestrielle.
 
 ## 5. Annexes
 
-Documentation liée à créer séparément, mettre à jour et archivée pour anciennces versions.
+Documentation liée à créer séparément, mettre à jour et archivée pour anciennes versions.
 
 ### 5.1. Tableau des Obligations par Réglementation
 
@@ -287,8 +287,8 @@ Documentation liée à créer séparément, mettre à jour et archivée pour anc
 | RGPD | Art. 28 | Contrats avec les sous-traitants | Tous les fournisseurs (OVH, Stripe, CHU) | Permanent | 4% du CA ou 20M€ | Juridique + DPO | Vérifier que tous les contrats incluent les clauses RGPD Art. 28. | [Contrats signés]  | R-GOV-03 | ✅ |
 | RGPD | Art. 30 | Registre des traitements | Toutes les données personnelles | Permanent | 4% du CA ou 20M€ | DPO | Maintenir à jour le registre des traitements. | [Registre des traitements]  | R-GOV-01 | ✅ |
 | RGPD | Art. 32 | Sécurité des traitements | Toutes les données personnelles | Permanent | 4% du CA ou 20M€ | RSSI | Mettre en place des mesures de sécurité (chiffrement, pseudonymisation). | SoA, PTR | R-API-01, R-DON-02 | ✅ |
-| RGPD | Art. 33 | Notification des violations à la CNIL | Violation de données personnelles | 72h max | 4% du CA ou 20M€ | DPO | Notifier la CNIL sous 72h en cas de violation avérée. | Template RGPD  | R-GOV-02, PRI Section 10.1 | ✅ |
-| RGPD | Art. 34 | Notification aux personnes concernées | Violation à haut risque pour les droits et libertés | Sans délai indû | 4% du CA ou 20M€ | DPO | Notifier les personnes concernées si risque élevé. | Template RGPD | R-GOV-02, PRI Section 10.2 | ✅ |
+| RGPD | Art. 33 | Notification des violations à la CNIL | Violation de données personnelles | 72h max | 4% du CA ou 20M€ | DPO | Notifier la CNIL sous 72h en cas de violation avérée. | Template RGPD  | R-GOV-02, PRI Section 3.2 étape 7| ✅ |
+| RGPD | Art. 34 | Notification aux personnes concernées | Violation à haut risque pour les droits et libertés | Sans délai indû | 4% du CA ou 20M€ | DPO | Notifier les personnes concernées si risque élevé. | Template RGPD | R-GOV-02, PRI Section 3.3 playbook 2 | ✅ |
 | RGPD | Art. 35 | PIA (Analyse d’Impact) | Traitements à haut risque (ex : données de santé) | Avant le traitement | 4% du CA ou 20M€ | DPO | Réaliser un PIA pour les traitements critiques. | PIA D-002  | R-GOV-01 | ⚠️ |
 | CSP | L.1111-8, R.1111-8 et s. | Certification HDS pour l’hébergement | Données de santé | Permanent | Sanctions administratives | RSSI | Vérifier que OVH est certifié HDS. | [Certificat HDS OVH]  | R-HDS-01 | ✅ |
 | CSP | L. 1111-8-2 |Signalement sans délai des incidents significatifs ou grave | Incidents impactant des données de santé | Sans délai | Sanctions administratives | RSSI | Signalement sans délai des incidents significatifs ou graves (établissements de santé). | Template HDS  | R-HDS-01, PRI Section 10.1 | ✅ |

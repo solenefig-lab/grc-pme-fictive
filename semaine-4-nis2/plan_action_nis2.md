@@ -55,15 +55,15 @@ _Note : Documentation systématique (rapports, logs, scripts) pour garantir la t
 
 ## 2. Ecarts et Risques identifiés
 
-> Ref.: [Analyse d'impact NIS2] et [PRA/PCA]
+> Ref.: [Analyse d'impact NIS2](./analyse-impact-nis2.md) et [PRA/PCA](./pra-pca.md)
 
 ### 2.1. Synthèse des écarts NIS2
 
 
 | Priorité | Gap NIS2 | Contrôle ISO 27001 | Risque Associé | ID Risque | Action Clé | Outil/Ressource | Responsable | Échéance | Statut |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
-| 🔴 Critique | PCA/PRA non documenté | A.5.29-30, A.8.13 | Indisponibilité des services critiques | R-API-01, R-DON-01, R-GOV-02, R-NIS2-02 | Finaliser et tester le PCA/PRA (services critiques) | Scripts bascule_ovh.py, restore_db.py, OVH | RSSI | 30/06/2026 | 🔄 |
-| 🟡 Modérée | Micro-segmentation non documentée | A.8.25-30 | Mouvement latéral via Man in the Middle | R-DON-02, R-DON-03, R-INT-01, R-DON-04  | Documenter la segmentation réseau (DMZ pour APIs) | Schéma réseau (draw.io), Firewall OVH | RSSI | 15/07/2026 | ✏️ |
+| 🔴 Critique | PCA/PRA documenté, non testé | A.5.29-30, A.8.13 | Indisponibilité des services critiques | R-API-01, R-DON-01, R-GOV-02, R-NIS2-02 | Finaliser et tester le PCA/PRA (services critiques) | Scripts bascule_ovh.py, restore_db.py, OVH | RSSI | 30/06/2026 | 🔄 |
+| 🟡 Modérée | Micro-segmentation non documentée | A.8.22, A.8.20, A.8.25-30 | Mouvement latéral via Man in the Middle | R-DON-02, R-DON-03, R-INT-01, R-DON-04  | Documenter la segmentation réseau (DMZ pour APIs) | Schéma réseau (draw.io), Firewall OVH | RSSI | 15/07/2026 | ✏️ |
 | 🟡 Modérée | Revues RBAC non automatisées | A.5.9-18, A.8.2-3, A.8.5 | Usurpation d’identité | R-DON-01, R-PLAT-01 | Automatiser les revues RBAC (script Python) | Script script-revue-rbac.py, Wazuh | DevOps | 15/08/2026 | 📅  |
 | 🟡 Modérée | Surveillance continue non formalisée | A.5.17, A.8.5, A.8.20 | Injection SQL / Ransomware | R-DON-03, R-APP-01, R-ISO-02 | Configurer des alertes dans Wazuh/Graylog | Règles Wazuh, Graylog | RSSI | 15/09/2026 | ✏️ |
 | 🟡 Modérée | Preuves de formation NIS2 manquantes | A.6.3 | Absence de procédure de réponse | R-GOV-02, R-NIS2-02 | Former l’équipe à NIS2 (sensibilisation + bonnes pratiques) | Module e-learning NIS2, PV de formation | RH | 30/09/2026 | 📅  |
@@ -82,19 +82,23 @@ _Note : Documentation systématique (rapports, logs, scripts) pour garantir la t
 
 ### 2.2. Synthèse des Principaux Risques
 
-| # | Risque | ID | Priorité | Gap NIS2 Associé | Contrôle ISO 27001 |
-| --- | --- | --- | --- | --- | --- | 
-| 1 | APIs mal configurées | R-API-01 | 🔴 Critique | PCA/PRA non documenté | A.5.29-30, A.8.13 | 
-| 2 | Usurpation d’identité | R-DON-01 | 🔴 Critique | PCA/PRA non documenté, Revues RBAC non automatisées | A.5.9-18, A.8.2-3, A.8.5 | 
-| 3 | Absence de TLS | R-DON-02 | 🟠 Élevée | Micro-segmentation non documentée | A.8.25-30 | 
-| 4 | Injection SQL / Ransomware | R-DON-03 | 🟠 Élevée | Micro-segmentation non documentée, Surveillance continue non formalisée | A.5.17, A.8.5, A.8.20 | 
-| 5 | Applications grand public | R-APP-01 | 🟠 Élevée | Surveillance continue non formalisée | A.5.17, A.8.5, A.8.20 | 
-| 6 | Plateforme B2B — accès non restreint | R-PLAT-01 | 🟡 Moyenne | Revues RBAC non automatisées | A.5.9-18, A.8.2-3, A.8.5 | 
-| 7 | Interconnexion CHU | R-INT-01 | 🟠 Élevée | Micro-segmentation non documentée | A.8.25-30 | 
-| 8 | Délai de notification des violations | R-GOV-02 | 🟡 Moyenne | Preuves de formation NIS2 manquantes, PCA/PRA non documenté | A.6.3 | 
-| 9 | Vulnérabilités non patchées | R-ISO-02 | 🟡 Moyenne | Surveillance continue non formalisée | A.5.17, A.8.5, A.8.20 | 
-| 10 | Absence de procédure de réponse aux incidents | R-NIS2-02 | 🟡 Moyenne | Preuves de formation NIS2 manquantes, PCA/PRA non documenté| A.6.3 |
-| 11 | Données PII exposées via App Mobile | R-DON-04 | 🟠 Élevée | Micro-segmentation non documentée | A.8.25-30 |
+Réf.: [Plan de Traitement de Risques (PTR)](../semaine-3-iso27001/plan-traitement-risques.md), [Analyse d’impact NIS2](./analyse-impact-nis2.md) et [PRA/PCA](./pra-pca.md)
+
+| # | Risque | ID | Score PTR (Impact×Probabilité)  | Priorité NIS2 | Gap NIS2 Associé | Contrôle ISO 27001 de l'écart | Resp. PTR |
+| --- | --- | --- | --- | --- | --- | --- | --- | 
+| 1 | APIs mal configurées | R-API-01 | 9 (3×3) 🔴 | 🔴 Critique | PCA/PRA documenté non testé | A.8.20 - A.8.21, A.8.24, A.8.26  | RSSI |
+| 2 | Usurpation d’identité | R-DON-01 | 9 (3×3) 🔴 | 🔴 Critique | PCA/PRA non testé, Revues RBAC non automatisées | A.5.16, A.5.17, A.8.5, A.6.3 | RSSI |
+| 3 | Délai de notification des violations | R-GOV-02 | 6 (3×2) 🔴 | 🟠 Élevée| Preuves de formation NIS2 manquantes, PCA/PRA non testé | A.5.25 - A.5.27, A.5.29, A.5.37 | RSSI |
+| 4 | Absence de procédure de réponse aux incidents | R-NIS2-02 | 6 (3×2) 🔴 | 🟠 Élevée | Preuves de formation NIS2 manquantes, PCA/PRA non testé| A.5.25 - A.5.27, A.8.8, A.8.16 | RSSI |
+| 5 | Écoute clandestine des flux de paiement (TLS délégué à Stripe) | R-DON-02 | 6 (3×2) 🔴 | 🟠 Élevée | Micro-segmentation non documentée | A.5.14, A.8.20, A.8.21, A.8.25 | DevOps |
+| 6 | Interconnexion CHU | R-INT-01 | 6 (3×2) 🔴 | 🟠 Élevée | Micro-segmentation non documentée | A.5.14, A.8.20, A.8.22 | RSSI |
+| 7 | Injection SQL / Ransomware | R-DON-03 | 6 (3×2) 🔴 | 🟠 Élevée | Micro-segmentation non documentée, Surveillance continue non formalisée | A.8.7, A.8.13, A.8.26, A.8.28 - A.8.29 | DevOps |
+| 8 | Données PII exposées via App Mobile | R-DON-04 | 6 (3×2) 🔴| 🟠 Élevée | Micro-segmentation non documentée | A.8.1, A.8.12, A.8.20, A.8.26 | DevOps|
+| 9 | Plateforme B2B — accès non restreint | R-PLAT-01 | 6 (3×2) 🔴 | 🟡 Moyenne | Revues RBAC non automatisées | A.5.15, A.5.18, A.8.4 | RSSI|
+| 10 | Applications grand public | R-APP-01 | 6 (3×2) 🔴 | 🟡 Moyenne | Surveillance continue non formalisée | A.8.25, A.8.28, A.8.29 | DevOps|
+| 11 | Vulnérabilités non patchées | R-ISO-02 | 6 (3×2) 🔴 | 🟡 Moyenne | Surveillance continue non formalisée | A.8.8, A.8.29, A.8.16, A.8.32 | DevOps|
+| 12 | Usurpation de compte patient (récupération, SIM swap, aidant) | R-IAM-01 | 6 (3×2) 🔴 | 🟡 Moyenne | Aucun écart NIS2 associé (PSSI: réexamen mesures 2027) |A.5.16-17, A.8.5| RSSI |
+
 
 **Légende des Priorités :**
 
@@ -104,20 +108,26 @@ _Note : Documentation systématique (rapports, logs, scripts) pour garantir la t
 | 🟠 Élevée | Traiter sous 3-6 mois. |
 | 🟡 Moyenne | Traiter sous 6 mois. |
 
-_Notes :_
-_- la correspondance entre les Ecarts et les Risques est complète._ 
-_- la priorité risque peut être plus haute que la priorité d'écart identifiée car les premiers sont évalués par rapport à l'impact et la probabilité du-dit risque et le deuxième par rapport au exigences liés à NIS2._
+_Notes :_  
+_- La correspondance entre les Ecarts et les Risques est complète (R-IAM-01 n’a pas d’écart NIS2 associé)._  
+_- Score PTR : niveau de risque actuel, compte tenu des contrôles existants (grille 3×3, 🔴 ≥ 6). Source : PTR - contrôles ISO, responsables et libellés repris du PTR et de son annexe._  
+_- Priorité NIS2 : ordre de remédiation des écarts associés, indépendant du score PTR sauf pour le niveau Critique. Elle est déterminée par l’écart associé (le plus haut retenu si plusieurs) :_  
+    _🔴 Critique : écart bloquant (PCA/PRA non testé) et score PTR maximal (9)._  
+    _🟠 Élevée : écart couvert par une clause de la convention CHU à délai ou livrable précis (notification §4 et §7.1, activation et tests §7.2, segmentation §7.4, formation §7.6)._  
+    _🟡 Moyenne : autres écarts (contrôles internes, sans clause à délai précis)._  
+    _- Ordre dans un niveau : échéance de l’écart associé (§3), puis effort de remédiation (budget PTR §2, plus faible d’abord)._  
+    _- R-DON-01 est maintenu en Critique en raison de son score PTR de 9, avec R-API-01 seul autre risque au maximum de la grille._  
+    _-R-IAM-01 : score 6 🔴 avec priorité Moyenne. Aucune remédiation à planifier, risque résiduel accepté par le CEO, réexamen du moyen d’identification en 2027._  
 
 ### 2.3. Synthèse des Actions non finalisées dans le PRA/PCA
 
 | Étape | Action | Responsable | Statut d'implémentation |
 | --- | --- | --- | --- | 
 | Activation PCA | Bascule automatique sur le serveur de secours OVH (script Python) pour les services critiques (API HL7/FHIR, Base D-002). | RSSI |  🔄 À tester |
-| Restauration (PRA) | Si nécessaire, restauration depuis les sauvegardes OVH (RPO = 0 pour la Base D-002). | RSSI |  🔄 À tester |
-| Détection |  Automatiser les alertes et améliorer les intégrations entre les différents outils (Wazuh + Graylog + MIG)| RSSI | 🎯 cible 2027 |
+| Restauration (PRA) | Si nécessaire, restauration depuis les sauvegardes OVH (RPO 24h (dernière sauvegarde quotidienne)). | RSSI |  🔄 À tester |
+| Détection |  Automatiser les alertes et améliorer les intégrations entre les différents outils (Wazuh + Graylog + Velociraptor)| RSSI | 🎯 cible 2027 |
 | Détection |  Sélectionner et implémenter un EDR (Endpoint Detection and Response) | RSSI | 🎯 cible 2027 |
 
-_Note : RPO = 0 : objectif zéro perte de données via réplication synchrone - cible de maturité._
 
 ---
 
@@ -127,7 +137,7 @@ _Note : RPO = 0 : objectif zéro perte de données via réplication synchrone - 
 | --- | --- | --- | --- |  --- | 
 | PRA/PCA | Tester bascule automatique sur le serveur de secours OVH (script Python) pour les services critiques (API HL7/FHIR, Base D-002). | RSSI | 30/06/2026 | Scripts Python, Rapport de test, PRA/PCA mis à jour |
 | PRA/PCA | Tester restauration depuis les sauvegardes OVH (RPO = 0 pour la Base D-002). | RSSI | 30/06/2026 | Rapport de test, PRA/PCA mis à jour |
-| PRA/PCA |  Automatiser les alertes et améliorer les intégrations entre les différents outils (Wazuh + Graylog + MIG)| DevOps | 2027 | Règles de configuration , Rapport de test, PRA/PCA mis à jour |
+| PRA/PCA |  Automatiser les alertes et améliorer les intégrations entre les différents outils (Wazuh + Graylog + Velociraptor)| DevOps | 2027 | Règles de configuration , Rapport de test, PRA/PCA mis à jour |
 | PRA/PCA | Sélectionner et implémenter un EDR (Endpoint Detection and Response) | RSSI | 2027 | Appel d'offre, Contrat, PRA/PCA |
 | Micro-segmentation | Documenter schéma isolation des APIs et bases | RSSI | 15/07/2026 | Schéma réseau, Caractéristiques Firewall OVH |
 | Micro-segmentation | Documenter implémentation et vérification TLS 1.3. | DevOps | 15/07/2026 | Schéma réseau |
@@ -135,10 +145,12 @@ _Note : RPO = 0 : objectif zéro perte de données via réplication synchrone - 
 | Surveillance continue | Configurer des alertes dans Wazuh/Graylog |  RSSI | 15/09/2026 | Règles Wazuh, Graylog |
 | Formation NIS2 | Sélection formation NIS2 et déploiement progressif | RH | 30/09/2026 (sélection) | Appel d'offre, Contrat, PV de formation |
 | Identification des patients (PGSSI-S) | Réexaminer le moyen d'identification de transition : étude FranceConnect+ et Appli carte Vitale | RSSI | 2027 | Note d'arbitrage, acceptation du risque résiduel mise à jour (CEO) |
+| Chaîne hors heures ouvrées non testée | Formaliser la délégation d’activation et tester la chaîne (SMS à blanc au CEO, relais DevOps à 30 min) | RSSI | 6 mois | Retour test documenté, note de coresponsabilité CHU mise à jour, matrice RBAC mise à jour, PRA/PCA mis à jour |
+
 
 
 _Notes : 
-_- la procédure de réponse aux incidents est documenté dans le PRA/PCA._
+_- la procédure de réponse aux incidents est documentée dans le PRA/PCA._
 _- prévoir la mise à jour du PSSI à réalisation des principales actions impactant les procédures de sécurité._
 
 
@@ -157,7 +169,7 @@ gantt
     section Priorité Moyenne
     Sélectionner formation NIS2 :c1, 2026-09-01, 30d
     section Cible 2027
-    Automatiser alertes (Wazuh+Graylog+MIG) :d1, 2027-01-01, 180d
+    Automatiser alertes (Wazuh+Graylog+Velociraptor) :d1, 2027-01-01, 180d
     Sélectionner et implémenter EDR :d2, 2027-01-01, 180d
     Étudier le moyen d'identification patients (FranceConnect+, Appli carte Vitale) :d3, 2027-01-01, 180d
 ```
@@ -170,7 +182,7 @@ gantt
 | --- | --- | --- | --- | --- |
 | % des gaps NIS2 comblés | 100% | Nombre de gaps résolus / Total | RSSI | Mensuel |
 | Temps moyen de détection | < 15 min | Délai entre incident et alerte (Wazuh) | DevOps | Trimestriel |
-| Temps moyen de réponse | < 4h (P1) | Délai entre détection et activation PCA | RSSI | Trimestriel |
+| Décision d’activation | < 4h | Délai entre détection et activation PCA (activation effective ≤ 4h (heures ouvrées), ≤ 12h sinon) | RSSI | Trimestriel |
 | % des revues RBAC automatisées | 100% | Nombre de revues automatisées / Total | DevOps | Mensuel |
 | % de l’équipe formée à NIS2 | 100% | Nombre de personnes formées / Total | RH | Trimestriel |
 

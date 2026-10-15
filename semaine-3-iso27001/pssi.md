@@ -207,7 +207,7 @@ Détail de la procédure pour les données personnelles → [procedure-incident-
 
 **Réponse et coordination**
 
-- Prise de connaissance : constat par un membre de l’équipe ou de l’astreinte d’un incident avéré ou raisonnablement certain. Alerte critique accusée sous 1h. Données médicales : CHU notifié sous 4h, heures ouvrées ou non. Hors heures ouvrées : CEO en premier niveau, DevOps d’astreinte (rotation) joignable par lui ; le DevOps notifie le CHU si le CEO est injoignable. Autres incidents : 24h. 
+- Prise de connaissance : constat par un membre de l’équipe d’un incident avéré ou raisonnablement certain. Alerte critique accusée sous 1h. Données médicales : CHU notifié sous 4h, heures ouvrées ou non. Hors heures ouvrées : CEO en premier niveau, DevOps de joignabilité (rotation) ; le DevOps notifie le CHU si le CEO est injoignable. Autres incidents : 24h. 
 - Coordination avec les sous-traitants (OVH, Stripe) par clause contractuelle art. 28
 - Coordination avec le CHU par convention art. 26
 - Procédure de notification CNIL (72h) et personnes concernées documentée - cf. lien ci-dessus
@@ -257,12 +257,16 @@ SantéConnect fixe les objectifs suivants. Le CHU et les praticiens disposent de
 | RPO données sensibles | 48h |
 | RPO autres données | 30 jours |
 
-> **Conformité RGPD/HDS :** Même pour les données non critiques, SantéConnect doit garantir la disponibilité et l'intégrité des données qu'elle gère (historiques partagés, plannings) et pouvoir restaurer ses services sous 72h pour éviter une violation de la sécurité des données.
+
+> **Conformité RGPD/HDS :** Même pour les données non critiques, SantéConnect doit garantir la disponibilité et l'intégrité des données qu'elle gère (historiques partagés, plannings) et pouvoir restaurer ses services sous 72h pour éviter une violation de la sécurité des données.  
+
+> RPO Données Sensibles : sauvegarde quotidienne, tolère un cycle de sauvegarde en échec.
 
 **PCA - Maintien des services critiques en fonctionnement**
 *Validé par RSSI et CEO, supervision DPO*
 
-En cas d'interruption majeure, la continuité des soins est assurée par le CHU qui dispose des données patients par ailleurs. SantéConnect maintient un accès en lecture seule aux données non médicales via interface web OVH sur environnement isolé. Déclenchement sur validation RSSI et CEO.
+En cas d'interruption majeure, la continuité des soins est assurée par le CHU qui dispose des données patients par ailleurs. SantéConnect maintient un accès en lecture seule aux données non médicales via interface web OVH sur environnement isolé. 
+Déclenchement : bascule en lecture seule par le DevOps joignable, pré-autorisée sur critères objectifs (incident P1 confirmé, ou API/D-002 indisponible > 30 min), le CEO étant informé immédiatement et ratifiant sous 4h, remise en production validée par le RSSI, à défaut par le CEO.
 
 **PRA - Restauration après interruption majeure**
 *Validé par RSSI et CEO, supervision DPO*

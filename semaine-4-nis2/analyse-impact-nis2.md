@@ -12,7 +12,7 @@ _Note de contexte réglementaire (juin 2026) : La transposition NIS2 en droit fr
 ### Hors périmètre NIS2 
 SantéConnect est une PME française de 15 personnes fournissant des services numériques dans le domaine de la e-santé. Elle n'est ni une entité essentielle ni importante au sens de NIS2 et n'a donc pas d'obligation directe.
 - Taille : SantéConnect ne franchit pas les seuils NIS2 (Art. 2(1)); NIS2 ne crée pas d'obligation directe sur les fournisseurs de taille réduite - c'est l'entité essentielle (CHU) qui porte l'obligation de sécuriser sa chaîne via Art. 21(2).
-- Secteur d’activité : SantéConnect est fournisseur de services numériques en santé, non prestataire de soins au sens de l'Annexe I NIS2. Elle ne figure pas non plus dans l'Annexe II (secteurs critiques).
+- Secteur d’activité : SantéConnect est fournisseur de services numériques en santé, non prestataire de soins au sens de l'Annexe I NIS2. Elle ne figure pas non plus dans l'Annexe II (autres secteurs critiques).
 - Statut juridique : SantéConnect ne répond pas aux critères de taille et de secteur définis (Art. 2(1) + Art. 2(4)).
 **En conséquence, SantéConnect n'a pas d'obligation de notification vers l'ANSSI, pas d'obligation d'enregistrement sur MonEspaceNIS2, et aucun contrôle ANSSI direct ne peut lui être opposé.**
 
@@ -23,7 +23,7 @@ Mais SantéConnect est impactée indirectement via le partenariat CHU et **des e
     -   21.c : Plans de continuité des activités (PCA/PRA).
     -   21.d : Sécurité de la chaîne d’approvisionnement (ex : conformité OVH).
     -   21.i et 21.j : Contrôle d’accès et surveillance continue.
-- La notification des incidents (NIS2 Art. 23), avec des délais contractuels adaptés (ex : alerte précoce sous 4h, notification sous 24h).
+- La notification des incidents avec des délais contractuels adaptés (ex : alerte inter-partenaires sous 4h, notification sous 24h), distincts des délais légaux NIS2 Art. 23, qui s’imposent au CHU.
 _voir [Note co-responsabilité CHU NIS2](./note-coresponsabilite-CHU-maj-nis2.md)_
 
 - **Objet** : partage et synchronisation des dossiers médicaux hospitaliers entre SantéConnect et le CHU Partenaire, dans le cadre de la continuité de la prise en charge médicale
@@ -37,15 +37,15 @@ _voir [Note co-responsabilité CHU NIS2](./note-coresponsabilite-CHU-maj-nis2.md
 | ----------- | ----------- | ----------- | ----------- |  ----------- | 
 | 21.a. Politiques de sécurité et analyses de risques | AIPD, mise à jour à chaque incident | A.5.1. PSSI, A.6.1. Screening RH des employés | Aucun gap: politiques en place | ✅ |
 | 21.b. Plans d’intervention en cas d’incident  | AIPD + Art. 23. Gestion des incidents | A.5.24. à A.5.27. Procédure de gestion des incidents et notification, PTR + Registre des alertes, Registre de traitement | Aucun gap: politiques en place | ✅ |
-| 21.c. Plans de continuité des activités | Tests annuels PCA/PRA + documentation, Activation PCA/PRA sous 4h en cas d’incident critique | A.5.29, A.5.30., A.8.13. PSSI, PRA/PCA | PRA/ PCA à finaliser | 🔴 |
-| 21.d. Sécurité de la chaîne d’approvisionnement | Garantie conformité sous-traitants, yc. sécurité physique et logique, notification incidents sous 24h et audit annuel conjoint | A.5.19. à A.5.23. Contrats de sous-traitance, Preuve Certification OVH HDS, Audits annuels, Registre de traitement, AIPD | Aucun gap: OVH certifié HDS, audits en place | ✅ |
-| 21.e. Sécurité dans l’acquisition, le développement et la maintenance des réseaux et des systèmes d’information | Segmentation (réseau DMZ pour les APIs) pour isoler les données partagées, audits semestriels | A.8.25 à A.8.30. PSSI, Contrats prestataires, Fiche risques e-santé | Micro-segmentation non documentée au-delà DMZ | 🟡 |
+| 21.c. Plans de continuité des activités | Tests annuels PCA/PRA + documentation, Décision d’activation ≤ 4h 24h/24 (activation effective ≤ 4h en heures ouvrées, ≤ 12h hors heures ouvrées selon [Note co-responsabilité §7.2](./note-coresponsabilite-CHU-maj-nis2.md)) | A.5.29, A.5.30., A.8.13. PSSI, PRA/PCA | PRA/ PCA à finaliser | 🔴 |
+| 21.d. Sécurité de la chaîne d’approvisionnement | Engagement d’obtenir des sous-traitants des engagements équivalents (sécurité physique et logique, notification des incidents) et audit annuel conjoint | A.5.19. à A.5.23. Contrats de sous-traitance, Preuve Certification OVH HDS, Audits annuels, Registre de traitement, AIPD | écart HDS activité 5 accepté (= administration et exploitation du SI contenant les données de santé, exercée par SantéConnect via l’accès tenant OVH, hors certificat OVH, réexamen 01/2027) | 🟡 |
+| 21.e. Sécurité dans l’acquisition, le développement et la maintenance des réseaux et des systèmes d’information | Segmentation (réseau DMZ pour les APIs) pour isoler les données partagées, audits semestriels | A.8.20, A.8.22, A.8.25 à A.8.30. PSSI, Contrats prestataires, Fiche risques e-santé | Micro-segmentation non documentée au-delà DMZ | 🟡 |
 | 21.f. Evaluation de l’efficacité des mesures de gestion des risques liés à la cybersécurité | Tests de pénétration annuels sur apps critiques + documentation, correction vulnérabilités critiques sous 30 jours | A.5.36. Cadrage audit - RACI, PSSI | Aucun gap: pentests annuels documentés | ✅ |
 | 21.g. Formation à la sensibilisation, à l’hygiène et aux meilleures pratiques en matière de cybersécurité | Formation NIS2 + sensibilisation annuelles bonnes pratiques + documentation | A.6.3. Plan de formation, PSSI | Preuve documentaire formation NIS2 spécifique à produire |🟡 |
 | 21.h. Cryptographie et chiffrement | Données sensibles chiffrées en transit (TLS 1.3) et au repos (AES-256), audits semestriels | A.8.24. Utilisation de la cryptographie, PSSI | Aucun gap: TLS 1.3 + AES-256 en place | ✅ |
-| 21.i. Procédures de contrôle d’accès, en particulier pour les employés ayant accès à des données sensibles | 2FA, audit annuel des droits d'accès (RBAC), journalisation des accès (logs conservés 1 an glissant) | A.5.9. à A.5.18., A.8.2, A.8.3., A.8.5. Fiche risques e-santé, Registre des traitements, Plan de formation, Matrice RBAC, Convention co-responsabilité, Contrat sous-traitance , Logs d'habilitation, Cartographie des risques, PSSI, Preuve d'activation MFA sur données sensibles et critiques | Automatiser les revues d’habilitation et centraliser surveillance | 🟡 |
-| 21.j. Authentification multifactorielle, surveillance continue et systèmes de communication sécurisés |  2FA, audit annuel des droits d'accès (RBAC), journalisation des accès (logs conservés 1 an glissant) | A.5.17 PSSI, A.8.5 Matrice RBAC, Logs d'habilitation, Preuve d'activation MFA sur données sensibles et critiques., A.8.20. Cartographie des risques, Procédures de sécurité IT | Surveillance continue non formalisée au-delà Graylog | 🟡 |
-| 23. Gestion des incidents | Alerte précoce (4h) + notification CHU sous 24h, réponse conjointe sous 72h (analyse, mitigation, sécurisation), partage des coûts au prorata responsabilité, rapport final sous 1 mois | Procédure de gestion des incidents et notification, PTR + Registre des alertes, Registre de traitement | Aucun gap: délais et procédures documentés | ✅ |
+| 21.i. Procédures de contrôle d’accès, en particulier pour les employés ayant accès à des données sensibles | MFA, audit annuel des droits d'accès (RBAC), journalisation des accès (logs conservés 1 an glissant) | A.5.9. à A.5.18., A.8.2, A.8.3., A.8.5. Fiche risques e-santé, Registre des traitements, Plan de formation, Matrice RBAC, Convention co-responsabilité, Contrat sous-traitance , Logs d'habilitation, Cartographie des risques, PSSI, Preuve d'activation MFA sur données sensibles et critiques | Automatiser les revues d’habilitation et centraliser surveillance | 🟡 |
+| 21.j. Authentification multifactorielle, surveillance continue et systèmes de communication sécurisés |  MFA, audit annuel des droits d'accès (RBAC), journalisation des accès (logs conservés 1 an glissant) | A.5.17 PSSI, A.8.5 Matrice RBAC, Logs d'habilitation, Preuve d'activation MFA sur données sensibles et critiques., A.8.20. Cartographie des risques, Procédures de sécurité IT | Surveillance continue non formalisée au-delà Graylog | 🟡 |
+| 23. Gestion des incidents | Alerte inter-partenaires ≤ 4h après constat humain, notification CHU ≤ 24h, réponse conjointe ≤ 72h, rapport final ≤ 1 mois. Délais contractuels, distincts des délais légaux NIS2 Art. 23 (24h / 72h / 1 mois), qui s’imposent au CHU. | Procédure de gestion des incidents et notification, PTR + Registre des alertes, Registre de traitement | PSSI : Chaîne hors heures ouvrées documentée, non testée | 🟡 |
 
 
 _Notes:_
@@ -66,11 +66,12 @@ _- le registre des alertes est intégré au plan de réponse aux incidents (S3).
 
 | **Priorité** | **Gap** | **Action** | **Responsable** | **Échéance** | 
  |--------------|---------|------------|------------------|--------------|
- | 🔴 Critique | PCA/PRA non documenté | A formaliser et faire valider, Vérifier la faisabilité du délai de 4h (services critiques) + Documenter procédures | RSSI | 30/06/2026 |
+ | 🔴 Critique | PCA/PRA non documenté | A formaliser et faire valider, Vérifier la faisabilité du délai de 4h (services critiques) et l'ajuster dans la note de coresponsabilité CHU + Documenter procédures | RSSI | 30/06/2026 |
  | 🟡 Modérée | Micro-segmentation non documentée | Documenter la segmentation réseau | DevOps (supervision RSSI) | 15/07/2026 | 
- | 🟡 Modérée | Automatiser les revues d’habilitation et centraliser surveillance | Automatiser les revues RBAC + export rapport hedomadaire avec un script Python, Centraliser la surveillance avec Wazuh + Graylog (solutions déjà en place, périmètre à élargir), Documentation à produire | DevOps (supervision RSSI) | 15/09/2026 | 
+ | 🟡 Modérée | Automatiser les revues d’habilitation et centraliser surveillance | Automatiser les revues RBAC + export rapport hebdomadaire avec un script Python, Centraliser la surveillance avec Wazuh + Graylog (solutions déjà en place, périmètre à élargir), Documentation à produire | DevOps (supervision RSSI) | 15/09/2026 | 
  | 🟡 Modérée | Surveillance continue non formalisée au-delà Graylog | Configurer des alertes dans Graylog, Renforcer Wazuh pour la surveillance en temps réel, Documentation à produire | DevOps (supervision RSSI) | 15/09/2026 | 
  | 🟡 Modérée | Preuves de formation NIS2 manquantes | Formation + PV | RH | 30/09/2026 |
+ | 🟡 Modérée | Chaîne hors heures ouvrées non testée | Formaliser la délégation d’activation et tester la chaîne (SMS à blanc au CEO, relais DevOps à 30 min) | RSSI | ≤ 6 mois, à fixer |
 
 
 ---

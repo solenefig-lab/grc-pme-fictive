@@ -19,7 +19,7 @@
 
 ## Compétences démontrées
 
-- **Analyse de risques ISO 27001** → Plan de traitement des risques (11 risques critiques, grille 3×3, contrôles liés)  
+- **Analyse de risques ISO 27001** → Plan de traitement des risques (12 risques critiques, grille 3×3, contrôles liés)  
 - **Conformité RGPD en contexte HDS** → AIPD D-002 + D-005, convention co-responsabilité CHU art. 26  
 - **Exposition NIS2 supply chain** → Gap analysis, 1 risque critique identifié, PCA/PRA livré, feuille de route  
 - **Modélisation EBIOS RM** → Cadrage systémique, 24 couples SR/OV, scénario compromission API CHU  

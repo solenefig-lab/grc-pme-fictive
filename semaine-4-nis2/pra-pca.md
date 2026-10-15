@@ -21,7 +21,7 @@
 
 ### 1.1. Objectifs du PRA/PCA
 
-- Assurer la continuité des services critiques (ex : accès aux dossiers patients, plateforme de télémédecine).  
+- Assurer la continuité des services critiques (ex : accès aux dossiers patients, suivi cardiologique et coffre-fort médical).  
 - Minimiser l’impact des incidents (cyberattaques, pannes, erreurs humaines).  
 - Respecter les obligations réglementaires, en particulier :
     - NIS2 et ReCyf (Référentiel Cyber France - document de travail): obligation de résilience opérationnelle, impacté via les clauses contractuelles avec établissement de santé, CHU Fictif, réf.: [Note coresponsabilité CHU Fictif](https://github.com/solenefig-lab/grc-pme-fictive/blob/main/semaine-4-nis2/note-coresponsabilite-CHU-maj-nis2.md)
@@ -43,11 +43,11 @@
 
 | Asset | Détails |
 | --- | --- |
-| Processus critiques | Plateforme de télémédecine, gestion des dossiers patients, facturation, support client. |
-| Systèmes | Serveurs (cloud/on-premise), bases de données, applications métiers, postes de travail. |
+| Processus critiques | services critiques = API HL7/FHIR + D-002 ; autres non critiques. |
+| Systèmes | Hébergement OVH HDS, bases de données, applications métiers, postes de travail. |
 | Données | Dossiers patients (sensibles), données de facturation, logs. |
 | Ressources humaines | 2-3 techniques (admin système, réseau). |
-| Parties prenantes | Hébergeur, partenaire CHU, éditeurs logiciels, patients, practiciens B2C, autorités (ANSSI, CNIL). |
+| Parties prenantes | Hébergeur, partenaire CHU, éditeurs logiciels, patients, practiciens B2B, autorités (ANSSI, CNIL). |
 
 ### 1.4. Rôles et Responsabilités
 
@@ -167,19 +167,19 @@ Score = [Probabilité, Impact]
 
 ### 3.1. Fixation RTO (Durée Maximum de Restauration) et RPO (Objectifs Point de Restauration)
 
-SantéConnect a fixé les objectifs suivants pour les processus et données critiques: RTO 72h, RPO 24h, Délai d'activation 4h. 
-Pour les services non critiques (ex : App Mobile), le délai d’activation du PCA/PRA est 24h (aligné sur HDS R. 1112-7).
+SantéConnect a fixé les objectifs suivants pour les processus et données critiques: RTO 72h, RPO 24h, Décision d’activation ≤ 4h, activation effective ≤ 4h en heures ouvrées et ≤ 12h hors heures ouvrées.
+Pour les services non critiques (ex : App Mobile), le délai d’activation du PCA/PRA est 24h. 
 
 | Processus | Niveau | Justification |
 | --- | --- | --- |
 | Accès aux dossiers patients | 1 | Obligation légale (RGPD, ReCyF). |
-| Plateforme de télémédecine | 1 | Continuité des soins. |
+| suivi cardiologique et coffre-fort médical | 1 | Continuité des soins. |
 | Facturation | 2 | Impact financier. |
 | Site web vitrine | 3  | Image de marque. |
 
 > **Conformité RGPD/HDS :** Même pour les données non critiques, SantéConnect doit garantir la disponibilité et l'intégrité des données qu'elle gère (historiques partagés, plannings) et pouvoir restaurer ses services sous 72h pour éviter une violation de la sécurité des données.
 
-L’exigence contractuelle du CHU impose une activation du PCA/PRA sous 4h pour les incidents critiques (ex : indisponibilité de l’API HL7/FHIR ou de la Base D-002).
+L’exigence contractuelle du CHU impose une activation du PCA/PRA pour les incidents critiques (ex : indisponibilité de l’API HL7/FHIR ou de la Base D-002) une activation sous 4h, 24h/24, l’activation effective est sous 4h en heures ouvrées et sous 12h hors heures ouvrées..
 La faisabilité de ce délai repose sur :
 - Automatiser les étapes clés (scripts de bascule, alertes).
 - Déléguer les rôles en cas d’incident.
@@ -188,10 +188,10 @@ La faisabilité de ce délai repose sur :
 | Étape | Action | Outil/Responsable | Délai | Statut d'implémentation |
 | --- | --- | --- | --- | --- | 
 | 1. Détection | Alerte automatique via Wazuh (ex : panne serveur, attaque détectée) ou signalement manuel (email : incident@santeconnect-demo.fr). | Wazuh + Graylog | < 15 min | ✅ |
-| 2. Qualification | Le RSSI (Claire ESPINOZA) ou le DevOps d’astreinte (rotation) qualifie l’incident comme critique (P1) via la matrice de criticité (cf. Section 2.3). | Matrice de criticité + Slack (#incidents) | < 30 min | ✅ |
-| 3. Activation PCA | Bascule automatique sur le serveur de secours OVH (script Python) pour les services critiques (API HL7/FHIR, Base D-002). | Script bascule_ovh.py + OVH | < 1h |  🔄 À tester |
-| 4. Notification | Notification immédiate au CHU (email : it@chu-fictif.fr) et au DPO (Jeanne PETIT). | Email + Slack | < 1h |  ✅ |
-| 5. Restauration (PRA) | Si nécessaire, restauration depuis les sauvegardes OVH (RPO = 0 pour la Base D-002). | Sauvegardes OVH + Script restore_db.py | < 4h |  🔄 À tester |
+| 2. Qualification | Alerte critique accusée sous 1h, qualification par le RSSI ou le DevOps joignable (rotation) ; hors heures ouvrées : SMS au CEO, relais DevOps à 30 min. | Matrice de criticité + Slack (#incidents) | < 30 min | ✅ |
+| 3. Activation PCA | Bascule PCA (lecture seule) par script, déclenchée par le DevOps, pré-autorisée sur le serveur de secours OVH (script Python) pour les services critiques (API HL7/FHIR, Base D-002). | Script bascule_ovh.py + OVH | < 1h |  🔄 À tester |
+| 4. Notification | Notification au CHU (email : it@chu-fictif.fr) et au DPO (Jeanne PETIT). | Email + Slack | < 1h |  ✅ |
+| 5. Restauration (PRA) | Si nécessaire, restauration depuis les sauvegardes OVH. | Sauvegardes OVH + Script restore_db.py | < 4h |  🔄 À tester |
 | 6. Validation | Tests de fonctionnement par le DevOps et validation avec le CHU. | Tests manuels + CHU | < 30 min | ✅ |
 | 7. Clôture | Documentation de l’incident dans le Registre des incidents et REX sous 72h. | Registre des incidents | < 72h | ✅ |
 
@@ -207,13 +207,22 @@ En cas d'interruption majeure, la continuité des soins est assurée par le CHU 
 - Déclenchement sur validation RSSI et CEO.
 - Seuil de déclenchement : incident P1 confirmé, ou indisponibilité > 30 minutes.
 
+**Délégation** :  
+- Isolation	: DevOps joignable, sans validation	(RBAC-22).  
+- Bascule PCA (lecture seule) : DevOps, pré-autorisé (P1 confirmé ou indisponibilité API/D-002 > 30 min ; CEO informé immédiatement, ratification ≤ 4h).  
+- Restauration sur environnement propre : DevOps, pré-autorisé (non destructif (§4.3)).  
+- Remise en production : RSSI, sinon CEO.  
+- Communication externe : CEO avec DPO.	
+
+Règle de secours : sans réponse du validateur sous 30 min, escalade RSSI → CEO → suppléant désigné.
+
 Le CHU et les praticiens disposent des données patients par ailleurs, ce qui sécurise la continuité des soins pendant la restauration.
 
 | Solution | Description | Avantages |
 | --- | --- | --- |
-| Sauvegardes 3-2-1 | 3 copies, 2 supports (NAS + cloud), 1 hors site. |  Intégrité des données garantie. |
+| Sauvegardes 3-2-1 |  3 copies, 2 supports distincts, 1 copie hors site. Toutes les copies de données de santé restent dans le périmètre HDS (hébergeur certifié, France/UE). |  Intégrité des données garantie, copies WORM non supprimables avant fin de rétention. |
 | Télétravail | Postes portables de secours + VPN sécurisé. |  Flexibilité, pas de site physique nécessaire. |
-| Générateur électrique | Pour les locaux techniques. | Autonomie 24h. |
+
 
 _Note : dans un PRA PCA en contexte réelle, une colonne supplémentaire budget serait ajoutée avec une estimation pour chaque solution pour aider au pilotage et à l'arbitrage._
 
@@ -229,7 +238,7 @@ _Note : dans un PRA PCA en contexte réelle, une colonne supplémentaire budget 
 | --- | --- | --- |
 | Cyberattaque | Restauration depuis sauvegardes clean + isolation des systèmes infectés. | 1. Isoler le réseau. 2. Restaurer les données. 3. Analyser la cause (logs, EDR). |
 | Panne serveur | Bascule vers le serveur de secours + réparation. | 1. Basculer en 30 min. 2. Contacter l’hébergeur. 3. Tester les applications. |
-| Fuite de données | Containment + notification CNIL/ANSSI sous 72h. | 1. Identifier la source. 2. Limiter l’accès. 3. Notifier les autorités. |
+| Fuite de données | Containment + notification CNIL/ANSSI (CHU) sous 72h. | 1. Identifier la source. 2. Limiter l’accès. 3. Notifier les autorités. |
 
 ### 3.4. Coordination avec les Parties Prenantes
 
@@ -241,14 +250,14 @@ _Note : dans un PRA PCA en contexte réelle, une colonne supplémentaire budget 
 | Autorités | ANSSI | CHU: Reporting sous 24h pour les incidents majeurs (NIS2) |
 | Autorités | CNIL | Notification sous 72h en cas de fuite de données (RGPD). |
 | Clients | Patients | Communication transparente (ex : "Service temporairement indisponible, vos données sont sécurisées").|
-| Clients | Practiciens B2C | Communication transparente (ex : "Service temporairement indisponible, vos données sont sécurisées").|
+| Clients | Praticiens (utilisateurs B2B de la plateforme, en relation avec les patients B2C) | Communication transparente (ex : "Service temporairement indisponible, vos données sont sécurisées").|
 
 ### 3.5. Preuves de conformité
 
 | Exigence Contractuelle | Preuve | Fréquence | Responsable |
 | --- | --- | --- | --- |
 | Activation PCA/PRA sous 4h | Rapport de test PCA/PRA | Trimestrielle | DevOps + RSSI |
-| Bascule automatique | Logs OVH+ Script bascule_ovh.py | À chaque incident | DevOps |
+| Bascule par script | Logs OVH+ Script bascule_ovh.py | À chaque incident | DevOps |
 | Restauration depuis sauvegardes | Rapport de restauration | Trimestrielle | DevOps |
 | Notification sous 4h | Email envoyé + Fiche d’incident | À chaque incident | RSSI + DPO |
 
@@ -261,16 +270,16 @@ _Note : dans un PRA PCA en contexte réelle, une colonne supplémentaire budget 
 **Outils :**
 - Détection : Wazuh (open source, détection des intrusions, analyse des logs, alertes) 
 - Centralisation des logs : Graylog.
-- Sauvegardes : Synology NAS + Backblaze.
-- Outil d'investigation forensique: MIG by Mozilla.
+- Sauvegardes : OVH HDS (mode WORM), copie hors site dans le périmètre HDS.
+- Outil d'investigation forensique: Velociraptor (open source).
 
 Cible de maturité : 
 - automatiser les alertes et améliorer les intégrations entre les différents outils.  
 - sélectionner et implémenter un EDR (Endpoint Detection and Response).
 
 **Processus :**
-- Alerte automatique : Email/SMS au pilote PCA et à l’équipe technique + copie CEO (alerte supposée niveau élevée ou critique)
-- Escalade : Si non résolu en 30 min → activation de la cellule de crise.
+- Alerte automatique : Email/SMS au pilote PCA et à l’équipe technique joignable + copie CEO (alerte supposée niveau élevée ou critique), hors heures ouvrées : SMS au CEO (1er niveau), relais DevOps à 30 min
+- Escalade : Si non résolu en 30 min → activation de la cellule de crise qui ratifie les décisions d’activation
 
 ### 4.2. Réponse Immédiate
 Checklist par scénario :
@@ -282,9 +291,7 @@ Checklist par scénario :
 - Ne pas payer la rançon (conformément aux recommandations ANSSI).
 
 **Panne serveur :**
-- Vérifier les onduleurs/générateurs.
-- Basculer vers le serveur de secours.
-- Contacter le fournisseur pour réparation.
+- Vérifier le statut OVH et ouvrir un ticket support.
 
 **Fuite de données :**
 - Identifier les données concernées.
@@ -386,12 +393,12 @@ Accessibilité :
 
 | Rôle | Nom/Service | Organisation | Contact | Disponibilité | SLA/Contrat | Escalade | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Responsable PCA/PRA | RSSI | Claire ESPINOZA | SantéConnect | E-mail + téléphone pro. | Lundi au jeudi | CEO | Contact principal pour la coordination des incidents critiques. |
-| Responsable Technique | DevOps d’astreinte (équipe DevOps, rotation) : exécution des scripts de bascule et restauration | SantéConnect | E-mail + téléphone pro. | Jours ouvrés | RSSI | Exécution des scripts de bascule et restauration. |
+| Responsable PCA/PRA | RSSI (Claire ESPINOZA) | SantéConnect | E-mail + téléphone pro. | Lundi au jeudi (hors disponibilité → CEO) | Contact principal pour la coordination des incidents critiques. |
+| Responsable Technique | DevOps en joignabilité (équipe DevOps, rotation) : exécution des scripts de bascule et restauration | SantéConnect | E-mail + téléphone pro. | Jours ouvrés | RSSI | Exécution des scripts de bascule et restauration. |
 | DPO | Jeanne PETIT | SantéConnect (As a Service) | E-mail + téléphone pro. | +33 1 XX XX XX XX | Jours ouvrés (9h-18h) | RSSI | Notification RGPD et validation des procédures. |
 | Responsable Sécurité CHU | Département IT | CHU Partenaire | [it@chu-fictif.fr](mailto:it@chu-fictif.fr)  +33 2 XX XX XX XX | 24/7 | RSSI SantéConnect | Validation des bascules et restaurations. |
-| Support Technique OVH (SLA Gold) | Équipe SLA OVH | OVHcloud | [support-sla@ovh.com](mailto:support-sla@ovh.com)  +33 9 72 10 10 07 | 24/7/365 | DevOps d’astreinte | Temps de réponse garanti : < 15 min (SLA Gold). Référence contrat : SC-2026-OVH-12345. |
-| Support Urgent OVH (Incidents Critiques) | Hotline OVH | OVHcloud | [emergency@ovh.com](mailto:emergency@ovh.com)  +33 9 72 10 10 00 | 24/7/365 | Responsable Technique SantéConnect | Priorité absolue pour les incidents impactant les services critiques (API HL7/FHIR, Base D-002). |
+| Support Technique OVH (SLA Gold) | Équipe SLA OVH | OVHcloud | [support-sla@ovh.com](mailto:support-sla@ovh.com)  +33 9 XX XX XX XX | 24/7/365 | DevOps en joignabilité | Temps de réponse garanti : < 15 min (SLA Gold). Référence contrat : SC-2026-OVH-12345. |
+| Support Urgent OVH (Incidents Critiques) | Hotline OVH | OVHcloud | [emergency@ovh.com](mailto:emergency@ovh.com)  +33 XX XX XX XX | 24/7/365 | Responsable Technique SantéConnect | Priorité absolue pour les incidents impactant les services critiques (API HL7/FHIR, Base D-002). |
 
 
 ## 6.2. Inventaire des Actifs

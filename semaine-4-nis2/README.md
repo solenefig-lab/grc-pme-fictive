@@ -29,8 +29,8 @@
    - **Focus sur l’essentiel** : Priorisation des gaps **critiques** (🔴) pour respecter les **exigences contractuelles du CHU**.
 
 2. **Alignement multi-réglementaire** :
-   - **NIS2** (via CHU) : PCA/PRA, notification sous 24h.
-   - **HDS** : Notification sous 24h à l’ANS, chiffrement AES-256.
+   - **NIS2** (via clauses CHU) : PCA/PRA, alerte sous 4h, notification sous 24h.
+   - **HDS** : Hébergement certifié OVH (activités 1-4 et 6), chiffrement AES-256 (note : activité 5 exercée par SantéConnect = écart connu et accepté).
    - **RGPD** : Notification sous 72h à la CNIL, protection des données.
    - **ISO 27001:2022** : Contrôles A.5.29-30 (PCA/PRA), A.8.13 (sauvegardes).
 
