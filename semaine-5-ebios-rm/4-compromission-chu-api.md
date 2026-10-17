@@ -60,8 +60,8 @@ ___
 | Atelier | Version | Date  |
 | --- | --- | --- |
 | [Atelier 1 - Cadrage](./1-ebios-rm-santeconnect-cadrage.md) | V1.0 | 29/06/2026 |
-| [Atelier 2 - Sources de risque](./2-sources-risque.md) | V1.1 | 30/07/2026 |
-| [Atelier 3 - Scénarios stratégiques](./3-scenarios-strategiques.md) | V1.0 | 31/07/2026 |
+| [Atelier 2 - Sources de risque](./2-sources-risque.md) | V1.0 | 07/07/2026 |
+| [Atelier 3 - Scénarios stratégiques](./3-scenarios-strategiques.md) | V1.0 | 16/07/2026 |
 
 
 ### 2.1. Atelier 1 : missions, valeurs métier et biens supports relatifs à l’objet de l’étude
@@ -73,13 +73,13 @@ ___
 | ID | Dénomination | Description | Type | Biens Support | Responsable métier |
 | --- | --- | --------------- | --- | --- |  --- |
 | VM1 | Suivi cardiologique | Suivi quotidien des indicateurs cardiologiques critiques (poids, tension artérielle) avec alertes automatisées en cas de valeurs anormales, et rappels de prise de médicaments pour améliorer l’observance thérapeutique | Processus | App mobile, Web app, API CHU, Données Médicales | CEO | 
-| VM2 | Coffre-fort médical | Stockage sécurisé et conforme HDS des documents médicaux sensibles (ordonnances, comptes-rendus d’analyses) avec accès restreint (RBAC) et traçabilité (logs Graylog) | Stockage | App mobile, Web app, Données médicales | DPO |
+| VM2 | Coffre-fort médical | Stockage sécurisé et conforme HDS des documents médicaux sensibles (ordonnances, comptes-rendus d’analyses) avec accès restreint (RBAC) et traçabilité (logs Graylog) | Stockage | App mobile, Web app, Données médicales | Responsable Produit (DPO consulté) |
 | VM3 | Messagerie sécurisée | Messagerie chiffrée de bout en bout pour les échanges entre patients et praticiens ou praticiens entre eux, conforme à HDS (L.1111-8 CSP) et intégrée aux dossiers patients | Communication | App mobile, Web app | CEO | 
 
 **Biens Supports**
 - **Inclus** :
   - App mobile (B2C), 
-  - Web app (B2B), 
+  - WebApp (B2C) et Plateforme B2B praticiens (désignées « Web app » dans la suite des ateliers), 
   - Interconnexion CHU : API HL7/FHIR, 
   - Traitement Données médicales, 
   - Logs (Graylog), 
@@ -95,7 +95,7 @@ ___
 | Réglementation | Applicabilité | Etat d'application | Lien avec les VM | Documentation lié |
 |----------------|---------------|------------------| ------------------| ------------------| 
 | **RGPD**       | Directe       | ✅ Conforme | VM1, VM2 (données santé = Art. 9) | [AIPD synthétique](../semaine-2-rgpd-hds/aipd-synthetique.md)|
-| **HDS**        | Directe       | ✅ Conforme | VM1, VM2, VM3 (L.1111-8 CSP) | [AIPD synthétique](../semaine-2-rgpd-hds/aipd-synthetique.md)|
+| **HDS**        | Directe       | 🟡 Partiel (hébergement conforme, activité 5 (administration et exploitation du SI contenant les données de santé par SantéConnect) écart connu et accepté) | VM1, VM2, VM3 (L.1111-8 CSP) | [AIPD synthétique](../semaine-2-rgpd-hds/aipd-synthetique.md)|
 | **NIS2**       | Indirecte (supply chain) | 🟡 Partiel |VM1 (API CHU = Art. 21) | [Plan d'action NIS2](../semaine-4-nis2/plan_action_nis2.md) |
 | **ISO 27001**  | Volontaire     | 🟡 Partiel | Toutes (SoA S3) | [PSSI](../semaine-3-iso27001/pssi.md)|
 
@@ -115,13 +115,14 @@ _Note : actualisation des écarts identifiés dans la Déclaration d'Applicabili
 | Norme | ISO 27001:2022 | 🟡 Appliqué avec restrictions | A.5.17, A.8.5, A.8.20 : Surveillance continue non formalisée | Configuration Wazuh/Graylog: procédure de surveillance non encore documentée. |
 | Norme | ISO 27001:2022 | 🟡 Appliqué avec restrictions |  A.6.3  : Preuves de formation NIS2 manquantes | La revue des formations existantes sur le marché est prévue mais non encore priorisée dans le planning RH. |
 | Norme | ISO 27001:2022 | 🔴 Non appliqué | A.6.4 Processus disciplinaire | N.I. (Non Implémenté) : Pas de processus disciplinaire spécifique aux incidents de sécurité. |
-| Norme | ISO 27001:2022 | 🔴 Non appliqué | A.7.11 Utilitaires de support | N.A. (Non Applicable) : Gestion des utilités déléguée au bailleur. |
 | Norme | ISO 27001:2022 | 🟡 Appliqué avec restrictions | A.5.3 Séparation des tâches | Procédures non formalisées pour les données sensibles. |
 | Norme | ISO 27001:2022 | 🟡 Appliqué avec restrictions | A.5.15 Contrôle d’accès | Matrice RBAC incomplète: inclure comptes techniques, comptes de secours, accès de crise. |
 | Norme | ISO 27001:2022 | 🟡 Appliqué avec restrictions | A.5.25 Évaluation des événements | Surveillance non automatisée (Wazuh/Graylog): procédure de surveillance non encore documentée. |
 | Norme | ISO 27001:2022 | 🟡 Appliqué avec restrictions | A.8.12 Prévention des fuites de données | Aucun outil DLP déployé. |
 | Norme | ISO 27001:2022 | 🟡 Appliqué avec restrictions | A.8.23 Filtrage web | Étendre la liste noire et déployer un filtre web centralisé.  |
 | Norme | ISO 27001:2022 | 🟡 Appliqué avec restrictions | A.8.32 Gestion du changement | Revues d’impact non formalisées avant déploiement. |
+
+_Note : A.7.11 (N.A., exclu de la SoA) n’est pas un écart._
 
 ### 2.3. Atelier 2 : sources de risque et objectifs visés retenus
 
@@ -134,12 +135,12 @@ Pertinence 🔴
 | --- | --- | --- | --- | --- |
 | Organisation Criminelle | Lucratif/Entrave | VM1, VM2 | PCA/PRA, Surveillance, Micro-seg | Compromission API HL7/FHIR |
 | Organisation Criminelle | Lucratif (ransomware) | VM1, VM2 | PCA/PRA, Sauvegardes | Ransomware sur D-002 |
-| Personnel interne mécontent | Entrave (sabotage interne dispositid sauvegarde) | VM1, VM2 | PCA/PRA, RBAC | Sabotage interne dispositif sauvegarde |
+| Personnel interne mécontent | Entrave (sabotage interne dispositif sauvegarde) | VM1, VM2 | PCA/PRA, RBAC | Sabotage interne dispositif sauvegarde |
 
 **Justification :**  
 - Ces 3 scénarios couvrent tous les gaps 🔴 (PCA/PRA) et 2 gaps 🟡 (Surveillance, Micro-segmentation).  
 - Ils impactent directement VM1 et VM2, critiques pour SantéConnect.  
-- Ils sont réalistes pour une PME santé (attaques observées sur les CHU en 2023/24).  
+- Ils sont réalistes pour une PME santé (attaques observées sur les CHU en 2022/24).  
 
 ### 2.4. Atelier 3: scénarios stratégiques retenus
 
@@ -154,13 +155,15 @@ Les scénarios sélectionnés se basent sur les [couples prioritaire SR/OV ident
 
 **S1: Compromission de l’API HL7/FHIR via le CHU Fictif**
 
-Ce scénario est aligné sur les attaques récentes contre les CHU (ex : cyberattaque CHU Rouen 2023). 
+Ce scénario s’inspire des cyberattaques visant des établissements de santé (ex : centre hospitalier Sud Francilien, 2022), le pivot par l’interconnexion API est une hypothèse du scénario.
 
-Chemin d'attaque :  
-- Exploitation : Une organisation criminelle (ex : LockBit, actif en 2023-2024) exploite une faille non patchée dans l’API HL7/FHIR du CHU  
-→ Mouvement latéral : L'attaquant exploite les tokens d'authentification de la session API active pour accéder aux données de D-002  
-→ Exfiltration : Vol de données médicales via l’App Mobile/WebApp  
-→ Indisponibilité : L’API est rendue indisponible, bloquant le suivi cardiologique en temps réel
+Chemin d’attaque (deux branches) :
+- Confidentialité : une organisation criminelle exploite une faille non corrigée dans l’API du CHU   
+→ vol d’un jeton du compte de service API CHU (lecture seule, RBAC-18)  
+→ lecture des données de D-002 exposées par l’interconnexion  
+→ exfiltration de données médicales  
+- Indisponibilité : exploitation directe d’une faille de l’API HL7/FHIR de SantéConnect, ou saturation de l’API  
+→ arrêt du suivi cardiologique en temps réel 
 
 PP impliquée : CHU Fictif (PP03) → Vecteur d’entrée via l’API vulnérable  
 Autre PP possible : Équipe Technique (PP08) → Accès administrateur aux clés API et logs (fait l'objet du Scénario S2)
@@ -187,9 +190,9 @@ _Note : Ces vecteurs sont jugés moins probables au regard des contrôles contra
 Un membre de l'équipe technique décide de saboter intentionnellement SantéConnect en neutralisant sa capacité à restaurer son SI.
 
 Chemin d'attaque :
-- Accès abusif : L’employé utilise ses droits administrateurs sur console OVH   
-→ Neutralisation : modification ou désactivation des mécanismes de sauvegarde, empêchant la création de nouveaux points de restauration
-→ Érosion de la capacité de restauration : les sauvegardes existantes restent protégées par le WORM pendant leur période de rétention, mais les points de restauration les plus anciens arrivent progressivement à expiration (fenêtre de vulnérabilité = durée de rétention WORM la plus courte)
+- Accès abusif : l’employé utilise ses droits sur la console OVH, la modification de la configuration des sauvegardes exigeant un compte temporaire validé par un tiers (RBAC-23), le scénario suppose la complicité ou la compromission du validateur    
+→ Neutralisation : modification ou désactivation des mécanismes de sauvegarde, empêchant la création de nouveaux points de restauration  
+→ Érosion de la capacité de restauration : les sauvegardes existantes restent protégées par le WORM pendant leur période de rétention, mais les points de restauration les plus anciens arrivent progressivement à expiration (fenêtre de vulnérabilité = durée de rétention WORM la plus courte)  
 → Destruction de la production : suppression ou compromission des instances, configurations et composants du SI, la restauration devient insuffisante, fortement dégradée ou impossible
 
 PP impliquée : Equipe Technique → Vecteur d'entrée via abus de droits
@@ -205,7 +208,7 @@ Vue issue du [Cadrage Audit](../semaine-1-gouvernance/cadrage-audit.md)
 | App Mobile B2C | Applicatif |
 | WebApp B2C | Applicatif |
 | Plateforme B2B | Applicatif |
-| Hébergement (OVH HDS) | Infrastructure |
+| Hébergement (OVH ) | Infrastructure |
 | APIs externes (CHU, laboratoires, Stripe) | Infrastructure |
 | Équipement routage et sécurité | Infrastructure |
 
@@ -221,14 +224,14 @@ ___
 
 _Notes :_  
 _- Les techniques d'attaque référencées dans ce tableau sont issues du Sélecteur de techniques d'attaque mis à disposition par le Club EBIOS pour l'outillage de l'Atelier 4 (club-ebios.org). Les identifiants MITRE ATT&CK correspondent à la nomenclature standard internationale._  
-_- Infrastructure réseau interne du CHU est exclus des biens supports (pas d'interconnexion avec services SantéConnect)._  
+_- Le réseau interne du CHU est exclu des biens supports, seule l’interconnexion par API HL7/FHIR est étudiée (le CHU y intervient comme vecteur d’entrée)._  
 _- Un attaquant peut utiliser plusieurs ressources et techniques pour arriver à son objectif._
 
 **S1: Compromission de l’API HL7/FHIR via le CHU Fictif**
 
-Ce scénario inspiré d’attaques réelles comme celle du CHU de Rouen en 2023, met en lumière les risques liés à la dépendance aux infrastructures externes et à la sécurité des interconnexions.  
-Chemin d'attaque : Une organisation criminelle exploite une faille dans l’API du CHU pour accéder aux données médicales de SantéConnect, bloquant le suivi cardiologique des patients et compromettant la confidentialité des dossiers.  
-Double impact : La compromission de la confidentialité des données médicales (VM2) et l'indisponibilité du suivi cardiologique en temps réel (VM1), avec des conséquences potentiellement critiques pour les patients.  
+Ce scénario s’inspire de cyberattaques visant des établissements de santé (ex : centre hospitalier Sud Francilien, 2022), et met en lumière les risques liés à la dépendance aux infrastructures externes et à la sécurité des interconnexions.  
+Chemin d'attaque : Une organisation criminelle exploite une faille dans l’API du CHU pour voler un jeton du compte de service et lire les données médicales exposées par l’interconnexion, indépendamment, l’exploitation directe ou la saturation de l’API de SantéConnect bloque le suivi cardiologique.  
+Double impact par deux branches distinctes : la confidentialité des données médicales (VM2), par un jeton en lecture seule (RBAC-18) : E8, E9, E12, E13 ; l’indisponibilité du suivi cardiologique (VM1), par exploitation directe de l’API (E7, puis E15) ou saturation (E14).  
 
 | Phase | Étape | Technique MITRE | Description action attaquant | Bien Support ciblé |
 | --- | --- | --- | --- | --- |
@@ -236,13 +239,13 @@ Double impact : La compromission de la confidentialité des données médicales 
 | CONNAÎTRE | E2 | T1590 | Reconnaissance : Collecter des informations sur le(s) réseau(x) utilisé(s) par la cible via OSINT. | Interconnexion CHU, App mobile, Web app |
 | CONNAÎTRE | E3 | T1596 | Reconnaissance : Collecter des informations techniques sur la cible depuis des sources libres (ex : CVE liés à l'implémentation HL7/FHIR, forums). | Interconnexion CHU, API HL7/FHIR |
 | CONNAÎTRE | E4 | T1594 | Reconnaissance : Collecter des informations sur la cible depuis son site internet (ex : documentation API publique). | Interconnexion CHU, API HL7/FHIR |
-| CONNAÎTRE | E5 | T1584 | Préparation de ressources : Compromettre des biens supports tiers pour outiller les différentes phases d'attaques. | CHU Fictif (API tierce) |
+| CONNAÎTRE | E5 | T1584 | Préparation de ressources : Compromettre des biens supports tiers pour outiller les différentes phases d'attaques. | Interconnexion CHU (API tierce) |
 | RENTRER | E6 | T1195 | Accès initial : Compromission de la chaîne d'approvisionnement (ex : exploitation via le CHU). | API HL7/FHIR |
 | RENTRER | E7 | T1190 | Accès initial : Intrusion dans une application exposée sur internet (ex : exploitation d'une faille dans l'API HL7/FHIR directement). | API HL7/FHIR |
-| RENTRER | E8 | T1133 | Accès initial : Utilisation frauduleuse d'un accès distant (ex : utilisation de jetons API volés). | API HL7/FHIR, App mobile, Web app |
+| RENTRER | E8 | T1078 | Comptes valides : utilisation d’identifiants ou de jetons volés (ex : jetons du compte de service API CHU). | API HL7/FHIR, App mobile, Web app |
 | TROUVER | E9 | T1528 | Récupération d'authentifiants : Compromission d'un jeton d'accès (ex : vol de clés API pour accéder aux données de D-002). | API HL7/FHIR, Données médicales |
-| TROUVER | E10 | T1135 | Découverte : Exploration de ressources réseau (ex : mouvement latéral via Web app ou App mobile). | Web app, App mobile |
-| TROUVER | E11 | T1570 | Latéralisation : Exploitation de dispositifs de partage entre un système compromis et un système cible (ex : partage de fichiers entre l'API et les applications). | API HL7/FHIR, App mobile, Web app |
+| TROUVER | E10 | T1046 | Découverte : Exploration des services réseau accessibles depuis le segment compromis (ex : cartographie des API et applications interconnectées). | Web app, App mobile |
+| TROUVER | E11 | T1570 | Latéralisation : Transfert d’outils ou de charges entre un système compromis et un système cible (ex : dépôt d’un outil de collecte sur un hôte applicatif interconnecté). | API HL7/FHIR, App mobile, Web app |
 | TROUVER | E12 | T1119 | Collecte : Collecte automatisée de données (ex : exfiltration de données médicales via des requêtes automatisées). | Données médicales |
 | EXPLOITER | E13 | T1567 | Exfiltration : Exfiltration via service web (ex : vol de données médicales via l'API ou les applications). | Données médicales, API HL7/FHIR |
 | EXPLOITER | E14 | T1498 | Impact : Déni de service réseau (ex : saturation de l'API pour bloquer le suivi cardiologique). | API HL7/FHIR |
@@ -266,14 +269,14 @@ flowchart TD
         direction TB
         E6["Compromission chaîne d'approvisionnement (CHU = maillon faible)"]
         E7["Intrusion application exposée (Faille API HL7/FHIR)"]
-        E8["Accès distant frauduleux (Jetons API volés)"]
+        E8["Comptes valides (Jetons API volés)"]
     end
 
     subgraph TROUVER["🔎 TROUVER"]
         direction TB
         E9["Compromission jeton d'accès (Vol clés API → D-002)"]
-        E10["Exploration ressources réseau (Mouvement latéral)"]
-        E11["Exploitation dispositifs partage (API → Apps)"]
+        E10["Découverte des services réseau"]
+        E11["Transfert d’outils (API → Apps)"]
         E12["Collecte automatisée (Requêtes données médicales)"]
     end
 
@@ -309,7 +312,7 @@ ___
 L'objectif est de calculer le degré de faisabilité que l'un des modes opératoires de la Source de Risque (SR) débouche sur l'Objectif Visé (OV).  Le degré de faisabilité correspond à l'évaluation de la probabilité de réussite de chaque action du scénario ou du scénario dans son ensemble, en estimant d'une part les ressources et la motivation présumées de la SR [Rappel SR et OV](#23-atelier-2--sources-de-risque-et-objectifs-visés-retenus) et d’autre part le socle de sécurité et le niveau de vulnérabilité de l’écosystème [Rappel Socle de sécurité](#22-atelier-1-socle-de-sécurité).
 
 L'évaluation appliquée est la cotation de chaque action élémentaire selon la probabilité de succès vu de l’attaquant. Les pourcentages indiqués servent de guide pour aider à la cotation.
-Le calcul de la vraisemblance globale progresse à chaque action élementaire : chaque étape reçoit une cotation puis un indice cumulé intermédiaire, c.-à-d. le minimum entre sa propre probabilité et le maximum des indices cumulés de l'étape précédente.
+Le calcul de la vraisemblance globale progresse à chaque action élémentaire : chaque étape reçoit une cotation puis un indice cumulé intermédiaire, c.-à-d. le minimum entre sa propre probabilité et le maximum des indices cumulés de l'étape précédente. Les actions alternatives d’une même phase (même but, techniques différentes) sont combinées par le maximum, les actions et phases successives par le minimum.  
 L'échelle de vraisemblance utilisée ici est à 4 niveaux, cohérente avec celle de la gravité et la taille de SantéConnect :  
 
 | Gradation vraisemblance | Description |
@@ -335,52 +338,45 @@ _Note : SantéConnect est assisté par un analyste indépendant CTI pour évalue
 **S1: Compromission de l’API HL7/FHIR via le CHU Fictif**
 
 
-| Phase | Étape | Description action attaquant | Bien Support ciblé | Cotation Vraisemblance | Détection | Contrôle |
+| Phase | Étape | Description action attaquant | Bien Support ciblé | Cotation Vraisemblance | Détection | Contrôle existant |
 | --- | --- | --- | --- | --- | --- | --- |
-| CONNAÎTRE | E1 | Reconnaissance : Collecter des informations sur le système cible via scan Internet et reconnaissance active. | Interconnexion CHU, App mobile, Web app | V4 | Filtrage web : Étendre la liste noire et déployer un filtre web centralisé. | Surveillance continue à automatiser. |
-| CONNAÎTRE | E2 | Reconnaissance : Collecter des informations sur le(s) réseau(x) utilisé(s) par la cible via OSINT. | Interconnexion CHU, App mobile, Web app | V4 |  Absence surveillance publication personnel et sensibilisation | Formation et sensibilisation non encore priorisée dans planning |
-| CONNAÎTRE | E3 | Reconnaissance : Collecter des informations techniques sur la cible depuis des sources libres (ex : CVE liés à l'implémentation HL7/FHIR, forums). | Interconnexion CHU, API HL7/FHIR | V4 | Réduction fenêtre vulnérabilité via veille sectorielle en place avec CHU et processus d'alerte. | Aucun contrôle sur informations sources externes. |
-| CONNAÎTRE | E4 | Reconnaissance : Collecter des informations sur la cible depuis son site internet (ex : documentation API publique). | Interconnexion CHU, API HL7/FHIR | V2 | Contrôle éditorial en place. | Documentation API non exposée publiquement, contrôle éditorial en place. |
-| CONNAÎTRE | E5 | Préparation de ressources : Compromettre des biens supports tiers pour outiller les différentes phases d'attaques. | CHU Fictif (API tierce) | V4 | Absence de veille des SR. | Aucun contrôle direct sur ressources de la SR, attaques existantes documentées vers des CHU. |
-| RENTRER | E6 | Accès initial : Compromission de la chaîne d'approvisionnement (ex : exploitation via le CHU). | API HL7/FHIR | V2 | Absence de surveillance automatisée. | Contrôle CHU Fictif : expertise et exigences sectorielles fortes, renforcée depuis attaques récentes d'autres CHU. |
-| RENTRER | E7 | Accès initial : Intrusion dans une application exposée sur internet (ex : exploitation d'une faille dans l'API HL7/FHIR directement). | API HL7/FHIR | V2 |  Absence de surveillance automatisée | Veille sectorielle en place avec CHU, processus d'alerte et priorisation des mesures de sécurisation formalisée.|
-| RENTRER | E8 |Accès initial : Utilisation frauduleuse d'un accès distant (ex : utilisation de jetons API volés). | API HL7/FHIR, App mobile, Web app | V2 | Absence de surveillance automatisée | Matrice RBAC en place. |
-| TROUVER | E9 | Récupération d'authentifiants : Compromission d'un jeton d'accès (ex : vol de clés API pour accéder aux données de D-002). | API HL7/FHIR, Données médicales |  V2 | Absence de surveillance automatisée. | Matrice RBAC en place et séparation des réseaux. |
-| TROUVER | E10 | Découverte : Exploration de ressources réseau (ex : mouvement latéral via Web app ou App mobile). | Web app, App mobile | V2 | Absence de surveillance automatisée. | Matrice RBAC en place et séparation des réseaux. |
-| TROUVER | E11 | Latéralisation : Exploitation de dispositifs de partage entre un système compromis et un système cible (ex : partage de fichiers entre l'API et les applications). | API HL7/FHIR, App mobile, Web app |  V2 | Absence de surveillance automatisée. | Matrice RBAC en place et séparation des réseaux. |
-| TROUVER | E12 | Collecte : Collecte automatisée de données (ex : exfiltration de données médicales via des requêtes automatisées). | Données médicales | V2 | Aucun outil DLP déployé. | Séparation des données et réseaux |
-| EXPLOITER | E13 | Exfiltration : Exfiltration via service web (ex : vol de données médicales via l'API ou les applications). | Données médicales, API HL7/FHIR | V2 | Aucun outil DLP déployé.  | Séparation des données et réseaux |
-| EXPLOITER | E14 |Impact : Déni de service réseau (ex : saturation de l'API pour bloquer le suivi cardiologique). | API HL7/FHIR | V2 | Pas de surveillance automatisée | PCA/PRA existant : bascule en mode lecture seule OVH sous 72h. La vraisemblance de l'arrêt de service reste V2 faute de surveillance automatisée. |
-| EXPLOITER | E15 | Impact : Arrêt de services (ex : rendre l'API indisponible, bloquant VM1 et VM2). | API HL7/FHIR, App mobile, Web app | V2 | Pas de surveillance automatisée | PCA/PRA existant : bascule en mode lecture seule OVH sous 72h. La vraisemblance de l'arrêt de service reste V2 faute de surveillance automatisée. |
+| CONNAÎTRE | E1 | Reconnaissance : Collecter des informations sur le système cible via scan Internet et reconnaissance active. | Interconnexion CHU, App mobile, Web app | V4 | Aucune détection automatisée des scans (alertes Wazuh/Graylog à configurer) | Ports non nécessaires fermés, DMZ pour les APIs (A.8.21) |
+| CONNAÎTRE | E2 | Reconnaissance : Collecter des informations sur le(s) réseau(x) utilisé(s) par la cible via OSINT. | Interconnexion CHU, App mobile, Web app | V4 | Aucune (pas de veille sur les publications du personnel) | Aucun contrôle en place (sensibilisation planifiée, formation non priorisée) |
+| CONNAÎTRE | E3 | Reconnaissance : Collecter des informations techniques sur la cible depuis des sources libres (ex : CVE liés à l'implémentation HL7/FHIR, forums). | Interconnexion CHU, API HL7/FHIR | V4 | Veille sectorielle partagée avec le CHU, processus d'alerte | Correctifs sous 30 jours (A.8.8) ; aucune maîtrise des sources externes |
+| CONNAÎTRE | E4 | Reconnaissance : Collecter des informations sur la cible depuis son site internet (ex : documentation API publique). | Interconnexion CHU, API HL7/FHIR | V2 | Sans objet (information publique) | Documentation API non exposée publiquement, contrôle éditorial |
+| CONNAÎTRE | E5 | Préparation de ressources : Compromettre des biens supports tiers pour outiller les différentes phases d'attaques. | CHU Fictif (API tierce) | V4 | Aucune visibilité sur la préparation de l'attaquant (veille sectorielle via le CHU) | Sans objet (ressources de la source de risque hors de portée de SantéConnect) |
+| RENTRER | E6 | Accès initial : Compromission de la chaîne d'approvisionnement (ex : exploitation via le CHU). | API HL7/FHIR | V2 | Alerte du CHU (notification sous 4h) ; surveillance automatisée de l'interconnexion non encore en place | Exigences sectorielles du CHU, renforcées par les attaques récentes ; compte de service en lecture seule (RBAC-18) |
+| RENTRER | E7 | Accès initial : Intrusion dans une application exposée sur internet (ex : exploitation d'une faille dans l'API HL7/FHIR directement). | API HL7/FHIR | V2 | Alertes Wazuh/Graylog sur requêtes API anormales à configurer | OAuth2, validation des entrées/sorties (OWASP API Security Top 10), pentest annuel, correctifs sous 30 jours |
+| RENTRER | E8 | Accès initial : Utilisation frauduleuse d'un accès distant (ex : utilisation de jetons API volés). | API HL7/FHIR, App mobile, Web app | V2 | Détection d'usage anormal de jeton (origine, volume) à configurer | Authentification mutuelle ou secret rotatif des comptes de service, lecture seule (RBAC-18) |
+| TROUVER | E9 | Récupération d'authentifiants : Compromission d'un jeton d'accès (ex : vol de clés API pour accéder aux données de D-002). | API HL7/FHIR, Données médicales | V2 | Alerte sur usage de jeton hors plage à configurer | Rotation des clés, secrets hors dépôts, séparation des réseaux |
+| TROUVER | E10 | Découverte : Exploration de ressources réseau (ex : mouvement latéral via Web app ou App mobile). | Web app, App mobile | V2 | Corrélation Wazuh/Graylog non automatisée | Séparation des réseaux (DMZ), matrice RBAC |
+| TROUVER | E11 | Latéralisation : Transfert d'outils ou de charges entre un système compromis et un système cible (ex : dépôt d'un outil de collecte sur un hôte applicatif interconnecté). | API HL7/FHIR, App mobile, Web app | V2 | Corrélation Wazuh/Graylog non automatisée | Séparation des réseaux (DMZ), matrice RBAC |
+| TROUVER | E12 | Collecte : Collecte automatisée de données (ex : exfiltration de données médicales via des requêtes automatisées). | Données médicales | V2 | Volumétrie anormale de requêtes à configurer ; aucun outil DLP | Cloisonnement de la base de santé par conception, droits limités par rôle |
+| EXPLOITER | E13 | Exfiltration : Exfiltration via service web (ex : vol de données médicales via l'API ou les applications). | Données médicales, API HL7/FHIR | V2 | Aucun outil DLP ; surveillance des flux sortants à automatiser | Export réservé au praticien sur ses patients (RBAC-12), chiffrement |
+| EXPLOITER | E14 | Impact : Déni de service réseau (ex : saturation de l'API pour bloquer le suivi cardiologique). | API HL7/FHIR | V2 | Supervision de disponibilité ; alerte automatisée à configurer | WAF et protection anti-DDoS de l'hébergeur ; mise en mode dégradé (PCA/PRA) |
+| EXPLOITER | E15 | Impact : Arrêt de services (ex : rendre l'API indisponible, bloquant VM1 et VM2). | API HL7/FHIR, App mobile, Web app | V2 | Alerte d'arrêt de service à configurer | Mise en mode dégradé en lecture seule (≤ 4h / ≤ 12h), restauration depuis les sauvegardes WORM, accès administrateur restreint (RBAC-22) |
 
 **Calcul de vraisemblance globale**
 
-| Étape | 	Cotation action |	Cotation cumulée |	Logique |
-| ---- | ---- | ---- | ---- |
-| E1 |	V4	| V4	| Départ |
-| E2 |	V4 |	V4| 	Min(V4, V4)| 
-| E3 |	V4 | V4 |	Min(V4, V4) |
-| E4 |	V2 | V2	| Min(V2, V4) ; E4 tire vers le bas |
-| E5 | V4  | V2	| Min(V4, V2) ; plafonné par E4 |
-| E6 | V2  | V2	| Min(V2, V2) |
-| E7 |	V2	| V2 | Min(V2, V2); chemin parallèle :  Max(V2,V2)=V2 |
-| E8 |	V2	| V2 | Min(V2, V2) |
-| E9 | V2 | V2	| Min(V2, V2) |
-| E10 |	V2 | V2	| Min(V2, V2) |
-| E11 |	V2	| V2 |	Min(V2, V2) |
-| E12 | V2	| V2 |	Min(V2, V2) |
-| E13 |	V2	| V2 |	Min(V2, V2) |
-| E14 |	V2 | V2	| chemin parallèle |
-| E15 | V2	| V2 | Min(V2, V2) |
+|   Phase | Actions (cotation) | Combinaison au sein de la phase | Cumul inter-phases (Min) |
+ | --- | --- | --- | --- |
+ | CONNAÎTRE | E1 V4, E2 V4, E3 V4, E4 V2, E5 V4 | Alternatives : Max = V4 | V4 |
+ | RENTRER | E6 V2, E7 V2, E8 V2 | Alternatives : Max = V2 | Min(V4, V2) = V2 |
+ | TROUVER | E9 V2, E12 V2 (nécessaires) ; E10 V2, E11 V2 (optionnelles)| série E9 → E12 (jeton, puis collecte) ; E10-E11 en dérivation optionnelle, utile à l’exploitation directe de l’API : Min = V2 | Min(V2, V2) = V2 |
+ | EXPLOITER | E13 V2, E14 V2, E15 V2 | Alternatives : Max = V2 | Min(V2, V2) = **V2** |
+
+ Sur la branche confidentialité (E8, E9, E12, E13), seules E9 et E12 sont nécessaires : E10 et E11 ne plafonnent donc pas le cumul. La branche indisponibilité (E7 puis E15, ou E14 sans accès initial) est côtée séparément. Chaque branche est côtée V2.
 
 **Vraisemblance globale du scénario S1 : V2 - Modérée.**
 
 ### 4.3. Conclusion
 
 La chaîne d'attaque a 15 étapes séquentielles, dans le cas limite mentionné par la méthode standard de calcul (cf. `ANSSI, Méthode EBIOS Risk Manager, Fiche Méthode n°8`) : "dizaine d'étapes en série".  
-Bien que la méthode recommande de diminuer d'un niveau l'indice final obtenu en bout de séquence longue, SantéConnect a choisi de maintenir la cotation à **V2 - Modérée** pour refléter :
-- Son socle de sécurité existant, notamment sur les contrôles RBAC (automatisation à implémenter), la séparation des réseaux (à formaliser) et la veille CHU (tiers) qui constituent des obstacles réels à chaque phase TROUVER/EXPLOITER,  
-- Le fait que cet atelier appartient au premier cycle d'application de la méthode EBIOS RM.  
+Les actions de chaque phase étant en grande partie alternatives (E1-E5, E6-E8, E13-E15), la vraisemblance globale est déterminée par la phase RENTRER pour la branche confidentialité, et par E14 et E15 pour la branche indisponibilité.  
+Bien que la méthode recommande de diminuer d'un niveau l'indice final obtenu en bout de séquence longue, SantéConnect a choisi de maintenir la cotation à **V2 - Modérée** pour refléter :  
+(1) premier cycle d’application de la méthode,  
+(2) API du CHU, composant tiers non maîtrisé,  
+(3) absence de détection automatisée à ce stade.  
 
 |Scénario | Gravité |	Vraisemblance | Niveau de risque | 
 | --- |  --- |  ---| --- |
@@ -389,7 +385,7 @@ Bien que la méthode recommande de diminuer d'un niveau l'indice final obtenu en
 Le niveau de risque du scénario S1 - Compromission API HL7/FHIR est évalué à 🔴 Élevé en raison de :
 - la gravité maximale (G4 - impact critique sur VM1/VM2 et obligations réglementaires),  
 - couplée à une vraisemblance modérée (V2 - fenêtre d'attaque réelle malgré les contrôles existants),  
-- cohérent avec la grille de cotation 3×3 du [Plan de Traitement de Risques](../semaine-3-iso27001/plan-traitement-risques.md) : score ≥6 → traitement prioritaire.
+- cohérent avec la grille de cotation 3×3 du [Plan de Traitement de Risques](../semaine-3-iso27001/plan-traitement-risques.md): score G×V = 8 ≥ 6 : traitement prioritaire (mêmes seuils que le PTR).
 
 Cet atelier va servir de base à la révision du socle de sécurité ainsi que des mesures de sécurité à implémenter en priorité (livrable suivant).
 

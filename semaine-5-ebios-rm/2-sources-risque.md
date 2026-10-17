@@ -22,7 +22,7 @@ Objectif principal : Anticipation cadre ReCyF (application française de NIS2) d
 
 Objectifs de l'atelier "2. Identification des Sources de Risque" :
 
-**Objectif :** dans le cadre du périmètre  et sur la base de la mission et des valeurs métiers definis pendant l'[atelier 1. Cadrage et socle de sécurité](./ebios-rm-santeconnect-cadrage.md), 
+**Objectif :** dans le cadre du périmètre  et sur la base de la mission et des valeurs métiers définis pendant l'[atelier 1. Cadrage et socle de sécurité](./1-ebios-rm-santeconnect-cadrage.md), 
 - identifier les personnes ou évènements (= Source de Risque, SR) et leurs objectifs (= Objectif Visé, OV), qui pourraient impacter négativement cette mission et ces valeurs métiers,   
 - détailler les SR/OV identifiés, 
 - les prioriser pour sélectionner ceux qui serviront de base aux scénarios stratégiques et opérationnels à construire dans les ateliers 3 et 4.
@@ -42,8 +42,8 @@ Objectifs de l'atelier "2. Identification des Sources de Risque" :
 
 _Notes :_  
 _- L'atelier 2 est mené sur la base du travail préparatoire mené par le RSSI avec le DevProduit, relu par la DPO et le spécialiste en analyse numérique._  
-_- Dans le cadre de cet atelier, SantéConnect se fait accompagner  d'un consultant indépendant chevronné analyste Cyber Threat Intelligence (CTI ou spécialiste en analyse de menace numérique)) pour l'accompagner sur l’état de la menace dans le secteur de la santé et notamment l'identification des (groupes d') attaquants, leurs ressources et objectifs supposés, leurs modus operandi ainsi que des activités les plus exposées, la connaissance des dernières actualités et attaques cyber et la mise en contexte de la menace._ 
-_- Cet investissement a été arbitré et validé par le CEO, notamment suite aux attaques cyber observés contre les CHUs français en 2023/24 [Article sur cyberattaque CHU Rouen](https://stm.cairn.info/revue-risques-et-qualite-en-milieu-de-soins-2022-1-page-23?lang=fr) 
+_- Dans le cadre de cet atelier, SantéConnect se fait accompagner  d'un consultant indépendant chevronné analyste Cyber Threat Intelligence (CTI ou spécialiste en analyse de menace numérique)) pour l'accompagner sur l’état de la menace dans le secteur de la santé et notamment l'identification des (groupes d') attaquants, leurs ressources et objectifs supposés, leurs modus operandi ainsi que des activités les plus exposées, la connaissance des dernières actualités et attaques cyber et la mise en contexte de la menace._  
+_- Cet investissement a été arbitré et validé par le CEO, notamment suite aux cyberattaques ayant visé des établissements de santé français (ex : centre hospitalier Sud Francilien, 2022 - [Article sur cyberattaque CHSF Corbeil-Essonnes](https://www.radiologie.fr/pratiques-professionnelles/sfr-actu/cyber-attaque-du-chsf-consequences-et-mesures-mises-en-place)) et à la hausse des incidents déclarés au CERT Santé [Observatoire des signalements d’incidents, ANS](https://esante.gouv.fr/sites/default/files/media/document/ANS_CERTSante_Rapport_Public_Observatoire_Signalements_ISSIS_2025_VF_0.pdf)._   
 _- Au quotidien, CHU Fictif en tant que partenaire SantéConnect partage veille cyber (notamment via bulletin ANSSI) et alertes sectorielles._  
 
 ### 1.3. Livrables
@@ -60,7 +60,7 @@ _Note : la formalisation des livrables après l'atelier est mené par la RSSI._
 
 ## 2. Rappel des éléments clés de l’Atelier 1
 
-Pour garantir la cohérence de l’analyse des risques, cette section rappelle les éléments fondateurs identifiés lors de [l’Atelier 1 : Cadrage et socle de sécurité](./ebios-rm-santeconnect-cadrage.md).
+Pour garantir la cohérence de l’analyse des risques, cette section rappelle les éléments de contexte issus lors de [l’Atelier 1 : Cadrage et socle de sécurité](./1-ebios-rm-santeconnect-cadrage.md) et des analyses précédentes ([fiche risques](../semaine-1-gouvernance/fiche-risques-e-sante.md), [PTR](../semaine-3-iso27001/plan-traitement-risques.md), [plan d’action NIS2](../semaine-4-nis2/plan_action_nis2.md)).
 
 **Périmètre - Services critiques :**
 API HL7/FHIR : Interface centrale pour l’échange de données médicales avec le CHU (ex : suivi cardiologique en temps réel).
@@ -76,7 +76,7 @@ Partenaires : CHU Fictif (co-responsabilité RGPD/HDS), laboratoires, Stripe (pa
 | Actif | Description | Sensibilité | Propriétaire | Lien avec les VM |
 | --- | --- | --- | --- | --- |
 | API HL7/FHIR | Échange de données médicales avec le CHU (suivi cardiologique, alertes). | Critique | DevProduit (Stéphane) | VM1, VM2 |
-| Base D-002 | Données médicales des patients (ordonnances, analyses). | Critique | DPO (Jeanne) | VM2 |
+| Base D-002 | Données médicales des patients (ordonnances, analyses). | Critique | DevProduit (DPO consulté) | VM2 |
 | Clés API | Accès aux services externes (CHU, laboratoires). | Critique | RSSI (Claire) | VM1, VM2 |
 | App Mobile/WebApp | Interfaces utilisateurs pour le suivi cardiologique et la messagerie. | Sensible | DevProduit (Stéphane) | VM1, VM2, VM3 |
 | Logs Graylog | Traçabilité des accès et des événements sécurité. | Sensible | RSSI (Claire) | VM2, VM3 |
@@ -86,14 +86,14 @@ Les menaces ci-dessous ont été affinées au fil des ateliers comme ayant un im
 
 - Compromission de l’API HL7/FHIR :
       - Impact : Indisponibilité du suivi cardiologique (VM1) + fuite de données médicales (VM2).
-      - Cause racine : Vulnérabilités non patchées (ex : CVE-2023-28856) ou manque de micro-segmentation.
+      - Cause racine : Vulnérabilités non patchées (ex. : CVE-2024-52007, HAPI FHIR, injection XXE) ou manque de micro-segmentation.
       - Lien avec NIS2 : Perturbation d’un service essentiel (via supply chain CHU) → obligation de notification sous 24h (Art. 23).
 - Attaque par ransomware :
       - Impact : Chiffrement de la base D-002 → indisponibilité des données (VM1, VM2) + extorsion.
       - Cause racine : Sauvegardes non testées ou RPO/RTO non respectés.
 
 - Fuite de données (D-002) :
-      - Impact : Non-conformité HDS/RGPD → amende (4% du CA) + perte de confiance.
+      - Impact : Non-conformité HDS/RGPD → amende (jusqu’à 20 M€ ou 4 % du CA mondial, le plus élevé) + perte de confiance.
       - Cause racine : Accès non autorisés (RBAC mal configuré) ou logs non surveillés.
 - Lien avec les gaps NIS2 (S4) : 
       - Gap 🔴 PCA/PRA : Scénarios de compromission de l’API ou ransomware testent la résilience (RTO 72h, RPO 24h).
@@ -117,49 +117,50 @@ Le rappel des valeurs métiers (VM) permet de mieux caractériser les SR à mêm
 | ID | Dénomination | Description | Type | Biens Support | Responsable métier |
 | --- | --- | --------------- | --- | --- |  --- |
 | VM1 | Suivi cardiologique | Suivi quotidien des indicateurs cardiologiques critiques (poids, tension artérielle) avec alertes automatisées en cas de valeurs anormales, et rappels de prise de médicaments pour améliorer l’observance thérapeutique | Processus | App mobile, Web app, API CHU, Données Médicales | CEO | 
-| VM2 | Coffre-fort médical | Stockage sécurisé et conforme HDS des documents médicaux sensibles (ordonnances, comptes-rendus d’analyses) avec accès restreint (RBAC) et traçabilité (logs Graylog) | Stockage | App mobile, Web app, Données médicales | DPO |
+| VM2 | Coffre-fort médical | Stockage sécurisé et conforme HDS des documents médicaux sensibles (ordonnances, comptes-rendus d’analyses) avec accès restreint (RBAC) et traçabilité (logs Graylog) | Stockage | App mobile, Web app, Données médicales | Responsable Produit (DPO consulté) |
 | VM3 | Messagerie sécurisée | Messagerie chiffrée de bout en bout pour les échanges entre patients et praticiens ou praticiens entre eux, conforme à HDS (L.1111-8 CSP) et intégrée aux dossiers patients | Communication | App mobile, Web app | CEO | 
 
 
 ### 3.2. SR/OV par catégorie SR
 
 L'objectif est ici d'identifier :  
-- les SR pouvant de porter atteinte aux missions de SantéConnect ou visant des intérêts supérieurs (sectoriels, étatiques, etc.), SantéConnct devenant alors une cible intermédiaire ?  
+- les SR pouvant porter atteinte aux missions de SantéConnect ou visant des intérêts supérieurs (sectoriels, étatiques, etc.), SantéConnect devenant alors une cible intermédiaire ?  
 - les OV pour chaque SR en termes d'effet attendu ?
 
-| Source de risque | Objectif visé | Motivation | Ressources | VM Impactées | Pertinence | Priorisation |
-| --- | --- | --- | --- | --- | --- | --- |
-| Concurrent | Espionnage (vol de données patients, vol stack techno) | Obtenir avantage concurrentiel | Importantes (budget R&D) | VM1, VM2, VM3 | 🔴 | P1 |
-| Concurrent | Influence (dénigrement) | Obtenir avantage concurrentiel | Significatives (réseaux sociaux) | VM3 | 🟡 | P2 |
-| Concurrent | Entrave au fonctionnement | Obtenir avantage concurrentiel | Importantes (DDoS, sabotage) | VM1, VM2, VM3 | 🔴 | P1 |
-| Personnel interne mécontent | Espionnage (vol de données) | Saboter l'entreprise | Maximales (accès admin) | VM2 | 🔴 | P1|
-| Personnel interne mécontent | Influence (fuites internes) | Saboter la réputation | Maximales (accès admin) | VM3 | 🔴 | P1 |
-| Personnel interne mécontent | Entrave au fonctionnement | Saboter le business | Maximales (accès admin) | VM1, VM2 | 🔴 | P1 |
-| Personnel interne mécontent | Entrave au fonctionnement | Erreur humaine | Maximales (accès admin) | VM1 | 🟡 | P2 |
-| Personnel interne mécontent | Lucratif (revente de données) | Gain financier | Maximales (accès admin) | VM2 | 🔴 | P1|
-| Personnel externe malveillant | Espionnage (vol de données) | Saboter l'entreprise | Importantes (compétences techniques) | VM2 | 🔴 | P1 |
-| Personnel externe malveillant | Influence (dénigrement) | Saboter la réputation | Significatives (réseaux sociaux) | VM3 | 🟡 | P2 |
-| Personnel externe malveillant | Entrave au fonctionnement | Saboter le business | Importantes (DDoS, sabotage) | VM1, VM2 | 🔴 | P1 |
-| Personnel externe malveillant | Lucratif (revente de données) | Gain financier | Significatives (accès limités) | VM2 | 🟡 | P2 |
-| Organisation Criminelle | Espionnage (vol de données D-002) | Revente de données | Importantes (outils avancés, dark markets) | VM2 | 🔴 | P1 |
-| Organisation Criminelle | Entrave (ransomware) | Extorsion (rançon) | Importantes (ransomware-as-a-service) | VM1, VM2 | 🔴 | P1 |
-| Organisation Criminelle | Lucratif (exfiltration + chiffrement) | Double extorsion | Importantes (outils comme LockBit) | VM1, VM2 | 🔴 | P1 |
-| Organisation Etatique | Espionnage | Surveillance sectorielle | Importantes (APT) | VM2 | 🟡 | P2 |
-| Organisation Etatique | Influence | Déstabiliser le secteur santé | Importantes (APT) | VM3 | 🟡 | P2 |
-| Organisation Terroriste | Influence | Déstabiliser/détruire | Importantes (cyberattaques) | VM1, VM2, VM3 | 🟡 | P2 |
-| Organisation Terroriste | Entrave au fonctionnement | Déstabiliser/détruire | Importantes (cyberattaques) | VM1, VM2 | 🟡 | P2 |
-| Hacktiviste | Influence (message politique) | Passer un message | Significatives (outils open-source) | VM3 | 🟢 | P3 |
-| Hacktiviste | Entrave au fonctionnement | Démonstration de force | Significatives (DDoS) | VM1 | 🟢 | P3 |
-| Officine spécialisée | Lucratif (services cybercriminels) | Gain financier | Importantes (expertise ciblée) | VM2 | 🟡 | P2|
-| Jeune hacker (script kiddie) | Lucratif | Gain financier | Faibles (outils basiques) | VM2 | 🟢 | P3 |
-| Jeune hacker (script kiddie) | Défi/amusement | Démontrer ses compétences | Faibles (outils basiques) | VM1 | 🟢 | P3 |
+| Source de risque | Objectif visé | Motivation | Niveau de motivation | Ressources | VM impactées | Pertinence | Priorisation |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Concurrent | Espionnage (vol de données patients, vol stack techno) | Obtenir un avantage concurrentiel | Importante | Importantes (budget R&D) | VM1, VM2, VM3 | 🔴 | P1 |
+| Concurrent | Influence (dénigrement) | Obtenir un avantage concurrentiel | Importante | Significatives (réseaux sociaux) | VM3 | 🟡 | P2 |
+| Concurrent | Entrave au fonctionnement | Obtenir un avantage concurrentiel | Importante | Importantes (DDoS, sabotage) | VM1, VM2, VM3 | 🔴 | P1 |
+| Personnel interne mécontent | Espionnage (vol de données) | Vengeance, avantage chez un futur employeur | Importante | Maximales (accès admin) | VM2 | 🔴 | P1 |
+| Personnel interne mécontent | Influence (fuites internes) | Nuire à la réputation | Importante | Maximales (accès admin) | VM3 | 🔴 | P1 |
+| Personnel interne mécontent | Entrave au fonctionnement | Saboter le business | Maximale | Maximales (accès admin) | VM1, VM2 | 🔴 | P1 |
+| Personnel interne mécontent | Lucratif (revente de données) | Gain financier | Importante | Maximales (accès admin) | VM2 | 🔴 | P1 |
+| Personnel externe malveillant | Espionnage (vol de données) | Obtenir des informations sensibles | Importante | Importantes (compétences techniques) | VM2 | 🔴 | P1 |
+| Personnel externe malveillant | Influence (dénigrement) | Nuire à la réputation | Importante | Significatives (réseaux sociaux) | VM3 | 🟡 | P2 |
+| Personnel externe malveillant | Entrave au fonctionnement | Saboter le business | Importante | Importantes (DDoS, sabotage) | VM1, VM2 | 🔴 | P1 |
+| Personnel externe malveillant | Lucratif (revente de données) | Gain financier | Importante | Significatives (accès limités) | VM2 | 🟡 | P2 |
+| Organisation Criminelle | Espionnage (vol de données D-002) | Revente de données | Importante | Importantes (outils avancés, dark markets) | VM2 | 🔴 | P1 |
+| Organisation Criminelle | Entrave (ransomware) | Extorsion (rançon) | Importante | Importantes (ransomware-as-a-service) | VM1, VM2 | 🔴 | P1 |
+| Organisation Criminelle | Lucratif (exfiltration + chiffrement) | Double extorsion | Importante | Importantes (outils comme LockBit) | VM1, VM2 | 🔴 | P1 |
+| Organisation Etatique | Espionnage | Surveillance sectorielle | Significative | Importantes (APT) | VM2 | 🟡 | P2 |
+| Organisation Etatique | Influence | Déstabiliser le secteur santé | Significative | Importantes (APT) | VM3 | 🟡 | P2 |
+| Organisation Terroriste | Influence | Déstabiliser/détruire | Significative | Importantes (cyberattaques) | VM1, VM2, VM3 | 🟡 | P2 |
+| Organisation Terroriste | Entrave au fonctionnement | Déstabiliser/détruire | Significative | Importantes (cyberattaques) | VM1, VM2 | 🟡 | P2 |
+| Hacktiviste | Influence (message politique) | Passer un message | Significative | Significatives (outils open-source) | VM3 | 🟢 | P3 |
+| Hacktiviste | Entrave au fonctionnement | Démonstration de force | Significative | Significatives (DDoS) | VM1 | 🟢 | P3 |
+| Officine spécialisée | Lucratif (services cybercriminels) | Gain financier | Significative | Importantes (expertise ciblée) | VM2 | 🟡 | P2 |
+| Jeune hacker (script kiddie) | Lucratif | Gain financier | Significative | Faibles (outils basiques) | VM2 | 🟢 | P3 |
+| Jeune hacker (script kiddie) | Défi/amusement | Démontrer ses compétences | Faible | Faibles (outils basiques) | VM1 | 🟢 | P3 |
 
 
 _Notes :_  
 _- Une même SR peut avoir plusieurs objectifs visés différents, générant donc plusieurs couples SR/OV._   
-_- Un objectif visé peut sortir du cadre du périmètre défini, qui devient un intermédiaire à l'OV final ou un risque collétaral via son exposition au risque._ 
-_- Les ressources comprennent les capacités financières et matérielles, et le niveau de compétence sur les cyberattaques._
-_- La cotation de la pertinence peut être enrichie et affinée ultérieurement si souhaité avec l'aide du spécialiste en analyse de manace numérique en détaillant pour chaque couple SR/OV : activité, modes opératoires, secteurs d'activité, arsenal d'attaque et faits d'armes._
+_- Un objectif visé peut sortir du cadre du périmètre défini, qui devient un intermédiaire à l'OV final ou un risque collatéral via son exposition au risque._  
+_- Les ressources comprennent les capacités financières et matérielles, et le niveau de compétence sur les cyberattaques._  
+_- La cotation de la pertinence peut être enrichie et affinée ultérieurement si souhaité avec l'aide du spécialiste en analyse de menace numérique en détaillant pour chaque couple SR/OV : activité, modes opératoires, secteurs d'activité, arsenal d'attaque et faits d'armes._
+_- La colonne « Niveau de motivation » (Faible / Significative / Importante / Maximale) alimente la matrice de pertinence._  
+_- Les erreurs involontaires ne sont pas des sources de risque au sens d’EBIOS RM : elles relèvent du PTR._
 
 
 **Cotation Pertinence**
@@ -175,7 +176,7 @@ L'évaluation de la pertinence d'un couple SR/OV se base sur la motivation et le
 
 **Cotation Priorisation**
 
-L'évaluation de la pertinence d'un couple SR/OV se base sur la pertinence et le potential d'impact sur le business, la réputation ou les risques réglementaires.
+La priorisation d’un couple SR/OV se base sur la pertinence et le potentiel d’impact sur le business, la réputation ou les risques réglementaires.
 
 | Priorisation | Justification | Action |
 | -------- | -------- | -------- | 
@@ -186,9 +187,9 @@ L'évaluation de la pertinence d'un couple SR/OV se base sur la pertinence et le
 
 ---
 
-## 4. cartographie des sources de risque
+## 4. Cartographie des sources de risque
 
-Les deux représentations des cartographies d'abord des sources de risque et puis des objectifs visés sont repésentés sous forme de tableau pour faciliter la sélection des couples SR/OV prioritaires et valoriser les résultats de l’atelier. 
+Les deux représentations des cartographies (des sources de risque et puis des objectifs visés) sont repésentés sous forme de tableau pour faciliter la sélection des couples SR/OV prioritaires et valoriser les résultats de l’atelier. 
 
 #### 4.1. Cartographie par Source de Risque (SR)
 *Objectif : Identifier les acteurs les plus pertinents pour SantéConnect.*
@@ -196,7 +197,7 @@ Les deux représentations des cartographies d'abord des sources de risque et pui
 | Source de risque | Pertinence dominante | OV principaux (P1) | OV secondaires (P2) | Priorisation |
 | --- | --- | --- | --- | --- |
 | Organisation Criminelle | 🔴 Élevée | Entrave, Lucratif, Espionnage | — | P1 |
-| Personnel interne mécontent | 🔴 Élevée | Espionnage, Entrave, Lucratif | — | P1 |
+| Personnel interne mécontent | 🔴 Élevée | Espionnage, Influence, Entrave, Lucratif | — | P1 |
 | Personnel externe malveillant | 🔴 / 🟡 Mixte | Espionnage, Entrave | Influence, Lucratif | P1 / P2 |
 | Concurrent | 🔴 / 🟡 Mixte | Espionnage, Entrave | Influence | P1 / P2 |
 | Organisation Étatique | 🟡 Moyenne | — | Espionnage, Influence | P2 |
@@ -230,6 +231,7 @@ Les deux représentations des cartographies d'abord des sources de risque et pui
 ## 5. Priorisation SR/OV
 
 ### 5.1. Couples SR/OV prioritaires (P1)
+
 **Critères :** 
 Pertinence 🔴   
 + impact sur VM1 (Suivi cardiologique) et VM2 (Coffre-fort médical)   
@@ -245,6 +247,19 @@ Pertinence 🔴
 - Ces 3 scénarios couvrent tous les gaps 🔴 (PCA/PRA) et 2 gaps 🟡 (Surveillance, Micro-segmentation).  
 - Ils impactent directement VM1 et VM2, critiques pour SantéConnect.  
 - Ils sont réalistes pour une PME santé (attaques observées sur les CHU en 2023/24).  
+
+**Couples P1 non développés**
+
+Sur les **11 couples P1** du §3.2, trois sont retenus pour l'Atelier 3 (§5.1), dont un seul,
+la compromission de l'API HL7/FHIR, est développé dans ce portfolio (§5.3). Les huit autres
+sont tracés ci-dessous, regroupés par chemin d’attaque :
+
+ |  Couples P1 non développés | Traitement |
+ | --- | --- |
+ | Organisation criminelle : espionnage (D-002) | Couvert par le scénario « Ransomware sur D-002 » (phase d'exfiltration, double extorsion) |
+ | Concurrent : espionnage, entrave<br>Personnel externe : espionnage, entrave | Même surface d'attaque technique que les scénarios « Compromission API » et « Ransomware D-002 », avec des ressources et une motivation inférieures ou égales ; couverts par les mesures issues de ces scénarios |
+ | Personnel interne : espionnage, lucratif (vol et revente de données) | Non développés dans ce portfolio (extension possible) ; couverts à ce jour par le moindre privilège, la revue des accès (matrice RBAC) et la journalisation (Graylog) |
+ | Personnel interne : influence (fuites internes) | Impact limité à VM3 : hors critères VM1/VM2 du §5.1 |
 
 ### 5.2. Objectif de l’Atelier 3
 

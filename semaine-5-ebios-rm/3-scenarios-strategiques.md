@@ -60,7 +60,7 @@ ___
 
 ### 2.1. Atelier 1 : Cadrage et socle de sécurité
 
-Pour garantir la cohérence de l’analyse des risques, cette section rappelle les éléments fondateurs identifiés lors de [l’Atelier 1 : Cadrage et socle de sécurité](./ebios-rm-santeconnect-cadrage.md).
+Pour garantir la cohérence de l’analyse des risques, cette section rappelle les éléments de contexte issus lors de [l’Atelier 1 : Cadrage et socle de sécurité](./1-ebios-rm-santeconnect-cadrage.md) et des analyses précédentes ([fiche risques](../semaine-1-gouvernance/fiche-risques-e-sante.md), [PTR](../semaine-3-iso27001/plan-traitement-risques.md), [plan d’action NIS2](../semaine-4-nis2/plan_action_nis2.md)).
 
 **Périmètre - Services critiques :**
 - API HL7/FHIR : Interface centrale pour l’échange de données médicales avec le CHU (ex : suivi cardiologique en temps réel).
@@ -75,7 +75,7 @@ Pour garantir la cohérence de l’analyse des risques, cette section rappelle l
 | Actif | Description | Sensibilité | Propriétaire | Lien avec les VM |
 | --- | --- | --- | --- | --- |
 | API HL7/FHIR | Échange de données médicales avec le CHU (suivi cardiologique, alertes). | Critique | DevProduit (Stéphane) | VM1, VM2 |
-| Base D-002 | Données médicales des patients (ordonnances, analyses). | Critique | DPO (Jeanne) | VM2 |
+| Base D-002 | Données médicales des patients (ordonnances, analyses). | Critique | DevProduit (DPO consulté) | VM2 |
 | Clés API | Accès aux services externes (CHU, laboratoires). | Critique | RSSI (Claire) | VM1, VM2 |
 | App Mobile/WebApp | Interfaces utilisateurs pour le suivi cardiologique et la messagerie. | Sensible | DevProduit (Stéphane) | VM1, VM2, VM3 |
 | Logs Graylog | Traçabilité des accès et des événements sécurité. | Sensible | RSSI (Claire) | VM2, VM3 |
@@ -85,14 +85,14 @@ Les menaces ci-dessous ont été priorisées lors de l’Atelier 1 comme ayant u
 
 - Compromission de l’API HL7/FHIR :
       - Impact : Indisponibilité du suivi cardiologique (VM1) + fuite de données médicales (VM2).
-      - Cause racine : Vulnérabilités non patchées (ex : CVE-2023-28856) ou manque de micro-segmentation.
+      - Cause racine : Vulnérabilités non patchées (ex. : CVE-2024-52007, HAPI FHIR, injection XXE) ou manque de micro-segmentation.
       - Lien avec NIS2 : Perturbation d’un service essentiel (via supply chain CHU) → obligation de notification sous 24h (Art. 23).
 - Attaque par ransomware :
       - Impact : Chiffrement de la base D-002 → indisponibilité des données (VM1, VM2) + extorsion.
       - Cause racine : Sauvegardes non testées ou RPO/RTO non respectés.
 
 - Fuite de données (D-002) :
-      - Impact : Non-conformité HDS/RGPD → amende (4% du CA) + perte de confiance.
+      - Impact : Non-conformité HDS/RGPD → amende (jusqu’à 20 M€ ou 4 % du CA mondial, le plus élevé) + perte de confiance.
       - Cause racine : Accès non autorisés (RBAC mal configuré) ou logs non surveillés.
 - Lien avec les gaps NIS2 (S4) : 
       - Gap 🔴 PCA/PRA : Scénarios de compromission de l’API ou ransomware testent la résilience (RTO 72h, RPO 24h).
@@ -113,7 +113,7 @@ Pertinence 🔴
 | --- | --- | --- | --- | --- |
 | Organisation Criminelle | Lucratif/Entrave | VM1, VM2 | PCA/PRA, Surveillance, Micro-seg | Compromission API HL7/FHIR |
 | Organisation Criminelle | Lucratif (ransomware) | VM1, VM2 | PCA/PRA, Sauvegardes | Ransomware sur D-002 |
-| Personnel interne mécontent | Entrave (sabotage interne dispoitif sauvegarde) | VM1, VM2 | PCA/PRA, RBAC | Sabotage interne dispositif sauvegarde |
+| Personnel interne mécontent | Entrave (sabotage interne dispositif sauvegarde) | VM1, VM2 | PCA/PRA, RBAC | Sabotage interne dispositif sauvegarde |
 
 **Justification :**  
 - Ces 3 scénarios couvrent tous les gaps 🔴 (PCA/PRA) et 2 gaps 🟡 (Surveillance, Micro-segmentation).  
@@ -126,7 +126,7 @@ ___
 
 ### 3.1. Cartographie des PP et évaluation niveau de dangerosité
 
-`Est défini comme Partie Prenante toute Entité Externe ou Interne qui a un intérêt dans SantéConnect ou qui peut influencer sa sécurité, et sur les quels SantéConnect ne peut pas imposer des mesures de sécurité, sauf via contrats ou obligations légales.`
+`Est défini comme Partie Prenante toute Entité Externe ou Interne qui a un intérêt dans SantéConnect ou qui peut influencer sa sécurité, et sur lesquels SantéConnect ne peut pas imposer des mesures de sécurité, sauf via contrats ou obligations légales.`
 
 _Notes :_  
 _- La RSSI, avec l'aide analyste CTI, est  responsable de la première sélection et de la priorisation des catégories de PP à évaluer dans cet atelier._  
@@ -135,76 +135,75 @@ _- Les PP qui pourront également être considérées comme des sources de risqu
 _- Le prestataire d'hébergement OVH est à la fois un Bien Support en tant qu'infrastructure critique pour SantéConnect et une Partie Prenante car prestataire avec obligations contractuelles et réglementaires._
 
 
-| ID | Nature | Type | Description | Exposition (Dépendance et Pénétration) | Fiabilité Cyber (Mâturité et Confiance)  | 
+| ID | Nature | Type | Description | Exposition (Dépendance et Pénétration) | Fiabilité Cyber (Maturité et Confiance)  | 
 | --- |--------- | --------- | --------- | --------- | --------- | 
-| PP01 | Externe | Clients B2C | Patientèle cardiologie | Utilisation terminaux propres via API SantéConnect : aucun lien ; accés utilisateur. | En général, faible connaissance cyber et mesures sécurité (friction) ; intentions probablement positives par rapport au service (amélioration de leur suivi cardiologique). |
-| PP02 | Externe | Clients B2B | Médecins, praticiens | Utilisation terminaux propres avec accés administrateur métier ; accés utilisateur | Mode réactif avec prise en compte certaines mesure ; intentions supposées neutres par rapport au service. |
-| PP03 | Externe | Partenaire | CHU Fictif | Partenaire clef : lien SI important et non substituable ; accés via API | Politique existante et intégrée ; intérêt pleinement compatible en tant que partenaire. |
+| PP01 | Externe | Clients B2C | Patientèle cardiologie | Utilisation terminaux propres via API SantéConnect : aucun lien ; accès utilisateur. | En général, faible connaissance cyber et mesures sécurité (friction) ; intentions probablement positives par rapport au service (amélioration de leur suivi cardiologique). |
+| PP02 | Externe | Clients B2B | Médecins, praticiens | Utilisation terminaux propres avec accès administrateur métier ; accès utilisateur | Mode réactif avec prise en compte certaines mesure ; intentions supposées neutres par rapport au service. |
+| PP03 | Externe | Partenaire | CHU Fictif | Partenaire clef : lien SI important et non substituable ; accès via API | Politique existante et exigences sectorielles fortes, mais maturité inégale (attaques récentes contre des établissements de santé) et contrôles internes non visibles de SantéConnect ; intérêt pleinement compatible en tant que partenaire. |
 | PP04 | Externe | Prestataire | Hébergeur : OVH Cloud | Indispensable pour hébergement données santé mais substituable ; hébergement donnée de santé | Obligations réglementaires et contractuelles fortes de sécurité ; Intérêt business et réputationnel, probablement positif |
 | PP05 | Externe | Prestataire | Solution paiement : Stripe | Utile pour paiement mais substituable ; accès via API paiement | Obligations réglementaires et contractuelles fortes de sécurité ; Intérêt business et réputationnel, probablement positif |
-| PP06 | Externe | Prestataire | Solution analytique web : Matomo | Utile pour données d'analyse mais substituable ; accès via API paiement | Obligations réglementaires et contractuelles fortes de sécurité ; Intérêt business et réputationnel, probablement positif |
-| PP07 | Interne | Direction | CEO SantéConnect | Décisionnaire mais possible substitution ; accés limités aux données entreprises | Politique existante mais gaps encore existants ; alignement fort intérêt SantéConnect |
-| PP08 | Interne | Equipe Technique | RSSI, DevOps | Indispensable pour cycle de vie SI mais possible substitution ; accés administrateurs possibles et accès physiques | Politique existante mais gaps encore existants ; intentions supposées neutres. | 
-| PP09 | Interne | Equipe Métier | DevProduit, Comptabilité, RH | Utilisation via API : utile mais substituable ; accés utilisateur, possible accès physique | Mode réactif principalement avec sensibilisation politique de sécurité ; intentions supposées neutres. | 
-| PP10 | Interne | Support Client | Helpdesk | Utilisation via API : utile mais substituable ; accés utilisateur et pas d'accés aux serveurs et terminaux sensibles | Mode réactif principalement avec sensibilisation politique de sécurité  ; intentions supposées neutres. | 
+| PP06 | Externe | Éditeur (auto-hébergé) | Solution analytique web : Matomo (auto-hébergé sur OVH) | Utile pour les données d’analyse mais substituable ; instance auto-hébergée, accès limité au site web marketing | Éditeur open source, instance maîtrisée par SantéConnect (hébergement OVH, pas de cookie tiers) ; intérêt convergent |
+| PP07 | Interne | Direction | CEO SantéConnect | Décisionnaire mais possible substitution ; accès limités aux données entreprises | Politique existante mais gaps encore existants ; alignement fort intérêt SantéConnect |
+| PP08 | Interne | Equipe Technique | RSSI, DevOps | Indispensable pour cycle de vie SI mais possible substitution ; accès administrateurs possibles et accès physiques | Politique existante mais gaps encore existants ; intentions supposées neutres. | 
+| PP09 | Interne | Equipe Métier | DevProduit, Comptabilité, RH | Utilisation via API : utile mais substituable ; accès utilisateur, possible accès physique | Mode réactif principalement avec sensibilisation politique de sécurité ; intentions supposées neutres. | 
+| PP10 | Interne | Support Client | Helpdesk | Utilisation via API : utile mais substituable ; accès utilisateur et pas d'accès aux serveurs et terminaux sensibles | Mode réactif principalement avec sensibilisation politique de sécurité  ; intentions supposées neutres. | 
 
 **Légende**:
 - Exposition :  
       - Dépendance : évaluation du lien avec le Système d'Information (SI) de la PP pour la réalisation de la mission de SantéConnect ;  
-      - Pénétration : pas d'accés au SI ou avec terminaux et/ ou privilège utilisateurs, accès avec privilèges administrateurs à terminaux utilisateurs et/ou accès physiques aux bureaux Santé Connect ; accès administrateurs possibles à des serveurs métiers (base de données, serveur web, serveur application ...) ; accès administrateurs à infrastructure SI (p.ex. firewall, switchs) ou physique aux salles serveurs.  
+      - Pénétration : pas d'accès au SI ou avec terminaux et/ ou privilège utilisateurs, accès avec privilèges administrateurs à terminaux utilisateurs et/ou accès physiques aux bureaux Santé Connect ; accès administrateurs possibles à des serveurs métiers (base de données, serveur web, serveur application ...) ; accès administrateurs à infrastructure SI (p.ex. firewall, switchs) ou physique aux salles serveurs.  
 - Fiabilité Cyber :  
-      - Mâturité Cyber : capacité réaction incertaine avec application mesures sécurité ponctuelles éventuelles; mode réactif avec prise en compte règle d'hygiène et règlementation ; mode réactif principalement mais politique de sécurité existante et quelques mesures préventives ; politique de management du risque intégrée et pro-active.  
+      - Maturité Cyber : capacité réaction incertaine avec application mesures sécurité ponctuelles éventuelles; mode réactif avec prise en compte règle d'hygiène et règlementation ; mode réactif principalement mais politique de sécurité existante et quelques mesures préventives ; politique de management du risque intégrée et pro-active.  
       - Confiance : intentions PP non connues ; supposées neutres ; connues et probablement positives ; connues et pleinement compatibles.
 
 **Evaluation niveau de dangerosité des Parties Prenantes**
 
-| ID | Nature | Type | Description | Exposition : Dépendance | Exposition : Pénétration | Fiabilité Cyber : Mâturité | Fiabilité Cyber : Confiance | Niveau de dangerosité | 
+| ID | Nature | Type | Description | Exposition : Dépendance | Exposition : Pénétration | Fiabilité Cyber : Maturité | Fiabilité Cyber : Confiance | Niveau de dangerosité | 
 | --- |--------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
-| PP01 | Externe | Clients B2C | Patientèle cardiologie | 1 | 1 | 1 | 3 | **0,6** |
-| PP02 | Externe | Clients B2B | Médecins, praticiens | 1 | 3 | 2 | 2 | **0,8** |
-| PP03 | Externe | Partenaire | CHU Fictif | 4 | 3 | 4 | 4 | **0,8** |
-| PP04 | Externe | Prestataire | Hébergeur : OVH Cloud | 3 | 4 | 4 | 3 | **1** |
-| PP05 | Externe | Prestataire | Solution paiement : Stripe | 2 | 3 | 4 | 3 | **0,5** |
-| PP06 | Externe | Prestataire | Solution analytique web : Matomo | 2 | 3 | 4 | 3 | **0,5** |
-| PP07 | Interne | Direction | CEO SantéConnect | 3 | 3 | 3 | 4 | **0,5** |
-| PP08 | Interne | Equipe Technique | RSSI, DevOps | 3 | 4 | 3 | 3 | **1,3** |
-| PP09 | Interne | Equipe Métier | DevProduit, Comptabilité, RH | 2 | 3 | 2 | 2 | **1,5**|
-| PP10 | Interne | Support Client | Helpdesk | 2 | 2 | 2 | 2 | **1** |
+| PP01 | Externe | Clients B2C | Patientèle cardiologie | 1 | 1 | 1 | 3 | **0,33** |
+| PP02 | Externe | Clients B2B | Médecins, praticiens | 1 | 3 | 2 | 2 | **0,74** |
+| PP03 | Externe | Partenaire | CHU Fictif | 4 | 3 | 3 | 4 | **1,00** |
+| PP04 | Externe | Prestataire | Hébergeur : OVH Cloud | 3 | 4 | 4 | 3 | **1,00** |
+| PP05 | Externe | Prestataire | Solution paiement : Stripe | 2 | 3 | 4 | 3 | **0,50** |
+| PP06 | Externe | Prestataire | Solution analytique web : Matomo | 2 | 3 | 4 | 3 | **0,50** |
+| PP07 | Interne | Direction | CEO SantéConnect | 3 | 3 | 3 | 4 | **0,75** |
+| PP08 | Interne | Equipe Technique | RSSI, DevOps | 3 | 4 | 3 | 3 | **1,33** |
+| PP09 | Interne | Equipe Métier | DevProduit, Comptabilité, RH | 2 | 3 | 2 | 2 | **1,50**|
+| PP10 | Interne | Support Client | Helpdesk | 2 | 2 | 2 | 2 | **1,00** |
 
 
 **Légende**: 
 - Niveaux d'exposition :
   - Dependance : aucun lien (1), lien utile (2), indispensable mais possible substitution (3), indispensable et non substituable (4) ;
   - Pénétration : accès utilisateurs (1), administrateurs sur terminaux utilisateurs (2), privilège administrateur "métier" (3), privilège "administrateur" sur infrastructure (4) :
-    - Mâturité par rapport aux mesures de sécurité cyber : incertain (1) ; réactif avec application quelques mesures (2) ; réactif principalement avec politique existante (3) ; politique existante et intégrée (4).
+    - Maturité par rapport aux mesures de sécurité cyber : incertain (1) ; réactif avec application quelques mesures (2) ; réactif principalement avec politique existante (3) ; politique existante et intégrée (4).
     - Confiance que leurs intentions et intérêts convergent avec SantéConnect : inconnu (1), neutre (2), probablement positif (3), convergent (4).
-- Niveau de dangerosité est calculé par `Exposition (Dépendance * Pénétration) / Fiabilité Cyber (Mâturité * Confiance)` (source méthodologique [FICHE METHODE 5 – Atelier 3](https://messervices.cyber.gouv.fr/documents-guides/Fiche_methode-Construire_lestimation_de_la_dangerosite_des_parties_prenantes_de_l_ecosysteme-atelier_3.pdf))
+- Niveau de dangerosité est calculé par `Exposition (Dépendance * Pénétration) / Fiabilité Cyber (Maturité * Confiance)` (source méthodologique [FICHE METHODE 5 – Atelier 3](https://messervices.cyber.gouv.fr/documents-guides/Fiche_methode-Construire_lestimation_de_la_dangerosite_des_parties_prenantes_de_l_ecosysteme-atelier_3.pdf))
 
 ### 3.2. Représentation des PP selon niveau de dangerosité
 
 **Définition des seuils :**
-- Hors périmètre (< 0,5) : niveau de menace jugé négligeable.
+- Les seuils s’appliquent aux valeurs exactes, affichées avec deux décimales.
 - Zone de veille ( < 0,8): niveau de menace faible et acceptable, possible veille sur les PP sans prises en compte dans les scénarios stratégiques ;
 - Zone de contrôle (< 2 ): niveau de menace tolérée et sous contrôle, vigilance particulière envers les PP concernés avec objectif à terme de réduction du risque ;
 - Zone de danger ( 2+ ): niveau de menace très élevé et difficilement acceptable, mesures prioritaires pour faire baisser le niveau de dangerosité.
 
-_Note : la gouvernance projet sous la responsabilité RSSI, avec aide analyste CT et validation direction, a fixé les PP à inclure à la limite de la zone de contrôle l'Equipe Technique de SantéConnect et le CHU Fictif et les solutions de paiement et analytique pour la zone de veille. Pour une PME de la taille de SantéConnect et dans un secteur aussi réglementé que la santé, au vu également des caractéristiques des différrentes PP, aucune n'est inclus dans le périmètre de la zone de danger._
+_Note : la gouvernance projet sous la responsabilité RSSI, avec aide analyste CT et validation direction, a fixé les PP à inclure à la limite de la zone de contrôle l'Equipe Métier de SantéConnect et le CHU Fictif, et les solutions de paiement et analytique pour la zone de veille. Pour une PME de la taille de SantéConnect et dans un secteur aussi réglementé que la santé, au vu également des caractéristiques des différrentes PP, aucune n'est inclus dans le périmètre de la zone de danger._
 
 | Hors périmètre | <span style="color:grey">Zone de veille</span> | <span style="color:orange">Zone de contrôle</span> | <span style="color:red">Zone de danger</span> |
 | --------- | --------- | --------- | --------- |
-|  | Solution de paiement, solution analytique web ; Patientèle cardiologie | Médecins praticiens, CHU Fictif, Hébergeur | |
+| Patentièle Cardiologie | Solution de paiement, solution analytique web, médecins praticiens  | CHU Fictif, Hébergeur | |
 | | Direction SantéConnect | Helpdesk, Equipe Métier, Equipe Technique  |  |
 
 
 Sont inclus dans le périmètre d'appréciation des risques les PP dans la zone de contrôle, à savoir :
-- PP Externe : Médecins praticiens, CHU Fictif, Hébergeur ;
+- PP Externe : CHU Fictif, Hébergeur ;
 - PP Interne : Helpdesk, Equipe Métier, Equipe Technique.
 
-Après discussion entre les participants à l'atelier sont retenus comme PP critiques : CHU Fictif et Equipe Technique. 
-Bien dans la zone de contrôle n'ont pas été retenus :
-- L'hébergeur OVH est certifié HDS, soumis à des contraintes réglementaires et contractuelles forte ;
-- Les médecins practiciens dont l'accés est limité à leurs propres données ;
-- Les équipes helpdesk et métier qui n'ont pas d'accés admin sur les éléments d'infrastructure ni sur les données sensibles.
+Après discussion entre les participants à l'atelier, le CHU Fictif est retenu comme PP critique : dépendance non substituable et vecteur d’entrée par l’interconnexion API. 
+Bien que dans la zone de contrôle, n’ont pas été retenus :  
+- L’hébergeur OVH, certifié HDS, soumis à des contraintes réglementaires et contractuelles fortes.  
+- Les équipes helpdesk et métier, dont les accès se limitent à leur périmètre : pas d’accès administrateur à l’infrastructure (RBAC-09) ni aux données de santé ; accès aux données sensibles bornés par la matrice RBAC (RBAC-06, 07, 10, 11, 24), avec revue périodique. Les accès à privilèges relèvent de l’équipe technique, retenue.  
 
 ___
 
@@ -237,18 +236,20 @@ Les scénarios sélectionnés se basent sur les [couples prioritaire SR/OV ident
 | -- |------------ | ------- | ------- | ------- | ------- | 
 | S1 | Organisation Criminelle | CHU Fictif (API vulnérable) | Compromission API HL7/FHIR → Clés API → Base D-002 → App Mobile/WebApp | VM1 (indisponibilité suivi cardiologie), VM2 (fuite données dossier médical) | Critique (G4) |
 | S2 | Organisation Criminelle | Equipe technique (phishing, cred stuffing) | Accès console OVH  → Dossier Médical (D-002): ransomware | VM1 (indisponibilité), VM2 (indisponibilité) | Critique (G4) |
-| S3 | Personnel interne mécontent | Equipe Technique (accès admin) | Accès admin direct → Console OVH  → Sauvegarde WORM: sabotage | VM1, VM2 | Critique (G4) |
+| S3 | Personnel interne mécontent | Equipe Technique (accès admin) | Accès admin → Console OVH → Neutralisation des jobs de sauvegarde → Expiration des points WORM → Destruction du SI de production | VM1, VM2 | Critique (G4) |
 
 
 **S1: Compromission de l’API HL7/FHIR via le CHU Fictif**
 
-Ce scénario est aligné sur les attaques récentes contre les CHU (ex : cyberattaque CHU Rouen 2023). 
+Ce scénario s’inspire des cyberattaques visant des établissements de santé (ex : centre hospitalier Sud Francilien, 2022), le pivot par l’interconnexion API est une hypothèse du scénario.
 
-Chemin d'attaque :  
-- Exploitation : Une organisation criminelle (ex : LockBit, actif en 2023-2024) exploite une faille non patchée dans l’API HL7/FHIR du CHU  
-→ Mouvement latéral : L'attaquant exploite les tokens d'authentification de la session API active pour accéder aux données de D-002  
-→ Exfiltration : Vol de données médicales via l’App Mobile/WebApp  
-→ Indisponibilité : L’API est rendue indisponible, bloquant le suivi cardiologique en temps réel
+Chemin d’attaque (deux branches) :
+- Confidentialité : une organisation criminelle exploite une faille non corrigée dans l’API du CHU   
+→ vol d’un jeton du compte de service API CHU (lecture seule, RBAC-18)  
+→ lecture des données de D-002 exposées par l’interconnexion  
+→ exfiltration de données médicales  
+- Indisponibilité : exploitation directe d’une faille de l’API HL7/FHIR de SantéConnect, ou saturation de l’API  
+→ arrêt du suivi cardiologique en temps réel 
 
 PP impliquée : CHU Fictif (PP03) → Vecteur d’entrée via l’API vulnérable  
 Autre PP possible : Équipe Technique (PP08) → Accès administrateur aux clés API et logs (fait l'objet du Scénario S2)
@@ -257,17 +258,17 @@ Autre PP possible : Équipe Technique (PP08) → Accès administrateur aux clés
 L'organisation criminelle rend indisponible les données via chiffrement et demande une rançon.
 
 Chemin d'attaque :
-Exploitation : L'attaquant utilise l'ingénierie sociale
-→ Campagne phishing : vol des identifiants Équipe Technique
-→ Contournement MFA : SIM swapping ou MFA fatigue pour franchir l'authentification à deux facteurs
-→ Usurpation d'identité : accès à la console OVH avec les droits admin obtenus
-→ Chiffrement : la base D-002 est chiffrée, rendant les données médicales inaccessibles
-→ Extorsion : demande de rançon en échange de la clé de déchiffrement
+Exploitation : L'attaquant utilise l'ingénierie sociale  
+→ Campagne phishing : vol des identifiants Équipe Technique  
+→ Contournement MFA : SIM swapping ou MFA fatigue pour franchir l'authentification à deux facteurs  
+→ Usurpation d'identité : accès à la console OVH avec les droits admin obtenus  
+→ Chiffrement : la base D-002 est chiffrée, rendant les données médicales inaccessibles  
+→ Extorsion : demande de rançon en échange de la clé de déchiffrement  
 
 PP impliquée : Equipe Technique → Vecteur d'entrée via campagne ingénierie sociale.  
 Autre PP possibles : 
 - Hébergeur OVH → Vecteur d’entrée via un accès administrateur compromis  
-- CHU Fictif → Vecteur d’entrée via un accès administrateur compromis
+- CHU Fictif → Vecteur d’entrée via un accès administrateur compromis  
 _Note : Ces vecteurs sont jugés moins probables au regard des contrôles contractuels en place._
 
 
@@ -275,10 +276,10 @@ _Note : Ces vecteurs sont jugés moins probables au regard des contrôles contra
 Un membre de l'équipe technique décide de saboter intentionnellement SantéConnect en neutralisant sa capacité à restaurer son SI.
 
 Chemin d'attaque :
-- Accès abusif : L’employé utilise ses droits administrateurs sur console OVH   
-→ Neutralisation : modification ou désactivation des mécanismes de sauvegarde, empêchant la création de nouveaux points de restauration
-→ Érosion de la capacité de restauration : les sauvegardes existantes restent protégées par le WORM pendant leur période de rétention, mais les points de restauration les plus anciens arrivent progressivement à expiration (fenêtre de vulnérabilité = durée de rétention WORM la plus courte)
-→ Destruction de la production : suppression ou compromission des instances, configurations et composants du SI, la restauration devient insuffisante, fortement dégradée ou impossible
+- Accès abusif : l’employé utilise ses droits sur la console OVH, la modification de la configuration des sauvegardes exigeant un compte temporaire validé par un tiers (RBAC-23), le scénario suppose la complicité ou la compromission du validateur  
+→ Neutralisation : modification ou désactivation des mécanismes de sauvegarde, empêchant la création de nouveaux points de restauration  
+→ Érosion de la capacité de restauration : les sauvegardes existantes restent protégées par le WORM pendant leur période de rétention, mais les points de restauration les plus anciens arrivent progressivement à expiration (fenêtre de vulnérabilité = durée de rétention WORM la plus courte)  
+→ Destruction de la production : suppression ou compromission des instances, configurations et composants du SI, la restauration devient insuffisante, fortement dégradée ou impossible  
 
 PP impliquée : Equipe Technique → Vecteur d'entrée via abus de droits
 ___
@@ -291,7 +292,7 @@ ___
 | ------- | ------- | ------- | ------- | ------- | ------- | 
 | CHU Fictif | Compromission API HL7/FHIR → Clés API → Base D-002 → App Mobile/WebApp | APIs mal configurées ou mal patchés | Mettre à jour contractuelle CHU (clause sécurité API), Tester PCA/PRA et Configurer des alertes dans Wazuh/Graylog et Micro-segmentation | A.5.29-30, A.8.13 et A.5.17, A.8.5, A.8.20 | G3 - Grave |
 | Equipe technique (phishing, cred stuffing) | Accès console OVH  → Dossier Médical (D-002): ransomware | Absence d'alertes sur comportements anormaux console OVH (Wazuh/Graylog non configuré sur cet accès) | Tester PCA/PRA, Finaliser et tester automatisation revue RBAC | A.5.9-18, A.8.2-3, A.8.5 | G2 - Significative |
-| Equipe Technique (accès admin) | Accès admin → Console OVH → Neutralisation des jobs de sauvegarde → Expiration des points WORM → Destruction du SI de production | Revues RBAC non automatisées, Surveillance continue non formalisée et Absence de test de restauration périodique | Finaliser et tester automatisation revue RBAC, Configurer des alertes dans Wazuh/Graylog, Copie hors ligne additionnelle (règle 3-2-1-1-0) |  A.5.9-18, A.8.2-3, A.8.5 et A.5.17, A.8.5, A.8.20 | G3 - Grave|
+| Equipe Technique (accès admin) | Accès admin → Console OVH → Neutralisation des jobs de sauvegarde → Expiration des points WORM → Destruction du SI de production | Revues RBAC non automatisées, Surveillance continue non formalisée et Test de restauration périodique à planifier | Finaliser et tester automatisation revue RBAC, Configurer des alertes dans Wazuh/Graylog, Copie hors ligne additionnelle (règle 3-2-1-1-0) |  A.5.9-18, A.8.2-3, A.8.5 et A.5.17, A.8.5, A.8.20 | G3 - Grave|
 
 _Notes :_  
 _- Les risques, mesures de sécurité et contrôles sont basés sur [Plan d'action NIS2](../semaine-4-nis2/plan_action_nis2.md). Depuis le [PRA/PCA](../semaine-4-nis2/pra-pca.md) a été documenté et validé._  

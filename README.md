@@ -22,7 +22,7 @@
 - **Analyse de risques ISO 27001** → Plan de traitement des risques (12 risques critiques, grille 3×3, contrôles liés)  
 - **Conformité RGPD en contexte HDS** → AIPD D-002 + D-005, convention co-responsabilité CHU art. 26  
 - **Exposition NIS2 supply chain** → Gap analysis, 1 risque critique identifié, PCA/PRA livré, feuille de route  
-- **Modélisation EBIOS RM** → Cadrage systémique, 24 couples SR/OV, scénario compromission API CHU  
+- **Modélisation EBIOS RM** → Cadrage systémique, 23 couples SR/OV, scénario compromission API CHU  
 - **Automatisation audit RBAC** → Script Python autonome, 0 dépendance externe, rapport CSV horodaté  
 
 Exemples d'arbitrage : 
@@ -142,7 +142,7 @@ Hosting (HDS) · ISO 27001:2022 · NIS2 · EBIOS RM
 - ISO 27001:2022 control mapping and applicability analysis  
 - NIS2 supply chain gap analysis + action plan
 - Business continuity plan (RTO 72h / RPO 24h)
-- EBIOS RM threat modeling (24 source/objective pairs)
+- EBIOS RM threat modeling (23 source/objective pairs)
 - Automated RBAC audit script (Python, no dependencies)
 
 **Reusable resources** (CC BY 4.0) available in 

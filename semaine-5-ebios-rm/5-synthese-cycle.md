@@ -46,7 +46,7 @@ _Note : Anticipation cadre ReCyF (document de travail Référentiel Cyber France
 
 ## 2. Tableau de synthèse des risques
 
-### 2.1 Tableau de synthèse des 3 scénarii stratégiques critiques
+### 2.1 Tableau de synthèse des 3 scénarios stratégiques critiques
 
 | ID | Scénario | Gravité | Vraisemblance | Niveau de risque | Décision de traitement | 
 | -- |------------ | ------- | ------- | ------- | ------- | 
@@ -61,17 +61,17 @@ Ce scénario est aligné sur les attaques récentes contre les CHU et prestatair
 L'organisation criminelle rend indisponible les données via chiffrement et demande une rançon. 
 
 - Chemin d'attaque court (~5 étapes) : phishing Equipe Technique → contournement MFA → Usurpation identité console OVH → chiffrement données médicales → extorsion. 
-- Gravité Critique (G4) : indisponibilité base données médicales D-002 > 24h pour SantéConnect dont c'est la valeur métier principale (plateforme de suivi patients cardiologiques inopérante, retards de prise en charge éventuels, crédibilité du dispositif en test détruite); restauration possible via WORM et données sources disponibles par les canaux habituels côté CHU (continuité de soins non menacée), mais perte de l'agrégation des données et du service ; faible incitation à payer (données existant par ailleurs) ; risque résiduel de confidentialité en cas d'exfiltration (notification CNIL/RGPD).  
-- Vraisemblance V2 - Modérée : motivation d'extorsion financière réduite pour cette cible (SantéConnect, structure de petite taille à faible capacité de rançon, données sources disponibles par ailleurs) ; surface sociale restreinte (petite équipe technique proche du CEO et du product owner, a priori moins exposée au phishing de masse) ; malgré des contrôles existants faibles (écarts de socle) et un chemin d'attaque court, la probabilité de succès de bout en bout reste modérée, le ransomware étant par ailleurs en recul dans le secteur santé en 2025 (−30 %, source : https://cyberveille.esante.gouv.fr/lobservatoire-des-incidents).  
+- Gravité Critique (G4) : indisponibilité base données médicales D-002 > 24h pour SantéConnect dont c'est la valeur métier principale (plateforme de suivi patients cardiologiques inopérante, retards de prise en charge éventuels, crédibilité du dispositif en test détruite); restauration possible via WORM et données sources disponibles par les canaux habituels côté CHU (continuité de soins non menacée), mais perte de l'agrégation des données et du service ; faible incitation à payer (données existant par ailleurs) ; risque résiduel de confidentialité en cas d'exfiltration (notification CNIL/RGPD).  m
+- Vraisemblance V2 - Modérée : rentabilité attendue réduite pour cette cible (structure de petite taille à faible capacité de rançon, données sources disponibles par ailleurs), la motivation de la source (extorsion opportuniste visant le secteur santé) restant Importante (Atelier 2) ; surface sociale restreinte (petite équipe technique proche du CEO et du product owner, a priori moins exposée au phishing de masse) ; malgré des contrôles existants faibles (écarts de socle) et un chemin d'attaque court, la probabilité de succès de bout en bout reste modérée, le ransomware reculant de 30 % en 2025 dans les incidents déclarés au CERT Santé, alors que la compromission de comptes (infostealers, hameçonnage), vecteur de S2, progresse (−30 %, source : https://cyberveille.esante.gouv.fr/lobservatoire-des-incidents).  
 - Ecarts du socle de sécurité : formations non priorisées, surveillance non automatisée, absence DLP (Data Loss Prevention).
 
 **S3 : Sabotage interne du dispositif de sauvegarde/restauration**  
 Un membre de l'équipe technique décide de saboter intentionnellement SantéConnect en neutralisant sa capacité à restaurer son SI.
 
-- Chemin d'attaque court (~5 étapes) : accès admin console OVH → neutralisation des mécanismes de sauvegarde (arrêt silencieux des jobs, plus aucun nouveau point de restauration) → érosion de la capacité de restauration (les sauvegardes WORM existantes restent protégées mais expirent progressivement en fin de rétention) → destruction du SI de production (instances, configurations, IAM) → restauration insuffisante ou impossible en l'absence de copie indépendante hors ligne.  
+- Chemin d'attaque court (~5 étapes) : accès admin console OVH (avec contournement de la validation des accès temporaires, RBAC-23) → neutralisation des mécanismes de sauvegarde (arrêt silencieux des jobs, plus aucun nouveau point de restauration) → érosion de la capacité de restauration (les sauvegardes WORM existantes restent protégées mais expirent progressivement en fin de rétention) → destruction du SI de production (instances, configurations, IAM) → restauration insuffisante ou impossible en l'absence de copie indépendante hors ligne.  
 - Gravité Critique (G4) : perte de données prolongée impactant la restauration du SI de SantéConnect ; les données sources restent disponibles côté CHU/médecins/laboratoires (continuité de soins non menacée).
-- Vraisemblance V1 - Faible : motivation forte nécessaire du saboteur (grief, coercition) et chemin d'attaque présupposant une certaine patience (attendre l'expiration des rétentions et supposer non mise en place automatisation détection) ; les sauvegardes WORM verrouillées ne peuvent pas être supprimées, y compris par un administrateur (Object Lock OVHcloud : refus de toute suppression jusqu'à expiration de la rétention, identifiants admin valides compris) ;
-- Écarts du socle de sécurité : revues RBAC non automatisées, surveillance continue non formalisée et absence de test de restauration périodique .
+- Vraisemblance V1 - Faible : motivation forte nécessaire du saboteur (grief, coercition) et chemin d'attaque présupposant une certaine patience (attendre l'expiration des rétentions et supposer non mise en place automatisation détection) ; les sauvegardes WORM verrouillées ne peuvent pas être supprimées, y compris par un administrateur (Object Lock OVHcloud : refus de toute suppression jusqu'à expiration de la rétention, Object Lock en mode conformité, identifiants admin valides compris) ; la modification de la configuration des sauvegardes exige un compte temporaire validé par un tiers (RBAC-23), l’attaque suppose complicité ou compromission du validateur ;
+- Écarts du socle de sécurité : revues RBAC non automatisées, surveillance continue non formalisée et absence de test de restauration périodique (à planifier).
 
 
 PP impliquée : Equipe Technique → Vecteur d'entrée via abus de droits
@@ -102,17 +102,37 @@ La vraisemblance couplée à la gravité est un indicateur d'estimation de nivea
 
 **Critères d'acceptabilité des risques de sécurité de l'information**
 
+Le niveau de risque est obtenu par le produit Gravité (G1–G4) × Vraisemblance (V1–V4), cotées sur 4 niveaux conformément à la méthode EBIOS RM.
+
+| Gravité x Vraisemblance | V1 - Peu probable | V2 - Modérée | V3 - Élevée | V4 - Très élevée |
+| --- | :---: | :---: | :---: | :---: |
+| **G4 - Critique** | 4 🟠 | 8 🔴 | 12 🔴 | 16 🔴 |
+| **G3 - Grave** | 3 🟠 | 6 🔴 | 9 🔴 | 12 🔴 |
+| **G2 - Significative** | 2 🟢 | 4 🟠 | 6 🔴 | 8 🔴 |
+| **G1 - Mineure** | 1 🟢 | 2 🟢 | 3 🟠 | 4 🟠 |
+
+Définition des bandes d'acceptation
+
 | Niveau | Score (Gravité × Vraisemblance) | Seuil d'acceptation |
 |--------|------------------------------|-------------------|
 | 🟢 Faible | 1 – 2 | Risque acceptable (surveillance): impact faible (ex : fuite de données non sensibles) ou probabilité faible (ex : attaque ciblée improbable) |
 | 🟠 Modéré | 3 – 5 | Risque acceptable sous conditions (mesures compensatoires) |
-| 🔴 Haut | 6 – 9 | Risque inacceptable (à traiter en priorité): impact critique (ex : sanction RGPD, perte de données médicales) ou probabilité élevée (ex : accès non contrôlé).|
+| 🔴 Haut | ≥ 6 | Risque inacceptable (à traiter en priorité): impact critique (ex : sanction RGPD, perte de données médicales) ou probabilité élevée (ex : accès non contrôlé).|
 
 Pour la gestion des risques, la norme ISO 27001 décrit quatre actions possibles : 
 - **Traiter** le risque avec des contrôles de sécurité qui réduisent la probabilité qu'il se produise 
 - **Éviter** le risque en empêchant les circonstances où il pourrait se produire 
 - **Transférer** le risque avec un tiers (c'est-à-dire, externaliser les efforts de sécurité à une autre entreprise, souscrire une assurance, etc.) 
 - **Accepter** le risque car le coût d'y remédier est supérieur aux dommages potentiels 
+
+La vraisemblance couplée à la gravité est un indicateur d'estimation du niveau de risque, destiné à prioriser la stratégie de traitement. Elle n'est pas une prédiction que l'attaque surviendra, mais une estimation de sa réussite si la source de risque attaquait.
+
+_Notes :_  
+_- Correspondance avec la grille 3×3 du [PTR](../semaine-3-iso27001/plan-traitement-risques.md): les seuils d'acceptation sont identiques (🟢 1–2, 🟠 3–5, 🔴 ≥ 6). Les échelles diffèrent : EBIOS RM cote gravité et vraisemblance sur 4 niveaux (G1–G4, V1–V4), le PTR sur 3._
+_- Correspondance de lecture : G4/G3 ≈ Critique, V3/V4 ≈ Probabilité haute. Toute cotation EBIOS RM reprise dans le PTR est convertie sur 3 niveaux et documentée._  
+_- Absence de plancher de gravité : un G4 × V1 (score 4, 🟠) est acceptable sous conditions (cas du scénario S3). La gravité incompressible (données de santé, dispositif en test) est compensée par les mesures de réduction de vraisemblance et la capacité de reprise, avec critères de revue explicites (cf. section 4)._
+_- Vérification de cohérence : S1 = G4 × V2 = 8 🔴 · S2 = G4 × V2 = 8 🔴 · S3 = G4 × V1 = 4 🟠 · résiduels S1, S2 et S3 = G4 × V1 = 4 🟠._
+
 
 ---
 
@@ -129,14 +149,14 @@ Les mesures non prioritaires ou présentant un risque résiduel acceptable reste
 | 🔴 Critique | Tester bascule automatique sur le serveur de secours OVH (script Python) pour les services critiques (API HL7/FHIR, Base D-002) | S1, S2, S3  | A.5.30, A.8.13    | PCA/PRA non documenté  | RSSI    | ✅ 30/06/2026 | Scripts Python, Rapport de test, PRA/PCA mis à jour |
 | 🔴 Critique | Tester restauration depuis les sauvegardes OVH (RPO = 0 pour la Base D-002) | S1, S2, S3  | A.5.30, A.8.13    | PCA/PRA non documenté  | RSSI    | ✅ 30/06/2026 | Rapport de test, PRA/PCA mis à jour |
 | 🔴 Critique | Automatiser les revues RBAC | S1, S2, S3   | A.5.9–18, A.8.2–3, A.8.5 | Revues RBAC non automatisées         | DevOps | ✅ 15/08/2026 | Script d'automatisation, Logs |
-| 🔴 Critique | Sécuriser les API et l’interconnexion CHU : Documenter implémentation et vérification TLS 1.3   | S1        | A.8.25–30  | Micro-segmentation non documentée    |  DevOps | ✅  15/07/2026 | Schéma réseau |
-| 🔴 Critique | Sécuriser les API et l’interconnexion CHU : Documenter schéma isolation des APIs et bases   | S1     | A.8.25–30  | Micro-segmentation non documentée    |  RSSI | ✅  15/07/2026 | Schéma réseau, Caractéristiques Firewall OVH |
+| 🔴 Critique | Sécuriser les API et l’interconnexion CHU : Documenter implémentation et vérification TLS 1.3   | S1        | A.8.20, A.8.24  | Micro-segmentation non documentée    |  DevOps | ✅  15/07/2026 | Schéma réseau |
+| 🔴 Critique | Sécuriser les API et l’interconnexion CHU : Documenter schéma isolation des APIs et bases   | S1     | A.8.20, A.8.22 | Micro-segmentation non documentée    |  RSSI | ✅  15/07/2026 | Schéma réseau, Caractéristiques Firewall OVH |
 | 🟠 Élevée   | Renforcer la détection et la surveillance continue : Configurer des alertes dans Wazuh/Graylog, dont **alerte sur l'arrêt/échec des jobs de sauvegarde**     | S1, S2, S3   | A.5.17, A.8.5, A.8.20    | Surveillance continue non formalisée | RSSI | ✅ 15/09/2026 | Règles Wazuh, Graylog |     
 | 🟠 Élevée | **Renforcer la détection : configurer alertes sur les comportements anormaux console OVH** (connexions atypiques, création/suppression de ressources) | S2, S3 | A.8.15, A.8.16 | Surveillance continue non formalisée | DevOps | 🔄 15/10/2026 | Règles d'alerte, Logs OVH |
-| 🟠 Élevée | **Gestion des comptes privilégiés : séparation des rôles backup/production** | S3 | A.5.3, A.8.2, A.8.5 | Revues RBAC non automatisées | DevOps | 🔄 15/10/2026 | Matrice RBAC (RBAC-22, 23), journal des accès temporaires |
+| 🟠 Élevée | **Vérifier l’effectivité de la séparation des rôles exploitation/configuration des sauvegardes (RBAC-22 et 23) : test des accès temporaires validés et des alertes d’activation** | S3 | A.5.3, A.8.2, A.8.5 | Revues RBAC non automatisées | DevOps | 🔄 15/10/2026 | Matrice RBAC (RBAC-22, 23), journal des accès temporaires |
 | 🟠 Élevée   | **Renforcer PCA/PRA : Copie hors ligne additionnelle (règle 3-2-1-1-0)** | S3 | A.8.13 | PCA/PRA non testé | DevOps | 🔄 29/10/2026 | Rapport de test, PRA/PCA mis à jour |
-| 🟠 Élevée | **MFA résistant au phishing : clés de sécurité FIDO2/passkeys sur les comptes d'administration (console OVH, messagerie)** | S2 | A.5.17, A.8.5 | Surveillance continue non formalisée | RSSI | 🔄 30/11/2026 | Inventaire clés, Politique MFA, Test de connexion |
-| 🟡 Moyenne  | **Renforcer l'accord de co-responsabilité (RGPD Art. 26) : clauses réciproques de notification d'incident sous 24h et engagement de correction des vulnérabilités API ; documentation du mode dégradé** | S1 | A.5.31, A.5.22, A.5.29–30 | PRA/PCA non documenté, clause contractuelle co-responsable non documenté | RSSI | 🔄 2027 | Clause de co-responsabilité CHU |
+| 🟠 Élevée | **MFA résistant au phishing : clés de sécurité FIDO2/passkeys sur les comptes d'administration (console OVH, messagerie)** | S2 | A.5.17, A.8.5 | Aucun écart NIS2 associé (renforcement du MFA) | RSSI | 🔄 30/11/2026 | Inventaire clés, Politique MFA, Test de connexion |
+| 🟡 Moyenne  | **Renforcer l'accord de co-responsabilité (RGPD Art. 26) : engagement du CHU de corriger les vulnérabilités de son API dans un délai défini et d’informer SantéConnect de celles qui affectent l’interconnexion** | S1 | A.5.22, A.5.31 | Clause contractuelle co-responsable non documenté | RSSI | 🔄 2027 | Clause de co-responsabilité CHU |
 | 🟡 Moyenne  | Automatiser les alertes et améliorer les intégrations entre les différents outils (Wazuh + Graylog + Velociraptor) | S1, S2, S3   | A.5.17, A.8.5, A.8.20    | Surveillance continue non formalisée | RSSI | 🎯 cible 2027 | Règles, Processus d'escalade |
 | 🟡 Moyenne  | Renforcer sensibilisation et formation sécurité | S2, S3    | A.6.3   | Preuves de formation NIS2 manquantes | RH   | ✅ 30/09/2026 (sélection), 🎯 (mise en place) | Appel d'offre, Contrat, PV de formation |
 | 🟡 Moyenne  | Sélectionner et implémenter un EDR (Endpoint Detection and Response) | S1, S2, S3 | A.8.7 | Surveillance continue non formalisée |RSSI | 🎯 cible 2027 | Appel d'offre, Contrat, PRA/PCA |
@@ -144,7 +164,7 @@ Les mesures non prioritaires ou présentant un risque résiduel acceptable reste
 
 
 **Légende**
-✅  : Mesures de sécurité priorisées dans les précédentes analyses de risques et aux échéances maintenues
+✅  : Mesures de sécurité priorisées dans les précédentes analyses de risques et réalisées au plus tard à l’échéance indiquée
 🔄 : Mesures de sécurité priorisées ajoutées ou renforcées suite à analyse EBIOS RM
 🎯 : Mesures de sécurité planifiées dans les précédentes analyses de risques
 
@@ -165,7 +185,7 @@ gantt
     section 🟠 Priorité Élevée
     Configurer alertes Wazuh/Graylog (dont jobs de sauvegarde) :b1, 2026-08-17, 30d
     Alertes comportements anormaux console OVH :b2, 2026-09-16, 30d
-    Séparation rôles backup/production :b3, 2026-09-16, 30d
+    Test de la séparation des rôles sauvegarde/production :b3, 2026-09-16, 30d
     Copie hors ligne (règle 3-2-1-1-0) :b4, 2026-10-01, 29d
     MFA FIDO2/passkeys comptes admin :b5, 2026-10-31, 30d
     section 🟡 Priorité Moyenne
@@ -183,19 +203,20 @@ gantt
 
 ## 4. Risques résiduels
 
-Après mises en place des mesures de sécurité priorisées, aucun risque résiduel ne descend sous G3 car lié à la valeur métier (données de santé, dispositif en test). 
-Les trois résiduels sont acceptés sous conditions et consignés au registre des risques résiduels (ISO 27001 A.5.4), avec critères de revue : effectif > 25 personnes, sous-traitance de l'administration, levée de fonds (capacité de rançon), non-renouvellement de la copie hors ligne.
+Après mise en place des mesures, la gravité des trois scénarios demeure G4. Pour S1 et S2, une fuite de données de santé est G4 dès le premier patient (Atelier 1) et aucune mesure ne l’abaisse, seule la composante indisponibilité pouvant être atténuée (lecture seule au-delà de 24h → G3), sans être dominante. Pour S3, la destruction de la production reste G4 tant que la copie hors ligne n’est pas effective. Les cotations résiduelles sont donc G4 × V1 = 4 🟠 pour les trois scénarios. 
+Les trois résiduels sont acceptés sous conditions et consignés au registre des risques résiduels (ISO 27001, clause 6.1.3 f), avec critères de revue : effectif > 25 personnes, sous-traitance de l’administration, levée de fonds (capacité de rançon), non-renouvellement de la copie hors ligne.
+
 
 
 | Scénario | Cotation initiale (Gravité x Vraisemblance) | Mesures de réduction | Cotation résiduelle | Risque résiduel |
 | --- | --- | --- | --- | --- |
-| **S1 · Compromission API HL7/FHIR (CHU)** | 🔴 Haut (G4 × V2) | Clause contractuelle sécurité renforcée, PRA/PCA testé et documenté, TLS 1.3 vérifié, Micro-segmentation documentée, Alertes Wazuh/Graylog | 🟠 Modéré (G3 x V1) | Baisse de vraisemblance sous réserve de l'avenant contractuel (2027), à défaut, la vraisemblance résiduelle demeure V2; **Dépendance CHU** : API tierce non maîtrisée (patching, configuration), risque partiellement transféré (contrat), jamais éliminé |
-| **S2 · Ransomware base D-002 (OVH)** | 🔴 Haut (G4 × V2) | MFA FIDO2 (comptes admin), Sauvegardes WORM testées, Alertes console OVH, Tests PCA/PRA | 🟠 Modéré  (G3 × V1) | **Fenêtre de déploiement 2026** (mesures non encore effectives) · **Pas d'EDR ni DLP avant 2027** (exfiltration silencieuse non détectée) |
+| **S1 · Compromission API HL7/FHIR (CHU)** | 🔴 Haut (G4 × V2) | Clause contractuelle sécurité renforcée, PRA/PCA testé et documenté, TLS 1.3 vérifié, Micro-segmentation documentée, Alertes Wazuh/Graylog | 🟠 Modéré (G4 x V1) | Baisse de vraisemblance sous réserve de l'avenant contractuel (2027), à défaut, la vraisemblance résiduelle demeure V2; **Dépendance CHU** : API tierce non maîtrisée (patching, configuration), risque partiellement transféré (contrat), jamais éliminé |
+| **S2 · Ransomware base D-002 (OVH)** | 🔴 Haut (G4 × V2) | MFA FIDO2 (comptes admin), Sauvegardes WORM testées, Alertes console OVH, Tests PCA/PRA | 🟠 Modéré  (G4 × V1) | **Fenêtre de déploiement 2026** (mesures non encore effectives) · **Pas d'EDR ni DLP avant 2027** (exfiltration silencieuse non détectée) |
 | **S3 · Sabotage interne sauvegarde/restauration** | 🟠 Modéré (G4 x V1) | Alerte sur arrêt/échec des jobs de sauvegarde · Séparation rôles backup/production · Copie hors ligne (3-2-1-1-0) · Test de restauration périodique | 🟠 Modéré (G4 x V1)| Actions légitimes, lentes, en fenêtres de maintenance; gravité incompressible, vraisemblance déjà V1 |
 
 _Note sur S3 :_  
 _- La cotation résiduelle à date est semblable à l'initiale : la destruction du SI reste critique et les mesures réduisent la probabilité de succès et améliorent la capacité de reprise, sans modifier l'impact potentiel._  
-_- Après mise en œuvre effective de la copie hors ligne (29/10/2026) et des tests de restauration trimestriels, la gravité pourrait basculer en G3 (restauration dégradée possible), avec revue de cotation confiée à la RSSI au premier test de restauration trimestriel (T1 2027)._
+_- Après mise en œuvre effective de la copie hors ligne (29/10/2026) et des tests de restauration trimestriels, a composante indisponibilité de S3 pourrait être atténuée en G3 (restauration dégradée possible), la composante fuite demeurant G4, avec revue de cotation confiée à la RSSI au premier test de restauration trimestriel (T1 2027)._
 
 ---
 

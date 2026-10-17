@@ -13,7 +13,7 @@ _Note de contexte réglementaire (juin 2026) : La transposition NIS2 en droit fr
 SantéConnect est une PME française de 15 personnes fournissant des services numériques dans le domaine de la e-santé. Elle n'est ni une entité essentielle ni importante au sens de NIS2 et n'a donc pas d'obligation directe.
 - Taille : SantéConnect ne franchit pas les seuils NIS2 (Art. 2(1)); NIS2 ne crée pas d'obligation directe sur les fournisseurs de taille réduite - c'est l'entité essentielle (CHU) qui porte l'obligation de sécuriser sa chaîne via Art. 21(2).
 - Secteur d’activité : SantéConnect est fournisseur de services numériques en santé, non prestataire de soins au sens de l'Annexe I NIS2. Elle ne figure pas non plus dans l'Annexe II (autres secteurs critiques).
-- Statut juridique : SantéConnect ne répond pas aux critères de taille et de secteur définis (Art. 2(1) + Art. 2(4)).
+- Statut juridique : SantéConnect ne répond pas aux critères de taille et de secteur définis (Art. 2(1) + Art. 2(3)).
 **En conséquence, SantéConnect n'a pas d'obligation de notification vers l'ANSSI, pas d'obligation d'enregistrement sur MonEspaceNIS2, et aucun contrôle ANSSI direct ne peut lui être opposé.**
 
 ### Périmètre applicable

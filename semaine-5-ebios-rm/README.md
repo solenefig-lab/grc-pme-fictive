@@ -9,9 +9,9 @@
 - **Construire un scénario opérationnel** (compromission API CHU) illustrant la logique attaquant, complémentaire à l'approche conformité menée jusqu'ici.
 
 _Note : Pourquoi avoir choisi ce scénario (compromission API CHU) ?_
-_- Impact maximal : Fuite de données médicales sensibles → sanction RGPD (4% CA) + perte de confiance des patients._
+_- Impact maximal : Fuite de données médicales sensibles → sanction RGPD (jusqu’à 20 M€ ou 4 % du CA mondial) + perte de confiance des patients._
 _- Lien avec les gaps S4 : Micro-segmentation non documentée, surveillance continue non formalisée._ 
-_- Fournisseur d'une entité essentielle : Le CHU est un partenaire NIS2 (Art. 21) → obligation de notification sous 24h en cas d’incident._  
+_- Fournisseur d'une entité essentielle : Le CHU, entité essentielle, notifie l’ANSSI sous 24h (Art. 23), SantéConnect est tenue par des délais contractuels (4h / 24h / 72h)._  
 
 
 ---
@@ -20,9 +20,9 @@ _- Fournisseur d'une entité essentielle : Le CHU est un partenaire NIS2 (Art. 2
 | Livrable | Description | Statut |
 |---|---|---|
 | [`1-ebios-rm-santeconnect-cadrage.md`](./1-ebios-rm-santeconnect-cadrage.md)| Atelier 1 - Cadrage et socle de sécurité : périmètre métier/technique, valeurs métiers, parties prenantes, événements redoutés cotés (échelle G1-G4), socle de sécurité actualisé (SoA + plan d'action NIS2). | ✅ Complet |
-| [`2-sources-risque.md`](./2-sources-risque.md) | Atelier 2 - Sources de risque : cartographie sources de risque (SR) et objectifs visés (OV), couple SR/OV priorisé (CHU, OVH, RBAC). | ✅ Complet |
+| [`2-sources-risque.md`](./2-sources-risque.md) | Atelier 2 - Sources de risque : cartographie sources de risque (SR) et objectifs visés (OV), couple SR/OV priorisé (3 couples P1 développés : organisation criminelle ×2, personnel interne mécontent). | ✅ Complet |
 | [`3-scenarios-strategiques.md`](./3-scenarios-strategiques.md) | Atelier 3 - Parties Prenantes (PP), cartographie écosystème, principaux chemins d'attaque et mesures de sécurité écosystème. | ✅ Complet |
-| [`4-compromission-chu-api.md`](./4-compromission-chu-api.md) | Atelier 4 - Scénarios opérationnels et leur vraisemblance (sources de risque, vecteur CHU/OVH/RBAC), suivi de la compromission de l'API HL7/FHIR via supply chain CHU - modes opératoires techniques détaillés. | ✅ Complet |
+| [`4-compromission-chu-api.md`](./4-compromission-chu-api.md) | Atelier 4 - Scénarios opérationnels et leur vraisemblance (compromission de l’API HL7/FHIR via l’interconnexion CHU), modes opératoires techniques détaillés et vraisemblance, S2 et S3 non développés. | ✅ Complet |
 | [`5-synthese-cycle.md`](./5-synthese-cycle.md) | Synthèse et plan d'action : risques résiduels priorisés, alignement avec le plan d'action NIS2 (S4). | ✅ Complet |
 
 
@@ -32,7 +32,7 @@ _- Fournisseur d'une entité essentielle : Le CHU est un partenaire NIS2 (Art. 2
 
 - **Réutilisation du socle existant** : conformément au guide EBIOS RM (étape "socle de sécurité"), les contrôles déjà mis en œuvre (SoA S3, plan d'action NIS2 S4, PCA/PRA S4) constituent la base éprouvée dans les ateliers d'appréciation - pas de redondance, mais actualisation continue.
 - **Double échelle de gravité** : la grille 3×3 (PTR, S3) reste l'outil de cotation des risques globaux; EBIOS RM introduit une échelle à 4 niveaux (G1-G4) pour les événements redoutés, avec seuils de déclenchement explicites ancrés sur le RTO 72h, le RPO 24h et les délais NIS2 (Art. 23).
-- **Posture méthodologique** : Atelier 1-3 simplifiés et ciblés (PME 15 personnes), option scénario opérationnel unique retenue pour l'atelier 4; telier 5 (traitement du risque) remplacé par synthèse (plan d'action priorisé) ; pertinence et lisibilité du portfolio priorisées sur l'exhaustivité.
+- **Posture méthodologique** : Atelier 1-3 simplifiés et ciblés (PME 15 personnes), option scénario opérationnel unique retenue pour l'atelier 4; atelier 5 (traitement du risque) remplacé par synthèse (plan d'action priorisé) ; pertinence et lisibilité du portfolio priorisées sur l'exhaustivité.
 - **Contexte réglementaire anticipé** : transposition NIS2 française non publiée à ce jour ; le Référentiel Cyber France (ReCyF, ANSSI, 17/03/2026) est retenu comme référentiel cible anticipé.
 
 

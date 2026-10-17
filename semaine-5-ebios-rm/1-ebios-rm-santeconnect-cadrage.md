@@ -24,7 +24,7 @@ Objectifs de l'atelier "1. Cadrage et socle de sécurité" :
 - Définir le cadre, le périmètre métier et techniques
 - Identifier les évènements redoutés associés
 - Identifier le socle de sécurité
-- Assurer la conformité avec les référentiels avec les référentiels de sécurité numérique
+- Assurer la conformité avec les référentiels de sécurité numérique
 
 _Note de contexte réglementaire (juin 2026) : La transposition NIS2 en droit français n'est pas encore publiée. L'ANSSI met à disposition depuis le 17 mars 2026 le Référentiel Cyber France (ReCyF), document de travail correspondant au référentiel mentionné à l'article 14 du projet de loi Résilience. Les analyses et recommandations de ce livrable s'appuient sur la directive NIS2 (UE) 2022/2555 et anticipent le ReCyF comme référentiel cible, conformément à la posture recommandée par l'ANSSI pour les futurs assujettis._
 
@@ -46,7 +46,7 @@ _Note de contexte réglementaire (juin 2026) : La transposition NIS2 en droit fr
 **Cadre temporel du cadrage :** 6 mois (juin 2026 - décembre 2026), avec réévaluation trimestrielle.
 
 Justification :
-- Aligné avec contraintes légales (RGPD et ISO 27001 : audit annuel + publication CefCys attendu d'ici fin 2026)
+- Aligné avec contraintes légales (RGPD et ISO 27001 : audit annuel + publication attendue d’ici fin 2026 de la loi de transposition de NIS2)
 - Prise en compte besoin stabilité et ressources limitées
 
 **Facteur de réévaluation anticipé :**
@@ -86,14 +86,14 @@ _Note : le planning des 3 premiers ateliers peut être avancé avant 14/07/2026 
 | ID | Dénomination | Description | Type | Biens Support | Responsable métier |
 | --- | --- | --------------- | --- | --- |  --- |
 | VM1 | Suivi cardiologique | Suivi quotidien des indicateurs cardiologiques critiques (poids, tension artérielle) avec alertes automatisées en cas de valeurs anormales, et rappels de prise de médicaments pour améliorer l’observance thérapeutique | Processus | App mobile, Web app, API CHU, Données Médicales | CEO | 
-| VM2 | Coffre-fort médical | Stockage sécurisé et conforme HDS des documents médicaux sensibles (ordonnances, comptes-rendus d’analyses) avec accès restreint (RBAC) et traçabilité (logs Graylog) | Stockage | App mobile, Web app, Données médicales | DPO |
+| VM2 | Coffre-fort médical | Stockage sécurisé et conforme HDS des documents médicaux sensibles (ordonnances, comptes-rendus d’analyses) avec accès restreint (RBAC) et traçabilité (logs Graylog) | Stockage | App mobile, Web app, Données médicales | Responsable Produit (DPO consulté) |
 | VM3 | Messagerie sécurisée | Messagerie chiffrée de bout en bout pour les échanges entre patients et praticiens ou praticiens entre eux, conforme à HDS (L.1111-8 CSP) et intégrée aux dossiers patients | Communication | App mobile, Web app | CEO | 
 
 
 ### 2.3. Biens supports
 - **Inclus** :
   - App mobile (B2C), 
-  - Web app (B2B), 
+  - WebApp (B2C) et Plateforme B2B praticiens (désignées « Web app » dans la suite des ateliers), 
   - Interconnexion CHU : API HL7/FHIR, 
   - Traitement Données médicales, 
   - Logs (Graylog), 
@@ -150,7 +150,7 @@ _Note : Dans l'atelier de cadrage, les ER sont identifiés du point de vue de la
 | VM2 - Coffre-fort médical | Fuite des données stockées > 1 patient | Impacts sur la mission et le service de SantéConnect ; Impacts sur la santé des patients ; Impacts sur l'image et la confiance ; Impacts juridiques (RGPD) | G4 |
 | VM2 - Coffre-fort médical | Falsification des données stockées > 1 patient | Impacts sur la mission et le service de SantéConnect ; Impacts sur la santé des patients ; Impacts sur l'image et la confiance ; Impacts juridiques (RGPD) | G4 |
 | VM3 - Messagerie sécurisée | Interruption du service > 24 heures | Impacts sur la mission et le service de SantéConnect ; Impacts sur la santé des patients ; Impacts sur l'image et la confiance | G2 |
-| VM3 - Messagerie sécurisée | Fuite des messages > 2 praticiens | Impacts sur la mission et le service de SantéConnect ; Impacts sur la confidentialité des patients ; Impacts sur l'image et la confiance | G2 |
+| VM3 - Messagerie sécurisée | Fuite des messages (échanges patient-praticiens) > 1 patient ou 1 praticien | IImpacts sur la mission et le service de SantéConnect ; Impacts sur la confidentialité des données de santé (RGPD, HDS) ; Impacts sur l’image et la confiance ; Impacts sur les clauses contractuelles CHU | G4 |
 | VM3 - Messagerie sécurisée | Perte de traçabilité des messages > 2 praticiens| Impacts sur la mission et le service de SantéConnect ;  Impacts sur l'image et la confiance | G1 |
 | VM3 - Messagerie sécurisée | Falsification des messages > 1 praticien | Impacts sur la mission et le service de SantéConnect ;  Impacts sur l'image et la confiance  ; Impact sur la santé des patients ; Impacts juridiques | G3 |
 
@@ -164,7 +164,7 @@ _Note : Dans l'atelier de cadrage, les ER sont identifiés du point de vue de la
 | Réglementation | Applicabilité | Etat d'application | Lien avec les VM | Documentation lié |
 |----------------|---------------|------------------| ------------------| ------------------| 
 | **RGPD**       | Directe       | ✅ Conforme | VM1, VM2 (données santé = Art. 9) | [AIPD synthétique](../semaine-2-rgpd-hds/aipd-synthetique.md)|
-| **HDS**        | Directe       | ✅ Conforme | VM1, VM2, VM3 (L.1111-8 CSP) | [AIPD synthétique](../semaine-2-rgpd-hds/aipd-synthetique.md)|
+| **HDS**        | Directe       | 🟡 Partiel (hébergement conforme, activité 5 (administration et exploitation du SI contenant les données de santé par SantéConnect) écart connu et accepté) | VM1, VM2, VM3 (L.1111-8 CSP) | [AIPD synthétique](../semaine-2-rgpd-hds/aipd-synthetique.md)|
 | **NIS2**       | Indirecte (supply chain) | 🟡 Partiel |VM1 (API CHU = Art. 21) | [Plan d'action NIS2](../semaine-4-nis2/plan_action_nis2.md) |
 | **ISO 27001**  | Volontaire     | 🟡 Partiel | Toutes (SoA S3) | [PSSI](../semaine-3-iso27001/pssi.md)|
 
@@ -184,13 +184,14 @@ _Note : actualisation des écarts identifiés dans la Déclaration d'Applicabili
 | Norme | ISO 27001:2022 | 🟡 Appliqué avec restrictions | A.5.17, A.8.5, A.8.20 : Surveillance continue non formalisée | Configuration Wazuh/Graylog: procédure de surveillance non encore documentée. |
 | Norme | ISO 27001:2022 | 🟡 Appliqué avec restrictions |  A.6.3  : Preuves de formation NIS2 manquantes | La revue des formations existantes sur le marché est prévue mais non encore priorisée dans le planning RH. |
 | Norme | ISO 27001:2022 | 🔴 Non appliqué | A.6.4 Processus disciplinaire | N.I. (Non Implémenté) : Pas de processus disciplinaire spécifique aux incidents de sécurité. |
-| Norme | ISO 27001:2022 | 🔴 Non appliqué | A.7.11 Utilitaires de support | N.A. (Non Applicable) : Gestion des utilités déléguée au bailleur. |
 | Norme | ISO 27001:2022 | 🟡 Appliqué avec restrictions | A.5.3 Séparation des tâches | Procédures non formalisées pour les données sensibles. |
 | Norme | ISO 27001:2022 | 🟡 Appliqué avec restrictions | A.5.15 Contrôle d’accès | Matrice RBAC incomplète: inclure comptes techniques, comptes de secours, accès de crise. |
 | Norme | ISO 27001:2022 | 🟡 Appliqué avec restrictions | A.5.25 Évaluation des événements | Surveillance non automatisée (Wazuh/Graylog): procédure de surveillance non encore documentée. |
 | Norme | ISO 27001:2022 | 🟡 Appliqué avec restrictions | A.8.12 Prévention des fuites de données | Aucun outil DLP déployé. |
 | Norme | ISO 27001:2022 | 🟡 Appliqué avec restrictions | A.8.23 Filtrage web | Étendre la liste noire et déployer un filtre web centralisé.  |
 | Norme | ISO 27001:2022 | 🟡 Appliqué avec restrictions | A.8.32 Gestion du changement | Revues d’impact non formalisées avant déploiement. |
+
+_Note : A.7.11 (N.A., exclu de la SoA) n’est pas un écart._
 
 ---
 
