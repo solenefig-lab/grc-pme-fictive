@@ -28,7 +28,7 @@ Plus de détails sont disponibles sur:
 Objectif: Identifier, évaluer et traiter les risques pour 
 - garantir la conformité RGPD/HDS, 
 - sécuriser les données médicales critiques de SantéConnect, 
-- prioriser les actions avec une enveloppe cible de 10 k€/an (hors temps interne), estimation des mesures 4.1 ≈ 12 k€/an (plancher ≈ 9 k€), dépassement soumis à arbitrage CEO.  
+- prioriser les actions avec une enveloppe cible de 10 k€/an (hors temps interne), estimation des mesures 4.1 ≈ 12 k€/an (plancher ≈ 9 k€), hors contrepartie de l’astreinte d’alerte (§2, point 5), non chiffrée, dépassement soumis à arbitrage CEO.  
 - prouver la conformité aux audits et aux partenaires.
 
 Structure: risque global, adapté pour petite structure + accent mis sur sécurisation données médicales renforcées
@@ -55,6 +55,7 @@ Ce cadre permet de garantir une prise de décision cohérente, alignée avec les
 - **Maintenir les risques modérés** (score ≤ 5) sous contrôle avec des **mesures compensatoires**.
 - **Transférer les risques** aux tiers certifiés (OVH, Stripe, CHU) via des **contrats conformes**.
 - **Prouver la conformité** aux audits et partenaires (ex : CHU, patients, autorités de santé).
+- **Astreinte d’alerte hors heures ouvrées** : pour les DevOps (relais) et le RSSI (coupures lourdes), ce dispositif constitue une astreinte au sens de l’article L3121-9 du Code du travail (salarié hors de son lieu de travail, tenu de pouvoir intervenir). Sa mise en œuvre suppose une programmation individuelle communiquée 15 jours à l’avance, une contrepartie financière ou en repos, l’avis du CSE et l’information de l’inspection du travail (L3121-11 et L3121-12). Le CEO, dirigeant, n’est pas soumis à ce régime. Le coût n’est pas inclus dans l’enveloppe du PTR : arbitrage du CEO.
 
 
 ### Synthèse des Actions Prioritaires (Section 4.1)
@@ -266,7 +267,7 @@ Objectif : Obtenir l’engagement formel de la direction (ISO 27001:2022, clause
 | Critère | Justification | Preuve |
 | --- | --- | --- |
 | Revue par la direction | Le plan a été présenté et validé par le CEO (Martin DUPONT) lors de l’atelier du 20/03/2024 (V1.0), revu le 15/02/2025 (V1.1). | PV de revue de direction signé |
-| Ressources allouées | Budget (estimation ≈ 12 k€/an hors temps interne, cible 10 k€) soumis à arbitrage du CEO pour les mesures de 4.1 + 0.5 FTE (DevOps) pour la maintenance de Graylog et les sauvegardes. | Décision budgétaire signée par le CEO |
+| Ressources allouées | Budget (estimation ≈ 12 k€/an hors temps interne, cible 10 k€) soumis à arbitrage du CEO pour les mesures de 4.1 + 0.5 FTE (DevOps) pour la maintenance de Graylog et les sauvegardes. Contrepartie de l’astreinte d’alerte à chiffrer et à arbitrer (cf. §2, point 5).| Décision budgétaire signée par le CEO |
 | Intégration au SMSI | Le PTR est lié à la PSSI (mesures A.5.15, A.8.21, etc.) et au SoA (10 contrôles prioritaires). | Références croisées dans PSSI et SoA/Déclaration d'applicabilité. |
 | Cohérence réglementaire | Alignement avec RGPD (Art. 30, 32, 33-34), HDS (L. 1111-8, R.1111-8 et s.) ; CSP R. 1112-7 pour la conservation côté CHU, et NIS2 art. 21(2). | Matrice de conformité réglementaire |
 

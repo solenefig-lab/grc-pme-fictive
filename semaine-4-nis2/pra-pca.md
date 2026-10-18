@@ -188,7 +188,7 @@ La faisabilité de ce délai repose sur :
 | Étape | Action | Outil/Responsable | Délai | Statut d'implémentation |
 | --- | --- | --- | --- | --- | 
 | 1. Détection | Alerte automatique via Wazuh (ex : panne serveur, attaque détectée) ou signalement manuel (email : incident@santeconnect-demo.fr). | Wazuh + Graylog | < 15 min | ✅ |
-| 2. Qualification | Alerte critique accusée sous 1h, qualification par le RSSI ou le DevOps joignable (rotation) ; hors heures ouvrées : SMS au CEO, relais DevOps à 30 min. | Matrice de criticité + Slack (#incidents) | < 30 min | ✅ |
+| 2. Qualification | Alerte critique accusée sous 1h, qualification par le RSSI ou le DevOps d'astreinte (rotation) ; hors heures ouvrées : SMS au CEO, relais DevOps à 30 min. | Matrice de criticité + Slack (#incidents) | < 30 min | ✅ |
 | 3. Mise en mode dégradé | Restauration de la dernière sauvegarde WORM en lecture seule sur l’environnement de secours isolé OVH (script Python), pour D-002, synchronisation HL7/FHIR suspendue. | Script bascule_ovh.py + OVH | Décision ≤ 4h, effective ≤ 4h (heures ouvrées), ≤ 12h (hors) |  🔄 À tester |
 | 4. Notification | Notification au CHU (email : it@chu-fictif.fr) et au DPO (Jeanne PETIT). | Email + Slack | < 1h |  ✅ |
 | 5. Retour au service nominal (PRA) | Restauration complète depuis les sauvegardes OVH (dernière sauvegarde quotidienne, RPO 24h), puis resynchronisation CHU | Sauvegardes OVH + Script restore_db.py | RTO 72h |  🔄 À tester |
@@ -226,7 +226,7 @@ Ce que le mode permet ou non :
 |Paiement, abonnement, support	|Hors périmètre du mode dégradé|
 
 **Délégation** :  
-- Isolation	: DevOps joignable, sans validation	(RBAC-22).  
+- Isolation	: DevOps d'astreinte, sans validation	(RBAC-22).  
 - Bascule PCA (lecture seule) : DevOps, pré-autorisé (P1 confirmé ou indisponibilité API/D-002 > 30 min ; CEO informé immédiatement, ratification ≤ 4h).  
 - Restauration sur environnement propre : DevOps, pré-autorisé (non destructif (§4.3)).  
 - Remise en production : RSSI, sinon CEO.  
@@ -296,8 +296,8 @@ Cible de maturité :
 - sélectionner et implémenter un EDR (Endpoint Detection and Response).
 
 **Processus :**
-- Alerte automatique : Email/SMS au pilote PCA et à l’équipe technique joignable + copie CEO (alerte supposée niveau élevée ou critique), hors heures ouvrées : SMS au CEO (1er niveau), relais DevOps à 30 min
-- Escalade : Si non résolu en 30 min → activation de la cellule de crise qui ratifie les décisions d’activation
+- Alerte automatique : Email/SMS à l’équipe technique + copie CEO (niveau élevé ou critique). Hors heures ouvrées : SMS au CEO (1er niveau), relais au DevOps d’astreinte à 30 min, RSSI mobilisé pour les coupures lourdes.  
+- Escalade : Sans résolution à 30 min, cellule de crise (RSSI, CEO, DPO) qui ratifie les décisions d’activation, elle n’est pas un prérequis à la bascule pré-autorisée (§3.2).
 
 ### 4.2. Réponse Immédiate
 Checklist par scénario :
@@ -412,12 +412,13 @@ Accessibilité :
 
 | Rôle | Nom/Service | Organisation | Contact | Disponibilité | SLA/Contrat | Escalade | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Responsable PCA/PRA | RSSI (Claire ESPINOZA) | SantéConnect | E-mail + téléphone pro. | Lundi au jeudi (hors disponibilité → CEO) | Contact principal pour la coordination des incidents critiques. |
-| Responsable Technique | DevOps en joignabilité (équipe DevOps, rotation) : exécution des scripts de bascule et restauration | SantéConnect | E-mail + téléphone pro. | Jours ouvrés | RSSI | Exécution des scripts de bascule et restauration. |
-| DPO | Jeanne PETIT | SantéConnect (As a Service) | E-mail + téléphone pro. | +33 1 XX XX XX XX | Jours ouvrés (9h-18h) | RSSI | Notification RGPD et validation des procédures. |
-| Responsable Sécurité CHU | Département IT | CHU Partenaire | [it@chu-fictif.fr](mailto:it@chu-fictif.fr)  +33 2 XX XX XX XX | 24/7 | RSSI SantéConnect | Validation des bascules et restaurations. |
-| Support Technique OVH (SLA Gold) | Équipe SLA OVH | OVHcloud | [support-sla@ovh.com](mailto:support-sla@ovh.com)  +33 9 XX XX XX XX | 24/7/365 | DevOps en joignabilité | Temps de réponse garanti : < 15 min (SLA Gold). Référence contrat : SC-2026-OVH-12345. |
-| Support Urgent OVH (Incidents Critiques) | Hotline OVH | OVHcloud | [emergency@ovh.com](mailto:emergency@ovh.com)  +33 XX XX XX XX | 24/7/365 | Responsable Technique SantéConnect | Priorité absolue pour les incidents impactant les services critiques (API HL7/FHIR, Base D-002). |
+| Responsable PCA/PRA | RSSI (Claire ESPINOZA) | SantéConnect | E-mail + téléphone pro. | Lundi au jeudi, hors heures ouvrées, mobilisé pour les coupures lourdes| - | CEO	| Contact principal pour les incidents critiques. |
+| Responsable Technique | DevOps d’astreinte (équipe de développement, rotation) | SantéConnect | E-mail + téléphone pro. | Astreinte en rotation, relais à 30 min hors heures ouvrées | - | RSSI, sinon CEO | Exécution des scripts de bascule et restauration. |
+| DPO | Jeanne PETIT | SantéConnect (As a Service) | E-mail + téléphone pro.  | Jours ouvrés (9h-18h) | - | RSSI | Notification RGPD et validation des procédures. |
+| Responsable Sécurité CHU | Département IT | CHU Partenaire | [it@chu-fictif.fr](mailto:it@chu-fictif.fr)  +33 2 XX XX XX XX | 24/7 | - | RSSI SantéConnect | Validation des bascules et restaurations. |
+| Support Technique OVH | Équipe SLA OVH | OVHcloud | [e-mail support OVH], +33 X XX XX XX XX | 24/7/365 | Contrat OVH. | RSSI, sinon CEO (contact autorisé au contrat OVH), puis DevOps d’astreinte | Délai de réponse selon contrat |
+| Support Urgent OVH (Incidents Critiques) | Hotline incidents critiques	| OVHcloud| [coordonnées hotline] | 24/7/365 | Contrat OVH. | RSSI, sinon CEO (contact autorisé au contrat OVH), puis DevOps d’astreinte | Délai de réponse selon contrat |
+
 
 
 ## 6.2. Inventaire des Actifs

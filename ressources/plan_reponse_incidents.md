@@ -66,6 +66,8 @@
 | Outil WAF | Cloudflare | [Outil] |
 | Fournisseur Cloud | OVH | [Fournisseur] |
 
+_Note : une astreinte suppose un cadre formel (programmation individuelle, contrepartie, information des représentants du personnel), à définir selon votre accord collectif ou, à défaut, une décision de l’employeur (Code du travail, art. L3121-9 et suivants)._
+
 ---
 
 ## 1. Définitions et Classification

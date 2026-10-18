@@ -207,10 +207,16 @@ Détail de la procédure pour les données personnelles → [procedure-incident-
 
 **Réponse et coordination**
 
-- Prise de connaissance : constat par un membre de l’équipe d’un incident avéré ou raisonnablement certain. Alerte critique accusée sous 1h. Données médicales : CHU notifié sous 4h, heures ouvrées ou non. Hors heures ouvrées : CEO en premier niveau, DevOps de joignabilité (rotation) ; le DevOps notifie le CHU si le CEO est injoignable. Autres incidents : 24h. 
-- Coordination avec les sous-traitants (OVH, Stripe) par clause contractuelle art. 28
-- Coordination avec le CHU par convention art. 26
-- Procédure de notification CNIL (72h) et personnes concernées documentée - cf. lien ci-dessus
+- Prise de connaissance : constat par un membre de l’équipe ou de l’astreinte d’un incident avéré ou raisonnablement certain.   
+  - Alerte critique accusée sous 1h. 
+    - Données médicales : CHU notifié sous 4h, heures ouvrées ou non. Hors heures ouvrées : SMS au CEO en premier niveau, relais à 30 min vers le DevOps d’astreinte (rotation), RSSI mobilisé pour les coupures lourdes, le DevOps notifie le CHU si le CEO est injoignable.   
+  - Autres incidents : 24h. 
+- Coordination avec les sous-traitants (OVH, Stripe) par clause contractuelle art. 28.
+- Coordination avec le CHU par convention art. 26.
+- Procédure de notification CNIL (72h) et personnes concernées documentée - cf. lien ci-dessus.
+
+**Astreinte d’alerte hors heures ouvrées**
+Pour les DevOps (rotation) et le RSSI, cette chaîne constitue une astreinte au sens de l’article L3121-9 du Code du travail, son cadre (programmation individuelle, contrepartie, avis du CSE) fait l’objet d’une décision écrite distincte du contrat de travail et d’une note au PTR.  
 
 ---
 
@@ -248,7 +254,7 @@ Se référer à **2.3** pour les premières heures après détection : coordinat
 
 ### 2.5. Mécanismes de continuité d'activité
 
-En cas d’interruption majeure, la continuité des soins reste assurée par le CHU et les praticiens, qui détiennent le dossier médical de référence ; les données propres à SantéConnect (mesures, messages, agenda, coffre-fort) ne sont protégées que par les sauvegardes. Le service bascule en mode dégradé de consultation (lecture seule, D-002 dans son ensemble) sur un environnement de secours isolé, dans le périmètre HDS, restauré depuis la dernière sauvegarde WORM (fraîcheur ≤ 24h), ouvert aux patients et aux praticiens sans droit supplémentaire. [Phrase de déclenchement actée : délégation pré-autorisée.]
+En cas d’interruption majeure, la continuité des soins reste assurée par le CHU et les praticiens, qui détiennent le dossier médical de référence, les données propres à SantéConnect (mesures, messages, agenda, coffre-fort) ne sont protégées que par les sauvegardes. Le service bascule en mode dégradé de consultation (lecture seule, D-002 dans son ensemble) sur un environnement de secours isolé, dans le périmètre HDS, restauré depuis la dernière sauvegarde WORM (fraîcheur ≤ 24h), ouvert aux patients et aux praticiens sans droit supplémentaire. [Phrase de déclenchement actée : délégation pré-autorisée.]
 SantéConnect fixe les objectifs suivants. 
 
 | Indicateur | Valeur |
@@ -267,7 +273,7 @@ SantéConnect fixe les objectifs suivants.
 *Validé par RSSI et CEO, supervision DPO*
 
 En cas d'interruption majeure, la continuité des soins est assurée par le CHU qui dispose des données patients par ailleurs. SantéConnect maintient un accès en lecture seule aux données non médicales via interface web OVH sur environnement isolé. 
-Déclenchement : bascule en lecture seule par le DevOps joignable, pré-autorisée sur critères objectifs (incident P1 confirmé, ou API/D-002 indisponible > 30 min), le CEO étant informé immédiatement et ratifiant sous 4h, remise en production validée par le RSSI, à défaut par le CEO.
+Déclenchement : bascule en lecture seule par le DevOps d'astreinte, pré-autorisée sur critères objectifs (incident P1 confirmé, ou API/D-002 indisponible > 30 min), le CEO étant informé immédiatement et ratifiant sous 4h, remise en production validée par le RSSI, à défaut par le CEO.
 
 **PRA - Restauration après interruption majeure**
 *Validé par RSSI et CEO, supervision DPO*
