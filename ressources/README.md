@@ -149,7 +149,7 @@ CSP L. 1111-8-2,, NIS2 Art. 21-23
 [📖 Consulter](./plan_reponse_incidents.md)
 
 -----
-### 6. NIS2 Art. 21 & 23 - Guide de conformité PME e-santé (ISO 27001:2022)
+### 6. Exigences cyber des clients et partenaires : repères NIS2 et correspondances indicatives avec ISO 27001:2022
 **Fichier PME :** `nis2_correspondances_ISO27001.md`
 
 Guide pratique pour les PME e-santé travaillant avec un CHU ou un hôpital. Comprendre ce que votre partenaire peut exiger au titre de NIS2, évaluer votre couverture via vos contrôles ISO 27001:2022 existants, et identifier les preuves d'exécution attendues. 
