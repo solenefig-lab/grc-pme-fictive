@@ -144,7 +144,7 @@ des incidents et les templates REX.
 
 **Public cible :** RSSI, DPO, dirigeants PME  
 **Alignement :** ISO 27001:2022 (A.5.24→A.5.27), RGPD Art. 33-34,
-CSP L. 1111-8-2,, NIS2 Art. 21-23
+CSP L. 1111-8-2, NIS2 Art. 21-23
 
 [📖 Consulter](./plan_reponse_incidents.md)
 
