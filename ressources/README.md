@@ -94,12 +94,13 @@ threat intelligence MITRE ATT&CK
 ### 3. Référentiel légal simplifié - RGPD / HDS
 **Fichier :** `Referentiel_legal_simplifie.md`
 
-Synthèse des obligations légales applicables aux PME e-santé françaises :
-RGPD, HDS (L.1111-8 CSP), Code de la Santé Publique, RGS, PGSSI-S.
-Conçu comme entrée rapide pour DPO, dirigeants et consultants junior.
+Synthèse pédagogique des principales obligations réglementaires applicables aux PME françaises de l’e-santé : protection des données personnelles et de santé (RGPD), hébergement de données de santé (HDS), conservation des dossiers médicaux, identification nationale de santé (INS), sécurité des services numériques en santé et sécurité des paiements par carte (PCI DSS).
 
-**Public cible :** DPO, dirigeants PME, consultants GRC junior  
-**Contexte :** aligné RGPD art. 28/32/33
+Le document présente les bases juridiques, les obligations structurantes, les risques de non-conformité et les premières vérifications à mener, avec des références réglementaires et des actions assorties de preuves attendues.
+
+**Public cible :** Dirigeants de PME e-santé, DPO et professionnels du pilotage GRC.
+
+**Contexte :** Sensibilisation et cadrage initial de la conformité RGPD-HDS, support d’orientation pour identifier les obligations applicables et prioriser les vérifications, à adapter au contexte de chaque organisation.
 
 [📖 Consulter](./Referentiel_legal_simplifie.md)
 

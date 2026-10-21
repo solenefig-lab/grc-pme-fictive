@@ -23,6 +23,7 @@
 - Testez le PRI via des exercices (ex : simulation de phishing).
 - Réviser le document trimestriellement (ou après chaque incident critique).
 - Archiver les anciennes versions dans un dossier /archives/.
+_Propositions à adapter à la maturité, au risque et aux capacités de l'organisation._
 
 ---
 
@@ -79,7 +80,10 @@ _Note : une astreinte suppose un cadre formel (programmation individuelle, contr
  | [Ex. données traitées pour un client] | Sous-traitant | Le client (référent contractuel, cf. R.1111-11 si données de santé hébergées) | Sans délai injustifié (contrat : [délai, ex. 24h]) |
  | [Ex. données partagées avec un partenaire, RGPD art. 26] | Co-responsable | Selon convention (qui notifie quoi) | Selon convention |
 
-_Note : un même incident peut toucher plusieurs traitements, appliquer chaque ligne concernée. Mettre à jour ce tableau à chaque évolution du registre des traitements._
+_Note :_
+_- Un même incident peut toucher plusieurs traitements, appliquer chaque ligne concernée. Mettre à jour ce tableau à chaque évolution du registre des traitements._
+_- Responsable de traitement : notification à la CNIL dans les meilleurs délais et, si possible, sous 72 heures après la prise de connaissance, sauf si la violation n'est pas susceptible d'engendrer un risque pour les droits et libertés. En cas de notification tardive, les motifs du retard doivent être fournis._
+_- Délais du modèle : objectifs à valider selon les moyens et la couverture réelle._
 
 ---
 
@@ -90,7 +94,7 @@ _Note : un même incident peut toucher plusieurs traitements, appliquer chaque l
 
 **Date de détection :** horodatage de la première alerte (automatique SIEM, outil ou manuelle).  
 Information d'analyse : elle peut précéder T0 (alerte non vue pendant plusieurs heures : cet écart alimente le KPI « Temps moyen de détection »). 
-**T0 : horodatage du constat humain** : violation avérée ou raisonnablement certaine). Point de départ de tous les délais (72h CNIL, résolution, alertes contractuelles).
+**T0 : horodatage du constat** : violation avérée ou raisonnablement certaine - prise de connaissance de la violation par le responsable de traitement. Point de départ de tous les délais (72h CNIL, résolution, alertes contractuelles).
 
 **Violation de données (art. 4.12) :** destruction, perte, altération, divulgation non autorisée ou accès non autorisé à des données personnelles. Un ransomware sans exfiltration est une violation (perte de disponibilité), l'évaluation art. 34 s'applique.
 
@@ -124,6 +128,7 @@ _- Documenter les absences : Désigner un remplaçant pour chaque rôle (ex : De
 - Prépare : le DPO (qualification du risque, gabarit annexe 5.4). Le DPO conseille, il ne décide pas.  
 - Dépose : le DPO au nom du responsable de traitement, en vertu d'une délégation écrite (document daté, signé, archivé, à établir à l'adoption du plan). Sans délégation, le dépôt revient au responsable de traitement lui-même.  
 - Preuve : récapitulatif de dépôt du téléservice CNIL + copie de la décision (notifiée / non notifiée) au registre.  
+_- Note : ici, le dépôt par le DPO conditionnée à une délégation écrite est une modalité organisationnelle proposée par le modèle, pas une exigence explicite de l'article 33. A adapter à votre répartition interne : définir qui décide, qui prépare, qui dépose et qui conserve la preuve._
 
 ----
 
@@ -149,7 +154,7 @@ _- Documenter les absences : Désigner un remplaçant pour chaque rôle (ex : De
 (À adapter selon vos processus internes)
 
 ### 3.1. Revue de Direction et Amélioration Continue
-(Gouvernance – ISO 27001:2022, clause 9.3)  
+(Références ISO 27001:2022 mobilisées : Gouvernance clause 9.3)  
 **KPIs de Suivi** à adapter selon vos objectifs 
 
 | Indicateur | Cible | Fréquence | Responsable | Source | YYYY (Objectif) | YYYY (Réel) |
@@ -221,6 +226,7 @@ Contexte : Détection d’un ransomware (ex : WannaCry, LockBit).
 - Position par défaut : ne pas payer (recommandation ANSSI).
 - Risques : Pas de garantie de récupération des données, financement du crime.
 - Décision : Validée par la direction (CEO). Toute décision contraire est une exception documentée, avec analyse tracée et, si cyber-assurance, accord préalable de l'assureur.
+_Note : la seule détection d'un ransomware ne suffit pas à établir automatiquement une violation de données personnelles. Si l'incident affecte la disponibilité, l'intégrité ou la confidentialité de données personnelles, évaluer la violation au regard de l'art. 4.12, puis les obligations des art. 33 et 34._
 
 
 | Étape | Action | Responsable | Outils | Délai | Preuves |
@@ -238,7 +244,10 @@ Contexte : Détection d’un ransomware (ex : WannaCry, LockBit).
 | 8 | Déposer plainte | Direction | Selon procédure de plainte | Selon procédure | Récépissé plainte |
 | 9 | Déclarer l'incident à votre assureur cyber | Direction | Selon procédure assureur | Souvent exigé sans délai — peut conditionner la prise en charge | Déclaration horodatée |
 
-_Note - Etape 2 : Privilégier la recherche par hash / URL sans dépôt d'échantillon. Ne jamais déposer un fichier ou un email contenant des données personnelles ou de santé : tout dépôt, même en compte privé, devient partagé. Si l'analyse du fichier est nécessaire : environnement d'analyse isolé interne._
+_Note :_
+_- Etape 2 : Privilégier la recherche par hash / URL sans dépôt d'échantillon. Ne jamais déposer un fichier ou un email contenant des données personnelles ou de santé : tout dépôt, même en compte privé, devient partagé. Si l'analyse du fichier est nécessaire : environnement d'analyse isolé interne._
+_- Etape 2 : Eviter autant que possible toute action susceptible de détruire des preuves ou de propager l'incident._
+_- Etape 5 : Délai de restauration conditionné aux sauvegardes disponibles, à leur intégrité, à l'analyse de compromission et aux objectifs de reprise définis._
 
 #### Playbook 2 : Fuite de Données (PII/Santé)
 Contexte : Fuite avérée de données personnelles ou de santé.
@@ -278,7 +287,7 @@ A adapter aux documents de l'entreprise: Documentée dans PSSI section 3.
 Livrable : PV de revue trimestrielle.
 
 ### 3.5. Exercices et Tests
-(Préparation - ISO 27001:2022, A.5.24 planification et préparation, A.5.26 réponse aux incidents. Les exercices de continuité/PCA relèvent de A.5.30)
+(Références ISO 27001:2022 mobilisées : Préparation -  A.5.24 planification et préparation, A.5.26 réponse aux incidents. Les exercices de continuité/PCA relèvent de A.5.30)
 
 **Bonnes Pratiques :**  
 - Documenter les résultats dans /exercices/{ANNEE}/.  
@@ -364,8 +373,8 @@ Documentation liée à créer séparément, mettre à jour et archivée pour anc
 ----
 
 ### 5.2. Registre des incidents
-(Traçabilité complète - ISO 27001:2022, A.5.24 à A.5.28 - gestion des incidents, la surveillance au sens A.8.16 alimente le registre mais n'en est pas l'exigence)
-Toute violation est documentée, notifiée ou non (art. 33.5) : le présent registre en est le support.
+(Références ISO 27001:2022 mobilisées : Traçabilité complète - A.5.24 à A.5.28 - gestion des incidents, la surveillance au sens A.8.16 alimente le registre mais n'en est pas l'exigence)
+Toute violation est documentée, notifiée ou non (art. 33.5) : le présent registre en est le support. Conserver les faits connus, l'évaluation du risque, la décision motivée, les notifications et leurs preuves.
 
 **Instructions :**  
 - Mettre à jour ce tableau après chaque incident.  
@@ -382,7 +391,7 @@ _Note : tableau ci-dessous avec exemple illustratif, données à supprimer lors 
 -----
 
 ### 5.3. Retour sur Experience (REX)
-(Amélioration continue – ISO 27001:2022, A.5.27)
+(Références ISO 27001:2022 mobilisées : Amélioration continue – A.5.27)
 _Note : tableau ci-dessous avec exemple illustratif, données à supprimer lors de l'adoption._
 
 **Instructions :** À remplir après chaque incident P1/P2, ou mensuellement pour les P3/P4.
