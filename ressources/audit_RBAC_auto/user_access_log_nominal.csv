@@ -1,0 +1,6 @@
+timestamp;user;role;resource;action;mfa_enabled
+2026-06-25T10:00:00;Stephane_Roy;Dev Produit;Logs Graylog;read;True
+2026-06-25T10:30:00;Claire_Espinoza;RSSI;Logs Graylog;admin;True
+2026-06-25T11:00:00;Martin_Dupont;CEO;Données financières;read;True
+2026-06-25T12:00:00;David_Brune;Patient B2C;Données patients;read;False
+2026-06-25T14:00:00;Paul_Lefebvre;Praticien B2B;Données de santé;execute;True

@@ -1,0 +1,14 @@
+timestamp;user;role;resource;action;mfa_enabled
+2026-06-25T10:00:00;Stephane_Roy;Dev Produit;Infra OVH (console admin);read;True
+2026-06-25T10:15:00;Claire_Espinoza;RSSI;Logs Graylog;write;True
+2026-06-25T10:30:00;API_CHU;Compte de service API CHU;Dossier médical;read;True
+2026-06-25T11:00:00;Pierre_Lelonni;Praticien B2B;Données de santé;read;True
+2026-06-25T11:30:00;David_Brune;Patient B2C;Données patients;read;oui
+2026-06-25T12:00:00;Geraldine_Dumont;RH;Données RH;read;True
+2026-06-25T13:00:00;Nicolas_Bernini;Dev Produit;Code source;read;True
+2026-06-25T14:00:00;Paul_Lefebvre;Praticien B2B;Données de santé;read;False
+2026-06-25T19:00:00;Claire_Espinoza;RSSI;Logs Graylog;read;True
+2026-06-25T15:00:00;Stephane_Roy;Dev Produit;Infra OVH (console admin);read;oui
+2026-06-25T15:30:00;Paul_Lefebvre;Praticien B2B;Données de santé;lire;True
+25/06/2026 16:00;Claire_Espinoza;RSSI;Logs Graylog;read;True
+2026-06-27T10:00:00;Martin_Dupont;CEO;Données financières;read;True

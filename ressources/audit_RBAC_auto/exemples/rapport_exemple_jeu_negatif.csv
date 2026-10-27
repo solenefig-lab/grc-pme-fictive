@@ -1,0 +1,15 @@
+timestamp,user,role,resource,action,mfa_enabled,rbac_rule,control_type,classification,reason,severity
+2026-06-25T10:00:00,Stephane_Roy,Dev Produit,Infra OVH (console admin),read,True,RBAC-09,ExplicitDeny,Critique,Accès explicitement interdit par la politique RBAC (RBAC-09).,critical
+2026-06-25T10:15:00,Claire_Espinoza,RSSI,Logs Graylog,write,True,RBAC-03,PermissionViolation,Sensible,"Action 'write' non autorisée (permissions autorisées : L, A).",high
+2026-06-25T10:30:00,API_CHU,Compte de service API CHU,Dossier médical,read,True,N/A,NoMatchingRule,N/A,Aucune règle RBAC définie pour ce rôle et cette ressource (refus implicite : défaut de couverture de la matrice).,critical
+2026-06-25T11:00:00,Pierre_Lelonni,Praticien B2B,Données de santé,read,True,-,UnknownUser,-,Utilisateur inconnu dans le référentiel IAM.,high
+2026-06-25T11:30:00,David_Brune,Patient B2C,Données patients,read,oui,-,MalformedValue,-,Valeur 'mfa_enabled' invalide : 'oui'. Attendu : True/False. La conformité MFA ne peut pas être évaluée — source de log à corriger.,high
+2026-06-25T12:00:00,Geraldine_Dumont,RH,Données RH,read,True,-,RoleMismatch,-,Le rôle déclaré (RH) ne correspond pas au rôle enregistré (Comptabilité).,critical
+2026-06-25T13:00:00,Nicolas_Bernini,Dev Produit,Code source,read,True,-,InactiveAccount,-,Compte utilisateur inactif.,high
+2026-06-25T14:00:00,Paul_Lefebvre,Praticien B2B,Données de santé,read,False,RBAC-12,MFA,Critique,MFA obligatoire mais non activé.,medium
+2026-06-25T19:00:00,Claire_Espinoza,RSSI,Logs Graylog,read,True,-,BusinessHours,-,"Accès hors fenêtre ouvrée : horaires 08:00 - 18:00 — signal à corroborer (fréquence des accès, autres signaux) avant escalade.",medium
+2026-06-25T15:00:00,Stephane_Roy,Dev Produit,Infra OVH (console admin),read,oui,-,MalformedValue,-,Valeur 'mfa_enabled' invalide : 'oui'. Attendu : True/False. La conformité MFA ne peut pas être évaluée — source de log à corriger.,high
+2026-06-25T15:00:00,Stephane_Roy,Dev Produit,Infra OVH (console admin),read,oui,RBAC-09,ExplicitDeny,Critique,Accès explicitement interdit par la politique RBAC (RBAC-09).,critical
+2026-06-25T15:30:00,Paul_Lefebvre,Praticien B2B,Données de santé,lire,True,-,MalformedValue,-,Action 'lire' hors vocabulaire (attendu : read/write/delete/admin/execute). Les permissions ne peuvent pas être évaluées — source de log à corriger.,high
+25/06/2026 16:00,Claire_Espinoza,RSSI,Logs Graylog,read,True,-,MalformedValue,-,Horodatage invalide : '25/06/2026 16:00'. Le contrôle horaire ne peut pas être évalué — source de log à corriger.,high
+2026-06-27T10:00:00,Martin_Dupont,CEO,Données financières,read,True,-,BusinessHours,-,"Accès hors fenêtre ouvrée : jour non ouvré (samedi) — signal à corroborer (fréquence des accès, autres signaux) avant escalade.",medium
