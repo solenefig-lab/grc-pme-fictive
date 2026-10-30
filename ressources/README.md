@@ -107,22 +107,27 @@ Le document présente les bases juridiques, les obligations structurantes, les r
 ---
 
 ### 4. ISO 27001:2022 - Contrôles priorisés pour PME e-santé
-**Fichier :** `ISO27001_Liste-Controle.md` *(+ version CSV disponible)*
+**Fichiers :** `ISO27001_Liste-Controle.md` et `ISO27001_Liste-Controle.csv`
 
-93 contrôles ISO 27001:2022 priorisés pour les PME e-santé, avec
-alignement HDS, RGPD et NIS2 par contrôle. 
+Les 93 contrôles de l'annexe A (ISO 27001:2022), regroupés en 16 sous-catégories
+thématiques (de la gouvernance à la veille) et priorisés pour une PME e-santé
+éditrice hébergée chez un hébergeur certifié. Chaque ligne porte des renvois
+lorsque pertinents aux exigences RGPD, NIS2 et HDS.
 
 | Colonne | Contenu |
 |---------|---------|
 | Thème | Organisationnel / Personnes / Physiques / Technologie |
-| Contrôle | Référence ISO 27001:2022 + intitulé |
-| Sous-catégorie | Regroupement métier (ex : Gouvernance, Sauvegardes, IAM) |
-| Priorité PME | 🟢 Basique / 🟡 Intermédiaire / 🔴 Avancé |
-| Liens | Alignement HDS / RGPD / NIS2 par contrôle |
+| Contrôle | Référence ISO 27001:2022 + intitulé (abrégé ou paraphrasé) |
+| Sous-catégorie | Regroupement métier (ex : Gouvernance et rôles, IAM, Continuité et résilience) |
+| Effort | ○ Faible / ◐ Moyen / ● Élevé : coût et complexité du contrôle complet, cotation qualitative |
+| Phase | Ordre de traitement : 1 = exigible dès la mise en service (loi ou contrat), 2 = consolidation, 3 = maturité |
+| Références | Renvois RGPD / NIS2 / HDS, lorsque pertinents |
 
-**Public cible :** RSSI, DPO, consultants GRC, dirigeants PME  
-**Approche :** Phase 1 → contrôles 🟢 (80% des risques, 20% de l'effort).
-Sources : ANSSI, CNIL, NIST SP 800-63B.
+**Le `+`** : contrôle exigible dès sa phase sous une version minimale, complétée ensuite (tableau des versions minimales dans le document).
+
+**Formats :** le MD se lit par sous-catégorie ; le CSV, trié par contrôle, se filtre dans un tableur.
+**Public cible :** RSSI, DPO, consultants GRC, dirigeants de PME e-santé.
+**Avertissement :** document d'entrée, pas un audit ; les correspondances réglementaires sont indicatives et ne constituent pas un avis juridique.
 
 [📖 Consulter](./ISO27001_Liste-Controle.md)
 [📥 Télécharger CSV](./ISO27001_Liste-Controle.csv)
